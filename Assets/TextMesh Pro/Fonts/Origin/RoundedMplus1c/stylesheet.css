@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-Medium.eot');
+    src: local('Rounded Mplus 1c Medium'), local('RoundedMplus1c-Medium'),
+        url('RoundedMplus1c-Medium.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-Medium.woff2') format('woff2'),
+        url('RoundedMplus1c-Medium.woff') format('woff'),
+        url('RoundedMplus1c-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-ExtraBold.eot');
+    src: local('Rounded Mplus 1c ExtraBold'), local('RoundedMplus1c-ExtraBold'),
+        url('RoundedMplus1c-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-ExtraBold.woff2') format('woff2'),
+        url('RoundedMplus1c-ExtraBold.woff') format('woff'),
+        url('RoundedMplus1c-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-Thin.eot');
+    src: local('Rounded Mplus 1c Thin'), local('RoundedMplus1c-Thin'),
+        url('RoundedMplus1c-Thin.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-Thin.woff2') format('woff2'),
+        url('RoundedMplus1c-Thin.woff') format('woff'),
+        url('RoundedMplus1c-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-Black.eot');
+    src: local('Rounded Mplus 1c Black'), local('RoundedMplus1c-Black'),
+        url('RoundedMplus1c-Black.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-Black.woff2') format('woff2'),
+        url('RoundedMplus1c-Black.woff') format('woff'),
+        url('RoundedMplus1c-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-Light.eot');
+    src: local('Rounded Mplus 1c Light'), local('RoundedMplus1c-Light'),
+        url('RoundedMplus1c-Light.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-Light.woff2') format('woff2'),
+        url('RoundedMplus1c-Light.woff') format('woff'),
+        url('RoundedMplus1c-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-Regular.eot');
+    src: local('Rounded Mplus 1c'), local('RoundedMplus1c-Regular'),
+        url('RoundedMplus1c-Regular.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-Regular.woff2') format('woff2'),
+        url('RoundedMplus1c-Regular.woff') format('woff'),
+        url('RoundedMplus1c-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('RoundedMplus1c-Bold.eot');
+    src: local('Rounded Mplus 1c Bold'), local('RoundedMplus1c-Bold'),
+        url('RoundedMplus1c-Bold.eot?#iefix') format('embedded-opentype'),
+        url('RoundedMplus1c-Bold.woff2') format('woff2'),
+        url('RoundedMplus1c-Bold.woff') format('woff'),
+        url('RoundedMplus1c-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
