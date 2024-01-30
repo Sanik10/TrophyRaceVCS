@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Name: Zodar D-25
+  m_EditorClassIdentifier: 
+  _includeVehicleInGame: 1
+  _Prefab: {fileID: 3850886817306097815, guid: 9ef6d33cec4314c47aab303cf989b137, type: 3}
+  _vehicleName: Zodar D-25
+  _id: 1
+  _price: 500
+  _isOwned: 0
+  _maxPower: 250
+  _idleRpm: 700
+  _medRpm: 3500
+  _maxRpm: 6000
+  _additionRpmOnNeutral: 600
+  _maxPowerProcentAtIdleRpm: 50
+  _maxPowerProcentAtMaxRpm: 20
+  _engineInertia: 0.2
+  _engineSmoothTime: 0.15
+  _transmission: 1
+  _frontGearsQuantity: 6
+  _firstGear: 10
+  _shiftTime: 0.3
+  _rpmUpShift: 5800
+  _rpmDownShift: 3000
+  _finalDrive: 2
+  _maxSpeed: 170
+  _driveWheels: 2
+  _torqueDevider: 2
+  _originalExtremumValue: 1
+  _brakingPowerVar: 2000
+  _brakingDistribution: 0.5
+  _radius: 8
+  _steeringWheelSpeed: 10
+  _wheelBase: 4
+  _rearTrack: 2.48
+  _mileage: 0.00703182
+  _colorCustomization: 0
+  _bodyMaterailId: 9
+  _diskMaterailId: 0
+  _mass: 2900
+  _type: 1

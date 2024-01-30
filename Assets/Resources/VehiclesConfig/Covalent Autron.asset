@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Name: Covalent Autron
+  m_EditorClassIdentifier: 
+  _includeVehicleInGame: 1
+  _Prefab: {fileID: 7627816981419441939, guid: f4bb22ec2253a4d5587ffc2cf541dd3a, type: 3}
+  _vehicleName: Covalent Autron
+  _id: 2
+  _price: 22500
+  _isOwned: 0
+  _maxPower: 400
+  _idleRpm: 700
+  _medRpm: 3000
+  _maxRpm: 7000
+  _additionRpmOnNeutral: 1200
+  _maxPowerProcentAtIdleRpm: 50
+  _maxPowerProcentAtMaxRpm: 20
+  _engineInertia: 0.2
+  _engineSmoothTime: 0.15
+  _transmission: 0
+  _frontGearsQuantity: 6
+  _firstGear: 7
+  _shiftTime: 0.3
+  _rpmUpShift: 6000
+  _rpmDownShift: 3000
+  _finalDrive: 2
+  _maxSpeed: 220
+  _driveWheels: 1
+  _torqueDevider: 2
+  _originalExtremumValue: 1
+  _brakingPowerVar: 1500
+  _brakingDistribution: 0.5
+  _radius: 14
+  _steeringWheelSpeed: 10
+  _wheelBase: 3.4
+  _rearTrack: 2.14
+  _mileage: 7560.252
+  _colorCustomization: 1
+  _bodyMaterailId: 8
+  _diskMaterailId: 0
+  _mass: 1975
+  _type: 1

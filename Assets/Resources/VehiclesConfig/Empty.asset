@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Name: Empty
+  m_EditorClassIdentifier: 
+  _id: Test
+  _IdleRpm: 700
+  _MinRpm: 3000
+  _MedRpm: 3500
+  _MaxRpm: 6000
+  _AdditionRpmOnNeutral: 900
+  _MaxPower: 150
+  _MaxPowerProcentAtIdleRpm: 50
+  _MaxPowerProcentAtMaxRpm: 15
+  _EngineInertia: 0.15
+  _EngineSmoothTime: 0.1
+  _transmission: 0
+  _frontGearsQuantity: 5
+  _firstGear: 6
+  _gearsMultiplier: 0.72
+  _shiftTime: 0.5
+  _finalDrive: 2
+  _driveWheels: 1
+  _originalExtremumValue: 1
+  _brakingPowerVar: 1000
+  _brakingDistribution: 0.5
+  _radius: 14
+  _wheelBase: 4
+  _rearTrack: 2.4
