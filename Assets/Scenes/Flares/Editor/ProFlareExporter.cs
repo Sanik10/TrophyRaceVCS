@@ -5,28 +5,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
+using UnityEditor.Animations;
 
 public class ProFlareExporter {
 
-
 	public static string animCurveExport(AnimationCurve curve){
 		string curveString = "{";
-
 		int keyCount = 0;
 
 		foreach(Keyframe key in curve.keys){
+			// Получаем левый и правый режимы кривизны для текущего ключа
+			int leftTangentMode = (int)AnimationUtility.GetKeyLeftTangentMode(curve, keyCount);
+			int rightTangentMode = (int)AnimationUtility.GetKeyRightTangentMode(curve, keyCount);
 
-			curveString = curveString+"\"key"+keyCount+"\": {\"time\":"+key.time+",\"value\":"+key.value+",\"in\":"+key.inTangent+",\"out\":"+key.outTangent+",\"tangentMode\":"+key.tangentMode+"}";
-		
+			// Формируем строку для текущего ключа, используя новые методы AnimationUtility
+			curveString += "\"key" + keyCount + "\": {" +
+				"\"time\":" + key.time + "," +
+				"\"value\":" + key.value + "," +
+				"\"in\":"+key.inTangent + "," +
+				"\"out\":"+key.outTangent + "," +
+				"\"leftTangentMode\":" + leftTangentMode + "," +
+				"\"rightTangentMode\":" + rightTangentMode + "}";
+
 			keyCount++;
 			if(keyCount != curve.keys.Length)
-				curveString = curveString+",";
-
+				curveString += ",";
 		}
-		curveString = curveString+"}";
+		curveString += "}";
 
 		return curveString;
 	}
+
 
 	// Use this for initialization
 	public static void ExportFlare (ProFlare flare) {
@@ -34,8 +43,7 @@ public class ProFlareExporter {
 
 		string fileName = "Assets/ProFlares/ExportedFlares/"+flare.gameObject.name+".txt";
 
-		if (File.Exists(fileName))
-		{
+		if(File.Exists(fileName)) {
 			Debug.Log(fileName+" already exists.");
 			//return;
 		}
@@ -294,12 +302,7 @@ public class ProFlareExporter {
 
 	}
 
-	static string boolToString(bool _bool){
-
-		if (_bool)
-			return "1";
-		else
-			return "0";
+	static string boolToString(bool value){
+		return value ? "1" : "0";
 	}
-
 }
