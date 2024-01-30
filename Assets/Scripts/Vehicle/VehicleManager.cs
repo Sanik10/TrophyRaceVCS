@@ -1,0 +1,112 @@
+using UnityEngine;
+using TrophyRace.Architecture;
+
+public class VehicleManager : MonoBehaviour {
+
+    public string vehicleName = "";
+    public int id => this._id;
+    public bool aiVehicle = false;
+    public bool turnOffCameras = false;
+    public bool chaseVehicle = false;
+
+    private int _id = 0;
+    [Header("Components")]
+    // private GameObject GameManager;
+    private VehicleData _vehicleData;
+    public VehicleData vehicleData {
+        get {return this._vehicleData;}
+        set {this._vehicleData = value;}
+    }
+    public Engine Engine;
+    public Transmission Transmission;
+    public WheelsSettings WheelsSettings;
+    public PhysicsCalculation PhysicsCalculation;
+    public RealisticEngineSound[] RES;
+    public VehicleSFX VehicleSFX;
+    public VehicleVFX VehicleVFX;
+    public VehicleInfo VehicleInfo;
+    public VehicleInputHandler VehicleInputHandler;
+
+    private void Start() {
+        this._id = this._vehicleData.id;
+        if(aiVehicle) {
+            gameObject.tag = "Ai";
+        }
+        // if(turnOffCameras) {
+        //     TurnOffCameras();
+        // }
+        this.VehicleInfo = GetComponent<VehicleInfo>();
+        this.Engine = GetComponent<Engine>();
+        this.Transmission = GetComponent<Transmission>();
+        this.WheelsSettings = GetComponent<WheelsSettings>();
+        this.RES = GetComponentsInChildren<RealisticEngineSound>();
+        this.VehicleSFX = GetComponent<VehicleSFX>();
+        this.VehicleVFX = GetComponent<VehicleVFX>();
+        this.VehicleInputHandler = GetComponent<VehicleInputHandler>();
+        if(this.vehicleName == null) {
+            this.vehicleName = VehicleInfo.Name;
+        }
+    }
+
+    // private void TurnOffCameras() {
+    //     foreach(Transform i in gameObject.transform) {
+    //         if(i.transform.name == "Cameras") {
+    //             i.gameObject.SetActive(false);  
+    //         }
+    //     }
+    // }
+
+    private void OnEnable() {
+        GameManager.SetVehiclesInPreRaceModeEvent += PreRaceModeHandler;
+    }
+
+    private void OnDisable() {
+        GameManager.SetVehiclesInPreRaceModeEvent -= PreRaceModeHandler;
+    }
+
+    private void FixedUpdate() {
+        for (int i = 0; i < RES.Length; i++) {
+            RES[i].maxRPMLimit = Engine.maxRpm;
+            RES[i].carMaxSpeed = 300;
+            RES[i].carCurrentSpeed = PhysicsCalculation.Kph;
+            RES[i].engineCurrentRPM = Engine.rpm;
+            if(VehicleInputHandler.vertical > 0) {
+                RES[i].gasPedalValue = VehicleInputHandler.vertical;
+                RES[i].gasPedalPressing = true;
+            } else {
+                RES[i].gasPedalValue = 0;
+                RES[i].gasPedalPressing = false;
+            }
+            RES[i].isReversing = (Transmission.currentGearRatio < 0) ? true : false;
+        }
+    }
+
+    private void PreRaceModeHandler() {
+        VehicleInputHandler.handbrake = true;
+    }
+
+    // void OnGUI(){
+    //     float pos = 50;
+
+    //     GUI.Label(new Rect(20, pos, 200, 20),"currentGear: " + Transmission.currentGear.ToString("0"));
+    //     pos+=25f;
+    //     GUI.Label(new Rect(20, pos, 200, 20),"Torque: " + Engine.torque.ToString("0"));
+    //     pos+=25f;
+    //     GUI.Label(new Rect(20, pos, 200, 20),"KPH : " + PhysicsCalculation.speed.ToString("0"));
+    //     pos+=25f;
+    //     GUI.Label(new Rect(20, pos, 200, 20),"Нагрузка на двигатель :");
+    //     pos+=20f;
+    //     GUI.HorizontalSlider(new Rect(20, pos, 200, 20), Engine.engineLoad, -1.0F, 1.0F);
+    //     pos+=25f;
+    //     GUI.Label(new Rect(20, pos, 200, 20),"Акселератор :");
+    //     pos+=20f;
+    //     GUI.HorizontalSlider(new Rect(20, pos, 200, 20), Mathf.Abs(Engine.throttle), 0F, 1.0F);
+    //     pos+=25f;
+    //     GUI.Label(new Rect(20, pos, 200, 20),"Тормоз :");
+    //     pos+=20f;
+    //     GUI.HorizontalSlider(new Rect(20, pos, 200, 20), Mathf.Abs(WheelsSettings.braking), 0F, 1.0F);
+    //     pos+=25f;
+    //     GUI.Label(new Rect(20, pos, 200, 20),"brakes: " + WheelsSettings.brakePower.ToString("0"));
+    //     pos+=25f;
+    // }
+}

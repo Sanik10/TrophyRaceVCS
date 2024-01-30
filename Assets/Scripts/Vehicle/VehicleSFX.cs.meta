@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2c5c7d92476f840d987d0d90feb9c2c3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - burbleClip: {instanceID: 0}
+  - backFireClip1: {fileID: 8300000, guid: 28380ed0494f94ee38438efc392e3816, type: 3}
+  - backFireClip2: {fileID: 8300000, guid: e9270f66465404673a6cc34f888807a0, type: 3}
+  - changeGearClipTirbo1: {fileID: 8300000, guid: e59127dfa6b6e481781010039ff1b2b5, type: 3}
+  - changeGearClipTirbo2: {fileID: 8300000, guid: 856a8a35f25454887af1c48946e65136, type: 3}
+  - changeGearClipTirbo3: {fileID: 8300000, guid: acf6618812aa344739479b55c975ff30, type: 3}
+  - changeGearUpClip: {instanceID: 0}
+  - changeGearDownClip: {instanceID: 0}
+  - gearboxWhine: {fileID: 8300000, guid: ea40782b2b6234e5493719d9099a2dd9, type: 3}
+  - audioMixer: {fileID: -5085152794175903003, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
+  - input: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
