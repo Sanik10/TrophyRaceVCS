@@ -387,7 +387,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232004265138045859}
-  m_LocalRotation: {x: 3.4048705e-11, y: 0.99969065, z: 0.024871767, w: -0.0000000013685468}
+  m_LocalRotation: {x: -1.09043136e-10, y: 0.99969065, z: 0.024871774, w: 0.000000004382856}
   m_LocalPosition: {x: 0, y: 0.87, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1973,15 +1973,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 886399543853807553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0d9745f2b858b4f94fcce8b698f24a, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b5274bfb1bf45c3875369d77f2f9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisablePixelLights: 1
-  m_TextureSize: 512
+  m_TextureSize: 64
   m_ClipPlaneOffset: 0.07
   m_ReflectLayers:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 4294967295
 --- !u!1 &893667945724821039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5626,7 +5626,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2215288567434789327}
-  m_LocalRotation: {x: 0.0070982673, y: -0.00000001813152, z: 1.2870562e-10, w: 0.99997485}
+  m_LocalRotation: {x: 0.0070982664, y: 0.000000017954287, z: -1.2744755e-10, w: 0.99997485}
   m_LocalPosition: {x: 0, y: 1.173, z: -4.872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12557,7 +12557,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5115804583021501720}
-  m_LocalRotation: {x: 0.0000000029750007, y: 0.9798675, z: -0.19964889, w: 0.000000014601166}
+  m_LocalRotation: {x: 8.944155e-17, y: 0.9798675, z: -0.19964887, w: -8.5241595e-16}
   m_LocalPosition: {x: 0, y: 3.6, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18270,11 +18270,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7612855136621969291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0d9745f2b858b4f94fcce8b698f24a, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b5274bfb1bf45c3875369d77f2f9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisablePixelLights: 1
-  m_TextureSize: 32
+  m_TextureSize: 64
   m_ClipPlaneOffset: 0.07
   m_ReflectLayers:
     serializedVersion: 2
@@ -18704,11 +18704,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7687856811589448193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0d9745f2b858b4f94fcce8b698f24a, type: 3}
+  m_Script: {fileID: 11500000, guid: 97b5274bfb1bf45c3875369d77f2f9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisablePixelLights: 1
-  m_TextureSize: 32
+  m_TextureSize: 64
   m_ClipPlaneOffset: 0.07
   m_ReflectLayers:
     serializedVersion: 2
@@ -19020,7 +19020,7 @@ MonoBehaviour:
   VehicleSFX: {fileID: 44744194454928604}
   VehicleVFX: {fileID: 6499647374523319275}
   VehicleInfo: {fileID: 0}
-  InputHandler: {fileID: -427740386301491134}
+  VehicleInputHandler: {fileID: 0}
 --- !u!114 &4218766227373674874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19272,7 +19272,8 @@ MonoBehaviour:
   _reverseGear: 0
   _activateDippedBeams: 0
   _activateHighBeams: 0
-  control: 0
+  control: 1
+  _preRaceMode: 0
 --- !u!1 &7856760638165464436
 GameObject:
   m_ObjectHideFlags: 0
@@ -19673,7 +19674,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8114672939354190800}
-  m_LocalRotation: {x: 0.020658394, y: 0.81890965, z: -0.029535027, w: 0.57278967}
+  m_LocalRotation: {x: 0.02065841, y: 0.81890965, z: -0.029535046, w: 0.57278967}
   m_LocalPosition: {x: -4.3, y: 1.53, z: 1.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

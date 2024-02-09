@@ -2553,7 +2553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 000eaeed23b8c4265b048cd2869c87cc, type: 2}
-  isGlobal: 1
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
@@ -3732,7 +3732,7 @@ MonoBehaviour:
   pauseResumeRace: 0
   preRace: 0
   SpawnPoint: {fileID: 1939948769}
-  opponents: 3
+  opponents: 0
   spawnVehicle: 0
   horizontalDisplacement: 5.03
   verticalDisplacement: 6.11
@@ -4817,7 +4817,7 @@ MonoBehaviour:
     - 17
     - 25
     - 17
-  activateAnimations: 1
+  activateAnimations: 0
   stopAnimation: 1
 --- !u!1 &1117662835
 GameObject:
@@ -6425,7 +6425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 518771880}
-  m_PathPosition: 0
+  m_PathPosition: 1
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -6632,7 +6632,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 53.130104
+    FieldOfView: 60.41525
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 500
@@ -10082,11 +10082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: field of view
-      value: 53.130108
+      value: 60.41525
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_FocalLength
-      value: 25.589996
+      value: 21.977283
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_GateFitMode
@@ -10910,7 +10910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879993786}
-  m_LocalRotation: {x: 0.013050835, y: 0.053406887, z: 0.15460883, w: 0.9864449}
+  m_LocalRotation: {x: -0.030892951, y: 0.9984844, z: 0.0006800338, w: -0.0455427}
   m_LocalPosition: {x: -144.69179, y: 28.82998, z: -285.30698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10940,7 +10940,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 73.84111
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 500

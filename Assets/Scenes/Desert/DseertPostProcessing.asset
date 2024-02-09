@@ -22,6 +22,204 @@ MonoBehaviour:
   sampleCount:
     overrideState: 1
     value: 10
+--- !u!114 &-7022300125705117808
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7af1339d206caf41b8ffa84998f8448, type: 3}
+  m_Name: MKGlow
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  showEditorMainBehavior: 0
+  showEditorBloomBehavior: 0
+  showEditorLensSurfaceBehavior: 0
+  showEditorLensFlareBehavior: 0
+  showEditorGlareBehavior: 0
+  isInitialized: 1
+  allowGeometryShaders:
+    overrideState: 1
+    value: 1
+  allowComputeShaders:
+    overrideState: 1
+    value: 1
+  renderPriority:
+    overrideState: 1
+    value: 2
+  debugView:
+    overrideState: 1
+    value: 0
+  quality:
+    overrideState: 1
+    value: 1
+  antiFlickerMode:
+    overrideState: 1
+    value: 0
+  workflow:
+    overrideState: 1
+    value: 0
+  selectiveRenderLayerMask:
+    overrideState: 0
+    value:
+      serializedVersion: 2
+      m_Bits: 4294967295
+  anamorphicRatio:
+    overrideState: 1
+    value: 0
+  lumaScale:
+    overrideState: 1
+    value: 0
+  blooming:
+    overrideState: 0
+    value: 0
+  bloomThreshold:
+    overrideState: 1
+    value:
+      minValue: 1.25
+      maxValue: 10
+  bloomScattering:
+    overrideState: 1
+    value: 7
+  bloomIntensity:
+    overrideState: 1
+    value: 1
+  allowLensSurface:
+    overrideState: 1
+    value: 1
+  lensSurfaceDirtTexture:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 75a236ef0a083e241bcf9471e55f9255, type: 3}
+  lensSurfaceDirtIntensity:
+    overrideState: 1
+    value: 5
+  lensSurfaceDiffractionTexture:
+    overrideState: 1
+    value: {fileID: 2800000, guid: f38349b78c66e224abac4956ea2546b8, type: 3}
+  lensSurfaceDiffractionIntensity:
+    overrideState: 1
+    value: 2
+  allowLensFlare:
+    overrideState: 1
+    value: 1
+  lensFlareStyle:
+    overrideState: 1
+    value: 2
+  lensFlareGhostFade:
+    overrideState: 0
+    value: 10
+  lensFlareGhostIntensity:
+    overrideState: 1
+    value: 1
+  lensFlareThreshold:
+    overrideState: 1
+    value:
+      minValue: 1.3
+      maxValue: 10
+  lensFlareScattering:
+    overrideState: 1
+    value: 5
+  lensFlareColorRamp:
+    overrideState: 1
+    value: {fileID: 2800000, guid: af22540a4db1e7149987f538bc8f9e49, type: 3}
+  lensFlareChromaticAberration:
+    overrideState: 1
+    value: 53
+  lensFlareGhostCount:
+    overrideState: 0
+    value: 3
+  lensFlareGhostDispersal:
+    overrideState: 0
+    value: 0.6
+  lensFlareHaloFade:
+    overrideState: 0
+    value: 2
+  lensFlareHaloIntensity:
+    overrideState: 1
+    value: 1
+  lensFlareHaloSize:
+    overrideState: 0
+    value: 0.4
+  allowGlare:
+    overrideState: 1
+    value: 1
+  glareBlend:
+    overrideState: 1
+    value: 0.33
+  glareIntensity:
+    overrideState: 1
+    value: 1
+  glareAngle:
+    overrideState: 1
+    value: 0
+  glareThreshold:
+    overrideState: 1
+    value:
+      minValue: 1.25
+      maxValue: 10
+  glareStreaks:
+    overrideState: 0
+    value: 4
+  glareScattering:
+    overrideState: 1
+    value: 2
+  glareStyle:
+    overrideState: 1
+    value: 4
+  glareSample0Scattering:
+    overrideState: 0
+    value: 5
+  glareSample0Angle:
+    overrideState: 0
+    value: 0
+  glareSample0Intensity:
+    overrideState: 1
+    value: 1
+  glareSample0Offset:
+    overrideState: 0
+    value: 0
+  glareSample1Scattering:
+    overrideState: 0
+    value: 5
+  glareSample1Angle:
+    overrideState: 0
+    value: 45
+  glareSample1Intensity:
+    overrideState: 1
+    value: 1
+  glareSample1Offset:
+    overrideState: 0
+    value: 0
+  glareSample2Scattering:
+    overrideState: 0
+    value: 5
+  glareSample2Angle:
+    overrideState: 0
+    value: 90
+  glareSample2Intensity:
+    overrideState: 1
+    value: 1
+  glareSample2Offset:
+    overrideState: 0
+    value: 0
+  glareSample3Scattering:
+    overrideState: 0
+    value: 5
+  glareSample3Angle:
+    overrideState: 0
+    value: 135
+  glareSample3Intensity:
+    overrideState: 1
+    value: 1
+  glareSample3Offset:
+    overrideState: 0
+    value: 0
 --- !u!114 &-2428425803040868756
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -37,7 +235,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   preset:
     overrideState: 1
     value: 0
@@ -1390,6 +1588,7 @@ MonoBehaviour:
   - {fileID: 1965718720854778906}
   - {fileID: -2428425803040868756}
   - {fileID: -8955937048732355152}
+  - {fileID: -7022300125705117808}
 --- !u!114 &1965718720854778906
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1470,7 +1669,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   mode:
     overrideState: 1
     value: 0
@@ -1545,9 +1744,9 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 2800000, guid: 75a236ef0a083e241bcf9471e55f9255, type: 3}
     defaultState: 1
   dirtIntensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1

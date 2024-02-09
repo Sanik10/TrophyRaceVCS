@@ -11697,7 +11697,7 @@ MonoBehaviour:
   VehicleSFX: {fileID: 566587468027281880}
   VehicleVFX: {fileID: 0}
   VehicleInfo: {fileID: -8928363137502029173}
-  InputHandler: {fileID: -1701939543064841914}
+  VehicleInputHandler: {fileID: 0}
 --- !u!114 &1104247410574953526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11731,6 +11731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transmission: 0
   _gears: []
+  _currentGearRatio: 0
   clutchButtonNeed: 0
 --- !u!114 &2276069904058358968
 MonoBehaviour:
@@ -11949,7 +11950,8 @@ MonoBehaviour:
   _reverseGear: 0
   _activateDippedBeams: 0
   _activateHighBeams: 0
-  control: 0
+  control: 1
+  _preRaceMode: 0
 --- !u!1 &7649623505746638014
 GameObject:
   m_ObjectHideFlags: 0

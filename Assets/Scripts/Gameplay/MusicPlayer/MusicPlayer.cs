@@ -134,6 +134,6 @@ public class MusicTrackItem {
 }
 
 [System.Serializable]
-public enum musicGenre{
+public enum musicGenre {
     Phonk, HipHop, Electro, Rock, Mix
 }

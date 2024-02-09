@@ -22,6 +22,10 @@ public class PhysicsCalculation : MonoBehaviour {
     private float dragAmount = 0.0f;
     private float Mps;
 
+    private float maxRpmForSpringEffect = 6000f;
+    private float springEffectStrength = 0.08f;
+    private float originalDrag = 0.032f;
+
     private void OnEnable() {
         GameManager.SetVehiclesInPreRaceModeEvent += PreRaceModeHandler;
         GameManager.StartRaceEvent += StartRaceHandler;
@@ -37,11 +41,14 @@ public class PhysicsCalculation : MonoBehaviour {
         this.mass = this._rgdbody.mass;
         this._rgdbody.centerOfMass = centerOfMass;
         this.VehicleManager = GetComponent<VehicleManager>();
+        this.maxRpmForSpringEffect = this.VehicleManager.Engine.maxRpm * 0.7f;
+        // this.originalDrag = this._rgdbody.drag;
     }
 
     private void FixedUpdate() {
         SpeedCalculation();
         CalculateVelocity();
+        // ApplySpringEffect();
     }
 
     private void SpeedCalculation() {
@@ -59,7 +66,16 @@ public class PhysicsCalculation : MonoBehaviour {
         this._rgdbody.angularDrag = Mps / angularDragVar;
 
         this._rgdbody.AddForce(-transform.up * DownForceValue * Kph);
-        this._rgdbody.drag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? 0.032f : 0;
+
+        // Применяем плавный эффект "пружины" к сопротивлению движению
+        float maxRpmEffect = Mathf.Lerp(maxRpmForSpringEffect, VehicleManager.Engine.maxRpm, Mathf.InverseLerp(0f, VehicleManager.Engine.maxRpm, VehicleManager.Engine.rpm));
+        float normalizedEffect = Mathf.InverseLerp(maxRpmForSpringEffect, maxRpmEffect, VehicleManager.Engine.rpm);
+        float springDrag = Mathf.Lerp(0f, springEffectStrength, normalizedEffect);
+
+        // Учитываем оригинальное значение drag
+        float totalDrag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? originalDrag : springDrag;
+
+        this._rgdbody.drag = totalDrag;
 
         float linearSpeed = this._rgdbody.velocity.magnitude; // Линейная скорость
         float angularSpeed = this._rgdbody.angularVelocity.magnitude; // Угловая скорость

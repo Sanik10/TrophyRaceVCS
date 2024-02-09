@@ -13,8 +13,7 @@ public class PhoneInput : MonoBehaviour {
     private ButtonValueReciever GearDownButton;
     private ButtonValueReciever ReverseGearButton;
     private Vector3 acceleration;
-    [Range(0, 1f)]
-    public float accelerationMultiplier;
+    private float accelerationMultiplier = 0.7f;
 
     private void Start() {
         this._VehicleInputHandler = GetComponent<VehicleInputHandler>();
