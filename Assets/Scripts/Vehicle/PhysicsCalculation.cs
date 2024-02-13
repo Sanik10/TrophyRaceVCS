@@ -19,12 +19,12 @@ public class PhysicsCalculation : MonoBehaviour {
     public float DownForceValue = 25;
     public float angularDragVar = 25;
     public float mass;
-    private float dragAmount = 0.0f;
+    public float dragAmount = 0.032f;
     private float Mps;
 
     private float maxRpmForSpringEffect = 6000f;
     private float springEffectStrength = 0.08f;
-    private float originalDrag = 0.032f;
+    public float originalDrag = 0.032f;
 
     private void OnEnable() {
         GameManager.SetVehiclesInPreRaceModeEvent += PreRaceModeHandler;
@@ -67,15 +67,15 @@ public class PhysicsCalculation : MonoBehaviour {
 
         this._rgdbody.AddForce(-transform.up * DownForceValue * Kph);
 
-        // Применяем плавный эффект "пружины" к сопротивлению движению
-        float maxRpmEffect = Mathf.Lerp(maxRpmForSpringEffect, VehicleManager.Engine.maxRpm, Mathf.InverseLerp(0f, VehicleManager.Engine.maxRpm, VehicleManager.Engine.rpm));
-        float normalizedEffect = Mathf.InverseLerp(maxRpmForSpringEffect, maxRpmEffect, VehicleManager.Engine.rpm);
-        float springDrag = Mathf.Lerp(0f, springEffectStrength, normalizedEffect);
+        // // Применяем плавный эффект "пружины" к сопротивлению движению
+        // float maxRpmEffect = Mathf.Lerp(maxRpmForSpringEffect, VehicleManager.Engine.maxRpm, Mathf.InverseLerp(0f, VehicleManager.Engine.maxRpm, VehicleManager.Engine.rpm));
+        // float normalizedEffect = Mathf.InverseLerp(maxRpmForSpringEffect, maxRpmEffect, VehicleManager.Engine.rpm);
+        // float springDrag = Mathf.Lerp(0f, springEffectStrength, normalizedEffect);
 
         // Учитываем оригинальное значение drag
-        float totalDrag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? originalDrag : springDrag;
+        // float totalDrag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? originalDrag : springDrag;
 
-        this._rgdbody.drag = totalDrag;
+        // this._rgdbody.drag = totalDrag;
 
         float linearSpeed = this._rgdbody.velocity.magnitude; // Линейная скорость
         float angularSpeed = this._rgdbody.angularVelocity.magnitude; // Угловая скорость
@@ -90,7 +90,8 @@ public class PhysicsCalculation : MonoBehaviour {
 
     private void StartRaceHandler() {
         GameManager.StartRaceEvent -= StartRaceHandler;
-        rgdbody.constraints = RigidbodyConstraints.None;
+        this._rgdbody = GetComponent<Rigidbody>();
+        this.rgdbody.constraints = RigidbodyConstraints.None;
     }
 
     private void OnDrawGizmosSelected() {

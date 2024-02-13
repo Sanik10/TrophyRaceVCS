@@ -1,6 +1,6 @@
 <VehicleData>
   <vehicle id="1295184085">
-    <maxPower>XfZph37SwcszWdDy1r2Oyg==</maxPower>
+    <maxPower>iirC6OI9njEVdj2Rk4mwKg==</maxPower>
     <idleRpm>iirC6OI9njEVdj2Rk4mwKg==</idleRpm>
     <medRpm>14BespSAFGQlBNFPClA1pg==</medRpm>
     <maxRpm>ioL9YLWQAz4eRSRZtuQyKA==</maxRpm>
@@ -19,10 +19,11 @@
     <brakingDistribution>eY3DkSFRhUCt+gFPyoG4hQ==</brakingDistribution>
     <radius>q76KzFG3W0H6dqzXVBtkTg==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>3Q32Qkrz9cdzyKsrDwnDGg==</mileage>
+    <mileage>ToIOmAdIGoI2StgZdbprLA==</mileage>
     <bodyMaterialId>K8Xbm4INoGS3qNDR1VN95w==</bodyMaterialId>
     <diskMaterialId>K8Xbm4INoGS3qNDR1VN95w==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>
+    <tireIntegrity>44FzZ9jhkGo+T/IquMKn8g==</tireIntegrity>
   </vehicle>
   <vehicle id="231353603">
     <maxPower>dGygZSt0M1UtCdmi7ZAe5g==</maxPower>

@@ -137,7 +137,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     [SerializeField] [Range(1, 6)]
     private int _torqueDevider = 4;
     [SerializeField] [Range(0.2f, 1f)]
-    private float _originalExtremumValue = 1f;
+    private float _tireIntegrity = 1f;
     [SerializeField] [Range(500, 10000)]
     private int _brakingPowerVar = 2000;
     [SerializeField] [Range(0, 1)]
@@ -157,9 +157,9 @@ public class VehicleData : ScriptableObject, ISaveable {
         get {return this._maxSpeed;}
         set {this._maxSpeed = value;}
     }
-    public float originExtremumValue {
-        get {return this._originalExtremumValue;}
-        set {this._originalExtremumValue = value;}
+    public float tireIntegrity {
+        get {return this._tireIntegrity;}
+        set {this._tireIntegrity = value;}
     }
     public int brakingPowerVar {
         get {return this._brakingPowerVar;}
@@ -215,18 +215,22 @@ public class VehicleData : ScriptableObject, ISaveable {
     [SerializeField]
     private int _mass;
     [SerializeField]
-    private vehicleType _type;
+    private VehicleType _type;
 
-    public vehicleType type => this._type;
+    public VehicleType type => this._type;
     public int mass => this._mass;
     #endregion
 
     #region Vehicle range
+    // !!! ПРИ ДОБАВЛЕНИИ НОВОГО АВТО СВЕРЯТЬ ЭТИ ПОКАЗАТЕЛИ, ЕСЛИ ОНИ БУДУТ РАЗНИТЬСЯ, ТО НАДО ЗАМЕНИТЬ !!! //
     private static float maxStatPower = 2060;
     private static float minStatPower = 100;
 
     private static float maxMass = 8700;
     private static float minMass = 1975;
+
+    private static float maxStatSpeed = 300;
+    private static float minStatSpeed = 120;
 
     public float normalizedPower {
         get {
@@ -258,9 +262,6 @@ public class VehicleData : ScriptableObject, ISaveable {
         }
     }
 
-    private static float maxStatSpeed = 300;
-    private static float minStatSpeed = 120;
-
     public float normalizedMaxSpeed {
         get {
             return (this._maxSpeed - minStatSpeed) / (maxStatSpeed - minStatSpeed);
@@ -273,9 +274,9 @@ public class VehicleData : ScriptableObject, ISaveable {
         }
     }
 
-    public float normalizedOriginalExtremumValue {
+    public float normalizedTireIntegrity {
         get {
-            return (this._originalExtremumValue - 0.2f) / 0.8f;
+            return this._tireIntegrity;
         }
     }
 
@@ -301,7 +302,7 @@ public class VehicleData : ScriptableObject, ISaveable {
                 normalizedShiftTime * 500 +
                 normalizedMaxSpeed * 1000 +
                 normalizedBrakeTorque * 500 +
-                normalizedOriginalExtremumValue * 100 +
+                normalizedTireIntegrity * 100 +
                 normalizedSteeringSpeed * 500 +
                 normalizedMass * 1190
             );
@@ -346,7 +347,7 @@ public class VehicleData : ScriptableObject, ISaveable {
 
         #region Wheels settings
         LoadData("maxSpeed", ref _maxSpeed, int.TryParse);
-        LoadData("originExtremumValue", ref _originalExtremumValue, float.TryParse);
+        LoadData("tireIntegrity", ref _tireIntegrity, float.TryParse);
         LoadData("brakingPowerVar", ref _brakingPowerVar, int.TryParse);
         LoadData("brakingDistribution", ref _brakingDistribution, float.TryParse);
         LoadData("radius", ref _radius, int.TryParse);
@@ -388,8 +389,8 @@ public enum driveType {
 }
 
 [System.Serializable]
-public enum vehicleType {
-    buggy, prerunner, trophyTruck, truck, motorcycle, rally
+public enum VehicleType {
+    Buggy, Prerunner, TrophyTruck, Truck, Motorcycle, Rally
 }
 
 [System.Serializable]

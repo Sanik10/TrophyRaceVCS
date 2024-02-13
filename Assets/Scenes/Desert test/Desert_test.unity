@@ -651,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &173784073
 Transform:
   m_ObjectHideFlags: 0
@@ -749,7 +749,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220664459}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1acb12af3fe734f81a49f6d0437fb9be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1430,7 +1430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &320713425
 Transform:
   m_ObjectHideFlags: 0
@@ -1867,7 +1867,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467709016}
-  m_Material: {fileID: 13400000, guid: 1d81794eea45227458aa2965af4b201d, type: 2}
+  m_Material: {fileID: 13400000, guid: 6df57335af41044e0984eb049b2a3d22, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1993,7 +1993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1169722734}
-  m_PathPosition: 0
+  m_PathPosition: 0.421281
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -2362,7 +2362,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574146364}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1acb12af3fe734f81a49f6d0437fb9be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2524,7 +2524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &597732499
 Transform:
   m_ObjectHideFlags: 0
@@ -3728,7 +3728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40956f73157c748769f0d6e74b8a131c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRace: 0
+  startRace: 1
   pauseResumeRace: 0
   preRace: 0
   SpawnPoint: {fileID: 1939948769}
@@ -4568,7 +4568,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071054391}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1acb12af3fe734f81a49f6d0437fb9be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4759,7 +4759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1103179268
 Transform:
   m_ObjectHideFlags: 0
@@ -5299,7 +5299,7 @@ Transform:
   m_GameObject: {fileID: 1173826414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 168, y: -0.01, z: -28}
-  m_LocalScale: {x: 20, y: 0.1, z: 5}
+  m_LocalScale: {x: 50, y: 0.1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1872126398}
@@ -6632,7 +6632,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.41525
+    FieldOfView: 60.36874
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 500
@@ -6641,7 +6641,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 54.12, y: 25.59}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7709,7 +7709,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489147069}
-  m_LocalRotation: {x: -0.12235107, y: 0.95246464, z: 0.0327507, w: -0.2770717}
+  m_LocalRotation: {x: -0.0062604155, y: 0.9124156, z: -0.026763603, w: -0.40834087}
   m_LocalPosition: {x: -144.69179, y: 28.82998, z: -285.30698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7739,7 +7739,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 954031235}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 56.64511
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 500
@@ -7748,7 +7748,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 54.12, y: 25.59}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7830,7 +7830,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515116599}
-  m_Material: {fileID: 13400000, guid: 1d81794eea45227458aa2965af4b201d, type: 2}
+  m_Material: {fileID: 13400000, guid: 6df57335af41044e0984eb049b2a3d22, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7988,7 +7988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1519776125
 Transform:
   m_ObjectHideFlags: 0
@@ -8690,7 +8690,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712938077}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1acb12af3fe734f81a49f6d0437fb9be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8897,7 +8897,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719124728}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1acb12af3fe734f81a49f6d0437fb9be, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9955,31 +9955,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 150.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.79
+      value: 3.62
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.3
+      value: -4.02
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9938191
+      value: 0.9675287
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00590839
+      value: 0.25276116
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.047840755
+      value: -0.000000016647665
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.099999525
+      value: 0.0000000043491046
       objectReference: {fileID: 0}
     - target: {fileID: 4272462246523661601, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10082,11 +10082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: field of view
-      value: 60.41525
+      value: 73.933685
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_FocalLength
-      value: 21.977283
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_GateFitMode
@@ -10094,7 +10094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: far clip plane
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6128855709138888266, guid: 073442a7da715422cafa647f74f5cd34, type: 3}
       propertyPath: m_SensorSize.x
@@ -10645,7 +10645,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830268066}
-  m_Material: {fileID: 13400000, guid: 1d81794eea45227458aa2965af4b201d, type: 2}
+  m_Material: {fileID: 13400000, guid: 6df57335af41044e0984eb049b2a3d22, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10940,7 +10940,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.84111
+    FieldOfView: 73.84847
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 500
@@ -10949,7 +10949,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 54.12, y: 25.59}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

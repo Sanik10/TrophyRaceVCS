@@ -1,6 +1,13 @@
 using UnityEngine;
 using TrophyRace.Architecture;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Engine))]
+[RequireComponent(typeof(Transmission))]
+[RequireComponent(typeof(WheelsSettings))]
+[RequireComponent(typeof(TiresFriction))]
+[RequireComponent(typeof(PhysicsCalculation))]
+[RequireComponent(typeof(VehicleInputHandler))]
 public class VehicleManager : MonoBehaviour {
 
     public string vehicleName = "";
@@ -11,7 +18,6 @@ public class VehicleManager : MonoBehaviour {
 
     private int _id = 0;
     [Header("Components")]
-    // private GameObject GameManager;
     private VehicleData _vehicleData;
     public VehicleData vehicleData {
         get {return this._vehicleData;}
@@ -20,6 +26,7 @@ public class VehicleManager : MonoBehaviour {
     public Engine Engine;
     public Transmission Transmission;
     public WheelsSettings WheelsSettings;
+    public TiresFriction TiresFriction;
     public PhysicsCalculation PhysicsCalculation;
     public RealisticEngineSound[] RES;
     public VehicleSFX VehicleSFX;
@@ -39,6 +46,7 @@ public class VehicleManager : MonoBehaviour {
         this.Engine = GetComponent<Engine>();
         this.Transmission = GetComponent<Transmission>();
         this.WheelsSettings = GetComponent<WheelsSettings>();
+        this.TiresFriction = GetComponent<TiresFriction>();
         this.RES = GetComponentsInChildren<RealisticEngineSound>();
         this.VehicleSFX = GetComponent<VehicleSFX>();
         this.VehicleVFX = GetComponent<VehicleVFX>();

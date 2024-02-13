@@ -18,7 +18,7 @@ MonoBehaviour:
   _id: 5
   _price: 0
   _isOwned: 1
-  _maxPower: 1400
+  _maxPower: 700
   _idleRpm: 700
   _medRpm: 5000
   _maxRpm: 7000
@@ -37,16 +37,16 @@ MonoBehaviour:
   _maxSpeed: 250
   _driveWheels: 1
   _torqueDevider: 2
-  _originalExtremumValue: 1
+  _tireIntegrity: 1
   _brakingPowerVar: 4000
   _brakingDistribution: 0.106
   _radius: 8
   _steeringWheelSpeed: 10
   _wheelBase: 3.75
   _rearTrack: 2.46
-  _mileage: 108122.7
+  _mileage: NaN
   _colorCustomization: 1
-  _bodyMaterailId: 13
-  _diskMaterailId: 2
+  _bodyMaterailId: 0
+  _diskMaterailId: 0
   _mass: 2500
   _type: 2

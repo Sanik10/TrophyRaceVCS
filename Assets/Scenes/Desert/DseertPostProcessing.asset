@@ -71,10 +71,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 4294967295
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0
   lumaScale:
-    overrideState: 1
+    overrideState: 0
     value: 0
   blooming:
     overrideState: 0

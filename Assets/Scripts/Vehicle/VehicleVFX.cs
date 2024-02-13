@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class VehicleVFX : MonoBehaviour
-{
+public class VehicleVFX : MonoBehaviour {
+    
     private VehicleManager VehicleManager;
     private PhysicsCalculation PC;
     private WheelsSettings WS;

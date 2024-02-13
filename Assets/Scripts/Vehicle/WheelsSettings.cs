@@ -18,7 +18,7 @@ public class WheelsSettings : MonoBehaviour {
     public float wheelRadius = 0;
     public float circumFerence = 0;
     public float maxSpeedOnCurrentGear = 0;
-    public float originExtremumValue = 0;
+    public float originExtremumValue = 1;
     public float allMileage => this._allMileage;
     public float groundFriction => this._groundFriction;
     public bool isBraking = true;
@@ -151,7 +151,7 @@ public class WheelsSettings : MonoBehaviour {
         DriveWheelsRpm();
         VehicleSteering();
         BrakingVehicle();
-        Friction();
+        // Friction();
         currentMileage += circumFerence * Mathf.Abs(wheelsRPM) / 10000;
     }
 
@@ -194,24 +194,32 @@ public class WheelsSettings : MonoBehaviour {
     }
 
     private void TorqueDestribution() {
-        if(driveWheels == driveType.rearWheelsDrive) {
+        /* if(driveWheels == driveType.rearWheelsDrive) {
             for(int i = 2; i < wheelColliders.Length; i++) {
                 wheelColliders[i].motorTorque = (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.Kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical <= 0  || Transmission.neutralGear) ? 0 : Engine.torque * wheelsResistans / _torqueDevider;
             }
-        } else if(driveWheels == driveType.frontWeelsDrive) {
+            } else if(driveWheels == driveType.frontWeelsDrive) {
             for(int i = 0; i < wheelColliders.Length - 2; i++) {
                 wheelColliders[i].motorTorque = (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.Kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical <= 0 || Transmission.neutralGear) ? 0 : Engine.torque * wheelsResistans / _torqueDevider;
             }
-        } else {
+            } else {
             for(int i = 0; i < wheelColliders.Length; i++) {
                 wheelColliders[i].motorTorque = (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.Kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical <= 0 || Transmission.neutralGear) ? 0 : Engine.torque * wheelsResistans / _torqueDevider;
+            }
+        }*/
+        for(int i = 0; i < wheelColliders.Length; i++) {
+            if(
+            (driveWheels == driveType.rearWheelsDrive && i >= 2) ||
+            (driveWheels == driveType.frontWeelsDrive && i < wheelColliders.Length - 2) ||
+            (driveWheels == driveType.allWheelsDrive)) {
+                wheelColliders[i].motorTorque = (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.Kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear) ? 0 : Engine.torque * wheelsResistans / _torqueDevider;
             }
         }
     }
 
     private void BrakingVehicle() {
         for (int i = 0; i < wheelColliders.Length; i++) {
-            this._brakingPower = (this._VehicleInputHandler.vertical < 0) ? this._brakingVariablePower : (this._VehicleInputHandler.vertical == 0 && PC.Kph <= 10 && PC.Kph >= -10) ? 300 : 0;
+            this._brakingPower = (this._VehicleInputHandler.vertical < 0) ? this._brakingVariablePower : 0;
 
             wheelColliders[0].brakeTorque = wheelColliders[1].brakeTorque = this._brakingPower * (1 - this._brakingDistribution);
             wheelColliders[2].brakeTorque = wheelColliders[3].brakeTorque = this._brakingPower * this._brakingDistribution;
@@ -261,7 +269,7 @@ public class WheelsSettings : MonoBehaviour {
         this._maxSpeed = vehicleData.maxSpeed;
         driveWheels = vehicleData.driveWheels;
         this._torqueDevider = vehicleData.torqueDevider;
-        originExtremumValue = vehicleData.originExtremumValue;
+        //originExtremumValue = vehicleData.originExtremumValue;
         this._brakingVariablePower = vehicleData.brakingPowerVar;
         this._brakingDistribution = vehicleData.brakingDistribution;
         this._radius = vehicleData.radius;

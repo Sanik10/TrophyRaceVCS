@@ -30,7 +30,7 @@ namespace TrophyRace.Architecture {
         public bool saveAll = false;
 
         private void Start() {
-            preRace = true;
+            // preRace = true;
             startRace = false;
             pauseResumeRace = false;
             InitializeVehicle();

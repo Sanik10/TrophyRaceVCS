@@ -1,0 +1,175 @@
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+public class TiresFriction : MonoBehaviour {
+
+    private VehicleManager VehicleManager;
+    private VehicleType _vehicleType;
+    // Параметры, влияющие на сцепление
+    [SerializeField]
+    private float _baseFriction = 1.0f;
+    [SerializeField]
+    private float _tireIntegrity;
+    [SerializeField]
+    private float _massMultiplier;
+    [SerializeField]
+    private float[] _typeMultiplier;
+    [SerializeField]
+    private WheelCollider[] _wheelsColliders;
+    [SerializeField]
+    private SurfaceType[] _surfaceType;
+
+    [Header("Передняя ось авто")]
+    private FrictionSettings frontForwardFriction;
+    private FrictionSettings frontSidewaysFriction;
+
+    [Header("Задняя ось авто")]
+
+    private float[] _originExtremumValue;
+
+    public float baseFriction => this._baseFriction;
+    public float wearMultiplier => this._tireIntegrity;
+    public float massMultiplier => this._massMultiplier;
+    public float[] typeMultiplier => this._typeMultiplier;
+    public WheelCollider[] wheelsColliders => this._wheelsColliders;
+    public SurfaceType[] surfaceType => this._surfaceType;
+
+    private void Start() {
+        this.VehicleManager = GetComponent<VehicleManager>();
+        InitializeFrictionFactors();
+    }
+
+    private void FixedUpdate() {
+        DetermineSurfaceType();
+        ApplyInclineAngle();
+        ApplyFriction();
+    }
+
+    private void DetermineSurfaceType() {
+        for (int i = 0; i < _wheelsColliders.Length; i++) {
+            WheelCollider wheelCollider = _wheelsColliders[i];
+
+            // Создаем луч, направленный вниз от колеса
+            Ray ray = new Ray(wheelCollider.transform.position, -wheelCollider.transform.up);
+            RaycastHit hit;
+
+            // Проверяем столкновение луча с поверхностью
+            if (Physics.Raycast(ray, out hit, 1.0f)) {
+                Collider collider = hit.collider;
+
+                // Получаем физический материал коллайдера
+                PhysicMaterial currentMaterial = collider.sharedMaterial;
+
+                // Присваиваем typeMultiplier в зависимости от типа поверхности
+                if (currentMaterial != null) {
+                    string materialName = currentMaterial.name.ToLower();
+
+                    if (materialName.Contains("asphalt")) {
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.6f : 0.8f;
+                        _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.AsphaltWet : SurfaceType.Asphalt;
+                    } else if (materialName.Contains("concrete")) {
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.55f : 0.75f;
+                        _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.ConcreteWet : SurfaceType.Concrete;
+                    } else if (materialName.Contains("sand")) {
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.5f : 0.3f;
+                        _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.SandWet : SurfaceType.Sand;
+                    } else if (materialName.Contains("dirt")) {
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.4f : 0.6f;
+                        _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.DirtWet : SurfaceType.Dirt;
+                    } else if (materialName.Contains("snow")) {
+                        _typeMultiplier[i] = (materialName.Contains("icy")) ? 0.15f : 0.25f;
+                        _surfaceType[i] = (materialName.Contains("icy")) ? SurfaceType.SnowIcy : SurfaceType.Snow;
+                    } else if (materialName.Contains("ice")) {
+                        _typeMultiplier[i] = 0.11f;
+                        _surfaceType[i] = SurfaceType.Ice;
+                    }
+                }
+            }
+        }
+    }
+
+    private void ApplyInclineAngle() {
+        for (int i = 0; i < _wheelsColliders.Length; i++) {
+            WheelCollider wheelCollider = _wheelsColliders[i];
+
+            float wheelInclineAngle = Vector3.Angle(wheelCollider.transform.up, Vector3.up);
+            float inclineEffect = Mathf.Clamp01(1 - (wheelInclineAngle / 90f));
+
+            // Применяем эффект наклона к фактору сцепления
+            _typeMultiplier[i] *= inclineEffect;
+        }
+    }
+
+    private void ApplyFriction() {
+        for(int i = 0; i < _wheelsColliders.Length; i++) {
+            WheelCollider wheelCollider = _wheelsColliders[i];
+
+            WheelFrictionCurve forwardFriction = wheelCollider.forwardFriction;
+            WheelFrictionCurve sidewaysFriction = wheelCollider.sidewaysFriction;
+
+            forwardFriction.stiffness = _typeMultiplier[i];
+            sidewaysFriction.stiffness = _typeMultiplier[i];
+            sidewaysFriction.extremumValue = ((i > 1) && this.VehicleManager.VehicleInputHandler.handbrake && (this.VehicleManager.VehicleInputHandler.horizontal > 0.5f || this.VehicleManager.VehicleInputHandler.horizontal < -0.5f)) ? 0.2f : this._originExtremumValue[i];
+
+            wheelCollider.forwardFriction = forwardFriction;
+            wheelCollider.sidewaysFriction = sidewaysFriction;
+        }
+    }
+
+    private void InitializeFrictionFactors() {
+        VehicleData vehicleData = this.VehicleManager.vehicleData;
+
+        this._vehicleType = vehicleData.type;
+        this._baseFriction = (this._vehicleType == VehicleType.TrophyTruck) ? 0.775f : (this._vehicleType == VehicleType.Truck) ? 0.8f : (this._vehicleType == VehicleType.Prerunner) ? 0.85f : (this._vehicleType == VehicleType.Buggy) ? 0.9f : 0.85f;
+        
+        // Учет массы для настройки сцепления
+        float massFactor = Mathf.Clamp(vehicleData.mass / 1000f, 0.5f, 1.5f);
+        this._massMultiplier = 1 - vehicleData.normalizedMass;
+        this._tireIntegrity = vehicleData.tireIntegrity;
+        foreach(Transform i in gameObject.transform) {
+            if(i.transform.name == "carColliders") {
+                this._wheelsColliders = new WheelCollider[i.transform.childCount];
+                this._typeMultiplier = new float[i.transform.childCount];
+                this._surfaceType = new SurfaceType[i.transform.childCount];
+                this._originExtremumValue = new float[i.transform.childCount];
+                for(int q = 0; q < i.transform.childCount; q++) {
+                    this._wheelsColliders[q] = i.transform.GetChild(q).GetComponent<WheelCollider>();
+                    WheelFrictionCurve forwardFriction = this._wheelsColliders[q].forwardFriction;
+                    WheelFrictionCurve sidewaysFriction = this._wheelsColliders[q].sidewaysFriction;
+
+                    forwardFriction.extremumSlip = this._forwardExtremumSlip[1] - this._massMultiplier * (this._forwardExtremumSlip[1] - this._forwardExtremumSlip[0]);
+                    forwardFriction.extremumValue = this._forwardExtremumValue[1] - this._massMultiplier * (this._forwardExtremumValue[1] - this._forwardExtremumValue[0]);
+                    forwardFriction.asymptoteSlip = this._forwardAsymptoteSlip[1] - this._massMultiplier * (this._forwardAsymptoteSlip[1] - this._forwardAsymptoteSlip[0]);
+                    forwardFriction.asymptoteValue = this._forwardAsymptoteValue[1] - this._massMultiplier * (this._forwardAsymptoteValue[1] - this._forwardAsymptoteValue[0]);
+
+                    this._wheelsColliders[q].forwardFriction = forwardFriction;
+
+                    this._originExtremumValue[q] = this._wheelsColliders[q].sidewaysFriction.extremumValue;
+                }    
+            }
+        }
+    }
+}
+
+[System.Serializable]
+public enum SurfaceType {
+    Asphalt,
+    AsphaltWet,
+    Concrete,
+    ConcreteWet,
+    Sand,
+    SandWet,
+    Dirt,
+    DirtWet,
+    Snow,
+    SnowIcy,
+    Ice
+}
+
+[System.Serializable]
+public class FrictionSettings {
+    public float[] extremumSlip = new float[2];
+    public float[] extremumValue = new float[2];
+    public float[] asymptoteSlip = new float[2];
+    public float[] asymptoteValue = new float[2];
+}

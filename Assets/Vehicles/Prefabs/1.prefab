@@ -11716,7 +11716,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _rpm: 0
+  _power: 0
+  _engineInertia: 0
+  _throttle: 0
   loadProcent: 0
+  backTorque: 50
 --- !u!114 &1086515052747168812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11787,6 +11792,8 @@ MonoBehaviour:
   DownForceValue: 25
   angularDragVar: 25
   mass: 0
+  dragAmount: 0.032
+  originalDrag: 0.032
 --- !u!114 &566587468027281880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11878,8 +11885,8 @@ MonoBehaviour:
     - {fileID: 2100000, guid: ff379cdf925af43cf8af32dfa7f42699, type: 2}
     - {fileID: 2100000, guid: c232f42a293e44488aefd9093eaa0a12, type: 2}
     - {fileID: 2100000, guid: b3ccc9a79ceb843479980322353add20, type: 2}
-  hasTrails: 1
-  hasSmokes: 1
+  hasTrails: 0
+  hasSmokes: 0
   currentSurface: 
   skidmarksDrifting:
   - {fileID: 5307820833288527595}

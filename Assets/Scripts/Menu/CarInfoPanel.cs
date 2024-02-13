@@ -58,7 +58,7 @@ namespace TrophyRace.Architecture {
                 Debug.Log(vehicleData.normalizedBrakeTorque + " normalizedBrakeTorque");
                 Debug.Log(vehicleData.normalizedInertia + " normalizedInertia");
                 Debug.Log(vehicleData.normalizedMaxSpeed + " normalizedMaxSpeed");
-                Debug.Log(vehicleData.normalizedOriginalExtremumValue + " normalizedOriginalExtremumValue");
+                Debug.Log(vehicleData.normalizedTireIntegrity + " normalizedTireIntegrity");
                 Debug.Log(vehicleData.normalizedPowerProcentIdle + " normalizedPowerProcentIdle");
                 Debug.Log(vehicleData.normalizedPowerProcentMax + " normalizedPowerProcentMax");
                 Debug.Log(vehicleData.normalizedShiftTime + " normalizedShiftTime");

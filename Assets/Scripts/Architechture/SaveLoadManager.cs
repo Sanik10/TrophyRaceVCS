@@ -65,7 +65,7 @@ public static class SaveLoadManager {
 
             #region Wheels settings
             UpdateOrCreateNode(xmlDoc, dataNode, "maxSpeed", vehicleData.maxSpeed.ToString());
-            UpdateOrCreateNode(xmlDoc, dataNode, "originExtremumValue", vehicleData.originExtremumValue.ToString());
+            UpdateOrCreateNode(xmlDoc, dataNode, "tireIntegrity", vehicleData.tireIntegrity.ToString());
             UpdateOrCreateNode(xmlDoc, dataNode, "brakingPowerVar", vehicleData.brakingPowerVar.ToString());
             UpdateOrCreateNode(xmlDoc, dataNode, "brakingDistribution", vehicleData.brakingDistribution.ToString());
             UpdateOrCreateNode(xmlDoc, dataNode, "radius", vehicleData.radius.ToString());
