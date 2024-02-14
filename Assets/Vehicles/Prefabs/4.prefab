@@ -1062,7 +1062,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033164980150695682}
-  m_LocalRotation: {x: 7.5021156e-11, y: 0.99999064, z: -0.004326409, w: 0.000000017340119}
+  m_LocalRotation: {x: -7.5021156e-11, y: 0.99999064, z: -0.004326409, w: -0.000000017340119}
   m_LocalPosition: {x: 0, y: 0.7599999, z: 4.6800017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3555,7 +3555,7 @@ MonoBehaviour:
   Engine: {fileID: 6060706466768042921}
   Transmission: {fileID: 6252192093601292921}
   WheelsSettings: {fileID: 4801976584075722459}
-  TiresFriction: {fileID: 0}
+  TiresFriction: {fileID: 5077215558578982488}
   PhysicsCalculation: {fileID: 7878599310127326679}
   RES: []
   VehicleSFX: {fileID: 5765593294167646610}
@@ -3651,7 +3651,8 @@ MonoBehaviour:
   speed: 0
   Kph: 0
   KphByWheels: 0
-  centerOfMass: {x: 0, y: 0.5, z: -0.2}
+  centerOfMass: {x: 0, y: 1, z: 0.0015670685}
+  centerOfMassAuto: {x: 0, y: 0, z: 0}
   speedByVelocity: 1
   DownForceValue: 25
   angularDragVar: 25
@@ -3842,18 +3843,58 @@ MonoBehaviour:
   _typeMultiplier: []
   _wheelsColliders: []
   _surfaceType: 
-  _forwardExtremumSlip:
-  - 0.2
-  - 0.4
-  _forwardExtremumValue:
-  - 1.75
-  - 1.25
-  _forwardAsymptoteSlip:
-  - 0.5
-  - 0.9
-  _forwardAsymptoteValue:
-  - 1.25
-  - 0.75
+  frontForwardFriction:
+    extremumSlip:
+    - 0.3
+    - 0.1
+    extremumValue:
+    - 3
+    - 2
+    asymptoteSlip:
+    - 0.2
+    - 0.5
+    asymptoteValue:
+    - 1.5
+    - 1
+  frontSidewaysFriction:
+    extremumSlip:
+    - 0.4
+    - 0.6
+    extremumValue:
+    - 1.5
+    - 1
+    asymptoteSlip:
+    - 0.7
+    - 0.9
+    asymptoteValue:
+    - 1
+    - 0.5
+  rearForwardFriction:
+    extremumSlip:
+    - 0.2
+    - 0.4
+    extremumValue:
+    - 2.5
+    - 1.5
+    asymptoteSlip:
+    - 0.3
+    - 0.6
+    asymptoteValue:
+    - 1.5
+    - 1
+  rearSidewaysFriction:
+    extremumSlip:
+    - 0.6
+    - 0.8
+    extremumValue:
+    - 1.5
+    - 1
+    asymptoteSlip:
+    - 0.8
+    - 1
+    asymptoteValue:
+    - 1
+    - 0.5
 --- !u!1 &2771747155568581657
 GameObject:
   m_ObjectHideFlags: 0
@@ -7454,7 +7495,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610927483742897369}
-  m_LocalRotation: {x: 0.0021899203, y: 8.065474e-10, z: -1.7662785e-12, w: 0.9999976}
+  m_LocalRotation: {x: 0.0021899203, y: -8.0654694e-10, z: 1.7662776e-12, w: 0.9999976}
   m_LocalPosition: {x: 0, y: 0.6100001, z: -3.559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15319,7 +15360,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8744404872450392779}
-  m_LocalRotation: {x: 0.0000000014929477, y: 0.9848279, z: -0.17353418, w: 0.000000008472661}
+  m_LocalRotation: {x: -0.0000000014929478, y: 0.9848279, z: -0.1735342, w: -0.000000008472661}
   m_LocalPosition: {x: 0, y: 2.7099998, z: 4.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -20,10 +20,16 @@ public class TiresFriction : MonoBehaviour {
     private SurfaceType[] _surfaceType;
 
     [Header("Передняя ось авто")]
+    [SerializeField]
     private FrictionSettings frontForwardFriction;
+    [SerializeField]
     private FrictionSettings frontSidewaysFriction;
 
     [Header("Задняя ось авто")]
+    [SerializeField]
+    private FrictionSettings rearForwardFriction;
+    [SerializeField]
+    private FrictionSettings rearSidewaysFriction;
 
     private float[] _originExtremumValue;
 
@@ -65,22 +71,22 @@ public class TiresFriction : MonoBehaviour {
                     string materialName = currentMaterial.name.ToLower();
 
                     if (materialName.Contains("asphalt")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.6f : 0.8f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.7f : 0.9f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.AsphaltWet : SurfaceType.Asphalt;
                     } else if (materialName.Contains("concrete")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.55f : 0.75f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.65f : 0.85f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.ConcreteWet : SurfaceType.Concrete;
                     } else if (materialName.Contains("sand")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.5f : 0.3f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.6f : 0.4f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.SandWet : SurfaceType.Sand;
                     } else if (materialName.Contains("dirt")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.4f : 0.6f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.5f : 0.7f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.DirtWet : SurfaceType.Dirt;
                     } else if (materialName.Contains("snow")) {
-                        _typeMultiplier[i] = (materialName.Contains("icy")) ? 0.15f : 0.25f;
+                        _typeMultiplier[i] = (materialName.Contains("icy")) ? 0.25f : 0.30f;
                         _surfaceType[i] = (materialName.Contains("icy")) ? SurfaceType.SnowIcy : SurfaceType.Snow;
                     } else if (materialName.Contains("ice")) {
-                        _typeMultiplier[i] = 0.11f;
+                        _typeMultiplier[i] = 0.16f;
                         _surfaceType[i] = SurfaceType.Ice;
                     }
                 }
@@ -126,28 +132,36 @@ public class TiresFriction : MonoBehaviour {
         float massFactor = Mathf.Clamp(vehicleData.mass / 1000f, 0.5f, 1.5f);
         this._massMultiplier = 1 - vehicleData.normalizedMass;
         this._tireIntegrity = vehicleData.tireIntegrity;
-        foreach(Transform i in gameObject.transform) {
-            if(i.transform.name == "carColliders") {
-                this._wheelsColliders = new WheelCollider[i.transform.childCount];
-                this._typeMultiplier = new float[i.transform.childCount];
-                this._surfaceType = new SurfaceType[i.transform.childCount];
-                this._originExtremumValue = new float[i.transform.childCount];
-                for(int q = 0; q < i.transform.childCount; q++) {
-                    this._wheelsColliders[q] = i.transform.GetChild(q).GetComponent<WheelCollider>();
-                    WheelFrictionCurve forwardFriction = this._wheelsColliders[q].forwardFriction;
-                    WheelFrictionCurve sidewaysFriction = this._wheelsColliders[q].sidewaysFriction;
+        
+        Transform carCollidersTransform = gameObject.transform.Find("carColliders");
+        
+        if(carCollidersTransform != null) {
+            int wheelCount = carCollidersTransform.childCount;
+            this._wheelsColliders = new WheelCollider[wheelCount];
+            this._typeMultiplier = new float[wheelCount];
+            this._surfaceType = new SurfaceType[wheelCount];
+            this._originExtremumValue = new float[wheelCount];
+            
+            for(int q = 0; q < wheelCount; q++) {
+                this._wheelsColliders[q] = carCollidersTransform.GetChild(q).GetComponent<WheelCollider>();
 
-                    forwardFriction.extremumSlip = this._forwardExtremumSlip[1] - this._massMultiplier * (this._forwardExtremumSlip[1] - this._forwardExtremumSlip[0]);
-                    forwardFriction.extremumValue = this._forwardExtremumValue[1] - this._massMultiplier * (this._forwardExtremumValue[1] - this._forwardExtremumValue[0]);
-                    forwardFriction.asymptoteSlip = this._forwardAsymptoteSlip[1] - this._massMultiplier * (this._forwardAsymptoteSlip[1] - this._forwardAsymptoteSlip[0]);
-                    forwardFriction.asymptoteValue = this._forwardAsymptoteValue[1] - this._massMultiplier * (this._forwardAsymptoteValue[1] - this._forwardAsymptoteValue[0]);
+                this._wheelsColliders[q].forwardFriction = CustomFrictionCurve(q < 2 ? frontForwardFriction : rearForwardFriction);
+                this._wheelsColliders[q].sidewaysFriction = CustomFrictionCurve(q < 2 ? frontSidewaysFriction : rearSidewaysFriction);
 
-                    this._wheelsColliders[q].forwardFriction = forwardFriction;
-
-                    this._originExtremumValue[q] = this._wheelsColliders[q].sidewaysFriction.extremumValue;
-                }    
+                this._originExtremumValue[q] = this._wheelsColliders[q].sidewaysFriction.extremumValue;
             }
         }
+    }
+
+    private WheelFrictionCurve CustomFrictionCurve(FrictionSettings frictionSettings) {
+        WheelFrictionCurve frictionCurve = new WheelFrictionCurve();
+
+        frictionCurve.extremumSlip = frictionSettings.extremumSlip[1] - this._massMultiplier * (frictionSettings.extremumSlip[1] - frictionSettings.extremumSlip[0]);
+        frictionCurve.extremumValue = frictionSettings.extremumValue[1] - this._massMultiplier * (frictionSettings.extremumValue[1] - frictionSettings.extremumValue[0]);
+        frictionCurve.asymptoteSlip = frictionSettings.asymptoteSlip[1] - this._massMultiplier * (frictionSettings.asymptoteSlip[1] - frictionSettings.asymptoteSlip[0]);
+        frictionCurve.asymptoteValue = frictionSettings.asymptoteValue[1] - this._massMultiplier * (frictionSettings.asymptoteValue[1] - frictionSettings.asymptoteValue[0]);
+
+        return frictionCurve;
     }
 }
 

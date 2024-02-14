@@ -11610,6 +11610,7 @@ GameObject:
   - component: {fileID: 1398756650446781593}
   - component: {fileID: -8928363137502029173}
   - component: {fileID: -1701939543064841914}
+  - component: {fileID: 8376436490741013167}
   m_Layer: 3
   m_Name: 1
   m_TagString: Player
@@ -11692,6 +11693,7 @@ MonoBehaviour:
   Engine: {fileID: 1104247410574953526}
   Transmission: {fileID: 1086515052747168812}
   WheelsSettings: {fileID: 2276069904058358968}
+  TiresFriction: {fileID: 8376436490741013167}
   PhysicsCalculation: {fileID: 142425343819323890}
   RES: []
   VehicleSFX: {fileID: 566587468027281880}
@@ -11957,8 +11959,78 @@ MonoBehaviour:
   _reverseGear: 0
   _activateDippedBeams: 0
   _activateHighBeams: 0
-  control: 1
+  control: 0
   _preRaceMode: 0
+--- !u!114 &8376436490741013167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627816981419441939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4563c59e349574b8688b4ff89aedf5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseFriction: 1
+  _tireIntegrity: 0
+  _massMultiplier: 0
+  _typeMultiplier: []
+  _wheelsColliders: []
+  _surfaceType: 
+  frontForwardFriction:
+    extremumSlip:
+    - 0.3
+    - 0.1
+    extremumValue:
+    - 3
+    - 2
+    asymptoteSlip:
+    - 0.2
+    - 0.5
+    asymptoteValue:
+    - 1.5
+    - 1
+  frontSidewaysFriction:
+    extremumSlip:
+    - 0.4
+    - 0.6
+    extremumValue:
+    - 1.5
+    - 1
+    asymptoteSlip:
+    - 0.7
+    - 0.9
+    asymptoteValue:
+    - 1
+    - 0.5
+  rearForwardFriction:
+    extremumSlip:
+    - 0.2
+    - 0.4
+    extremumValue:
+    - 2.5
+    - 1.5
+    asymptoteSlip:
+    - 0.3
+    - 0.6
+    asymptoteValue:
+    - 1.5
+    - 1
+  rearSidewaysFriction:
+    extremumSlip:
+    - 0.6
+    - 0.8
+    extremumValue:
+    - 1.5
+    - 1
+    asymptoteSlip:
+    - 0.8
+    - 1
+    asymptoteValue:
+    - 1
+    - 0.5
 --- !u!1 &7649623505746638014
 GameObject:
   m_ObjectHideFlags: 0

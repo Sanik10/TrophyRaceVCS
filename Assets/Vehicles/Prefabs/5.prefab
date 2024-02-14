@@ -1197,6 +1197,7 @@ GameObject:
   - component: {fileID: 4831643001905676199}
   - component: {fileID: 7983184978606432405}
   - component: {fileID: 6636130842399403834}
+  - component: {fileID: 532874872541870278}
   m_Layer: 3
   m_Name: 5
   m_TagString: Player
@@ -1276,6 +1277,7 @@ MonoBehaviour:
   Engine: {fileID: 7702173769450665392}
   Transmission: {fileID: 3582183585631984813}
   WheelsSettings: {fileID: 4818413074712744346}
+  TiresFriction: {fileID: 532874872541870278}
   PhysicsCalculation: {fileID: 710522970203312718}
   RES: []
   VehicleSFX: {fileID: 3914022143418566843}
@@ -1496,14 +1498,84 @@ MonoBehaviour:
   _vertical: 0
   _horizontal: 0
   _handbrake: 0
-  _clutch: 1
+  _clutch: 0
   _gearUp: 0
   _gearDown: 0
   _reverseGear: 0
   _activateDippedBeams: 0
   _activateHighBeams: 0
-  control: 1
+  control: 0
   _preRaceMode: 0
+--- !u!114 &532874872541870278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459020753061967654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4563c59e349574b8688b4ff89aedf5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseFriction: 1
+  _tireIntegrity: 0
+  _massMultiplier: 0
+  _typeMultiplier: []
+  _wheelsColliders: []
+  _surfaceType: 
+  frontForwardFriction:
+    extremumSlip:
+    - 0.3
+    - 0.1
+    extremumValue:
+    - 3
+    - 2
+    asymptoteSlip:
+    - 0.2
+    - 0.5
+    asymptoteValue:
+    - 1.5
+    - 1
+  frontSidewaysFriction:
+    extremumSlip:
+    - 0.4
+    - 0.6
+    extremumValue:
+    - 1.5
+    - 1
+    asymptoteSlip:
+    - 0.7
+    - 0.9
+    asymptoteValue:
+    - 1
+    - 0.5
+  rearForwardFriction:
+    extremumSlip:
+    - 0.2
+    - 0.4
+    extremumValue:
+    - 2.5
+    - 1.5
+    asymptoteSlip:
+    - 0.3
+    - 0.6
+    asymptoteValue:
+    - 1.5
+    - 1
+  rearSidewaysFriction:
+    extremumSlip:
+    - 0.6
+    - 0.8
+    extremumValue:
+    - 1.5
+    - 1
+    asymptoteSlip:
+    - 0.8
+    - 1
+    asymptoteValue:
+    - 1
+    - 0.5
 --- !u!1 &614675837878181012
 GameObject:
   m_ObjectHideFlags: 0
