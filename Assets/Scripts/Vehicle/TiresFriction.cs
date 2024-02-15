@@ -5,7 +5,7 @@ public class TiresFriction : MonoBehaviour {
 
     private VehicleManager VehicleManager;
     private VehicleType _vehicleType;
-    // Параметры, влияющие на сцепление
+
     [SerializeField]
     private float _baseFriction = 1.0f;
     [SerializeField]
@@ -71,22 +71,22 @@ public class TiresFriction : MonoBehaviour {
                     string materialName = currentMaterial.name.ToLower();
 
                     if (materialName.Contains("asphalt")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.7f : 0.9f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.65f : 0.85f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.AsphaltWet : SurfaceType.Asphalt;
                     } else if (materialName.Contains("concrete")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.65f : 0.85f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.7f : 0.8f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.ConcreteWet : SurfaceType.Concrete;
                     } else if (materialName.Contains("sand")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.6f : 0.4f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.55f : 0.45f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.SandWet : SurfaceType.Sand;
                     } else if (materialName.Contains("dirt")) {
-                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.5f : 0.7f;
+                        _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.45f : 0.55f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.DirtWet : SurfaceType.Dirt;
                     } else if (materialName.Contains("snow")) {
-                        _typeMultiplier[i] = (materialName.Contains("icy")) ? 0.25f : 0.30f;
+                        _typeMultiplier[i] = (materialName.Contains("icy")) ? 0.2f : 0.3f;
                         _surfaceType[i] = (materialName.Contains("icy")) ? SurfaceType.SnowIcy : SurfaceType.Snow;
                     } else if (materialName.Contains("ice")) {
-                        _typeMultiplier[i] = 0.16f;
+                        _typeMultiplier[i] = 0.18f;
                         _surfaceType[i] = SurfaceType.Ice;
                     }
                 }

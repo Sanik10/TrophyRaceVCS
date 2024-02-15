@@ -39,9 +39,6 @@ public class VehicleManager : MonoBehaviour {
         if(aiVehicle) {
             gameObject.tag = "Ai";
         }
-        // if(turnOffCameras) {
-        //     TurnOffCameras();
-        // }
         this.VehicleInfo = GetComponent<VehicleInfo>();
         this.Engine = GetComponent<Engine>();
         this.Transmission = GetComponent<Transmission>();
@@ -52,17 +49,9 @@ public class VehicleManager : MonoBehaviour {
         this.VehicleVFX = GetComponent<VehicleVFX>();
         this.VehicleInputHandler = GetComponent<VehicleInputHandler>();
         if(this.vehicleName == null) {
-            this.vehicleName = VehicleInfo.Name;
+            this.vehicleName = this.VehicleInfo.Name;
         }
     }
-
-    // private void TurnOffCameras() {
-    //     foreach(Transform i in gameObject.transform) {
-    //         if(i.transform.name == "Cameras") {
-    //             i.gameObject.SetActive(false);  
-    //         }
-    //     }
-    // }
 
     private void OnEnable() {
         GameManager.SetVehiclesInPreRaceModeEvent += PreRaceModeHandler;
@@ -75,17 +64,12 @@ public class VehicleManager : MonoBehaviour {
     private void FixedUpdate() {
         for (int i = 0; i < RES.Length; i++) {
             RES[i].maxRPMLimit = Engine.maxRpm;
-            RES[i].carMaxSpeed = 300;
+            RES[i].carMaxSpeed = 350;
             RES[i].carCurrentSpeed = PhysicsCalculation.Kph;
             RES[i].engineCurrentRPM = Engine.rpm;
-            if(VehicleInputHandler.vertical > 0) {
-                RES[i].gasPedalValue = VehicleInputHandler.vertical;
-                RES[i].gasPedalPressing = true;
-            } else {
-                RES[i].gasPedalValue = 0;
-                RES[i].gasPedalPressing = false;
-            }
-            RES[i].isReversing = (Transmission.currentGearRatio < 0) ? true : false;
+            RES[i].gasPedalValue = (VehicleInputHandler.vertical > 0) ? Engine.throttle : 0;
+            RES[i].gasPedalPressing = (VehicleInputHandler.vertical > 0);
+            RES[i].isReversing = (Transmission.currentGearRatio < 0);
         }
     }
 

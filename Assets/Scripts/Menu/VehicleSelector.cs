@@ -36,7 +36,7 @@ namespace TrophyRace.Architecture {
             if(PlayerPrefs.HasKey("selectedVehicleId")) {
                 this._selectedVehicleId = PlayerPrefs.GetInt("selectedVehicleId");
             }
-            _vehicleSpawner.SpawnVehicle(this._selectedVehicleId, SpawnMode.Freeze | SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes);
+            _vehicleSpawner.SpawnVehicle(this._selectedVehicleId, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
         }
 
         public void SetFilterById(int[] allowedVehiclesId) {
@@ -56,7 +56,7 @@ namespace TrophyRace.Architecture {
                 this._selectedVehicleId = m_selectedVehicleId;
                 PlayerPrefs.SetInt("selectedVehicleId", this._selectedVehicleId);
                 Destroy(_vehicleSpawner.playerVehicle);
-                _vehicleSpawner.SpawnVehicle(selectedVehicleId, SpawnMode.Freeze | SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes);
+                _vehicleSpawner.SpawnVehicle(selectedVehicleId, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
             }
         }
 
@@ -90,7 +90,7 @@ namespace TrophyRace.Architecture {
             PlayerPrefs.SetInt("pointer", this._vehiclePointer);
             this._selectedVehicleId =  _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id;
             PlayerPrefs.SetInt("selectedVehicleId", _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id);
-            _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id, SpawnMode.Freeze | SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes);
+            _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
         }
 
         public void LeftButton() {
@@ -102,7 +102,7 @@ namespace TrophyRace.Architecture {
             PlayerPrefs.SetInt("pointer", this._vehiclePointer);
             this._selectedVehicleId =  _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id;
             PlayerPrefs.SetInt("selectedVehicleId", _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id);
-            _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id, SpawnMode.Freeze | SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes);
+            _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
         }
 
         bool IsVehicleAllowed(int vehicleID) {

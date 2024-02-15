@@ -19113,6 +19113,7 @@ MonoBehaviour:
   Kph: 0
   KphByWheels: 0
   centerOfMass: {x: 0, y: 0.72, z: -0.08}
+  centerOfMassAuto: {x: 0, y: 0, z: 0}
   speedByVelocity: 1
   DownForceValue: 25
   angularDragVar: 25

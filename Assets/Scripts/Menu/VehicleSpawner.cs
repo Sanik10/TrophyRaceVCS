@@ -53,7 +53,7 @@ namespace TrophyRace.Architecture {
             vehicle.GetComponent<VehicleManager>().vehicleData = vehicleData;
 
             if((spawnMode & SpawnMode.Freeze) != 0) {
-                vehicle.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
+                vehicle.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 vehicle.GetComponent<VehicleVFX>().hasTrails = _playerVehicle.GetComponent<VehicleVFX>().hasSmokes = false;
             }
             if((spawnMode & SpawnMode.DisableCameras) != 0) {
@@ -67,9 +67,12 @@ namespace TrophyRace.Architecture {
                     vehicle.GetComponentInChildren<Transform>().Find("Reflection Probe").gameObject.SetActive(false);
                 }
             }
-            // if((spawnMode & SpawnMode.PreStart) != 0) {
-            //     vehicle.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
-            // }
+            if((spawnMode & SpawnMode.DisableMovement) != 0) {
+                if(vehicle.GetComponent<VehicleInputHandler>() != null) {
+                    vehicle.GetComponent<VehicleInputHandler>().handbrake = true;
+                }
+                // vehicle.GetComponent<Rigidbody>().isKinematic = true;
+            }
 
             vehicleSpawned?.Invoke();
         }
@@ -95,5 +98,6 @@ public enum SpawnMode {
     DisableCameras = 4,
     DisableReflectionProbes = 8,
     PreStart = 16,
+    DisableMovement = 32
     // Добавьте дополнительные режимы при необходимости
 }

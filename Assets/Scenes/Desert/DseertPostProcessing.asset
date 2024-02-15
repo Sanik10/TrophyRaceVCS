@@ -40,7 +40,7 @@ MonoBehaviour:
     value: 1
   showEditorMainBehavior: 0
   showEditorBloomBehavior: 0
-  showEditorLensSurfaceBehavior: 0
+  showEditorLensSurfaceBehavior: 1
   showEditorLensFlareBehavior: 0
   showEditorGlareBehavior: 0
   isInitialized: 1
@@ -98,13 +98,13 @@ MonoBehaviour:
     value: {fileID: 2800000, guid: 75a236ef0a083e241bcf9471e55f9255, type: 3}
   lensSurfaceDirtIntensity:
     overrideState: 1
-    value: 5
+    value: 40
   lensSurfaceDiffractionTexture:
     overrideState: 1
     value: {fileID: 2800000, guid: f38349b78c66e224abac4956ea2546b8, type: 3}
   lensSurfaceDiffractionIntensity:
     overrideState: 1
-    value: 2
+    value: 10
   allowLensFlare:
     overrideState: 1
     value: 1

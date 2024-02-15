@@ -6967,6 +6967,7 @@ MonoBehaviour:
   Kph: 0
   KphByWheels: 0
   centerOfMass: {x: 0, y: 0.5, z: -0.1}
+  centerOfMassAuto: {x: 0, y: 0, z: 0}
   speedByVelocity: 1
   DownForceValue: 25
   angularDragVar: 25
@@ -7023,7 +7024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b181d03fd07604373ae299bee7a12a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasEffects: 1
+  hasEffects: 0
   smokeFlag: 0
   colorsCount: 
   _colored:
