@@ -44,9 +44,9 @@ MonoBehaviour:
   _steeringWheelSpeed: 10
   _wheelBase: 3.75
   _rearTrack: 2.46
-  _mileage: 108925.62
+  _mileage: 122958.5
   _colorCustomization: 1
-  _bodyMaterailId: 0
+  _bodyMaterailId: 11
   _diskMaterailId: 0
   _mass: 2500
   _type: 2

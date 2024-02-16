@@ -9,7 +9,7 @@ namespace TrophyRace.Architecture {
         private Engine _Engine;
         private Transmission _Transmission;
         private PhysicsCalculation _PhysicsCalculation;
-        private WheelsSettings _WheelsSettings;
+        private VehicleDynamics _VehicleDynamics;
         private TextMeshProUGUI _RPMText;
         private TextMeshProUGUI _GearText;
         private TextMeshProUGUI _SpeedText;
@@ -44,16 +44,16 @@ namespace TrophyRace.Architecture {
                 _Engine = _VehicleManager.Engine;
                 _Transmission = _VehicleManager.Transmission;
                 _PhysicsCalculation = _VehicleManager.PhysicsCalculation;
-                _WheelsSettings = _VehicleManager.WheelsSettings;
+                _VehicleDynamics = _VehicleManager.VehicleDynamics;
             }
 
             if(_VehicleManager != null) {
                 _RPMText.text = _Engine.rpm.ToString("f0") + " rpm";
                 _GearText.text = (_Transmission.currentGear == 0) ? "N" : (_Transmission.currentGearRatio < 0) ? "R" : (_Transmission.currentGear).ToString("");
                 _SpeedText.text = _PhysicsCalculation.speed.ToString("0");
-                _SpeedText.color = (_WheelsSettings.maxSpeedOnCurrentGear > _PhysicsCalculation.Kph + 5) ? new Color(255, 255, 255) : new Color (255, 0, 0);
-                _CurrentMileageText.text = (_WheelsSettings.currentMileage).ToString("f2") + " м";
-                _AllMileageText.text = ((_WheelsSettings.allMileage + _WheelsSettings.currentMileage) / 1000).ToString("f2") + " км";
+                _SpeedText.color = (_VehicleDynamics.maxSpeedOnCurrentGear > _PhysicsCalculation.Kph + 5) ? new Color(255, 255, 255) : new Color (255, 0, 0);
+                _CurrentMileageText.text = (_VehicleDynamics.currentMileage).ToString("f2") + " м";
+                _AllMileageText.text = ((_VehicleDynamics.allMileage + _VehicleDynamics.currentMileage) / 1000).ToString("f2") + " км";
             }
         }
     }

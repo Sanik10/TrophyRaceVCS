@@ -40,11 +40,11 @@ public class Transmission : MonoBehaviour {
     public bool neutralGear => this._neutralGear;
 
     private void Awake() {
-        WheelsSettings.WheelsSettingsInitializedEvent += SetUpGears;
+        VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
     }
 
     private void Start() {
-        // WheelsSettings.WheelsSettingsInitializedEvent += SetUpGears;
+        // VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
         this._VehicleManager = GetComponent<VehicleManager>();
         this.Engine = this._VehicleManager.Engine;
         this._VehicleInputHandler = this._VehicleManager.VehicleInputHandler;
@@ -57,12 +57,12 @@ public class Transmission : MonoBehaviour {
         VehicleInputHandler.ReverseGearEvent += HandleReverseGearEvent;
     }
 
-    private void SetUpGears(WheelsSettings ws) {
-        WheelsSettings currentWS = GetComponent<WheelsSettings>();
-        if(ws == currentWS) {
-            WheelsSettings.WheelsSettingsInitializedEvent -= SetUpGears;
+    private void SetUpGears(VehicleDynamics vd) {
+        VehicleDynamics currentVD = GetComponent<VehicleDynamics>();
+        if(vd == currentVD) {
+            VehicleDynamics.VehicleDynamicsInitializedEvent -= SetUpGears;
 
-            this._lastGearRatio = (Engine.maxRpm-1500) * currentWS.circumFerence / (20.2f * finalDrive * this._maxSpeed); //4167   4050/200
+            this._lastGearRatio = (Engine.maxRpm-1500) * currentVD.circumFerence / (20.2f * finalDrive * this._maxSpeed); //4167   4050/200
             this._gears = new float[this._frontGearsQuantity + 1];
             this._gears[0] = 0;
             this._gears[1] = this._firstGear;

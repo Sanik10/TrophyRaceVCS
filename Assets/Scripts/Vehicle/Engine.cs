@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public class Engine : MonoBehaviour {
-    
+
     private VehicleManager VehicleManager;
     private Transmission _Transmission;
     private VehicleInputHandler _VehicleInputHandler;
@@ -75,11 +75,11 @@ public class Engine : MonoBehaviour {
 
     private void RunEngine() {
         // this._throttle = (this._VehicleInputHandler.vertical > 0 && this._Transmission.currentGearRatio >= 0) ? this._VehicleInputHandler.vertical : (this._Transmission.currentGearRatio < 0) ? this._VehicleInputHandler.vertical : 0;
-        if(this._rpm < this._idleRpm) {
-            this._throttle += 0.05f;
-        } else if(this._rpm > this._idleRpm) {
-            this._throttle = (this._VehicleInputHandler.vertical > 0) ? this._VehicleInputHandler.vertical : 0;
-        }
+        // if(this._rpm < this._idleRpm) {
+        //     this._throttle += 0.05f;
+        // } else if(this._rpm > this._idleRpm) {
+        // }
+        this._throttle = (this._rpm < this._idleRpm) ? this._throttle + 0.05f : (this._VehicleInputHandler.vertical > 0) ? this._VehicleInputHandler.vertical : 0;
 
         if(this._throttle > 1f) {
             this._throttle = 1f;
@@ -129,7 +129,7 @@ public class Engine : MonoBehaviour {
             targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 18) * Time.fixedDeltaTime);
         } else {
             // Расчет оборотов с учетом влияния колес на двигатель
-            float wheelRPMContribution = Mathf.Abs(VehicleManager.WheelsSettings.wheelsRPM) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);
+            float wheelRPMContribution = Mathf.Abs(VehicleManager.VehicleDynamics.wheelsRPM) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);
 
             // Подстройте коэффициент, чтобы усилить влияние колес на обороты двигателя
             float wheelInfluenceFactor = 1.6f;
@@ -138,7 +138,7 @@ public class Engine : MonoBehaviour {
         }
 
         // Сопротивление двигателя в случае, когда машина стоит или двигается накатом
-        float engineResistance = 150.0f; // Подстройте коэффициент сопротивления по вашим требованиям
+        float engineResistance = 250.0f; // Подстройте коэффициент сопротивления по вашим требованиям
         targetRPM -= engineResistance * Time.fixedDeltaTime;
 
         // Рассчитываем обороты двигателя
@@ -154,23 +154,6 @@ public class Engine : MonoBehaviour {
         this._kiloWatts = this._power / 1.3596f;
         this._newtonMeters = (this._kiloWatts * 9549) / this._rpm;
     }
-
-    /* private void RpmCalculating() {
-        this._additionRpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? 0 : ((this._rpm > this._rpmVariableLimiter) ? this._additionOnNeutral * -2 : this._additionOnNeutral);
-
-        this._rpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ?  
-            (Mathf.SmoothDamp(this._rpm, (Mathf.Lerp(this._rpm, this._idleRpm + Mathf.Abs(VehicleManager.WheelsSettings.wheelsRPM) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio), (this._engineSmoothTime * 100) * Time.fixedDeltaTime)), ref this._velocity, this._engineInertia))
-            :
-            (Mathf.SmoothDamp(this._rpm, (Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 18) * Time.fixedDeltaTime)), ref this._velocity, this._engineInertia));
-        this._rpm = Mathf.Clamp(rpm, 0, this._maxRpm);
-
-        this._power = _powerCurve.Evaluate(this._rpm);
-
-        this._torque = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? (this._power * (this._Transmission.currentGearRatio * this._Transmission.finalDrive) * this._throttle * this._VehicleInputHandler.clutch) : 0;
-
-        this._kiloWatts = this._power / 1.3596f;
-        this._newtonMeters = (this._kiloWatts * 9549) / this._rpm;
-    } */
 
     private void GetVehicleData() {
         // var vehicleData = Resources.Load<VehicleData>("VehiclesConfig" + "/" + VehicleManager.id);

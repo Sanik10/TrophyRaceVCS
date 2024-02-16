@@ -37,14 +37,14 @@ MonoBehaviour:
   _maxSpeed: 220
   _driveWheels: 2
   _torqueDevider: 4
-  _originalExtremumValue: 1
+  _tireIntegrity: 1
   _brakingPowerVar: 3000
   _brakingDistribution: 0.25
   _radius: 11
   _steeringWheelSpeed: 10
   _wheelBase: 2.867
   _rearTrack: 1.76
-  _mileage: 21458.72
+  _mileage: 23312.645
   _colorCustomization: 1
   _bodyMaterailId: 10
   _diskMaterailId: 0

@@ -4,7 +4,7 @@ using TrophyRace.Architecture;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Engine))]
 [RequireComponent(typeof(Transmission))]
-[RequireComponent(typeof(WheelsSettings))]
+[RequireComponent(typeof(VehicleDynamics))]
 [RequireComponent(typeof(TiresFriction))]
 [RequireComponent(typeof(PhysicsCalculation))]
 [RequireComponent(typeof(VehicleInputHandler))]
@@ -25,7 +25,7 @@ public class VehicleManager : MonoBehaviour {
     }
     public Engine Engine;
     public Transmission Transmission;
-    public WheelsSettings WheelsSettings;
+    public VehicleDynamics VehicleDynamics;
     public TiresFriction TiresFriction;
     public PhysicsCalculation PhysicsCalculation;
     public RealisticEngineSound[] RES;
@@ -42,7 +42,7 @@ public class VehicleManager : MonoBehaviour {
         this.VehicleInfo = GetComponent<VehicleInfo>();
         this.Engine = GetComponent<Engine>();
         this.Transmission = GetComponent<Transmission>();
-        this.WheelsSettings = GetComponent<WheelsSettings>();
+        this.VehicleDynamics = GetComponent<VehicleDynamics>();
         this.TiresFriction = GetComponent<TiresFriction>();
         this.RES = GetComponentsInChildren<RealisticEngineSound>();
         this.VehicleSFX = GetComponent<VehicleSFX>();
@@ -96,9 +96,9 @@ public class VehicleManager : MonoBehaviour {
     //     pos+=25f;
     //     GUI.Label(new Rect(20, pos, 200, 20),"Тормоз :");
     //     pos+=20f;
-    //     GUI.HorizontalSlider(new Rect(20, pos, 200, 20), Mathf.Abs(WheelsSettings.braking), 0F, 1.0F);
+    //     GUI.HorizontalSlider(new Rect(20, pos, 200, 20), Mathf.Abs(VehicleDynamics.braking), 0F, 1.0F);
     //     pos+=25f;
-    //     GUI.Label(new Rect(20, pos, 200, 20),"brakes: " + WheelsSettings.brakePower.ToString("0"));
+    //     GUI.Label(new Rect(20, pos, 200, 20),"brakes: " + VehicleDynamics.brakePower.ToString("0"));
     //     pos+=25f;
     // }
 }

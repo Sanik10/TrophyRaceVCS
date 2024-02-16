@@ -51,7 +51,7 @@ public class AiInput : MonoBehaviour {
     }
 
     private void Update() {
-        brakeDistance = (PC.Kph*PC.Kph - targetSpeed*targetSpeed) / (250*VM.WheelsSettings.originExtremumValue);
+        brakeDistance = (PC.Kph*PC.Kph - targetSpeed*targetSpeed) / (250*VM.TiresFriction.totalGroundFriction);
         relative = transform.InverseTransformPoint(currentWaypoint.transform.position);
         relative /= relative.magnitude;
 

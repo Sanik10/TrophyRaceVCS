@@ -4,7 +4,6 @@ using TrophyRace.Architecture;
 public class PhysicsCalculation : MonoBehaviour {
 
     private VehicleManager VehicleManager;
-    private WheelsSettings WS;
     private Rigidbody _rgdbody;
     public Rigidbody rgdbody => this._rgdbody;
     [SerializeField]
@@ -20,12 +19,10 @@ public class PhysicsCalculation : MonoBehaviour {
     public float DownForceValue = 25;
     public float angularDragVar = 25;
     public float mass;
-    public float dragAmount = 0.032f;
+    public float dragAmount = 0.016f;
     private float Mps;
 
     private float maxRpmForSpringEffect = 6000f;
-    private float springEffectStrength = 0.08f;
-    public float originalDrag = 0.032f;
 
     private void OnEnable() {
         GameManager.SetVehiclesInPreRaceModeEvent += PreRaceModeHandler;
@@ -53,7 +50,7 @@ public class PhysicsCalculation : MonoBehaviour {
     private void SpeedCalculation() {
         Mps = this._rgdbody.velocity.magnitude;
         Kph = Mps * 3.6f;
-        KphByWheels = (VehicleManager.WheelsSettings.circumFerence * VehicleManager.WheelsSettings.wheelsRPM) * 0.06f;
+        KphByWheels = (VehicleManager.VehicleDynamics.circumFerence * VehicleManager.VehicleDynamics.wheelsRPM) * 0.06f;
 
         speed = (speedByVelocity) ? 
         ((speedType == speedTypeEnum.Kph) ? Kph : (speedType == speedTypeEnum.Mph) ? Mps * 2.237f : (speedType == speedTypeEnum.Fps) ?  Mps * 3.281f : Mps) 
@@ -67,7 +64,7 @@ public class PhysicsCalculation : MonoBehaviour {
         this._rgdbody.AddForce(-transform.up * DownForceValue * Kph);
 
         // Учитываем оригинальное значение drag
-        float totalDrag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? 0.016f : 0;
+        float totalDrag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? dragAmount : 0;
 
         this._rgdbody.drag = totalDrag;
 
@@ -75,7 +72,7 @@ public class PhysicsCalculation : MonoBehaviour {
         float angularSpeed = this._rgdbody.angularVelocity.magnitude; // Угловая скорость
 
         this.turningRadius = linearSpeed / angularSpeed;
-        this.recommendedSpeed = Mathf.Sqrt((9.81f * turningRadius * VehicleManager.WheelsSettings.groundFriction)) * 3.6f;
+        this.recommendedSpeed = Mathf.Sqrt((9.81f * turningRadius * VehicleManager.TiresFriction.totalGroundFriction)) * 3.6f;
         this.centerOfMassAuto = this._rgdbody.centerOfMass;
     }
 

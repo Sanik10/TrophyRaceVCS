@@ -15,9 +15,13 @@ public class TiresFriction : MonoBehaviour {
     [SerializeField]
     private float[] _typeMultiplier;
     [SerializeField]
+    private float _totalGroundFriction;
+    [SerializeField]
     private WheelCollider[] _wheelsColliders;
     [SerializeField]
     private SurfaceType[] _surfaceType;
+    [SerializeField]
+    private float[] _wheelSlip;
 
     [Header("Передняя ось авто")]
     [SerializeField]
@@ -36,9 +40,11 @@ public class TiresFriction : MonoBehaviour {
     public float baseFriction => this._baseFriction;
     public float wearMultiplier => this._tireIntegrity;
     public float massMultiplier => this._massMultiplier;
+    public float totalGroundFriction => this._totalGroundFriction;
     public float[] typeMultiplier => this._typeMultiplier;
     public WheelCollider[] wheelsColliders => this._wheelsColliders;
     public SurfaceType[] surfaceType => this._surfaceType;
+    public float[] wheelSlip => this._wheelSlip;
 
     private void Start() {
         this.VehicleManager = GetComponent<VehicleManager>();
@@ -107,19 +113,26 @@ public class TiresFriction : MonoBehaviour {
     }
 
     private void ApplyFriction() {
+        WheelHit hit;
+        float frictionSum = 0f;
         for(int i = 0; i < _wheelsColliders.Length; i++) {
             WheelCollider wheelCollider = _wheelsColliders[i];
 
             WheelFrictionCurve forwardFriction = wheelCollider.forwardFriction;
             WheelFrictionCurve sidewaysFriction = wheelCollider.sidewaysFriction;
 
-            forwardFriction.stiffness = _typeMultiplier[i];
-            sidewaysFriction.stiffness = _typeMultiplier[i];
+            forwardFriction.stiffness = this._typeMultiplier[i] * (0.25f * Mathf.Sqrt(this._tireIntegrity) + 0.75f);
+            sidewaysFriction.stiffness = this._typeMultiplier[i] * (0.25f * Mathf.Sqrt(this._tireIntegrity) + 0.75f);
             sidewaysFriction.extremumValue = ((i > 1) && this.VehicleManager.VehicleInputHandler.handbrake && (this.VehicleManager.VehicleInputHandler.horizontal > 0.5f || this.VehicleManager.VehicleInputHandler.horizontal < -0.5f)) ? 0.2f : this._originExtremumValue[i];
 
             wheelCollider.forwardFriction = forwardFriction;
             wheelCollider.sidewaysFriction = sidewaysFriction;
+            if(this._wheelsColliders[i].GetGroundHit(out hit)) {
+                this._wheelSlip[i] = Mathf.Abs(hit.forwardSlip) + Mathf.Abs(hit.sidewaysSlip);
+            }
+            frictionSum += this._typeMultiplier[i];
         }
+        this._totalGroundFriction = frictionSum / this._wheelsColliders.Length;
     }
 
     private void InitializeFrictionFactors() {
@@ -129,7 +142,6 @@ public class TiresFriction : MonoBehaviour {
         this._baseFriction = (this._vehicleType == VehicleType.TrophyTruck) ? 0.775f : (this._vehicleType == VehicleType.Truck) ? 0.8f : (this._vehicleType == VehicleType.Prerunner) ? 0.85f : (this._vehicleType == VehicleType.Buggy) ? 0.9f : 0.85f;
         
         // Учет массы для настройки сцепления
-        float massFactor = Mathf.Clamp(vehicleData.mass / 1000f, 0.5f, 1.5f);
         this._massMultiplier = 1 - vehicleData.normalizedMass;
         this._tireIntegrity = vehicleData.tireIntegrity;
         
@@ -141,6 +153,7 @@ public class TiresFriction : MonoBehaviour {
             this._typeMultiplier = new float[wheelCount];
             this._surfaceType = new SurfaceType[wheelCount];
             this._originExtremumValue = new float[wheelCount];
+            this._wheelSlip = new float[wheelCount];
             
             for(int q = 0; q < wheelCount; q++) {
                 this._wheelsColliders[q] = carCollidersTransform.GetChild(q).GetComponent<WheelCollider>();
