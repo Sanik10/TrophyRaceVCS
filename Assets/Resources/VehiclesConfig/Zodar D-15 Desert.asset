@@ -18,7 +18,7 @@ MonoBehaviour:
   _id: 5
   _price: 0
   _isOwned: 1
-  _maxPower: 700
+  _maxPower: 800
   _idleRpm: 700
   _medRpm: 5000
   _maxRpm: 7000
@@ -44,7 +44,7 @@ MonoBehaviour:
   _steeringWheelSpeed: 10
   _wheelBase: 3.75
   _rearTrack: 2.46
-  _mileage: 122958.5
+  _mileage: 159451.16
   _colorCustomization: 1
   _bodyMaterailId: 11
   _diskMaterailId: 0

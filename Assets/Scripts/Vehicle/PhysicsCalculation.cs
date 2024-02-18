@@ -50,7 +50,7 @@ public class PhysicsCalculation : MonoBehaviour {
     private void SpeedCalculation() {
         Mps = this._rgdbody.velocity.magnitude;
         Kph = Mps * 3.6f;
-        KphByWheels = (VehicleManager.VehicleDynamics.circumFerence * VehicleManager.VehicleDynamics.wheelsRPM) * 0.06f;
+        KphByWheels = (VehicleManager.VehicleDynamics.circumFerence * VehicleManager.VehicleDynamics.driveWheelsRpm) * 0.06f;
 
         speed = (speedByVelocity) ? 
         ((speedType == speedTypeEnum.Kph) ? Kph : (speedType == speedTypeEnum.Mph) ? Mps * 2.237f : (speedType == speedTypeEnum.Fps) ?  Mps * 3.281f : Mps) 

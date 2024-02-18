@@ -129,7 +129,7 @@ public class Engine : MonoBehaviour {
             targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 18) * Time.fixedDeltaTime);
         } else {
             // Расчет оборотов с учетом влияния колес на двигатель
-            float wheelRPMContribution = Mathf.Abs(VehicleManager.VehicleDynamics.wheelsRPM) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);
+            float wheelRPMContribution = Mathf.Abs(VehicleManager.VehicleDynamics.driveWheelsRpm) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);
 
             // Подстройте коэффициент, чтобы усилить влияние колес на обороты двигателя
             float wheelInfluenceFactor = 1.6f;
