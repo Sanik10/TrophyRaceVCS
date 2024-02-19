@@ -61,16 +61,10 @@ public class TiresFriction : MonoBehaviour {
         for (int i = 0; i < _wheelsColliders.Length; i++) {
             WheelCollider wheelCollider = _wheelsColliders[i];
 
-            // Создаем луч, направленный вниз от колеса
-            Ray ray = new Ray(wheelCollider.transform.position, -wheelCollider.transform.up);
-            RaycastHit hit;
+            WheelHit hit;
 
-            // Проверяем столкновение луча с поверхностью
-            if (Physics.Raycast(ray, out hit, 1.0f)) {
-                Collider collider = hit.collider;
-
-                // Получаем физический материал коллайдера
-                PhysicMaterial currentMaterial = collider.sharedMaterial;
+            if(wheelCollider.GetGroundHit(out hit)) {
+                PhysicMaterial currentMaterial = hit.collider.sharedMaterial;
 
                 // Присваиваем typeMultiplier в зависимости от типа поверхности
                 if (currentMaterial != null) {

@@ -15,6 +15,8 @@ public class VehicleDynamics : MonoBehaviour {
     [Header("Конфигурация осей авто")]
     [SerializeField]
     private List<AxleSettings> _axles = new List<AxleSettings>();
+    private int _frontSteeringAxles = 0;
+    private int _rearSteeringAxles = 0;
 
 
 
@@ -31,15 +33,15 @@ public class VehicleDynamics : MonoBehaviour {
 
     private float _allMileage;
     private float _maxSpeed = 0;
+    [SerializeField]
     private float _wheelBase = 0;
+    [SerializeField]
     private float _rearTrack = 0;
     private float steeringWheelSpeed = 0;
     [SerializeField]
     private float[] currentWheelSpeed;
     private driveType driveWheels;
     private int _torqueDevider;
-    private int _frontSteeringAxles;
-    private int _rearSteeringAxles;
 
     [Header("Управление")]
     public float horizontal = 0;
@@ -47,6 +49,7 @@ public class VehicleDynamics : MonoBehaviour {
     public float currentMileage;
     private float _brakingDistribution = 0;
     private float _brakingVariablePower = 0;
+    [SerializeField]
     private float _radius = 0;
     private float _brakingPower = 0;
 
@@ -61,6 +64,7 @@ public class VehicleDynamics : MonoBehaviour {
     private float[] brakingPowerStats;
     private int _driveWheelsQuantity = 0;
 
+    public List<AxleSettings> axles => this._axles;
     public float allMileage => this._allMileage;
     public float circumFerence => this._circumFerence;
     public float driveWheelsRpm => this._driveWheelsRpm;
@@ -88,24 +92,6 @@ public class VehicleDynamics : MonoBehaviour {
         }
 
         float radiusSum = 0;
-        /* Старый принцип расчета радиуса ведущих колес
-            if(driveWheels == driveType.rearWheelsDrive) {
-                for(int i = 2; i < 4; i++) {
-                    radiusSum += wheelColliders[i].radius;
-                    this._wheelsQuantity = 2;
-                }
-            } else if(driveWheels == driveType.frontWeelsDrive) {
-                for(int i = 0; i < 2; i++) {
-                    radiusSum += wheelColliders[i].radius;
-                    this._wheelsQuantity = 2;
-                }
-            } else {
-                for(int i = 0; i < 4; i++) {
-                    radiusSum += wheelColliders[i].radius;
-                    this._wheelsQuantity = 4;
-                }
-            }
-        */
         for(int i = 0; i < this._axles.Count; i++) {
             if(this._axles[i].powered) {
                 for(int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
@@ -113,7 +99,22 @@ public class VehicleDynamics : MonoBehaviour {
                     this._driveWheelsQuantity += 1;
                 }
             }
+
+            if(this._axles[i].steering) {
+                if(this.axles[i].front) {
+                    this._frontSteeringAxles++;
+                } else {
+                    this._rearSteeringAxles++;
+                }
+            }
         }
+        int lastAxlePositionInList = this._axles.Count-1;
+        int lastWheelColliderInLastAxle = this._axles[lastAxlePositionInList].wheelsColliders.Length - 1;
+
+        this._wheelBase = Mathf.Abs(this._axles[0].wheelsColliders[0].transform.localPosition.z) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[lastWheelColliderInLastAxle].transform.localPosition.z);
+        // this._rearTrack = (Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[0].transform.localPosition.x) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[lastWheelColliderInLastAxle].transform.localPosition.x)) / 2;
+        this._rearTrack = (Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[0].transform.localPosition.x) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[lastWheelColliderInLastAxle].transform.localPosition.x)) * 0.32520325203252f;
+
         this._wheelRadius = (this._driveWheelsQuantity != 0) ? radiusSum / this._driveWheelsQuantity : 0;
         this._circumFerence = this._wheelRadius * 6.283185307179f;
 
@@ -149,21 +150,6 @@ public class VehicleDynamics : MonoBehaviour {
 
     private void DriveWheelsRpm() {
         float rpmSum = 0;
-        /* Старый принцип расчета оборота ведущих колес
-            if(driveWheels == driveType.rearWheelsDrive) {
-                for(int i = 2; i < 4; i++) {
-                    rpmSum += wheelColliders[i].rpm;
-                }
-            } else if(driveWheels == driveType.frontWeelsDrive) {
-                for(int i = 0; i < 2; i++) {
-                    rpmSum += wheelColliders[i].rpm;
-                }
-            } else {
-                for(int i = 0; i < 4; i++) {
-                    rpmSum += wheelColliders[i].rpm;
-                }
-            }
-        */
 
         for(int i = 0; i < this._axles.Count; i++) {
             for(int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
@@ -176,17 +162,6 @@ public class VehicleDynamics : MonoBehaviour {
     }
 
     private void TorqueDestribution() {
-        /* Старый принцип распределения мощности по колесам
-            for(int i = 0; i < wheelColliders.Length; i++) {
-                if(
-                (driveWheels == driveType.rearWheelsDrive && i >= 2) ||
-                (driveWheels == driveType.frontWeelsDrive && i < wheelColliders.Length - 2) ||
-                (driveWheels == driveType.allWheelsDrive)) {
-                    wheelColliders[i].motorTorque = (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.Kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear) ? 0 : Engine.torque * this._wheelsResistance / _torqueDevider;
-                }
-            }
-        */
-
         for (int i = 0; i < this._axles.Count; i++) {
             for (int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
                 this._axles[i].wheelsColliders[q].motorTorque = 
@@ -223,6 +198,8 @@ public class VehicleDynamics : MonoBehaviour {
     }
 
     private void VehicleSteering() {
+        int currentFrontSteeringAxle = 1;
+        int currentRearSteeringAxle = 1;
         horizontal = Mathf.Lerp(this.horizontal, this._VehicleInputHandler.horizontal, steeringWheelSpeed/100);
 
         for(int i = 0; i < this._axles.Count; i++) {
@@ -230,32 +207,65 @@ public class VehicleDynamics : MonoBehaviour {
                 for (int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
                     this._axles[i].wheelsColliders[q].steerAngle = 
                         (horizontal > 0) 
-                            ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius + (q % 2 == 0 ? (this._rearTrack / 2) : -this._rearTrack / 2))) * (this._axles[i].front ? horizontal : -horizontal)
+                            ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius + (q % 2 == 0 
+                                ? (this._rearTrack) 
+                                : -this._rearTrack))) * (this._axles[i].front 
+                                    ? horizontal 
+                                    : -horizontal) * (this._axles[i].front 
+                                        ? ((float)currentFrontSteeringAxle / this._frontSteeringAxles) 
+                                        : ((float)currentRearSteeringAxle / this._rearSteeringAxles))
                             : (horizontal < 0)
-                                ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius - (q % 2 == 0 ? (this._rearTrack / 2) : -this._rearTrack / 2))) * (this._axles[i].front ? horizontal : -horizontal)
+                                ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius - (q % 2 == 0 
+                                    ? (this._rearTrack) 
+                                    : -this._rearTrack))) * (this._axles[i].front 
+                                        ? horizontal 
+                                        : -horizontal) * (this._axles[i].front 
+                                            ? ((float)currentFrontSteeringAxle / this._frontSteeringAxles) 
+                                            : ((float)currentRearSteeringAxle / this._rearSteeringAxles))
                                 : 0;
+                }
+
+                if(this._axles[i].front) {
+                    currentFrontSteeringAxle++;
+                } else {
+                    currentRearSteeringAxle++;
                 }
             }
         }
 
-        // for(int i = 0; i < this._axles.Count; i++) {
-        //     if(this._axles[i].steering) {
-        //         for (int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
-        //             float steerAngleVar = 
-        //                 (horizontal > 0) 
-        //                     ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius + (q % 2 == 0 ? (this._rearTrack / 2) : -this._rearTrack / 2))) * horizontal
-        //                     : (horizontal < 0)
-        //                         ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius - (q % 2 == 0 ? (this._rearTrack / 2) : -this._rearTrack / 2))) * horizontal
-        //                         : 0;
+        /*
+            for(int i = 0; i < this._axles.Count; i++) {
+                if(this._axles[i].steering) {
+                    for (int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
+                        this._axles[i].wheelsColliders[q].steerAngle = 
+                            (horizontal > 0) 
+                                ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius + (q % 2 == 0 
+                                    ? (this._rearTrack / 2) 
+                                    : -this._rearTrack / 2))) * (this._axles[i].front 
+                                        ? horizontal 
+                                        : -horizontal) * (this._axles[i].front 
+                                            ? ((float)currentFrontSteeringAxle / this._frontSteeringAxles) 
+                                            : ((float)currentRearSteeringAxle / this._rearSteeringAxles))
+                                : (horizontal < 0)
+                                    ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius - (q % 2 == 0 
+                                        ? (this._rearTrack / 2) 
+                                        : -this._rearTrack / 2))) * (this._axles[i].front 
+                                            ? horizontal 
+                                            : -horizontal) * (this._axles[i].front 
+                                                ? ((float)currentFrontSteeringAxle / this._frontSteeringAxles) 
+                                                : ((float)currentRearSteeringAxle / this._rearSteeringAxles))
+                                    : 0;
+                        // Debug.Log(this._axles[i].wheelsColliders[q].steerAngle);
+                    }
 
-        //             this._axles[i].wheelsColliders[q].steerAngle = (this._axles[i].front) ? steerAngleVar : -steerAngleVar;
-        //         }
-        //     }
-        // }
-
-
-        // wheelColliders[0].steerAngle = (horizontal > 0) ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius + (this._rearTrack / 2))) * horizontal : (horizontal < 0) ? Mathf.Rad2Deg * Mathf.Atan(_wheelBase / (this._radius - (_rearTrack / 2))) * horizontal : 0;
-        // wheelColliders[1].steerAngle = (horizontal > 0) ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius - (this._rearTrack / 2))) * horizontal : (horizontal < 0) ? Mathf.Rad2Deg * Mathf.Atan(_wheelBase / (this._radius + (_rearTrack / 2))) * horizontal : 0;
+                    if(this._axles[i].front) {
+                        currentFrontSteeringAxle++;
+                    } else {
+                        currentRearSteeringAxle++;
+                    }
+                }
+            }
+        */
     }
 
     private void GettingScriptableValues() {

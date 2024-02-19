@@ -11060,7 +11060,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7043409930668358245}
-  m_LocalRotation: {x: 0.0067373556, y: -0.0000000010753743, z: 7.2453445e-12, w: 0.9999773}
+  m_LocalRotation: {x: 0.0067373556, y: 0.0000000010753743, z: -7.2453445e-12, w: 0.9999773}
   m_LocalPosition: {x: 0, y: 0.9, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11692,7 +11692,7 @@ MonoBehaviour:
   chaseVehicle: 0
   Engine: {fileID: 1104247410574953526}
   Transmission: {fileID: 1086515052747168812}
-  WheelsSettings: {fileID: 2276069904058358968}
+  VehicleDynamics: {fileID: 0}
   TiresFriction: {fileID: 8376436490741013167}
   PhysicsCalculation: {fileID: 142425343819323890}
   RES: []
@@ -11752,22 +11752,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18aa67bce876049e286ed4a2bb07b9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelsResistans: 1
-  wheelsRPM: 0
-  wheelRadius: 0
-  circumFerence: 0
+  _axles:
+  - front: 1
+    wheelsColliders:
+    - {fileID: 6989744710162321639}
+    - {fileID: 7908829812271730703}
+    powered: 0
+    steering: 1
+  - front: 0
+    wheelsColliders:
+    - {fileID: 7926292287339914428}
+    - {fileID: 7586771725118012863}
+    powered: 1
+    steering: 0
+  _wheelsResistance: 1
   maxSpeedOnCurrentGear: 0
-  originExtremumValue: 0
-  isBraking: 0
   wheelColliders: []
-  _groundFriction: 0
+  _wheelBase: 0
+  _rearTrack: 0
   currentWheelSpeed: []
   horizontal: 0
   totalSlip: 0
   currentMileage: 0
+  _radius: 0
   track: 0
   maxRpmOnWheel: []
-  wheelSlip: []
   wheelPowerStats: []
   wheelRpmStats: []
   brakingPowerStats: []
@@ -11796,7 +11805,6 @@ MonoBehaviour:
   angularDragVar: 25
   mass: 0
   dragAmount: 0.032
-  originalDrag: 0.032
 --- !u!114 &566587468027281880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11978,8 +11986,10 @@ MonoBehaviour:
   _tireIntegrity: 0
   _massMultiplier: 0
   _typeMultiplier: []
+  _totalGroundFriction: 0
   _wheelsColliders: []
   _surfaceType: 
+  _wheelSlip: []
   frontForwardFriction:
     extremumSlip:
     - 0.3
@@ -11995,11 +12005,11 @@ MonoBehaviour:
     - 1
   frontSidewaysFriction:
     extremumSlip:
-    - 0.4
-    - 0.6
+    - 0.3
+    - 0.5
     extremumValue:
+    - 2
     - 1.5
-    - 1
     asymptoteSlip:
     - 0.7
     - 0.9
@@ -12011,8 +12021,8 @@ MonoBehaviour:
     - 0.2
     - 0.4
     extremumValue:
+    - 3.5
     - 2.5
-    - 1.5
     asymptoteSlip:
     - 0.3
     - 0.6
@@ -12024,8 +12034,8 @@ MonoBehaviour:
     - 0.6
     - 0.8
     extremumValue:
+    - 2
     - 1.5
-    - 1
     asymptoteSlip:
     - 0.8
     - 1
@@ -13568,7 +13578,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8270344029533238913}
-  m_LocalRotation: {x: -0.0000000014406766, y: 0.9988309, z: 0.04834108, w: 0.000000029767483}
+  m_LocalRotation: {x: -2.57613e-16, y: 0.9988309, z: 0.048341077, w: 1.7701267e-15}
   m_LocalPosition: {x: 0, y: 0.49, z: 3.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -1062,7 +1062,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033164980150695682}
-  m_LocalRotation: {x: -7.5021156e-11, y: 0.99999064, z: -0.004326409, w: -0.000000017340119}
+  m_LocalRotation: {x: 7.5021156e-11, y: 0.99999064, z: -0.004326409, w: 0.000000017340119}
   m_LocalPosition: {x: 0, y: 0.7599999, z: 4.6800017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3626,14 +3626,17 @@ MonoBehaviour:
     - {fileID: 5167488574999666516}
     - {fileID: 6911542666358023766}
     powered: 1
-    steering: 1
+    steering: 0
   _wheelsResistance: 1
   maxSpeedOnCurrentGear: 0
   wheelColliders: []
+  _wheelBase: 0
+  _rearTrack: 0
   currentWheelSpeed: []
   horizontal: 0
   totalSlip: 0
   currentMileage: 0
+  _radius: 0
   track: 0
   maxRpmOnWheel: []
   wheelPowerStats: []
@@ -7502,7 +7505,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610927483742897369}
-  m_LocalRotation: {x: 0.0021899203, y: 8.065474e-10, z: -1.7662785e-12, w: 0.9999976}
+  m_LocalRotation: {x: 0.0021899203, y: -8.0654694e-10, z: 1.7662776e-12, w: 0.9999976}
   m_LocalPosition: {x: 0, y: 0.6100001, z: -3.559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

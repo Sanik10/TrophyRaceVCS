@@ -73,9 +73,9 @@ public class VehicleVFX : MonoBehaviour {
         
 
         if(hasEffects) {
-            GroundCheck();
-            driftVFX();
-            offroadVFX();
+            // GroundCheck();
+            // driftVFX();
+            /// offroadVFX();
         }
     }
 

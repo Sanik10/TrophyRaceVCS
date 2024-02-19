@@ -6942,16 +6942,16 @@ MonoBehaviour:
     - {fileID: 2874136226940725315}
     powered: 1
     steering: 0
-  wheelsResistans: 1
-  wheelsRPM: 0
-  _wheelRadius: 0
+  _wheelsResistance: 1
   maxSpeedOnCurrentGear: 0
-  isBraking: 1
   wheelColliders: []
+  _wheelBase: 0
+  _rearTrack: 0
   currentWheelSpeed: []
   horizontal: 0
   totalSlip: 0
   currentMileage: 0
+  _radius: 0
   track: 0
   maxRpmOnWheel: []
   wheelPowerStats: []
@@ -7174,11 +7174,11 @@ MonoBehaviour:
     - 1
   frontSidewaysFriction:
     extremumSlip:
-    - 0.4
-    - 0.6
+    - 0.3
+    - 0.5
     extremumValue:
+    - 2
     - 1.5
-    - 1
     asymptoteSlip:
     - 0.7
     - 0.9
@@ -7190,8 +7190,8 @@ MonoBehaviour:
     - 0.2
     - 0.4
     extremumValue:
+    - 3.5
     - 2.5
-    - 1.5
     asymptoteSlip:
     - 0.3
     - 0.6
@@ -7203,8 +7203,8 @@ MonoBehaviour:
     - 0.6
     - 0.8
     extremumValue:
+    - 2
     - 1.5
-    - 1
     asymptoteSlip:
     - 0.8
     - 1
