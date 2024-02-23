@@ -39,7 +39,7 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 0
       Value: 0
-  cloudIntensityAdjustment: -0.49
+  cloudIntensityAdjustment: -0.32
   intensityOverride: 0
   intensity: 0
   lightColor: {r: 0.055980776, g: 0.10104867, b: 0.3207547, a: 0}
@@ -55,12 +55,12 @@ MonoBehaviour:
     pivot: 0.3
     luminanceFix: 0
   atmosphere:
-    atmosphere: 0.377
+    atmosphere: 0.063
     atmosphereColoring: 1
     atmosphereColor: {r: 0, g: 0.037291978, b: 0.4528302, a: 0}
     atmosphereHighLightColoring: 0.665
     atmosphereHighLightColor: {r: 0, g: 0.11138926, b: 0.6132076, a: 0}
-    cloudOcclusion: 0.675
+    cloudOcclusion: 0.552
     cloudAtmospheric: 1
     godRay: 0
     godRayStartDistance: 1000
@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 0.096
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

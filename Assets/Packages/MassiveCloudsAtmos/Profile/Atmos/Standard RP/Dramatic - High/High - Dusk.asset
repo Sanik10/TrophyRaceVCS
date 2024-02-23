@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: High - Dusk
   m_EditorClassIdentifier: 
   displayName: Dusk
-  labelColor: {r: 1, g: 0.8412013, b: 0.2028302, a: 1}
+  labelColor: {r: 1, g: 0.80304027, b: 0.0141509175, a: 1}
   position: {x: 0.72929376, y: 0.72606385}
   mainCloud:
     profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
@@ -41,8 +41,8 @@ MonoBehaviour:
       Value: 0
   cloudIntensityAdjustment: -0.431
   intensityOverride: 1
-  intensity: 1.39
-  lightColor: {r: 0.7169812, g: 0.3402129, b: 0.24688502, a: 0}
+  intensity: 1.79
+  lightColor: {r: 0.6698113, g: 0.24443258, b: 0.13585795, a: 0}
   moonIntensity: 1
   moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   temperature: 4606
@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 0
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

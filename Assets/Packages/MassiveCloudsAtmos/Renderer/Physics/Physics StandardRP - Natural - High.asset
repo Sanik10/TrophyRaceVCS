@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Physics StandardRP - Natural - High
   m_EditorClassIdentifier: 
   sunIntensityScale: 1
-  cloudIntensityAdjustment: 0.84500164
+  cloudIntensityAdjustment: 1
   sun:
     mode: 0
-    rotation: {x: 59.967934, y: 107.483734, z: 41.534477}
-    intensity: 0.9022798
-    color: {r: 0.05217972, g: 0.07093931, b: 0.21142532, a: 0.8277796}
+    rotation: {x: 20.10333, y: 5.0187197, z: 279.11337}
+    intensity: 2
+    color: {r: 0.8820755, g: 0.98018754, b: 1, a: 0}
   moon:
     mode: 0
     rotation: {x: 36.77956, y: 289.4404, z: 210.5188}
@@ -26,21 +26,21 @@ MonoBehaviour:
     color: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   ambient:
     mode: 0
-    skyColor: {r: 0.18399604, g: 0.18457481, b: 0.31190464, a: 1}
-    equatorColor: {r: 0.17504488, g: 0.20085213, b: 0.40253395, a: 1}
-    groundColor: {r: 0.017386613, g: 0.017386613, b: 0.062473934, a: 1}
+    skyColor: {r: 1.73966, g: 1.93316, b: 1.9722348, a: 0}
+    equatorColor: {r: 0.35774294, g: 0.598446, b: 1.0519876, a: 3.8897102}
+    groundColor: {r: 0.089435734, g: 0.1496115, b: 0.2629969, a: 0.97242755}
     pivot: 0.45
-    luminanceFix: 0
+    luminanceFix: 0.9798314
   skyPass:
     Enabled: 1
     SkyParameter:
-      SkyExposure: 1.8277795
-      GroundColor: {r: 0.19523105, g: 0.1550602, b: 0.085643806, a: 0}
+      SkyExposure: 1
+      GroundColor: {r: 0.45322785, g: 0.38851085, b: 0.2708564, a: 0}
       GroundScattering: 0
       SunSize: 0.494
-      SunSizeConvergence: 4.321009
+      SunSizeConvergence: 5.36
       Saturation: 0
-      AtmosphereThickness: 0.90011215
+      AtmosphereThickness: 1.0001265
       Gradation: 0
       Hdri:
         texture: {fileID: 0}
@@ -49,16 +49,16 @@ MonoBehaviour:
   physicsCloudPass:
     profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
     transition: 1
-    densityAdjustment: 0.14549983
+    densityAdjustment: -0.99578494
     scattering:
       IsOverride: 1
-      Value: 0.6070782
+      Value: 0.584
     shading:
       IsOverride: 1
-      Value: 0.22620554
+      Value: 0.298
     shadingDistance:
       IsOverride: 1
-      Value: 0.4349063
+      Value: 0.601
     resolution: 0.5
     Animation:
       ScrollVelocity: {x: 500, y: 0, z: 500}
@@ -82,28 +82,28 @@ MonoBehaviour:
       Phase: 0
   atmospherePass:
     atmosphere:
-      atmosphere: 0.6150172
-      atmosphereColoring: 0.35019302
-      atmosphereColor: {r: 0, g: 0.34402665, b: 1.8958555, a: 0}
-      atmosphereHighLightColoring: 0.94230616
-      atmosphereHighLightColor: {r: 0.8277796, g: 0.7482724, b: 0.5546382, a: 0}
-      cloudOcclusion: 0.77301717
-      cloudAtmospheric: 0.17222041
+      atmosphere: 0.22105058
+      atmosphereColoring: 0.42
+      atmosphereColor: {r: 0, g: 0.23570377, b: 0.5471698, a: 0}
+      atmosphereHighLightColoring: 0
+      atmosphereHighLightColor: {r: 0.6132076, g: 0.3169511, b: 0, a: 0}
+      cloudOcclusion: 0.162
+      cloudAtmospheric: 0
       godRay: 1
-      godRayStartDistance: 254.99837
-      shadow: 0.29800066
-      sunShaft: 0.092711315
+      godRayStartDistance: 100
+      shadow: 0.655
+      sunShaft: 0.038177032
     screenBlending: 0.5
     shaftQuality: 1
     godRayQuality: 1
     resolution: 0.15
     fog:
-      groundHeight: -517.36224
-      range: 1122.5503
-      density: 0.18722798
-      coloring: 0.2792171
-      color: {r: 0.10590002, g: 0.14195988, b: 0.28663558, a: 0}
-      scattering: 0.09022798
+      groundHeight: -125
+      range: 570
+      density: 0.122067444
+      coloring: 1
+      color: {r: 0, g: 0.20043659, b: 0.5, a: 0}
+      scattering: 0.206
   bufferFormat: 0
   progressive: 1
   adaptiveSampling: 0.101
@@ -111,14 +111,8 @@ MonoBehaviour:
   forcingFullQuality: 0
   unityQualities:
   - Level: 0
-    Scale: 0.15
+    Scale: 0.25
   - Level: 1
-    Scale: 0.3
-  - Level: 2
     Scale: 0.5
-  - Level: 3
-    Scale: 0.65
-  - Level: 4
-    Scale: 0.85
-  - Level: 5
-    Scale: 1
+  - Level: 2
+    Scale: 0.75

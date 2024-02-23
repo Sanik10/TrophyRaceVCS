@@ -43,7 +43,7 @@ MonoBehaviour:
   intensityOverride: 1
   intensity: 0.16
   lightColor: {r: 0.048549946, g: 0.04579032, b: 0.1981132, a: 0}
-  moonIntensity: 0
+  moonIntensity: 1
   moonLightColor: {r: 0.17328231, g: 0.2919881, b: 0.6226415, a: 0}
   temperature: 1000
   ambientOverride: 0
@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 0
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

@@ -42,16 +42,16 @@ MonoBehaviour:
   cloudIntensityAdjustment: 1
   intensityOverride: 0
   intensity: 2
-  lightColor: {r: 0.8820755, g: 0.98018754, b: 1, a: 0}
-  moonIntensity: 1
+  lightColor: {r: 1, g: 0.968962, b: 0.7688679, a: 0}
+  moonIntensity: 0
   moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
-  temperature: 2768
-  ambientOverride: 0
+  temperature: 5939
+  ambientOverride: 1
   ambient:
     mode: 0
     skyColor: {r: 0.6509434, g: 0.46707773, b: 0.2732734, a: 1}
     equatorColor: {r: 0.110270575, g: 0.120045185, b: 0.13207549, a: 1}
-    groundColor: {r: 0.017933426, g: 0.054178517, b: 0.122641504, a: 1}
+    groundColor: {r: 0.019607838, g: 0.053737722, b: 0.12156863, a: 1}
     pivot: 0.3
     luminanceFix: 0.94
   atmosphere:
@@ -82,3 +82,7 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 1.03
     Gradation: 0
+    Hdri:
+      texture: {fileID: 0}
+      exposure: 0
+      mix: 0

@@ -42,10 +42,6 @@ MonoBehaviour:
       Saturation: 0
       AtmosphereThickness: 1
       Gradation: 0
-      Hdri:
-        texture: {fileID: 0}
-        exposure: 0
-        mix: 0
   physicsCloudPass:
     profile: {fileID: 11400000, guid: 0a75bc554252c874d8da78b37754966f, type: 2}
     transition: 1
@@ -111,14 +107,8 @@ MonoBehaviour:
   forcingFullQuality: 0
   unityQualities:
   - Level: 0
-    Scale: 0.15
+    Scale: 0.25
   - Level: 1
-    Scale: 0.3
-  - Level: 2
     Scale: 0.5
-  - Level: 3
-    Scale: 0.65
-  - Level: 4
-    Scale: 0.85
-  - Level: 5
-    Scale: 1
+  - Level: 2
+    Scale: 0.75

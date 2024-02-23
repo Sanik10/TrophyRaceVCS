@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Cloudy Night
   labelColor: {r: 0, g: 0, b: 0, a: 1}
-  position: {x: 0.82939154, y: 0.39095744}
+  position: {x: 0.82214516, y: 0.39095744}
   mainCloud:
     profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
     densityAdjustment: 0.22
@@ -82,3 +82,7 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 0.42
     Gradation: 0
+    Hdri:
+      texture: {fileID: 8900000, guid: 756c460382af7904dab167c7503a2d34, type: 3}
+      exposure: 1
+      mix: 0

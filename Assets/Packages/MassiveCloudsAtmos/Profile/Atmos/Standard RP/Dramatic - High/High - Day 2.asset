@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Day
   labelColor: {r: 0.8349056, g: 0.88579094, b: 1, a: 1}
-  position: {x: 0.64599764, y: 0.714}
+  position: {x: 0.6397865, y: 0.72606385}
   mainCloud:
     profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
     densityAdjustment: 0
@@ -41,9 +41,9 @@ MonoBehaviour:
       Value: 0
   cloudIntensityAdjustment: 1
   intensityOverride: 0
-  intensity: 0.8
+  intensity: 2
   lightColor: {r: 0.8820755, g: 0.98018754, b: 1, a: 0}
-  moonIntensity: 0
+  moonIntensity: 1
   moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   temperature: 6300
   ambientOverride: 1
@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 1.03
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

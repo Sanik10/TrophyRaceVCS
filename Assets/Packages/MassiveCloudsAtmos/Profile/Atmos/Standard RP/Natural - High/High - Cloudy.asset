@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 1
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

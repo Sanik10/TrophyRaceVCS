@@ -41,7 +41,7 @@ MonoBehaviour:
       Value: 0
   cloudIntensityAdjustment: 0.43
   intensityOverride: 0
-  intensity: 1
+  intensity: 2
   lightColor: {r: 0.8820755, g: 0.98018754, b: 1, a: 0}
   moonIntensity: 1
   moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 0.9
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

@@ -125,57 +125,6 @@ public static class SaveLoadManager {
         return decryptedData;
     }
 
-/*
-private static string GetDefaultDataFromSO() {
-    // Получите данные из вашего ScriptableObject
-    // Например:
-    // return YourScriptableObject.DefaultData; 
-
-    // Возвращаем пустую строку, если данные в SO отсутствуют
-    return string.Empty;
-}
-
-private static string ReadEncryptedDataFromXml<T>(string dataNodeName, string encryptedId, string nodeToRead) where T : ISaveable {
-    string filePath = Application.dataPath + $"/SavedData/{typeof(T).Name}.xml";
-
-    XmlDocument xmlDoc = new XmlDocument();
-    if (File.Exists(filePath)) {
-        xmlDoc.Load(filePath);
-    } else {
-        XmlElement rootElement = xmlDoc.CreateElement(typeof(T).Name);
-        xmlDoc.AppendChild(rootElement);
-    }
-
-    XmlNode dataNode = xmlDoc.SelectSingleNode($"//{dataNodeName}[@id='{encryptedId}']");
-    if (dataNode != null) {
-        XmlNode encryptedDataNode = dataNode.SelectSingleNode($"./{nodeToRead}");
-        if (encryptedDataNode != null) {
-            return encryptedDataNode.InnerText;
-        } else {
-            // Node with data is missing, create an empty node
-            UpdateOrCreateNode(xmlDoc, dataNode, nodeToRead, GetDefaultDataFromSO());
-            xmlDoc.Save(filePath);
-
-            Debug.LogWarning($"Узел '{nodeToRead}' для этого элемента отсутствует. Аварийное создание узла.");
-            return string.Empty;
-        }
-    } else {
-        // Data node is missing, create a new node with default data
-        XmlElement root = xmlDoc.DocumentElement;
-        XmlElement dataElement = xmlDoc.CreateElement(dataNodeName);
-        dataElement.SetAttribute("id", encryptedId);
-        root.AppendChild(dataElement);
-
-        UpdateOrCreateNode(xmlDoc, dataElement, nodeToRead, GetDefaultDataFromSO());
-        xmlDoc.Save(filePath);
-
-        Debug.LogWarning($"Узел с данными для этого элемента не найден! Запуск аварийного создания данного узла с данными из SO.");
-
-        return string.Empty;
-    }
-}
-*/
-
     private static string ReadEncryptedDataFromXml<T>(string dataNodeName, int elementId, string nodeToRead) where T : ISaveable {
         string filePath = Application.dataPath + $"/SavedData/{typeof(T).Name}.xml";
         string encryptedId = EncryptElementId(elementId).ToString();

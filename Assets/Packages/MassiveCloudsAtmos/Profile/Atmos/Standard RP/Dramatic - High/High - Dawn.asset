@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Dawn
   labelColor: {r: 1, g: 0.6593663, b: 0.4009434, a: 1}
-  position: {x: 0.25966394, y: 0.72207445}
+  position: {x: 0.2707063, y: 0.72606385}
   mainCloud:
     profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
-    densityAdjustment: -0.13
+    densityAdjustment: 0
     scattering:
       IsOverride: 1
       Value: 0.479
@@ -29,7 +29,7 @@ MonoBehaviour:
       Value: 0.224
   layeredCloud:
     profile: {fileID: 11400000, guid: 46cde27715387424c8eba906aa54f3e9, type: 2}
-    densityAdjustment: -1
+    densityAdjustment: 0
     scattering:
       IsOverride: 0
       Value: 0
@@ -39,50 +39,46 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 0
       Value: 0
-  cloudIntensityAdjustment: 1
+  cloudIntensityAdjustment: 0.73
   intensityOverride: 1
-  intensity: 0.5
-  lightColor: {r: 0.8192873, g: 0.8207547, b: 0.63879496, a: 0}
-  moonIntensity: 0
+  intensity: 1.92
+  lightColor: {r: 0.8207547, g: 0.3254622, b: 0.081301175, a: 0}
+  moonIntensity: 1
   moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
-  temperature: 5200
+  temperature: 7457
   ambientOverride: 1
   ambient:
     mode: 0
-    skyColor: {r: 2.9960785, g: 2.154255, b: 0, a: 1}
-    equatorColor: {r: 0.4627451, g: 0.34541616, b: 0, a: 1}
-    groundColor: {r: 0.047058817, g: 0.14270279, b: 0.2627451, a: 1}
+    skyColor: {r: 4.547667, g: 1.3310245, b: 0, a: 1}
+    equatorColor: {r: 0.46226418, g: 0.17712928, b: 0, a: 1}
+    groundColor: {r: 0.048593808, g: 0.05512825, b: 0.26415092, a: 1}
     pivot: 0.3
-    luminanceFix: 0.2
+    luminanceFix: -0.44
   atmosphere:
     atmosphere: 1
     atmosphereColoring: 1
-    atmosphereColor: {r: 6.0076036, g: 4.591321, b: 0, a: 0}
+    atmosphereColor: {r: 0, g: 0.29796642, b: 6.007603, a: 0}
     atmosphereHighLightColoring: 0.574
-    atmosphereHighLightColor: {r: 0.8, g: 0.5349746, b: 0, a: 0}
+    atmosphereHighLightColor: {r: 0.8018868, g: 0.4722222, b: 0, a: 0}
     cloudOcclusion: 0.638
     cloudAtmospheric: 1
     godRay: 1
-    godRayStartDistance: 374
-    shadow: 0.132
+    godRayStartDistance: 100
+    shadow: 0.103
     sunShaft: 0.15
   fog:
-    groundHeight: -125
-    range: 1195
-    density: 0.259
-    coloring: 0.014
-    color: {r: 0.8396226, g: 0.7235928, b: 0.5425863, a: 0}
-    scattering: 0.021
+    groundHeight: 0
+    range: 1182
+    density: 0.098
+    coloring: 0.458
+    color: {r: 0.17402935, g: 0, b: 1, a: 0}
+    scattering: 0.453
   sky:
     SkyExposure: 0.28
-    GroundColor: {r: 0.144, g: 0.1076044, b: 0.061714288, a: 1}
+    GroundColor: {r: 0.17426129, g: 0.17426658, b: 0.41509432, a: 0}
     GroundScattering: 0
     SunSize: 0.494
     SunSizeConvergence: 5.4
     Saturation: 0.199
     AtmosphereThickness: 0.995
     Gradation: 1
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0

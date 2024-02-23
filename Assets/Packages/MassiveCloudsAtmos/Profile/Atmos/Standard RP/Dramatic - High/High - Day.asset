@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Day
   labelColor: {r: 0.8349056, g: 0.88579094, b: 1, a: 1}
-  position: {x: 0.37142375, y: 0.696}
+  position: {x: 0.36142376, y: 0.72074467}
   mainCloud:
     profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
     densityAdjustment: 0
@@ -41,37 +41,37 @@ MonoBehaviour:
       Value: 0
   cloudIntensityAdjustment: 1
   intensityOverride: 0
-  intensity: 0.7
-  lightColor: {r: 1, g: 0.9812354, b: 0.88235295, a: 0}
-  moonIntensity: 0
+  intensity: 2
+  lightColor: {r: 0.8820755, g: 0.98018754, b: 1, a: 0}
+  moonIntensity: 1
   moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   temperature: 6300
   ambientOverride: 1
   ambient:
     mode: 0
     skyColor: {r: 1, g: 0.85505784, b: 0.7028302, a: 1}
-    equatorColor: {r: 2.4913447, g: 2.2467482, b: 1.7348107, a: 1}
-    groundColor: {r: 0.8117647, g: 0.6119572, b: 0.08627452, a: 1}
+    equatorColor: {r: 1.727489, g: 2.062439, b: 2.4913447, a: 1}
+    groundColor: {r: 0.08802067, g: 0.33839372, b: 0.8113208, a: 1}
     pivot: 0.3
     luminanceFix: 0
   atmosphere:
-    atmosphere: 1
+    atmosphere: 0
     atmosphereColoring: 0.42
-    atmosphereColor: {r: 0.54901963, g: 0.44367042, b: 0, a: 0}
+    atmosphereColor: {r: 0, g: 0.23570377, b: 0.5471698, a: 0}
     atmosphereHighLightColoring: 0
     atmosphereHighLightColor: {r: 0.6132076, g: 0.3169511, b: 0, a: 0}
     cloudOcclusion: 0.162
     cloudAtmospheric: 0
     godRay: 1
     godRayStartDistance: 100
-    shadow: 1
-    sunShaft: 0.062
+    shadow: 0.655
+    sunShaft: 0.08
   fog:
     groundHeight: -125
     range: 570
     density: 0.165
     coloring: 1
-    color: {r: 0.8392157, g: 0.7254902, b: 0.5411765, a: 0}
+    color: {r: 0, g: 0.20043659, b: 0.5, a: 0}
     scattering: 0.206
   sky:
     SkyExposure: 1
@@ -82,7 +82,3 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 1
     Gradation: 0
-    Hdri:
-      texture: {fileID: 0}
-      exposure: 0
-      mix: 0
