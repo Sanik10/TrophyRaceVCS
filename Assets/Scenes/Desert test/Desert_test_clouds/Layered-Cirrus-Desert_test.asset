@@ -15,15 +15,15 @@ MonoBehaviour:
   Sampler:
     VolumeTexture: {fileID: 11700000, guid: 49f7cc1640cb2da4581356fee10c0019, type: 2}
     Tiling: {x: 0.54, y: 1.02}
-    Octave: 2.8
-    Sculpture: 0.252
+    Octave: 2.1
+    Sculpture: 1
     Sculpture2: 0.6
     Sculpture3: 1
     Sculpture4: 1
-    Warp: 0.942
+    Warp: 0.81
     Softness: 0.614
     NearSoftnessScale: 1
-    Density: 0.447
+    Density: 0.461
     Scale: 10
   HorizontalShape:
     FromHeight: 4000

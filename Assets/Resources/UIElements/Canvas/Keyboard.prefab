@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2478632690975135631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3387aeffdd9439492b34041cf87023, type: 3}
   m_Name: 
@@ -1283,6 +1283,7 @@ MonoBehaviour:
   volumeMixer: GlobalVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 3653239690541158866}
+  _volume: 0
 --- !u!1 &2889799054245630935
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,6 +2427,9 @@ GameObject:
   - component: {fileID: 7050415088018316801}
   - component: {fileID: 2644896479271082307}
   - component: {fileID: 7543307076086476251}
+  - component: {fileID: 2942218190480325638}
+  - component: {fileID: 7374912319907863639}
+  - component: {fileID: 2071464286821105522}
   m_Layer: 5
   m_Name: Keyboard
   m_TagString: Untagged
@@ -2541,6 +2545,54 @@ MonoBehaviour:
   GlobalVolumeSlider: {fileID: 3653239690541158866}
   VehicleVolumeSlier: {fileID: 7492593428000483432}
   MusicVolumeSlider: {fileID: 6731932066224300559}
+--- !u!114 &2942218190480325638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970467928155735119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3387aeffdd9439492b34041cf87023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMixer: GlobalVolume
+  audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
+  slider: {fileID: 3653239690541158866}
+  _volume: 0
+--- !u!114 &7374912319907863639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970467928155735119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3387aeffdd9439492b34041cf87023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMixer: VehicleVolume
+  audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
+  slider: {fileID: 7492593428000483432}
+  _volume: 0
+--- !u!114 &2071464286821105522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970467928155735119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3387aeffdd9439492b34041cf87023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMixer: MusicVolume
+  audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
+  slider: {fileID: 6731932066224300559}
+  _volume: 0
 --- !u!1 &5205111320777130540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,7 +2769,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5285148576124694409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3387aeffdd9439492b34041cf87023, type: 3}
   m_Name: 
@@ -2725,6 +2777,7 @@ MonoBehaviour:
   volumeMixer: MusicVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 6731932066224300559}
+  _volume: 0
 --- !u!1 &5316037325629373509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,7 +3185,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5936042900636454204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f3387aeffdd9439492b34041cf87023, type: 3}
   m_Name: 
@@ -3140,6 +3193,7 @@ MonoBehaviour:
   volumeMixer: VehicleVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 7492593428000483432}
+  _volume: 0
 --- !u!1 &6195939509591942533
 GameObject:
   m_ObjectHideFlags: 0
@@ -4279,14 +4333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18337559a19b48458f7c82d42ce5183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _raceStarted: 0
-  _racePaused: 0
-  _lapStartTime: 0
-  _raceTime: 0
-  _lapTime: 0
-  _uncountedTime: 0
-  _lapCount: 0
-  _lapTimes: []
 --- !u!1 &8664043370374907673
 GameObject:
   m_ObjectHideFlags: 0

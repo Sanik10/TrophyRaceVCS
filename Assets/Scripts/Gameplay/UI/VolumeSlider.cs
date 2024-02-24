@@ -4,24 +4,28 @@ using UnityEngine.Audio;
 
 public class VolumeSlider : MonoBehaviour {
 
-    public string volumeMixer = "GlobalVolume";
-    public AudioMixer audioMixer;
+    [SerializeField]
+    private string volumeMixer = "GlobalVolume";
+    [SerializeField]
+    private AudioMixer audioMixer;
+    [SerializeField]
     public Slider slider;
 
+    [SerializeField]
     private float _volume;
-    private static float _multiplier = 20;
-
-    private void Awake() {
-        slider.onValueChanged.AddListener(ChangeVolume);
-    }
+    [SerializeField]
+    private const float _multiplier = 20f;
 
     private void Start() {
+        slider.onValueChanged.AddListener(ChangeVolume);
         _volume = PlayerPrefs.GetFloat(volumeMixer, Mathf.Log10(slider.value) * _multiplier);
+        Debug.Log(_volume);
         slider.value = Mathf.Pow(10f, _volume / _multiplier);
     }
 
     private void ChangeVolume(float value) {
         _volume = Mathf.Log10(value) * _multiplier;
+        Debug.Log(_volume);
         audioMixer.SetFloat(volumeMixer, _volume);
     }
 

@@ -159,7 +159,7 @@ MonoBehaviour:
   showEditorBloomBehavior: 0
   showEditorLensSurfaceBehavior: 0
   showEditorLensFlareBehavior: 0
-  showEditorGlareBehavior: 0
+  showEditorGlareBehavior: 1
   isInitialized: 1
   allowGeometryShaders:
     overrideState: 1

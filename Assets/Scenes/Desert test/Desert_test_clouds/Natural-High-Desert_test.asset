@@ -26,9 +26,9 @@ MonoBehaviour:
     color: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   ambient:
     mode: 0
-    skyColor: {r: 1.2523496, g: 0.9015792, b: 0.5299009, a: 1.903304}
-    equatorColor: {r: 0.22201736, g: 0.24509133, b: 0.27497423, a: 1.9333634}
-    groundColor: {r: 0.03868914, g: 0.10500433, b: 0.23649192, a: 1.9108188}
+    skyColor: {r: 0.95948124, g: 0.7830992, b: 0.3575425, a: 0}
+    equatorColor: {r: 0.68242335, g: 1.0496591, b: 1.6834537, a: 3.682417}
+    groundColor: {r: 0.17060584, g: 0.26241478, b: 0.42086342, a: 0.9206042}
     pivot: 0.089
     luminanceFix: 0.9403265
   skyPass:
@@ -39,8 +39,8 @@ MonoBehaviour:
       GroundScattering: 0
       SunSize: 0.602
       SunSizeConvergence: 1
-      Saturation: -0.03
-      AtmosphereThickness: 0.93
+      Saturation: 0.58
+      AtmosphereThickness: 0.86
       Gradation: 0
       Hdri:
         texture: {fileID: 8900000, guid: 756c460382af7904dab167c7503a2d34, type: 3}
@@ -66,7 +66,7 @@ MonoBehaviour:
   layeredCloudPass:
     profile: {fileID: 11400000, guid: 4840c477268aa41398069d224323d775, type: 2}
     transition: 1
-    densityAdjustment: 0.01
+    densityAdjustment: 0.11
     scattering:
       IsOverride: 1
       Value: 0
@@ -76,15 +76,15 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 1
       Value: 0
-    resolution: 0.65
+    resolution: 0.75
     Animation:
-      ScrollVelocity: {x: 500, y: 0, z: 500}
-      Phase: 0.23
+      ScrollVelocity: {x: 0, y: 0, z: 0}
+      Phase: -0.07
   atmospherePass:
     atmosphere:
       atmosphere: 0.708
       atmosphereColoring: 1
-      atmosphereColor: {r: 0, g: 0.23570377, b: 0.5471698, a: 0}
+      atmosphereColor: {r: 0, g: 0.47140753, b: 1.0943396, a: 0}
       atmosphereHighLightColoring: 0
       atmosphereHighLightColor: {r: 0.6132076, g: 0.3169511, b: 0, a: 0}
       cloudOcclusion: 1

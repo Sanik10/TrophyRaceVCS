@@ -16,9 +16,9 @@ public class PauseMenu : MonoBehaviour {
     private bool _settingsMenu = false;
 
     private void Start() {
-        GlobalVolumeSlider.value = Mathf.Pow(10f, PlayerPrefs.GetFloat("GlobalVolume"));
-        VehicleVolumeSlier.value = Mathf.Pow(10f, PlayerPrefs.GetFloat("VehicleVolume"));
-        MusicVolumeSlider.value = Mathf.Pow(10f, PlayerPrefs.GetFloat("MusicVolume"));
+        // GlobalVolumeSlider.value = Mathf.Pow(10f, PlayerPrefs.GetFloat("GlobalVolume"));
+        // VehicleVolumeSlier.value = Mathf.Pow(10f, PlayerPrefs.GetFloat("VehicleVolume"));
+        // MusicVolumeSlider.value = Mathf.Pow(10f, PlayerPrefs.GetFloat("MusicVolume"));
         settingsMenu = GameObject.Find("SettingsMenu");
         settingsMenu.SetActive(false);
         pauseMenu = GameObject.Find("PauseMenu");
