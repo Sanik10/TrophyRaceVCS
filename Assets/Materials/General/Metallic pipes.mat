@@ -144,9 +144,9 @@ Material:
     - _FlakeSize: 1
     - _FlakeSmoothness: 0.5
     - _GlossMapScale: 1
-    - _Glossiness: 0.486
+    - _Glossiness: 1
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
     - _PaintFresnelPaintExponent: 1

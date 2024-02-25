@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AiInput : MonoBehaviour {
 
-    private VehicleManager VM;
+    private VehicleManager VehicleManager;
     private PhysicsCalculation PC;
     private GameObject Vehicle;
 
@@ -37,59 +37,40 @@ public class AiInput : MonoBehaviour {
             }
         }
         this._VehicleInputHandler = GetComponent<VehicleInputHandler>();
-        VM = GetComponent<VehicleManager>();
-        PC = VM.PhysicsCalculation;
+        VehicleManager = GetComponent<VehicleManager>();
+        PC = VehicleManager.PhysicsCalculation;
         Vehicle = GameObject.FindGameObjectWithTag("Player");
         targetVehicle = Vehicle.GetComponent<Transform>();
-        if(VM.aiVehicle) {
+        if(VehicleManager.aiVehicle) {
             if(GameObject.FindGameObjectWithTag("Path") != null) {
                 WP = GameObject.FindGameObjectWithTag("Path").GetComponent<WayPoints>();
-                nodes = WP.nodes;
+                for(int i = 0; i < WP.checkpoints.Count; i++) {
+                    nodes[i] = WP.checkpoints[i].transform;
+                }
             }
             calculateDistanceOfWaypoints();
         }
     }
 
     private void Update() {
-        brakeDistance = (PC.Kph*PC.Kph - targetSpeed*targetSpeed) / (250*VM.TiresFriction.totalGroundFriction);
+        brakeDistance = (PC.Kph*PC.Kph - targetSpeed*targetSpeed) / (250*VehicleManager.TiresFriction.totalGroundFriction);
         relative = transform.InverseTransformPoint(currentWaypoint.transform.position);
         relative /= relative.magnitude;
 
 
         horizontalSteer = !_VehicleInputHandler.handbrake ? (relative.x / relative.magnitude) * sterrForce : (relative.x / relative.magnitude > 0) ? sterrForce : (relative.x / relative.magnitude < 0) ? -sterrForce : 0;
-        // horizontal = Mathf.Lerp(horizontal, horizontal, SmoothMultipilar * Time.deltaTime);
-            // if(bigTurnAngle && (PC.Kph > 60 || (VM.WheelsSettings.totalSlip > 0.5f && PC.Kph > 30)) || (medTurnAngle && PC.Kph > 70)) {
-            //     this._VehicleInputHandler.vertical = -1;
-            // } else if(PC.Kph > 70 && (relative.x > 0.2f || relative.x < -0.2f)) {
-            //     this._VehicleInputHandler.vertical = 0;
-            // } else {
-            //     this._VehicleInputHandler.vertical = AiAcceleration;
-            // }
         this._VehicleInputHandler.vertical = (PC.Kph < PC.recommendedSpeed - 10) ? 1 : (PC.Kph > PC.recommendedSpeed + 10) ? -1 : (PC.Kph < 10) ? 1 : 0;
-        this._VehicleInputHandler.handbrake = (PC.Kph - PC.recommendedSpeed >= 50) ? true : false;
-
-        // RaycastHit hit;
-        // Vector3 pos;
-
-        // if(Physics.Raycast(pos, transform.forward, hit, sensorsLength)) {
-        //     Debug.DrawLine(pos, hit.point, Color.red);
-        // }
-
-
-        // if(this._VehicleInputHandler.vertical == 1 && (PC.Kph <= 5 || PC.Kph >= -5)) {
-        //     this._VehicleInputHandler.reverseGear = true;
-        //     horizontalSteer *= -1;
-        // } else if((PC.Kph >= 25 || PC.Kph <= -25) && this._VehicleInputHandler.reverseGear == true) {
-        //     this._InputHandler.gearUp = true;
-        // }
-
+        this._VehicleInputHandler.handbrake = (PC.Kph - PC.recommendedSpeed >= 75) ? true : false;
         this._VehicleInputHandler.horizontal = horizontalSteer;
+
+        this._VehicleInputHandler.gearUp = (this.VehicleManager.Engine.rpm >= this.VehicleManager.Transmission.rpmUpShift);
+        this._VehicleInputHandler.gearDown = (this.VehicleManager.Engine.rpm <= this.VehicleManager.Transmission.rpmDownShift);
     }
 
     private void FixedUpdate() {
-        if(VM.aiVehicle && !VM.chaseVehicle) {
+        if(VehicleManager.aiVehicle && !VehicleManager.chaseVehicle) {
             calculateDistanceOfWaypoints();
-        } else if(VM.aiVehicle) {
+        } else if(VehicleManager.aiVehicle) {
             currentWaypoint = targetVehicle;
             calculateDistanceOfWaypoints();
         }
@@ -97,12 +78,12 @@ public class AiInput : MonoBehaviour {
 
     private void calculateDistanceOfWaypoints() {
         Vector3 position = gameObject.transform.position;
-        if(VM.chaseVehicle){
+        if(VehicleManager.chaseVehicle){
             distance = Vector3.Distance(currentWaypoint.transform.localPosition, transform.localPosition);
         } else {
             distance = Mathf.Infinity;
 
-            for (int i = 0; i < nodes.Count; i++) {
+            for (int i = 0; i < nodes.Count-1; i++) {
                 Vector3 difference = nodes[i].transform.position - position;
                 float currentDistance = difference.magnitude;
                 if (currentDistance < distance) {

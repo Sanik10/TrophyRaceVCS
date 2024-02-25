@@ -2,38 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPoints : MonoBehaviour{
+public class WayPoints : MonoBehaviour {
 
-    public bool showGizmos = true;
-    public Color linecolor;
-    [Range(1, 20)] public float SphereRadius = 1;
-    public List<Transform> nodes = new List<Transform>();
+    [SerializeField] private bool showWaypointGizmos = true;
+    [SerializeField] private Color checkpointLineColor;
+    [SerializeField] private Color routeLineColor;
+    [Range(1, 20)] public float checkpointRadius = 1;
+    [Range(1, 20)] public float nodeRadius = 1;
 
-    private void OnDrawGizmos(){
-        if(showGizmos) {
-            Gizmos.color = linecolor;
+    [SerializeField] private List<Checkpoint> _checkpoints = new List<Checkpoint>();
+    public List<Checkpoint> checkpoints => this._checkpoints;
 
-            Transform[] path = GetComponentsInChildren<Transform>();
+    private void OnDrawGizmos() {
+        if (showWaypointGizmos) {
+            DrawCheckpointGizmos();
+        }
+    }
 
-            nodes = new List<Transform>();
-            for (int i = 1; i < path.Length; i++) {
-                nodes.Add(path[i]);
-            }
+    private void DrawCheckpointGizmos() {
+        for (int i = 0; i < this._checkpoints.Count; i++) {
+            var currentCheckpoint = this._checkpoints[i];
+            Gizmos.color = checkpointLineColor;
+            Gizmos.DrawSphere(currentCheckpoint.transform.position, checkpointRadius);
 
-            for (int i = 0; i < nodes.Count; i++) {
-                Vector3 currentWaypoint = nodes[i].position;
-                Vector3 previousWaypoint = Vector3.zero;
+            // Отрисовка линии между чекпоинтами (замыкаем линию с последним чекпоинтом)
+            var nextCheckpoint = i == this._checkpoints.Count - 1 ? this._checkpoints[0] : this._checkpoints[i + 1];
+            Gizmos.DrawLine(currentCheckpoint.transform.position, nextCheckpoint.transform.position);
 
-                if(i != 0) {
-                    previousWaypoint = nodes[i - 1].position;
-                } else if(i == 0) {
-                    previousWaypoint = nodes[nodes.Count - 1].position;
-                }
-
-                Gizmos.DrawLine(previousWaypoint,currentWaypoint);
-                Gizmos.DrawSphere(currentWaypoint, SphereRadius);
+            for (int j = 0; j < currentCheckpoint.routes.Count; j++) {
+                DrawRouteGizmos(currentCheckpoint.routes[j].node);
             }
         }
     }
 
+    private void DrawRouteGizmos(Transform[] nodes) {
+        Gizmos.color = routeLineColor;
+
+        for (int i = 0; i < nodes.Length; i++) {
+            var currentWaypoint = nodes[i].position;
+            var previousWaypoint = i != 0 ? nodes[i - 1].position : nodes[nodes.Length - 1].position;
+
+            Gizmos.DrawLine(previousWaypoint, currentWaypoint);
+            Gizmos.DrawSphere(currentWaypoint, nodeRadius);
+        }
+    }
+}
+
+[System.Serializable]
+public class Checkpoint {
+    public string name;
+    public Transform transform;
+    public List<Route> routes = new List<Route>();
+}
+
+[System.Serializable]
+public class Route {
+    public string name;
+    public Transform[] node;
 }

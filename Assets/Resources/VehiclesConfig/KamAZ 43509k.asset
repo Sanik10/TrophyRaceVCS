@@ -18,7 +18,7 @@ MonoBehaviour:
   _id: 6
   _price: 1543000
   _isOwned: 1
-  _maxPower: 2060
+  _maxPower: 1060
   _idleRpm: 600
   _medRpm: 2200
   _maxRpm: 3600
@@ -37,14 +37,14 @@ MonoBehaviour:
   _maxSpeed: 250
   _driveWheels: 2
   _torqueDevider: 2
-  _originalExtremumValue: 1
+  _tireIntegrity: 1
   _brakingPowerVar: 10000
   _brakingDistribution: 0.336
   _radius: 9
   _steeringWheelSpeed: 10
   _wheelBase: 4.3
   _rearTrack: 2.115
-  _mileage: 99751.74
+  _mileage: 129845
   _colorCustomization: 0
   _bodyMaterailId: 1
   _diskMaterailId: 1

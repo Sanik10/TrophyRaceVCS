@@ -15,7 +15,6 @@ public class Transmission : MonoBehaviour {
     private float _firstGear = 0;
     private float _finalDrive = 0;
     private float _shiftTime = 0;
-    [SerializeField]
     private float _currentGearRatio = 0;
     private float _gearsMultiplier = 0;
     private float _reverseGear = 0;
@@ -31,25 +30,28 @@ public class Transmission : MonoBehaviour {
     private bool _gearUp = false;
     private bool _gearDown = false;
 
-    [HideInInspector]
     public bool clutchButtonNeed = false;
     public float[] gears => this._gears;
     public float finalDrive => this._finalDrive;
     public float currentGearRatio => this._currentGearRatio;
     public int currentGear => this._currentGear;
     public bool neutralGear => this._neutralGear;
+    public int rpmUpShift => this._rpmUpShift;
+    public int rpmDownShift => this._rpmDownShift;
 
     private void Awake() {
         VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
     }
 
     private void Start() {
-        // VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
         this._VehicleManager = GetComponent<VehicleManager>();
         this.Engine = this._VehicleManager.Engine;
         this._VehicleInputHandler = this._VehicleManager.VehicleInputHandler;
         this.VSFX = this._VehicleManager.VehicleSFX;
 
+        if(this._VehicleManager.aiVehicle) {
+            this._transmission = transmissionType.Automatic;
+        }
 
         GetVehicleData();
         VehicleInputHandler.ChangeGearUpEvent += HandleChangeGearUpEvent;
@@ -72,6 +74,10 @@ public class Transmission : MonoBehaviour {
                 this._gears[i] = this._gears[i - 1] * this._gearsMultiplier;
             }
             this._currentGearRatio = this._gears[this._currentGear];
+            
+            if(this._VehicleManager.aiVehicle) {
+                this._transmission = transmissionType.Automatic;
+            }
         }
     }
 

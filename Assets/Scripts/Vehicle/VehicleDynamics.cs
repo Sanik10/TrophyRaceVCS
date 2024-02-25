@@ -75,7 +75,7 @@ public class VehicleDynamics : MonoBehaviour {
         VehicleManager = GetComponent<VehicleManager>();
         GettingScriptableValues();
         Engine = VehicleManager.Engine;
-        Transmission = VehicleManager.Transmission;
+        Transmission = GetComponent<Transmission>();
         PC = VehicleManager.PhysicsCalculation;
         this._VehicleInputHandler = VehicleManager.VehicleInputHandler;
         findValues();

@@ -77,12 +77,14 @@ public class PhysicsCalculation : MonoBehaviour {
     }
 
     private void PreRaceModeHandler() {
-        _rgdbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
+        this._rgdbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
     }
 
     private void StartRaceHandler() {
         GameManager.StartRaceEvent -= StartRaceHandler;
-        this._rgdbody = GetComponent<Rigidbody>();
+        if(this._rgdbody == null) {
+            this._rgdbody = GetComponent<Rigidbody>();
+        }
         this._rgdbody.constraints = RigidbodyConstraints.None;
     }
 

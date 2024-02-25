@@ -65,8 +65,8 @@ public class VehicleInputHandler : MonoBehaviour {
         set {
             if(this._gearUp != value) {
                 this._gearUp = value;
-                ChangeGearUpEvent?.Invoke(this, value);
             }
+            ChangeGearUpEvent?.Invoke(this, value);
         }
     }
 
@@ -75,8 +75,8 @@ public class VehicleInputHandler : MonoBehaviour {
         set {
             if(this._gearDown != value) {
                 this._gearDown = value;
-                ChangeGearDownEvent?.Invoke(this, value);
             }
+            ChangeGearDownEvent?.Invoke(this, value);
         }
     }
 
@@ -154,6 +154,7 @@ public class VehicleInputHandler : MonoBehaviour {
     private void StartRaceHandler() {
         GameManager.StartRaceEvent -= StartRaceHandler;
         this._preRaceMode = false;
+        this._clutch = 1;
     }
 }
 
