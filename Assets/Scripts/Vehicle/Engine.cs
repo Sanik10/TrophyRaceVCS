@@ -124,9 +124,9 @@ public class Engine : MonoBehaviour {
         this._additionRpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? 0 : ((this._rpm > this._rpmVariableLimiter) ? this._additionOnNeutral * -5 : this._additionOnNeutral);
 
 
-        if(this._Transmission.neutralGear || this._VehicleInputHandler.handbrake || this._VehicleInputHandler.clutch == 0 || this._VehicleInputHandler.vertical < 0) {
+        if(this._Transmission.neutralGear || this._VehicleInputHandler.handbrake || this._VehicleInputHandler.clutch == 0 || (this._VehicleInputHandler.vertical < 0 && this._rpm < 1000)) {
             // В режиме нейтрали или, при активном ручнике, или при выжатом сцеплении 
-            targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 18) * Time.fixedDeltaTime);
+            targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 20) * Time.fixedDeltaTime);
         } else {
             // Расчет оборотов с учетом влияния колес на двигатель
             float wheelRPMContribution = Mathf.Abs(VehicleManager.VehicleDynamics.driveWheelsRpm) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);

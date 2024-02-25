@@ -41,7 +41,9 @@ public class VehicleInputHandler : MonoBehaviour {
 
     public float horizontal {
         get {return this._horizontal;}
-        set {this._horizontal = value;}
+        set {
+            this._horizontal = Mathf.Clamp(value, -1f, 1f);
+        }
     }
 
     public bool handbrake {

@@ -16,17 +16,19 @@ public class KeyboardInput : MonoBehaviour {
         this._VehicleInputHandler.clutch = (Input.GetKey(KeyCode.E) == true) ? 0 : 1;
         this._VehicleInputHandler.gearUp = (Input.GetAxis("Fire1") != 0) ? true : false;
         this._VehicleInputHandler.gearDown = (Input.GetAxis("Fire2")!= 0) ? true : false;
+
         if(Input.GetKey(KeyCode.R)) {
             this._VehicleInputHandler.reverseGear = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.N) && Time.time >= this._buttonDelay) {
+        if(Input.GetKey(KeyCode.N) && Time.time >= this._buttonDelay) {
+            this._buttonDelay = Time.time + 0.04f;
             this._VehicleInputHandler.activateHighBeams = !this._VehicleInputHandler.activateHighBeams;
-            this._buttonDelay = Time.time + 0.04f;
         }
-        if(Input.GetKeyDown(KeyCode.B) && Time.time >= this._buttonDelay) {
-            this._VehicleInputHandler.activateDippedBeams = !this._VehicleInputHandler.activateDippedBeams;
+
+        if(Input.GetKey(KeyCode.B) && Time.time >= this._buttonDelay) {
             this._buttonDelay = Time.time + 0.04f;
+            this._VehicleInputHandler.activateDippedBeams = !this._VehicleInputHandler.activateDippedBeams;
         }
         // if(Time.time > this._buttonDelay) {
         //     this._VehicleInputHandler.setPreviusMusicTrack = Input.GetKey(KeyCode.J);
