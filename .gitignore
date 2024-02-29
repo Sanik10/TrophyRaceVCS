@@ -27,7 +27,7 @@
 /[Aa]ssets/[Pp]ackages/CastleValleyCollection
 # /[Aa]ssets/[Pp]ackages/[Ss]cene[Pp]rops
 # /[Aa]ssets/Scenes/Desert test/Desert_test/LightingData.asset
-/[Aa]ssets/[Ss]aved[Dd]ata*
+/[Aa]ssets/[Ss]aved[Dd]ata
 
 # Visual Studio cache directory
 .vs/
