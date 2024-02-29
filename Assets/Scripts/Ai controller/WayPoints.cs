@@ -9,6 +9,7 @@ public class WayPoints : MonoBehaviour {
     [SerializeField] private Color routeLineColor;
     [Range(1, 20)] public float checkpointRadius = 1;
     [Range(1, 20)] public float nodeRadius = 1;
+    [SerializeField] private float _trackDistance = 0;
 
     [SerializeField] private List<Checkpoint> _checkpoints = new List<Checkpoint>();
     public List<Checkpoint> checkpoints => this._checkpoints;
@@ -20,6 +21,7 @@ public class WayPoints : MonoBehaviour {
     }
 
     private void DrawCheckpointGizmos() {
+        _trackDistance = 0;
         for (int i = 0; i < this._checkpoints.Count; i++) {
             var currentCheckpoint = this._checkpoints[i];
             Gizmos.color = checkpointLineColor;
@@ -28,6 +30,7 @@ public class WayPoints : MonoBehaviour {
             // Отрисовка линии между чекпоинтами (замыкаем линию с последним чекпоинтом)
             var nextCheckpoint = i == this._checkpoints.Count - 1 ? this._checkpoints[0] : this._checkpoints[i + 1];
             Gizmos.DrawLine(currentCheckpoint.transform.position, nextCheckpoint.transform.position);
+            this._trackDistance += Vector3.Distance(currentCheckpoint.transform.localPosition, nextCheckpoint.transform.localPosition);
 
             for (int j = 0; j < currentCheckpoint.routes.Count; j++) {
                 DrawRouteGizmos(currentCheckpoint.routes[j].node);
@@ -38,7 +41,7 @@ public class WayPoints : MonoBehaviour {
     private void DrawRouteGizmos(Transform[] nodes) {
         Gizmos.color = routeLineColor;
 
-        for (int i = 0; i < nodes.Length; i++) {
+        for(int i = 0; i < nodes.Length; i++) {
             var currentWaypoint = nodes[i].position;
             var previousWaypoint = i != 0 ? nodes[i - 1].position : nodes[nodes.Length - 1].position;
 

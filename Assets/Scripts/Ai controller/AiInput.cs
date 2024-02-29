@@ -257,6 +257,8 @@ public class AiInput : MonoBehaviour {
             this._currentWaypoint = this._targetVehicle;
             calculateDistanceOfWaypoints();
         }
+
+        //SteeringInput();
     }
 
     private void calculateDistanceOfWaypoints() {

@@ -586,6 +586,7 @@ MonoBehaviour:
   routeLineColor: {r: 0, g: 0, b: 0, a: 0}
   checkpointRadius: 1
   nodeRadius: 1
+  _trackDistance: 0
   _checkpoints: []
 --- !u!1 &114160256
 GameObject:
@@ -1997,7 +1998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373051302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 755, y: -0, z: 1260}
+  m_LocalPosition: {x: 720, y: 0, z: 1365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2548,7 +2549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1169722734}
-  m_PathPosition: 0.5087115
+  m_PathPosition: 0
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -3793,7 +3794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665337708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 557, y: -0, z: 1399}
+  m_LocalPosition: {x: 517, y: 0, z: 1399}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4034,7 +4035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685137744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -453, y: -33, z: -1423}
+  m_LocalPosition: {x: -467, y: -33, z: -1393}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5161,7 +5162,7 @@ MonoBehaviour:
   pauseResumeRace: 0
   preRace: 1
   SpawnPoint: {fileID: 1939948769}
-  opponents: 1
+  opponents: 0
   spawnVehicle: 0
   horizontalDisplacement: 5.03
   verticalDisplacement: 6.11
@@ -5932,7 +5933,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051645330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -6650,12 +6651,12 @@ GameObject:
   - component: {fileID: 1121665147}
   - component: {fileID: 1121665148}
   m_Layer: 0
-  m_Name: WayPoints
-  m_TagString: Path
+  m_Name: WayPoints_exp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1121665147
 Transform:
   m_ObjectHideFlags: 0
@@ -6698,6 +6699,7 @@ MonoBehaviour:
   routeLineColor: {r: 0.01935637, g: 1, b: 0, a: 1}
   checkpointRadius: 8.1
   nodeRadius: 4.3
+  _trackDistance: 411.4423
   _checkpoints:
   - name: Check 1
     transform: {fileID: 161298817}
@@ -8553,7 +8555,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.36828
+    FieldOfView: 60.3726
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -9730,7 +9732,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489147069}
-  m_LocalRotation: {x: 0.017701847, y: 0.9047039, z: -0.03852898, w: -0.42392573}
+  m_LocalRotation: {x: -0.12235107, y: 0.95246464, z: 0.0327507, w: -0.2770717}
   m_LocalPosition: {x: -144.69179, y: 28.82998, z: -285.30698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9760,7 +9762,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 954031235}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 54.467
+    FieldOfView: 73.86388
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -11207,12 +11209,12 @@ GameObject:
   - component: {fileID: 1724126082}
   - component: {fileID: 1724126081}
   m_Layer: 0
-  m_Name: WayPoints_Old
-  m_TagString: Untagged
+  m_Name: WayPoints
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1724126081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11226,11 +11228,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showWaypointGizmos: 1
-  checkpointLineColor: {r: 0, g: 0, b: 0, a: 0}
-  routeLineColor: {r: 0, g: 0, b: 0, a: 0}
-  checkpointRadius: 1
+  checkpointLineColor: {r: 1, g: 0.91517913, b: 0, a: 1}
+  routeLineColor: {r: 1, g: 0, b: 0, a: 1}
+  checkpointRadius: 13
   nodeRadius: 1
-  _checkpoints: []
+  _trackDistance: 4951.8228
+  _checkpoints:
+  - name: 
+    transform: {fileID: 1604293665}
+    routes: []
+  - name: 
+    transform: {fileID: 877813466}
+    routes: []
+  - name: 
+    transform: {fileID: 1435747846}
+    routes: []
+  - name: 
+    transform: {fileID: 1314842481}
+    routes: []
+  - name: 
+    transform: {fileID: 1736904678}
+    routes: []
+  - name: 
+    transform: {fileID: 740937488}
+    routes: []
+  - name: 
+    transform: {fileID: 1999819357}
+    routes: []
+  - name: 
+    transform: {fileID: 1009057345}
+    routes: []
+  - name: 
+    transform: {fileID: 890477682}
+    routes: []
+  - name: 
+    transform: {fileID: 872722227}
+    routes: []
+  - name: 
+    transform: {fileID: 1970535364}
+    routes: []
+  - name: 
+    transform: {fileID: 290467514}
+    routes: []
+  - name: 
+    transform: {fileID: 1072596591}
+    routes: []
+  - name: 
+    transform: {fileID: 1772880474}
+    routes: []
+  - name: 
+    transform: {fileID: 1036661914}
+    routes: []
+  - name: 
+    transform: {fileID: 1931149238}
+    routes: []
+  - name: 
+    transform: {fileID: 1244432262}
+    routes: []
+  - name: 
+    transform: {fileID: 297334160}
+    routes: []
+  - name: 
+    transform: {fileID: 685137745}
+    routes: []
 --- !u!4 &1724126082
 Transform:
   m_ObjectHideFlags: 0
@@ -12804,7 +12864,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.83897
+    FieldOfView: 73.81482
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -16540,7 +16600,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.998016
+  m_FocalLength: 21.996105
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -16555,7 +16615,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.36828
+  field of view: 60.372604
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
