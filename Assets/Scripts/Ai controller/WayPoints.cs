@@ -60,3 +60,60 @@ public class Route {
     public string name;
     public Transform[] node;
 }
+
+/* using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WayPoints : MonoBehaviour{
+
+    [SerializeField]
+    private bool showGizmos = true;
+    [SerializeField]
+    private Color linecolor;
+    [SerializeField]
+    private Color linecolor;
+    [Range(1, 20)]
+    public float SphereRadius = 1;
+
+    [SerializeField]
+    private List<Transform> _nodes = new List<Transform>();
+    public List<Transform> nodes => this._nodes;
+
+    [SerializeField]
+    private List<Route> _route = new List<Route>();
+
+    // private void OnDrawGizmos(){
+    //     if(showGizmos) {
+    //         Gizmos.color = linecolor;
+
+    //         Transform[] path = GetComponentsInChildren<Transform>();
+
+    //         this._nodes = new List<Transform>();
+    //         for (int i = 1; i < path.Length; i++) {
+    //             this._nodes.Add(path[i]);
+    //         }
+
+    //         for (int i = 0; i < this._nodes.Count; i++) {
+    //             Vector3 currentWaypoint = this._nodes[i].position;
+    //             Vector3 previousWaypoint = Vector3.zero;
+
+    //             if(i != 0) {
+    //                 previousWaypoint = this._nodes[i - 1].position;
+    //             } else if(i == 0) {
+    //                 previousWaypoint = this._nodes[this._nodes.Count - 1].position;
+    //             }
+
+    //             Gizmos.DrawLine(previousWaypoint, currentWaypoint);
+    //             Gizmos.DrawSphere(currentWaypoint, SphereRadius);
+    //         }
+    //     }
+    // }
+}
+
+[System.Serializable]
+public class Route {
+    public string name;
+    public Transform transform;
+    public Transform[] node;
+} */

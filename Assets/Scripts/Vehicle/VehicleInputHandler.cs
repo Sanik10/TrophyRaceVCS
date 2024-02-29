@@ -155,6 +155,7 @@ public class VehicleInputHandler : MonoBehaviour {
         GameManager.StartRaceEvent -= StartRaceHandler;
         this._preRaceMode = false;
         this._clutch = 1;
+        this.handbrake = false;
     }
 }
 
