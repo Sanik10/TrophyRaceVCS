@@ -35,15 +35,13 @@ public class VehicleInputHandler : MonoBehaviour {
     private bool _preRaceMode = false;
 
     public float vertical {
-        get {return this._vertical;}
+        get {return Mathf.Clamp(this._vertical, -1f, 1f);}
         set {this._vertical = value;}
     }
 
     public float horizontal {
-        get {return this._horizontal;}
-        set {
-            this._horizontal = Mathf.Clamp(value, -1f, 1f);
-        }
+        get {return Mathf.Clamp(this._horizontal, -1f, 1f);}
+        set {this._horizontal = value;}
     }
 
     public bool handbrake {

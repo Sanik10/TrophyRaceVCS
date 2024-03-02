@@ -3,26 +3,38 @@ using TrophyRace.Architecture;
 
 public class PhysicsCalculation : MonoBehaviour {
 
-    private VehicleManager VehicleManager;
+    private VehicleManager _VehicleManager;
     private Rigidbody _rgdbody;
-    public Rigidbody rgdbody => this._rgdbody;
+
+    [SerializeField]
+    private Vector3 _centerOfMass;
     [SerializeField]
     private speedTypeEnum speedType;
-    public float turningRadius;
-    public float recommendedSpeed;
-    public float speed;
-    public float Kph;
-    public float KphByWheels;
-    public Vector3 centerOfMass;
-    public Vector3 centerOfMassAuto;
-    public bool speedByVelocity = true;
-    public float DownForceValue = 25;
-    public float angularDragVar = 25;
-    public float mass;
-    public float dragAmount = 0.016f;
-    private float Mps;
+    [SerializeField]
+    private float _turningRadius;
+    [SerializeField]
+    private float _recommendedSpeed;
+    [SerializeField]
+    private float _brakeDistance;
+    private float _speed;
+    private float _kph;
+    private float _kphByWheels;
+    [SerializeField]
+    private bool _speedByVelocity = true;
+    [SerializeField]
+    private float _downForceValue = 25;
+    [SerializeField]
+    private float _angularDragVar = 25;
+    private float _mass;
+    private float _dragAmount = 0.016f;
+    private float _mps;
+    
+    public Rigidbody rgdbody => this._rgdbody;
 
-    private float maxRpmForSpringEffect = 6000f;
+    public float kph => this._kph;
+    public float speed => this._speed;
+    public float recommendedSpeed => this._recommendedSpeed;
+    public float brakeDistance => this._brakeDistance;
 
     private void OnEnable() {
         GameManager.SetVehiclesInPreRaceModeEvent += PreRaceModeHandler;
@@ -35,11 +47,10 @@ public class PhysicsCalculation : MonoBehaviour {
 
     private void Start() {
         this._rgdbody = GetComponent<Rigidbody>();
-        this._rgdbody.drag = dragAmount;
-        this.mass = this._rgdbody.mass;
-        this._rgdbody.centerOfMass = centerOfMass;
-        this.VehicleManager = GetComponent<VehicleManager>();
-        this.maxRpmForSpringEffect = this.VehicleManager.Engine.maxRpm * 0.7f;
+        this._rgdbody.drag = this._dragAmount;
+        this._mass = this._rgdbody.mass;
+        this._rgdbody.centerOfMass = this._centerOfMass;
+        this._VehicleManager = GetComponent<VehicleManager>();
     }
 
     private void FixedUpdate() {
@@ -48,32 +59,34 @@ public class PhysicsCalculation : MonoBehaviour {
     }
 
     private void SpeedCalculation() {
-        Mps = this._rgdbody.velocity.magnitude;
-        Kph = Mps * 3.6f;
-        KphByWheels = (VehicleManager.VehicleDynamics.circumFerence * VehicleManager.VehicleDynamics.driveWheelsRpm) * 0.06f;
+        this._mps = this._rgdbody.velocity.magnitude;
+        this._kph = this._mps * 3.6f;
+        this._kphByWheels = (this._VehicleManager.VehicleDynamics.circumFerence * this._VehicleManager.VehicleDynamics.driveWheelsRpm) * 0.06f;
 
-        speed = (speedByVelocity) ? 
-        ((speedType == speedTypeEnum.Kph) ? Kph : (speedType == speedTypeEnum.Mph) ? Mps * 2.237f : (speedType == speedTypeEnum.Fps) ?  Mps * 3.281f : Mps) 
+        this._speed = (this._speedByVelocity) ? 
+        ((speedType == speedTypeEnum.Kph) ? this._kph : (speedType == speedTypeEnum.Mph) ? this._mps * 2.237f : (speedType == speedTypeEnum.Fps) ?  this._mps * 3.281f : this._mps) 
         : 
-        ((speedType == speedTypeEnum.Kph) ? KphByWheels : (speedType == speedTypeEnum.Mph) ? KphByWheels / 1.609f : (speedType == speedTypeEnum.Fps) ? KphByWheels / 1.097f : KphByWheels / 3.6f);
+        ((speedType == speedTypeEnum.Kph) ? this._kphByWheels : (speedType == speedTypeEnum.Mph) ? this._kphByWheels / 1.609f : (speedType == speedTypeEnum.Fps) ? this._kphByWheels / 1.097f : this._kphByWheels / 3.6f);
     }
 
     private void CalculateVelocity() {
-        this._rgdbody.angularDrag = Mps / angularDragVar;
+        this._rgdbody.angularDrag = this._mps / this._angularDragVar;
 
-        this._rgdbody.AddForce(-transform.up * DownForceValue * Kph);
+        this._rgdbody.AddForce(-transform.up * this._downForceValue * this._kph);
 
         // Учитываем оригинальное значение drag
-        float totalDrag = (VehicleManager.VehicleInputHandler.vertical <= 0 || VehicleManager.VehicleInputHandler.clutch == 0) ? dragAmount : 0;
+        float totalDrag = (this._VehicleManager.VehicleInputHandler.vertical <= 0 || this._VehicleManager.VehicleInputHandler.clutch == 0) ? this._dragAmount : 0;
 
         this._rgdbody.drag = totalDrag;
 
         float linearSpeed = this._rgdbody.velocity.magnitude; // Линейная скорость
         float angularSpeed = this._rgdbody.angularVelocity.magnitude; // Угловая скорость
 
-        this.turningRadius = linearSpeed / angularSpeed;
-        this.recommendedSpeed = Mathf.Sqrt((9.81f * turningRadius * VehicleManager.TiresFriction.totalGroundFriction)) * 3.6f;
-        this.centerOfMassAuto = this._rgdbody.centerOfMass;
+        this._turningRadius = linearSpeed / angularSpeed;
+        this._recommendedSpeed = Mathf.Sqrt((9.81f * this._turningRadius * this._VehicleManager.TiresFriction.totalGroundFriction)) * 3.6f;
+        // this._brakeDistance = (this._kph * this._kph - this._recommendedSpeed * this._recommendedSpeed) / (250 * this._VehicleManager.TiresFriction.totalGroundFriction);
+        this._brakeDistance = (this._kph * this._kph) / 2 * (-Physics.gravity.z * (this._VehicleManager.TiresFriction.totalGroundFriction * this._rgdbody.mass) + this._dragAmount);
+
     }
 
     private void PreRaceModeHandler() {
@@ -89,7 +102,7 @@ public class PhysicsCalculation : MonoBehaviour {
     }
 
     private void OnDrawGizmosSelected() {
-        Gizmos.DrawWireSphere(centerOfMass, 0.25f);
+        Gizmos.DrawWireSphere(this._centerOfMass, 0.3f);
     }
 }
 

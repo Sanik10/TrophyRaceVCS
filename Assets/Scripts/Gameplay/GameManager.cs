@@ -76,7 +76,7 @@ namespace TrophyRace.Architecture {
             
             for(int i = 0; i < opponents; i++) {
                 AdjustSpawnPointPosition(i);
-                
+
                 _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetInt("selectedVehicleId"), SpawnMode.Bot | SpawnMode.DisableCameras | SpawnMode.PreStart);
                 
                 var raceTimer = GetComponent<RaceTimer>();

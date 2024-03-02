@@ -166,7 +166,7 @@ public class VehicleDynamics : MonoBehaviour {
             for (int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
                 this._axles[i].wheelsColliders[q].motorTorque = 
                     (this._axles[i].powered) 
-                        ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.Kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear) 
+                        ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear) 
                             ? 0 
                             : Engine.torque * this._wheelsResistance / _driveWheelsQuantity
                         : 0;

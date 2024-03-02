@@ -51,7 +51,7 @@ namespace TrophyRace.Architecture {
                 _RPMText.text = _Engine.rpm.ToString("f0") + " rpm";
                 _GearText.text = (_Transmission.currentGear == 0) ? "N" : (_Transmission.currentGearRatio < 0) ? "R" : (_Transmission.currentGear).ToString("");
                 _SpeedText.text = _PhysicsCalculation.speed.ToString("0");
-                _SpeedText.color = (_VehicleDynamics.maxSpeedOnCurrentGear > _PhysicsCalculation.Kph + 5) ? new Color(255, 255, 255) : new Color (255, 0, 0);
+                _SpeedText.color = (_VehicleDynamics.maxSpeedOnCurrentGear > _PhysicsCalculation.kph + 5) ? new Color(255, 255, 255) : new Color (255, 0, 0);
                 _CurrentMileageText.text = (_VehicleDynamics.currentMileage).ToString("f2") + " м";
                 _AllMileageText.text = ((_VehicleDynamics.allMileage + _VehicleDynamics.currentMileage) / 1000).ToString("f2") + " км";
             }

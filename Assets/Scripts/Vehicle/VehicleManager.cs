@@ -65,7 +65,7 @@ public class VehicleManager : MonoBehaviour {
         for (int i = 0; i < RES.Length; i++) {
             RES[i].maxRPMLimit = Engine.maxRpm;
             RES[i].carMaxSpeed = 350;
-            RES[i].carCurrentSpeed = PhysicsCalculation.Kph;
+            RES[i].carCurrentSpeed = PhysicsCalculation.kph;
             RES[i].engineCurrentRPM = Engine.rpm;
             RES[i].gasPedalValue = (VehicleInputHandler.vertical > 0) ? Engine.throttle : 0;
             RES[i].gasPedalPressing = (VehicleInputHandler.vertical > 0);

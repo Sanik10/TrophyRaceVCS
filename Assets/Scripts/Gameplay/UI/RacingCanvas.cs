@@ -48,7 +48,7 @@ public class RacingCanvas : MonoBehaviour {
         _CurrentMileage.text = (VehicleManager.VehicleDynamics.currentMileage).ToString("f2") + "м";
         _AllMileage.text = ((VehicleManager.VehicleDynamics.allMileage + VehicleManager.VehicleDynamics.currentMileage) / 1000).ToString("f2") + "км";
         SpeedText.text = VehicleManager.PhysicsCalculation.speed.ToString("0");
-        SpeedText.color = (VehicleManager.VehicleDynamics.maxSpeedOnCurrentGear > VehicleManager.PhysicsCalculation.Kph + 5) ? new Color(255, 255, 255) : new Color (255, 0, 0);
+        SpeedText.color = (VehicleManager.VehicleDynamics.maxSpeedOnCurrentGear > VehicleManager.PhysicsCalculation.kph + 5) ? new Color(255, 255, 255) : new Color (255, 0, 0);
         var Transmission = VehicleManager.Transmission;
         GearText.text = (Transmission.currentGear == 0) ? "N" : (Transmission.currentGearRatio < 0) ? "R" : (Transmission.currentGear).ToString("");
         updateNeedle();

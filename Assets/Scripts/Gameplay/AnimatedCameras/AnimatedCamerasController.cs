@@ -15,6 +15,15 @@ public class AnimatedCamerasController : MonoBehaviour {
     private bool activateAnimations = true;
     [SerializeField]
     private bool stopAnimation = false;
+    [SerializeField]
+    private bool _shortAnimation = false;
+    public bool shortAnimation {
+        get {return this._shortAnimation;}
+        set {if(this._shortAnimation != value) {
+                this._shortAnimation = value;
+            }
+        }
+    }
 
     private void Start() {
         FindVirtualCameras();
@@ -52,7 +61,7 @@ public class AnimatedCamerasController : MonoBehaviour {
 
         animatedCameras[currentCameraIndex].virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 0;
 
-        if(stopAnimation && currentCameraIndex == animatedCameras.Count-1) {
+        if((stopAnimation && currentCameraIndex == animatedCameras.Count-1) || (this._shortAnimation && currentCameraIndex == 0)) {
             TurnOffAllCameras();
             AnimationDoneEvent?.Invoke();
             return;

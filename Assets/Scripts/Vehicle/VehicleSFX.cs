@@ -119,7 +119,7 @@ public class VehicleSFX : MonoBehaviour {
             //     m_Turbo1.pitch = 0.75f + (Engine.Rpm / Engine.MaxRpm) / 2;
             // }
 
-            m_gearboxWhine.pitch = PC.Kph / maxVolWineAt;
+            m_gearboxWhine.pitch = PC.kph / maxVolWineAt;
             // float accFade = 0;
 
             // // get values for fading the sounds based on the acceleration
@@ -156,10 +156,10 @@ public class VehicleSFX : MonoBehaviour {
             //     }
             // }
 
-            m_gearboxWhine.volume = (PC.Kph / maxVolWineAt)*geaboxWhineVolume;
+            m_gearboxWhine.volume = (PC.kph / maxVolWineAt)*geaboxWhineVolume;
             m_Burble.volume = (Engine.rpm > 5000 && VehicleManager.VehicleInputHandler.vertical <= 0) ? burbleVolume : 0;
 
-            m_tireRollSand.volume = ((PC.Kph / maxVolSandRollAt > 1) ? 1 : (PC.Kph / maxVolSandRollAt));
+            m_tireRollSand.volume = ((PC.kph / maxVolSandRollAt > 1) ? 1 : (PC.kph / maxVolSandRollAt));
         }
     }
 

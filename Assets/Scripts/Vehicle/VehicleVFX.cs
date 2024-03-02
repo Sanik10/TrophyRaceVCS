@@ -87,7 +87,7 @@ public class VehicleVFX : MonoBehaviour {
             if(currentSurface[i] != surfaceType.Grass || currentSurface[i] != surfaceType.Sand) {
                 if(TF.wheelSlip[i] > 0.7f && TF.wheelsColliders[i].isGrounded && hasSmokes) {
                     smokeMain.simulationSpeed = (VehicleDynamics.wheelColliders[i].rpm > 1000) ? 8 : (VehicleDynamics.wheelColliders[i].rpm > 600) ? 4 : 2;
-                    smokeMain.startSpeed = (PC.Kph > 0) ? 2 : -2;
+                    smokeMain.startSpeed = (PC.kph > 0) ? 2 : -2;
                     smoke[i].Play();
                 } else {
                     smoke[i].Stop();
@@ -114,7 +114,7 @@ public class VehicleVFX : MonoBehaviour {
             if(currentSurface[i] == surfaceType.Grass) {
                 smoke[i].Stop();
                 skidmarksOffroad[i].emitting = (hasTrails && VehicleDynamics.wheelColliders[i].isGrounded) ? true : false;
-                if(PC.Kph > 10 && VehicleDynamics.wheelColliders[i].isGrounded && hasSmokes) {
+                if(PC.kph > 10 && VehicleDynamics.wheelColliders[i].isGrounded && hasSmokes) {
                     if(smokeFlag != true) {
                         sandDust[i].Play();
                         smokeFlag = true;
@@ -130,15 +130,15 @@ public class VehicleVFX : MonoBehaviour {
                 skidmarksOffroad[i].emitting = (hasTrails && VehicleDynamics.wheelColliders[i].isGrounded) ? true : false;
                 skidmarksDrifting[i].emitting = false;
 
-                if((VehicleDynamics.wheelColliders[i].isGrounded && PC.Kph > 20 || PC.Kph < -20)  && hasSmokes) {
+                if((VehicleDynamics.wheelColliders[i].isGrounded && PC.kph > 20 || PC.kph < -20)  && hasSmokes) {
                     // if(PC.Kph > 0) {
                     //     sandDustMain.simulationSpeed = (PC.Kph > 200) ? -14 : (PC.Kph > 100) ? -7 : (PC.Kph > 30) ? -3 : -1;
                     // } else {
                     //     sandDustMain.simulationSpeed = (PC.Kph < -200) ? 14 : (PC.Kph < -100) ? 7 : (PC.Kph < -30) ? 3 : 1;
                     // }
                     // sandDustMain.simulationSpeed = (PC.Kph > 200) ? 10 : (PC.Kph > 100) ? 5 : (PC.Kph > 30) ? 3 : 2;
-                    sandDustMain.simulationSpeed = (PC.Kph > 200) ? 4 : (PC.Kph > 100) ? 3 : (PC.Kph > 50) ? 3 : 2;
-                    sandDustemission.rateOverTime = (PC.Kph > 200) ? 50 : (PC.Kph > 100) ? 30 : (PC.Kph > 30) ? 20 : 10;
+                    sandDustMain.simulationSpeed = (PC.kph > 200) ? 4 : (PC.kph > 100) ? 3 : (PC.kph > 50) ? 3 : 2;
+                    sandDustemission.rateOverTime = (PC.kph > 200) ? 50 : (PC.kph > 100) ? 30 : (PC.kph > 30) ? 20 : 10;
                     sandDust[i].Play();
                 } else {
                     // if(smokeFlag != false) {
