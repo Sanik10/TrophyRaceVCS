@@ -24233,7 +24233,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.36507
+    FieldOfView: 60.37325
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -42446,7 +42446,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.999435
+  m_FocalLength: 21.99582
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -42461,7 +42461,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.36507
+  field of view: 60.373253
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
