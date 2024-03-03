@@ -69,7 +69,6 @@ namespace NWH.WheelController3D
             set => wheel.inertia = value < 0f ? 0f : value;
         }
 
-
         [ShowInTelemetry]
         public override float RPM
         {
@@ -84,6 +83,15 @@ namespace NWH.WheelController3D
         public override Vector3 WheelPosition
         {
             get => wheel.worldPosition;
+        }
+
+        public override Quaternion WheelRotation
+        {
+            get => wheel.worldRotation;
+        }
+
+        public override Vector3 LocalPosition {
+            get => wheel.localPosition;
         }
 
         [ShowInTelemetry]

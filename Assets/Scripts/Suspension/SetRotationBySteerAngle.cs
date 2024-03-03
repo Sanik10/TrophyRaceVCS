@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NWH.Common.Vehicles;
 
 /// <summary>
 /// This script is needed to rotate object from WheelCollider.steerAngle
 /// </summary>
 public class SetRotationBySteerAngle : MonoBehaviour {
 
-	[SerializeField] WheelCollider WheelCollider;		//WheelCollider ref
+	[SerializeField] WheelUAPI WheelController;		//WheelCollider ref
 	[SerializeField] float SteerMultiplier = 1;			//Rotate multiplier
 	[SerializeField] Axis AxisRotate;					//Axis of rotation
 
 	Quaternion StartRotation;							//For saving rotation object at the start
 
 	private void Awake () {
-		if (WheelCollider == null) {
+		if (WheelController == null) {
 			Debug.LogError("wheelCollider is null");
 			enabled = false;
 		}
@@ -22,9 +23,9 @@ public class SetRotationBySteerAngle : MonoBehaviour {
 		StartRotation = transform.localRotation;
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		//Calculate angle
-		float steer = WheelCollider.steerAngle * SteerMultiplier;
+		float steer = WheelController.SteerAngle * SteerMultiplier;
 
 		//Raotate object
 		switch (AxisRotate) {

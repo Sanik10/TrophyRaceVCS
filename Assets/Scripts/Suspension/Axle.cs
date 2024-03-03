@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NWH.Common.Vehicles;
 
 /// <summary>
 /// This script is needed to change the position and rotation the axle
 /// </summary>
 public class Axle : MonoBehaviour {
 
-	[SerializeField] WheelCollider LeftWheelCollider;				//Left WheelCollider ref
-	[SerializeField] WheelCollider RightWheelCollider;				//Right WheelCollider ref
+	[SerializeField] WheelUAPI LeftWheelCollider;					//Left WheelCollider ref
+	[SerializeField] WheelUAPI RightWheelCollider;					//Right WheelCollider ref
 	[SerializeField] Transform LeftWheelView;						//Left wheel view, to rotate the transform
 	[SerializeField] Transform RightWheelView;						//Right wheel view, to rotate the transform
 	[SerializeField] float AngleMiltiplier = 45;					//Rotation multiplier
@@ -24,20 +25,25 @@ public class Axle : MonoBehaviour {
 		TransformHelper.SetParent(transform.parent);
 		TransformHelper.position = transform.position;
 
-		Quaternion rot;
-		LeftWheelCollider.GetWorldPose(out LeftWheelPosition, out rot);
-		RightWheelCollider.GetWorldPose(out RightWheelPosition, out rot);
+		// Quaternion rot;
+		// LeftWheelCollider.GetWorldPose(out LeftWheelPosition, out rot);
+		LeftWheelPosition = LeftWheelCollider.WheelPosition;
+		RightWheelPosition = RightWheelCollider.WheelPosition;
+		// rot = (LeftWheelCollider.WheelRotation + RightWheelCollider.WheelRotation) / 2;
+		// RightWheelCollider.GetWorldPose(out RightWheelPosition, out rot);
 
 		//Find distance between wheels
 		Distance = Vector3.Distance(LeftWheelPosition, RightWheelPosition);
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		//Get wheels position
 		Quaternion rot;
 
-		LeftWheelCollider.GetWorldPose(out LeftWheelPosition, out rot);
-		RightWheelCollider.GetWorldPose(out RightWheelPosition, out rot);
+		// LeftWheelCollider.GetWorldPose(out LeftWheelPosition, out rot);
+		// RightWheelCollider.GetWorldPose(out RightWheelPosition, out rot);
+		LeftWheelPosition = LeftWheelCollider.WheelPosition;
+		RightWheelPosition = RightWheelCollider.WheelPosition;
 
 		LeftWheelPosition = TransformHelper.transform.InverseTransformPoint(LeftWheelPosition);
 		RightWheelPosition = TransformHelper.transform.InverseTransformPoint(RightWheelPosition);
@@ -55,7 +61,7 @@ public class Axle : MonoBehaviour {
 		transform.localRotation = rot;
 
 		//Wheels rotation assignment, from WheelColliders
-		LeftWheelView.localRotation *= Quaternion.AngleAxis(LeftWheelCollider.rpm * 6 * Time.deltaTime, Vector3.right);
-		RightWheelView.localRotation *= Quaternion.AngleAxis(RightWheelCollider.rpm * 6 * Time.deltaTime, Vector3.right);
+		LeftWheelView.localRotation *= Quaternion.AngleAxis(LeftWheelCollider.RPM * 6 * Time.deltaTime, Vector3.right);
+		RightWheelView.localRotation *= Quaternion.AngleAxis(RightWheelCollider.RPM * 6 * Time.deltaTime, Vector3.right);
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NWH.Common.Vehicles;
 using System;
 
 /// <summary>
@@ -10,7 +11,7 @@ using System;
 public class SetRotationByRPM: MonoBehaviour {
 
 	[Header("Main settings")]
-	[SerializeField] WheelCollider WheelCollider;		//WheelCollider ref
+	[SerializeField] WheelUAPI WheelController;		//WheelCollider ref
 	[SerializeField] float RotationMultiplier = 1;		//Rotate multiplier
 	[SerializeField] Axis AxisRotate;					//Axis of rotation
 
@@ -24,7 +25,7 @@ public class SetRotationByRPM: MonoBehaviour {
 	float LerpPrm;
 
 	private void Awake () {
-		if (WheelCollider == null) {
+		if (WheelController == null) {
 			Debug.LogError("wheelCollider is null in LookAt script");
 			enabled = false;
 		}
@@ -80,14 +81,14 @@ public class SetRotationByRPM: MonoBehaviour {
 		}
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		//Invoke LookAt method
 		if (TargetTransform != null) {
 			SetRotate();
 		}
 
 		//Raotate RotateTransform
-		LerpPrm = Mathf.MoveTowardsAngle(LerpPrm, WheelCollider.rpm, 5f);
+		LerpPrm = Mathf.MoveTowardsAngle(LerpPrm, WheelController.RPM, 5f);
 		float rotate = LerpPrm * RotationMultiplier * Time.deltaTime;
 		RotateTransform.localRotation *= Quaternion.AngleAxis(rotate, _Axis);
 	}

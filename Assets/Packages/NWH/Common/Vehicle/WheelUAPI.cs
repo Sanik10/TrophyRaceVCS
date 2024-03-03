@@ -21,6 +21,8 @@ namespace NWH.Common.Vehicles
         public abstract float RPM { get; }
         public abstract float AngularVelocity { get; }
         public abstract Vector3 WheelPosition { get; }
+        public abstract Vector3 LocalPosition { get; }
+        public abstract Quaternion WheelRotation { get; }
         public abstract float Load { get; }
         public abstract float MaxLoad { get; set; }
         public abstract bool IsGrounded { get; }

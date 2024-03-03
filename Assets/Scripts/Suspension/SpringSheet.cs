@@ -130,7 +130,7 @@ public class SpringSheet : MonoBehaviour {
 		}
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		UpdateMesh ();
 	}
 

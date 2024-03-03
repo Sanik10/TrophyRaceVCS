@@ -19,7 +19,7 @@ public class SetPosition : MonoBehaviour {
 		}
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		transform.position = TargetPoint;
 	}
 

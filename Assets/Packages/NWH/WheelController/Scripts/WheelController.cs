@@ -8,7 +8,6 @@ using UnityEditor;
 using NWH.NUI;
 #endif
 
-
 namespace NWH.WheelController3D
 {
     [DisallowMultipleComponent]
@@ -298,7 +297,7 @@ namespace NWH.WheelController3D
 
             // Initialize ground detection
             _groundDetection = GetComponent<GroundDetectionBase>();
-            if (_groundDetection == null) _groundDetection = gameObject.AddComponent<StandardGroundDetection>();
+            if(_groundDetection == null) _groundDetection = gameObject.AddComponent<StandardGroundDetection>();
             wheelHit = new WheelHit();
 
             // Initialize layers for casting. Used to prevent the rays from hitting the vehicle itself

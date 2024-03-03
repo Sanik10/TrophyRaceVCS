@@ -152,7 +152,7 @@ public class Engine : MonoBehaviour {
 
         this._torque = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? (this._power * (this._Transmission.currentGearRatio * this._Transmission.finalDrive) * this._throttle * this._VehicleInputHandler.clutch) : 0;
 
-        this._kiloWatts = this._power / 1.3596f;
+        this._kiloWatts = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? this._power / 1.3596f * this._throttle : 0;
         this._newtonMeters = (this._kiloWatts * 9549) / this._rpm;
     }
 

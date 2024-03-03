@@ -56,7 +56,7 @@ public class LookAtOneAxis : MonoBehaviour {
 		}
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		Vector3 eulerAngles;
 
 		//Find target position in local space with ignore local rotation

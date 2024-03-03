@@ -41,7 +41,7 @@ public class LookAt : MonoBehaviour {
 		}
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		//Save rotation along the z axis
 		var oldEulerZ = RotateTransform.localEulerAngles.z;
 

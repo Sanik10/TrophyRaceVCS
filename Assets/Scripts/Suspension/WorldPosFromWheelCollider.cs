@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NWH.Common.Vehicles;
 
 /// <summary>
 /// This script is needed to change position and rotatin from WheelCollider
 /// </summary>
 public class WorldPosFromWheelCollider : MonoBehaviour {
 
-	[SerializeField] WheelCollider WheelCollider;
+	[SerializeField] WheelUAPI WheelController;
 	[SerializeField] bool SetPosition;
 	[SerializeField] bool SetRotation;
 	[SerializeField] Vector3 OffsetPosition;
@@ -16,7 +17,9 @@ public class WorldPosFromWheelCollider : MonoBehaviour {
 	Quaternion Rotation;
 
 	private void LateUpdate () {
-		WheelCollider.GetWorldPose(out Position, out Rotation);
+		// WheelController.GetWorldPose(out Position, out Rotation);
+		Position = WheelController.WheelPosition;
+		Rotation = WheelController.WheelRotation;
 
 		if (SetPosition) {
 			transform.position = Position;

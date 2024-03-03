@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NWH.WheelController3D;
+using NWH.Common.Vehicles;
 
 /// <summary>
 /// This script is needed to move the wheel in an arc
 /// </summary>
 public class ArcMoveFromWheelCollider : MonoBehaviour {
 
-	[SerializeField] WheelCollider WheelCollider;				//WheelCollider ref
+	[SerializeField] WheelUAPI WheelCollider;					//WheelCollider ref
 	[SerializeField] Vector3 OffsetPosition;					//Offset position, calculate from local space of WheelCollider
 	[SerializeField] float ArmLength;							//Arm length, radius
 	[SerializeField, Range(0f, 1f)] float MaxLengthOnDistance;  //The position of the wheel in which the arm is horizontal
@@ -32,17 +34,19 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 		_CenterArcPoint = CenterArcPoint;
 	}
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 
 		// Get position and rotation feom WheelCollider
-		WheelCollider.GetWorldPose(out Position, out Rotation);
+		// WheelCollider.GetWorldPose(out Position, out Rotation);
+		Position = WheelCollider.WheelPosition;
+		Rotation = WheelCollider.WheelRotation;
 
 		//Position translation to local space
 		Position = WheelCollider.transform.InverseTransformPoint(Position) + OffsetPosition;
 		Position -= CenterArcPoint;
 
 		//Find Y of wheel position
-		var offsetY = Position.y - MaxLengthOnDistance * WheelCollider.suspensionDistance;
+		var offsetY = Position.y - MaxLengthOnDistance * WheelCollider.SpringMaxLength;
 
 		if (offsetY < ArmLength && offsetY > -ArmLength) {
 			//Calcelate X, According to the formula X*X + Y*Y = R*R
@@ -61,9 +65,9 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 		GizmoPoints.Clear();
 		var centerArcWheelColliderPoint = Vector3.left * (Invertion? -ArmLength: ArmLength);
 		Vector3 point;
-		for (int i = 0; i < (int)(WheelCollider.suspensionDistance * 100); i++) {
-			point = new Vector3(0, ((float)i / 100f) - (WheelCollider.suspensionDistance / 2), 0);
-			var offsetY = point.y - MaxLengthOnDistance * (WheelCollider.suspensionDistance) + (WheelCollider.suspensionDistance / 2);
+		for (int i = 0; i < (int)(WheelCollider.SpringMaxLength * 100); i++) {
+			point = new Vector3(0, ((float)i / 100f) - (WheelCollider.SpringMaxLength / 2), 0);
+			var offsetY = point.y - MaxLengthOnDistance * (WheelCollider.SpringMaxLength) + (WheelCollider.SpringMaxLength / 2);
 			point -= centerArcWheelColliderPoint;
 			if (offsetY < ArmLength && offsetY > -ArmLength) {
 				point.x = Mathf.Sqrt((ArmLength * ArmLength) - (offsetY * offsetY));
@@ -72,7 +76,7 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 			GizmoPoints.Add(point);
 		}
 		GizmoArmLength = ArmLength;
-		GizmoSuspensionDistance = WheelCollider.suspensionDistance;
+		GizmoSuspensionDistance = WheelCollider.SpringMaxLength;
 		GizmoMaxLengthOnDistance = MaxLengthOnDistance;
 	}
 	private void OnDrawGizmosSelected () {
@@ -83,7 +87,7 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 
 		if (GizmoPoints.Count == 0 ||
 		!Mathf.Approximately(GizmoArmLength, ArmLength)||
-		!Mathf.Approximately(GizmoSuspensionDistance, WheelCollider.suspensionDistance) ||
+		!Mathf.Approximately(GizmoSuspensionDistance, WheelCollider.SpringMaxLength) ||
 		!Mathf.Approximately(GizmoMaxLengthOnDistance, MaxLengthOnDistance))
 		{
 			CalculateGizmoPoints ();

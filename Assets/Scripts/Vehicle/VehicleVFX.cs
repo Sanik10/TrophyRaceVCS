@@ -72,13 +72,13 @@ public class VehicleVFX : MonoBehaviour {
         lights();
         
 
-        if(hasEffects) {
-            // GroundCheck();
-            // driftVFX();
-            /// offroadVFX();
-        }
+        // if(hasEffects) {
+        //     // GroundCheck();
+        //     // driftVFX();
+        //     /// offroadVFX();
+        // }
     }
-
+/*
     private void driftVFX() {
         for(int i = 0; i < VehicleDynamics.wheelColliders.Length; i++) {
             var smokeMain = smoke[i].main;
@@ -166,7 +166,7 @@ public class VehicleVFX : MonoBehaviour {
             }
         }
     }
-
+*/
     private void lights() {
         if(hasHeadLights) {
             dippedBeamsON.SetActive(VehicleManager.VehicleInputHandler.activateDippedBeams ? true : false);
