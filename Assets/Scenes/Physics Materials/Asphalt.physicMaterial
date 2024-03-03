@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: Asphalt
   dynamicFriction: 0.8
   staticFriction: 0.8
-  bounciness: 0.02
+  bounciness: 0.3
   frictionCombine: 0
   bounceCombine: 0

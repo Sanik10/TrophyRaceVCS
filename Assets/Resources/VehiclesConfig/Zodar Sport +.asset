@@ -17,7 +17,7 @@ MonoBehaviour:
   _vehicleName: Zodar Sport +
   _id: 4
   _price: 238000
-  _isOwned: 0
+  _isOwned: 1
   _maxPower: 500
   _idleRpm: 700
   _medRpm: 3500
@@ -44,7 +44,7 @@ MonoBehaviour:
   _steeringWheelSpeed: 10
   _wheelBase: 2.867
   _rearTrack: 1.76
-  _mileage: 23312.645
+  _mileage: 23312.805
   _colorCustomization: 1
   _bodyMaterailId: 10
   _diskMaterailId: 0

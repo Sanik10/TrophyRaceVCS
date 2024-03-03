@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 public class TiresFriction : MonoBehaviour {
@@ -36,6 +37,25 @@ public class TiresFriction : MonoBehaviour {
     private FrictionSettings rearSidewaysFriction;
 
     private float[] _originExtremumValue;
+    Dictionary<string, SurfaceType> materialSurfaceMap = new Dictionary<string, SurfaceType>
+    {
+        {"asphalt", SurfaceType.Asphalt},
+        {"concrete", SurfaceType.Concrete},
+        {"sand", SurfaceType.Sand},
+        {"dirt", SurfaceType.Dirt},
+        {"snow", SurfaceType.Snow},
+        {"ice", SurfaceType.Ice},
+        {"ifriction", SurfaceType.IFriction}
+    };
+    Dictionary<string, SurfaceType> wetMaterialSurfaceMap = new Dictionary<string, SurfaceType>
+    {
+        {"asphalt wet", SurfaceType.AsphaltWet},
+        {"concrete wet", SurfaceType.ConcreteWet},
+        {"sand wet", SurfaceType.SandWet},
+        {"dirt wet", SurfaceType.DirtWet},
+        {"snow wet", SurfaceType.SnowWet},
+        // "ice" не нуждается в отдельном варианте, так как он всегда "лед"
+    };
 
     public float baseFriction => this._baseFriction;
     public float wearMultiplier => this._tireIntegrity;
@@ -57,6 +77,7 @@ public class TiresFriction : MonoBehaviour {
         ApplyFriction();
     }
 
+/* Старый вариант определения сцепления
     private void DetermineSurfaceType() {
         for (int i = 0; i < _wheelsColliders.Length; i++) {
             WheelCollider wheelCollider = _wheelsColliders[i];
@@ -70,28 +91,53 @@ public class TiresFriction : MonoBehaviour {
                 if (currentMaterial != null) {
                     string materialName = currentMaterial.name.ToLower();
 
-                    if (materialName.Contains("asphalt")) {
+                    if(materialName.Contains("asphalt")) {
                         _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.65f : 0.85f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.AsphaltWet : SurfaceType.Asphalt;
-                    } else if (materialName.Contains("concrete")) {
+                    } else if(materialName.Contains("concrete")) {
                         _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.7f : 0.8f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.ConcreteWet : SurfaceType.Concrete;
-                    } else if (materialName.Contains("sand")) {
+                    } else if(materialName.Contains("sand")) {
                         _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.55f : 0.45f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.SandWet : SurfaceType.Sand;
-                    } else if (materialName.Contains("dirt")) {
+                    } else if(materialName.Contains("dirt")) {
                         _typeMultiplier[i] = (materialName.Contains("wet")) ? 0.45f : 0.55f;
                         _surfaceType[i] = (materialName.Contains("wet")) ? SurfaceType.DirtWet : SurfaceType.Dirt;
-                    } else if (materialName.Contains("snow")) {
+                    } else if(materialName.Contains("snow")) {
                         _typeMultiplier[i] = (materialName.Contains("icy")) ? 0.2f : 0.3f;
                         _surfaceType[i] = (materialName.Contains("icy")) ? SurfaceType.SnowIcy : SurfaceType.Snow;
-                    } else if (materialName.Contains("ice")) {
+                    } else if(materialName.Contains("ice")) {
                         _typeMultiplier[i] = 0.18f;
                         _surfaceType[i] = SurfaceType.Ice;
                     }
                 }
             }
         }
+    }
+*/
+
+    private void DetermineSurfaceType() {
+        for (int i = 0; i < _wheelsColliders.Length; i++) {
+            WheelCollider wheelCollider = _wheelsColliders[i];
+
+            WheelHit hit;
+
+            if(wheelCollider.GetGroundHit(out hit)) {
+                PhysicMaterial currentMaterial = hit.collider.sharedMaterial;
+
+                // Получаем сцепление из коллайдера на земле
+                this._typeMultiplier[i] = currentMaterial.dynamicFriction;
+                this._surfaceType[i] = DetermineSurfaceType(currentMaterial);
+            }
+        }
+    }
+
+    private SurfaceType DetermineSurfaceType(PhysicMaterial material) {
+        string materialName = material.name.ToLower();
+
+        SurfaceType surfaceType = (materialSurfaceMap.TryGetValue(materialName, out SurfaceType baseSurfaceType)) ? baseSurfaceType : (materialName.Contains("wet") && wetMaterialSurfaceMap.TryGetValue(materialName, out SurfaceType wetSurfaceType)) ? wetSurfaceType : SurfaceType.Undefined;
+
+        return surfaceType;
     }
 
     private void ApplyInclineAngle() {
@@ -183,8 +229,10 @@ public enum SurfaceType {
     Dirt,
     DirtWet,
     Snow,
-    SnowIcy,
-    Ice
+    SnowWet,
+    Ice,
+    Undefined,
+    IFriction
 }
 
 [System.Serializable]

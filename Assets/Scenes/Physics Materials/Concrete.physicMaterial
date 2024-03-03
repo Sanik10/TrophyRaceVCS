@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: Concrete
   dynamicFriction: 0.75
   staticFriction: 0.75
-  bounciness: 0.02
+  bounciness: 0.3
   frictionCombine: 0
   bounceCombine: 0

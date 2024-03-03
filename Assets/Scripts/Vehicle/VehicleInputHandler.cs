@@ -147,6 +147,7 @@ public class VehicleInputHandler : MonoBehaviour {
     private void PreRaceModeHandler() {
         this._preRaceMode = true;
         this._handbrake = true;
+        this._clutch = 0;
     }
 
     private void StartRaceHandler() {

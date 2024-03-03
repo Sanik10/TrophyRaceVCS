@@ -6869,14 +6869,14 @@ MonoBehaviour:
   chaseVehicle: 0
   Engine: {fileID: 1420484034393593306}
   Transmission: {fileID: 3122341014087684336}
-  VehicleDynamics: {fileID: 0}
+  VehicleDynamics: {fileID: 7954279481438874565}
   TiresFriction: {fileID: 4697578369395650383}
   PhysicsCalculation: {fileID: 1464348577297120141}
   RES: []
   VehicleSFX: {fileID: 489393200401794165}
   VehicleVFX: {fileID: 1238347779951617078}
   VehicleInfo: {fileID: 3704283785042163255}
-  VehicleInputHandler: {fileID: 0}
+  VehicleInputHandler: {fileID: 9060378795467515612}
 --- !u!114 &1420484034393593306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6915,7 +6915,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transmission: 0
   _gears: []
-  _currentGearRatio: 0
   clutchButtonNeed: 0
 --- !u!114 &7954279481438874565
 MonoBehaviour:
@@ -6942,15 +6941,12 @@ MonoBehaviour:
     - {fileID: 2874136226940725315}
     powered: 1
     steering: 0
+  wheelColliders: []
   _wheelsResistance: 1
   maxSpeedOnCurrentGear: 0
-  wheelColliders: []
   _wheelBase: 0
   _rearTrack: 0
   currentWheelSpeed: []
-  horizontal: 0
-  totalSlip: 0
-  currentMileage: 0
   _radius: 0
   track: 0
   maxRpmOnWheel: []
@@ -6969,19 +6965,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03603ccd80ffb4593a64d5e7f742311c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _centerOfMass: {x: 0, y: 0.78, z: -0.03}
   speedType: 0
-  turningRadius: 0
-  recommendedSpeed: 0
-  speed: 0
-  Kph: 0
-  KphByWheels: 0
-  centerOfMass: {x: 0, y: 0.5, z: -0.1}
-  centerOfMassAuto: {x: 0, y: 0, z: 0}
-  speedByVelocity: 1
-  DownForceValue: 25
-  angularDragVar: 25
-  mass: 0
-  dragAmount: 0.032
+  _turningRadius: 0
+  _recommendedSpeed: 0
+  _brakeDistance: 0
+  accelerationMagnitude: 0
+  _speedByVelocity: 1
+  _downForceValue: 25
+  _angularDragVar: 25
 --- !u!114 &489393200401794165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7161,8 +7153,8 @@ MonoBehaviour:
   _wheelSlip: []
   frontForwardFriction:
     extremumSlip:
-    - 0.3
     - 0.1
+    - 0.3
     extremumValue:
     - 3
     - 2
@@ -7174,11 +7166,11 @@ MonoBehaviour:
     - 1
   frontSidewaysFriction:
     extremumSlip:
-    - 0.3
-    - 0.5
+    - 0.4
+    - 0.6
     extremumValue:
-    - 2
     - 1.5
+    - 1
     asymptoteSlip:
     - 0.7
     - 0.9
@@ -7191,7 +7183,7 @@ MonoBehaviour:
     - 0.4
     extremumValue:
     - 3.5
-    - 2.5
+    - 2
     asymptoteSlip:
     - 0.3
     - 0.6
@@ -7200,11 +7192,11 @@ MonoBehaviour:
     - 1
   rearSidewaysFriction:
     extremumSlip:
-    - 0.4
     - 0.6
+    - 0.8
     extremumValue:
-    - 2
-    - 1.5
+    - 1.75
+    - 1.25
     asymptoteSlip:
     - 0.8
     - 1
@@ -8496,7 +8488,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4138100167363015095}
-  m_LocalRotation: {x: -2.0130032e-10, y: 0.99993193, z: -0.011670431, w: -0.00000001724757}
+  m_LocalRotation: {x: -2.0100167e-10, y: 0.99993193, z: -0.0116704255, w: -0.00000001722199}
   m_LocalPosition: {x: 0, y: 0.6914286, z: 3.8952382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13380,7 +13372,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6690526180569807324}
-  m_LocalRotation: {x: -0.0033047982, y: 0.0000000045245483, z: 1.4952801e-11, w: 0.9999946}
+  m_LocalRotation: {x: -0.0033047954, y: 0.0000000028141705, z: 9.300309e-12, w: 0.9999946}
   m_LocalPosition: {x: 0, y: 0.58095247, z: -3.6285713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

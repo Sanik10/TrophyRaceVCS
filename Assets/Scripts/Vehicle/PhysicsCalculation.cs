@@ -4,6 +4,7 @@ using TrophyRace.Architecture;
 public class PhysicsCalculation : MonoBehaviour {
 
     private VehicleManager _VehicleManager;
+    private VehicleDynamics _VehicleDynamics;
     private Rigidbody _rgdbody;
 
     [SerializeField]
@@ -16,6 +17,7 @@ public class PhysicsCalculation : MonoBehaviour {
     private float _recommendedSpeed;
     [SerializeField]
     private float _brakeDistance;
+    public float accelerationMagnitude;
     private float _speed;
     private float _kph;
     private float _kphByWheels;
@@ -51,6 +53,7 @@ public class PhysicsCalculation : MonoBehaviour {
         this._mass = this._rgdbody.mass;
         this._rgdbody.centerOfMass = this._centerOfMass;
         this._VehicleManager = GetComponent<VehicleManager>();
+        this._VehicleDynamics = GetComponent<VehicleDynamics>();
     }
 
     private void FixedUpdate() {
@@ -61,7 +64,7 @@ public class PhysicsCalculation : MonoBehaviour {
     private void SpeedCalculation() {
         this._mps = this._rgdbody.velocity.magnitude;
         this._kph = this._mps * 3.6f;
-        this._kphByWheels = (this._VehicleManager.VehicleDynamics.circumFerence * this._VehicleManager.VehicleDynamics.driveWheelsRpm) * 0.06f;
+        this._kphByWheels = (this._VehicleDynamics.circumFerence * this._VehicleDynamics.driveWheelsRpm) * 0.06f;
 
         this._speed = (this._speedByVelocity) ? 
         ((speedType == speedTypeEnum.Kph) ? this._kph : (speedType == speedTypeEnum.Mph) ? this._mps * 2.237f : (speedType == speedTypeEnum.Fps) ?  this._mps * 3.281f : this._mps) 
@@ -84,9 +87,11 @@ public class PhysicsCalculation : MonoBehaviour {
 
         this._turningRadius = linearSpeed / angularSpeed;
         this._recommendedSpeed = Mathf.Sqrt((9.81f * this._turningRadius * this._VehicleManager.TiresFriction.totalGroundFriction)) * 3.6f;
-        // this._brakeDistance = (this._kph * this._kph - this._recommendedSpeed * this._recommendedSpeed) / (250 * this._VehicleManager.TiresFriction.totalGroundFriction);
-        this._brakeDistance = (this._kph * this._kph) / 2 * (-Physics.gravity.z * (this._VehicleManager.TiresFriction.totalGroundFriction * this._rgdbody.mass) + this._dragAmount);
-
+        float slopeAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.forward.y, Mathf.Sqrt(transform.forward.x * transform.forward.x + transform.forward.z * transform.forward.z));
+        float brakePower = this._VehicleDynamics.totalBrakePower;
+        //? (this._brakingPower * (1 - this._brakingDistribution))
+        //: this._brakingPower * this._brakingDistribution
+        this._brakeDistance = (this._mps * this._mps) / (9.81f * (brakePower / this._rgdbody.mass) * this._VehicleManager.TiresFriction.totalGroundFriction);
     }
 
     private void PreRaceModeHandler() {

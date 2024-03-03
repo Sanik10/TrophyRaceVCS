@@ -18,20 +18,16 @@ public class VehicleDynamics : MonoBehaviour {
     private int _frontSteeringAxles = 0;
     private int _rearSteeringAxles = 0;
 
-
-
-    [Header("Колёса")]
+    [HideInInspector]
+    public WheelCollider[] wheelColliders;
     [Range(0.1f, 1)] [SerializeField]
     private float _wheelsResistance = 1;
+    private float _allMileage;
     private float _driveWheelsRpm = 0;
     private float _wheelRadius = 0;
     private float _circumFerence = 0;
     public float maxSpeedOnCurrentGear = 0;
     private bool _braking = true;
-    [HideInInspector]
-    public WheelCollider[] wheelColliders;
-
-    private float _allMileage;
     private float _maxSpeed = 0;
     [SerializeField]
     private float _wheelBase = 0;
@@ -42,13 +38,12 @@ public class VehicleDynamics : MonoBehaviour {
     private float[] currentWheelSpeed;
     private driveType driveWheels;
     private int _torqueDevider;
+    private float _brakingDistribution = 0;
+    private float _totalBrakePower = 0;
 
     [Header("Управление")]
-    public float horizontal = 0;
-    public float totalSlip = 0;
-    public float currentMileage;
-    private float _brakingDistribution = 0;
-    private float _brakingVariablePower = 0;
+    private float _horizontal = 0;
+    private float _currentMileage = 0;
     [SerializeField]
     private float _radius = 0;
     private float _brakingPower = 0;
@@ -66,8 +61,12 @@ public class VehicleDynamics : MonoBehaviour {
 
     public List<AxleSettings> axles => this._axles;
     public float allMileage => this._allMileage;
+    public float brakingDistribution => this._brakingDistribution;
     public float circumFerence => this._circumFerence;
+    public float currentMileage => this._currentMileage;
     public float driveWheelsRpm => this._driveWheelsRpm;
+    public float horizontal => this._horizontal;
+    public float totalBrakePower => this._totalBrakePower;
     public bool isBraking => this._braking;
 
 
@@ -145,7 +144,7 @@ public class VehicleDynamics : MonoBehaviour {
         VehicleSteering();
         BrakingVehicle();
 
-        currentMileage += this._circumFerence * Mathf.Abs(this._driveWheelsRpm) / 10000;
+        this._currentMileage += this._circumFerence * Mathf.Abs(this._driveWheelsRpm) / 10000;
     }
 
     private void DriveWheelsRpm() {
@@ -175,7 +174,7 @@ public class VehicleDynamics : MonoBehaviour {
     }
 
     private void BrakingVehicle() {
-        this._brakingPower = (this._VehicleInputHandler.vertical < 0) ? this._brakingVariablePower : 0;
+        this._brakingPower = (this._VehicleInputHandler.vertical < 0) ? this._totalBrakePower : 0;
 
         for(int i = 0; i < this._axles.Count; i++) {
             for(int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
@@ -200,26 +199,26 @@ public class VehicleDynamics : MonoBehaviour {
     private void VehicleSteering() {
         int currentFrontSteeringAxle = 1;
         int currentRearSteeringAxle = 1;
-        horizontal = Mathf.Lerp(this.horizontal, this._VehicleInputHandler.horizontal, steeringWheelSpeed/100);
+        this._horizontal = Mathf.Lerp(this._horizontal, this._VehicleInputHandler.horizontal, steeringWheelSpeed/100);
 
         for(int i = 0; i < this._axles.Count; i++) {
             if(this._axles[i].steering) {
                 for (int q = 0; q < this._axles[i].wheelsColliders.Length; q++) {
                     this._axles[i].wheelsColliders[q].steerAngle = 
-                        (horizontal > 0) 
+                        (this._horizontal > 0) 
                             ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius + (q % 2 == 0 
                                 ? (this._rearTrack) 
                                 : -this._rearTrack))) * (this._axles[i].front 
-                                    ? horizontal 
-                                    : -horizontal) * (this._axles[i].front 
+                                    ? this._horizontal 
+                                    : -this._horizontal) * (this._axles[i].front 
                                         ? ((float)currentFrontSteeringAxle / this._frontSteeringAxles) 
                                         : ((float)currentRearSteeringAxle / this._rearSteeringAxles))
-                            : (horizontal < 0)
+                            : (this._horizontal < 0)
                                 ? Mathf.Rad2Deg * Mathf.Atan(this._wheelBase / (this._radius - (q % 2 == 0 
                                     ? (this._rearTrack) 
                                     : -this._rearTrack))) * (this._axles[i].front 
-                                        ? horizontal 
-                                        : -horizontal) * (this._axles[i].front 
+                                        ? this._horizontal 
+                                        : -this._horizontal) * (this._axles[i].front 
                                             ? ((float)currentFrontSteeringAxle / this._frontSteeringAxles) 
                                             : ((float)currentRearSteeringAxle / this._rearSteeringAxles))
                                 : 0;
@@ -273,7 +272,7 @@ public class VehicleDynamics : MonoBehaviour {
         this._maxSpeed = vehicleData.maxSpeed;
         driveWheels = vehicleData.driveWheels;
         this._torqueDevider = vehicleData.torqueDevider;
-        this._brakingVariablePower = vehicleData.brakingPowerVar;
+        this._totalBrakePower = vehicleData.brakingPowerVar;
         this._brakingDistribution = vehicleData.brakingDistribution;
         this._radius = vehicleData.radius;
         this.steeringWheelSpeed = vehicleData.steeringWheelSpeed;
@@ -284,7 +283,7 @@ public class VehicleDynamics : MonoBehaviour {
 
     private void OnDestroy() {
         if(gameObject.tag == "Player") {
-            this.VehicleManager.vehicleData.mileage += currentMileage;
+            this.VehicleManager.vehicleData.mileage += this._currentMileage;
             this.VehicleManager.vehicleData.Save("WheelsSettings");
         }
     }

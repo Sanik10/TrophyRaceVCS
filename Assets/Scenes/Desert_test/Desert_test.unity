@@ -7171,7 +7171,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467709016}
-  m_Material: {fileID: 13400000, guid: 6df57335af41044e0984eb049b2a3d22, type: 2}
+  m_Material: {fileID: 13400000, guid: 1d81794eea45227458aa2965af4b201d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -18540,7 +18540,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017267667}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
@@ -18551,7 +18551,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 1
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -21873,6 +21873,7 @@ GameObject:
   - component: {fileID: 1173826417}
   - component: {fileID: 1173826416}
   - component: {fileID: 1173826415}
+  - component: {fileID: 1173826419}
   m_Layer: 0
   m_Name: Asphalt
   m_TagString: Untagged
@@ -21966,6 +21967,78 @@ Transform:
   m_Father: {fileID: 1241952576}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1173826419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173826414}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4563c59e349574b8688b4ff89aedf5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseFriction: 1
+  _tireIntegrity: 0
+  _massMultiplier: 0
+  _typeMultiplier: []
+  _totalGroundFriction: 0
+  _wheelsColliders: []
+  _surfaceType: 
+  _wheelSlip: []
+  frontForwardFriction:
+    extremumSlip:
+    - 0.3
+    - 0.1
+    extremumValue:
+    - 3
+    - 2
+    asymptoteSlip:
+    - 0.2
+    - 0.5
+    asymptoteValue:
+    - 1.5
+    - 1
+  frontSidewaysFriction:
+    extremumSlip:
+    - 0.3
+    - 0.5
+    extremumValue:
+    - 2
+    - 1.5
+    asymptoteSlip:
+    - 0.7
+    - 0.9
+    asymptoteValue:
+    - 1
+    - 0.5
+  rearForwardFriction:
+    extremumSlip:
+    - 0.2
+    - 0.4
+    extremumValue:
+    - 3.5
+    - 2.5
+    asymptoteSlip:
+    - 0.3
+    - 0.6
+    asymptoteValue:
+    - 1.5
+    - 1
+  rearSidewaysFriction:
+    extremumSlip:
+    - 0.4
+    - 0.6
+    extremumValue:
+    - 2
+    - 1.5
+    asymptoteSlip:
+    - 0.8
+    - 1
+    asymptoteValue:
+    - 1
+    - 0.5
 --- !u!1 &1174115211
 GameObject:
   m_ObjectHideFlags: 0
@@ -24160,7 +24233,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.36426
+    FieldOfView: 60.36507
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -34018,7 +34091,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830268066}
-  m_Material: {fileID: 13400000, guid: 6df57335af41044e0984eb049b2a3d22, type: 2}
+  m_Material: {fileID: 13400000, guid: 1d81794eea45227458aa2965af4b201d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -42373,7 +42446,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.999788
+  m_FocalLength: 21.999435
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -42388,7 +42461,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.36426
+  field of view: 60.36507
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
