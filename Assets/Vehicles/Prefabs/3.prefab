@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   RotationMultiplier: -1
   AxisRotate: 2
   TargetTransform: {fileID: 0}
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 2
   TargetTransform: {fileID: 0}
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   RotationMultiplier: -1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -2217,7 +2217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   RotationMultiplier: -1
   AxisRotate: 2
   TargetTransform: {fileID: 0}
@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dcc39e4bdc3204fb121206ada58b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 4138461646102802595}
+  WheelController: {fileID: 0}
   SetPosition: 0
   SetRotation: 1
   OffsetPosition: {x: 0, y: 0, z: 0}
@@ -3232,7 +3232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 2
   TargetTransform: {fileID: 0}
@@ -3654,7 +3654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863665733771749302}
-  m_LocalRotation: {x: 0.25037268, y: 2.263111e-16, z: 2.6478213e-18, w: 0.96814954}
+  m_LocalRotation: {x: 0.25037268, y: -2.263111e-16, z: -2.6478213e-18, w: 0.96814954}
   m_LocalPosition: {x: 0, y: 3.1333332, z: -3.5142858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4299,7 +4299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dcc39e4bdc3204fb121206ada58b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2874136226940725315}
+  WheelController: {fileID: 0}
   SetPosition: 0
   SetRotation: 1
   OffsetPosition: {x: 0, y: 0, z: 0}
@@ -4545,7 +4545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 2
   TargetTransform: {fileID: 0}
@@ -5155,7 +5155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dcc39e4bdc3204fb121206ada58b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   SetPosition: 0
   SetRotation: 1
   OffsetPosition: {x: 0, y: 0, z: 0}
@@ -5956,7 +5956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 2
   TargetTransform: {fileID: 0}
@@ -6599,7 +6599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 4138461646102802595}
+  WheelController: {fileID: 0}
   RotationMultiplier: -1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -6930,18 +6930,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _axles:
   - front: 1
-    wheelsColliders:
-    - {fileID: 4138461646102802595}
-    - {fileID: 7401300266575769967}
+    wheelsControllers: []
     powered: 1
     steering: 1
   - front: 0
-    wheelsColliders:
-    - {fileID: 2209221439986535914}
-    - {fileID: 2874136226940725315}
+    wheelsControllers: []
     powered: 1
     steering: 0
-  wheelColliders: []
   _wheelsResistance: 1
   maxSpeedOnCurrentGear: 0
   _wheelBase: 0
@@ -7151,58 +7146,6 @@ MonoBehaviour:
   _wheelsColliders: []
   _surfaceType: 
   _wheelSlip: []
-  frontForwardFriction:
-    extremumSlip:
-    - 0.1
-    - 0.3
-    extremumValue:
-    - 3
-    - 2
-    asymptoteSlip:
-    - 0.2
-    - 0.5
-    asymptoteValue:
-    - 1.5
-    - 1
-  frontSidewaysFriction:
-    extremumSlip:
-    - 0.4
-    - 0.6
-    extremumValue:
-    - 1.5
-    - 1
-    asymptoteSlip:
-    - 0.7
-    - 0.9
-    asymptoteValue:
-    - 1
-    - 0.5
-  rearForwardFriction:
-    extremumSlip:
-    - 0.2
-    - 0.4
-    extremumValue:
-    - 3.5
-    - 2
-    asymptoteSlip:
-    - 0.3
-    - 0.6
-    asymptoteValue:
-    - 1.5
-    - 1
-  rearSidewaysFriction:
-    extremumSlip:
-    - 0.6
-    - 0.8
-    extremumValue:
-    - 1.75
-    - 1.25
-    asymptoteSlip:
-    - 0.8
-    - 1
-    asymptoteValue:
-    - 1
-    - 0.5
 --- !u!1 &3738431491925414179
 GameObject:
   m_ObjectHideFlags: 0
@@ -8022,7 +7965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2874136226940725315}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -8291,7 +8234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -8488,7 +8431,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4138100167363015095}
-  m_LocalRotation: {x: -2.0100167e-10, y: 0.99993193, z: -0.0116704255, w: -0.00000001722199}
+  m_LocalRotation: {x: 2.0187962e-10, y: 0.99993193, z: -0.011670432, w: 0.000000017297205}
   m_LocalPosition: {x: 0, y: 0.6914286, z: 3.8952382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8800,7 +8743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -9328,7 +9271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2874136226940725315}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -9598,7 +9541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 4138461646102802595}
+  WheelController: {fileID: 0}
   RotationMultiplier: -1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -13341,7 +13284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -13372,7 +13315,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6690526180569807324}
-  m_LocalRotation: {x: -0.0033047954, y: 0.0000000028141705, z: 9.300309e-12, w: 0.9999946}
+  m_LocalRotation: {x: -0.0033047986, y: -0.000000004796299, z: -1.585089e-11, w: 0.9999946}
   m_LocalPosition: {x: 0, y: 0.58095247, z: -3.6285713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13528,7 +13471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 4138461646102802595}
+  WheelController: {fileID: 0}
   RotationMultiplier: -1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -13849,7 +13792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dcc39e4bdc3204fb121206ada58b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   SetPosition: 0
   SetRotation: 1
   OffsetPosition: {x: 0, y: 0, z: 0}
@@ -14295,7 +14238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2209221439986535914}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -14941,7 +14884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 2874136226940725315}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -16487,7 +16430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036ff27a5fd7c4408d5cdcbd462e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   RotationMultiplier: 1
   AxisRotate: 0
   TargetTransform: {fileID: 0}
@@ -17737,7 +17680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57d75b1e55a03f49a03d2c4406d3ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 4138461646102802595}
+  WheelController: {fileID: 0}
   SteerMultiplier: 1
   AxisRotate: 1
 --- !u!1 &8490009223576678086
@@ -18515,7 +18458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57d75b1e55a03f49a03d2c4406d3ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelCollider: {fileID: 7401300266575769967}
+  WheelController: {fileID: 0}
   SteerMultiplier: 1
   AxisRotate: 1
 --- !u!1 &9013233293170262015

@@ -168,10 +168,10 @@ public class VehicleDynamics : MonoBehaviour {
         for (int i = 0; i < this._axles.Count; i++) {
             for (int q = 0; q < this._axles[i].wheelsControllers.Length; q++) {
                 this._axles[i].wheelsControllers[q].MotorTorque = 
-                    (this._axles[i].powered) 
-                        ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear) 
-                            ? 0 
-                            : Engine.newtonMeters * this._wheelsResistance / _driveWheelsQuantity
+                    (this._axles[i].powered)
+                        ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear)
+                            ? 0
+                            : Engine.torque * this._wheelsResistance / _driveWheelsQuantity
                         : 0;
             }
         }
@@ -182,9 +182,9 @@ public class VehicleDynamics : MonoBehaviour {
 
         for(int i = 0; i < this._axles.Count; i++) {
             for(int q = 0; q < this._axles[i].wheelsControllers.Length; q++) {
-                this._axles[i].wheelsControllers[q].BrakeTorque = 
-                    (this._VehicleInputHandler.vertical < 0) 
-                        ? ((this._axles[i].front) 
+                this._axles[i].wheelsControllers[q].BrakeTorque =
+                    (this._VehicleInputHandler.vertical < 0)
+                        ? ((this._axles[i].front)
                             ? (this._brakingPower * (1 - this._brakingDistribution))
                             : this._brakingPower * this._brakingDistribution)
                         : (this._VehicleInputHandler.handbrake && !this._axles[i].front)

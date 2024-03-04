@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71766f48781b34d92b89a1734aba4701, type: 3}
-  m_Name: DefaultFrictionPreset
+  m_Name: Asphalt
   m_EditorClassIdentifier: 
   BCDE: {x: 12.7, y: 2.24, z: 0.987, w: 0.988}
   peakSlip: 0.08999999

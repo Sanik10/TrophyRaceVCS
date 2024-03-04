@@ -80,7 +80,7 @@ public class Engine : MonoBehaviour {
         // } else if(this._rpm > this._idleRpm) {
         // }
         this._throttle = (this._rpm < this._idleRpm) ? this._throttle + 0.05f : (this._VehicleInputHandler.vertical > 0) ? this._VehicleInputHandler.vertical : 0;
-        this._throttle = this._VehicleManager.PhysicsCalculation.kph < 100 ? this._throttle : 0;
+        // this._throttle = this._VehicleManager.PhysicsCalculation.kph < 100 ? this._throttle : 0;
 
         if(this._throttle > 1f) {
             this._throttle = 1f;

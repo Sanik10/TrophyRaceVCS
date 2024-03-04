@@ -9,14 +9,14 @@ using NWH.Common.Vehicles;
 /// </summary>
 public class ArcMoveFromWheelCollider : MonoBehaviour {
 
-	[SerializeField] WheelUAPI WheelCollider;					//WheelCollider ref
-	[SerializeField] Vector3 OffsetPosition;					//Offset position, calculate from local space of WheelCollider
-	[SerializeField] float ArmLength;							//Arm length, radius
-	[SerializeField, Range(0f, 1f)] float MaxLengthOnDistance;  //The position of the wheel in which the arm is horizontal
-	[SerializeField] bool Invertion;							//Invertion direction
+	[SerializeField] private WheelUAPI WheelCollider;					//WheelCollider ref
+	[SerializeField] private Vector3 OffsetPosition;					//Offset position, calculate from local space of WheelCollider
+	[SerializeField] private float ArmLength;							//Arm length, radius
+	[SerializeField, Range(0f, 1f)] private float MaxLengthOnDistance;  //The position of the wheel in which the arm is horizontal
+	[SerializeField] private bool Invertion;							//Invertion direction
 
-	Vector3 _CenterArcPoint;									//Point the center of the circle
-	Vector3 CenterArcPoint {
+	private Vector3 _CenterArcPoint;									//Point the center of the circle
+	private Vector3 CenterArcPoint {
 		get {
 			if (_CenterArcPoint != Vector3.zero) {
 				return _CenterArcPoint;
@@ -31,18 +31,18 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 
 	private void Awake () {
 		//Saving center position on start
-		_CenterArcPoint = CenterArcPoint;
+		_CenterArcPoint = CenterArcPoint ;
 	}
 
 	private void FixedUpdate () {
-
 		// Get position and rotation feom WheelCollider
 		// WheelCollider.GetWorldPose(out Position, out Rotation);
 		Position = WheelCollider.WheelPosition;
 		Rotation = WheelCollider.WheelRotation;
 
 		//Position translation to local space
-		Position = WheelCollider.transform.InverseTransformPoint(Position) + OffsetPosition;
+		// Position = WheelCollider.transform.InverseTransformPoint(Position) + OffsetPosition;
+		Position = WheelCollider.transform.InverseTransformPoint(Position);
 		Position -= CenterArcPoint;
 
 		//Find Y of wheel position
@@ -53,7 +53,7 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 			Position.x = OffsetPosition.x + Mathf.Sqrt((ArmLength * ArmLength) - (offsetY * offsetY));
 		}
 		if (Invertion) Position.x = -Position.x;
-		transform.localPosition = Position;
+		transform.localPosition = Position + OffsetPosition;
 	}
 
 	List<Vector3> GizmoPoints = new List<Vector3>();
@@ -79,6 +79,7 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 		GizmoSuspensionDistance = WheelCollider.SpringMaxLength;
 		GizmoMaxLengthOnDistance = MaxLengthOnDistance;
 	}
+
 	private void OnDrawGizmosSelected () {
 
 		if (WheelCollider == null) return;
@@ -88,19 +89,18 @@ public class ArcMoveFromWheelCollider : MonoBehaviour {
 		if (GizmoPoints.Count == 0 ||
 		!Mathf.Approximately(GizmoArmLength, ArmLength)||
 		!Mathf.Approximately(GizmoSuspensionDistance, WheelCollider.SpringMaxLength) ||
-		!Mathf.Approximately(GizmoMaxLengthOnDistance, MaxLengthOnDistance))
-		{
+		!Mathf.Approximately(GizmoMaxLengthOnDistance, MaxLengthOnDistance)) {
 			CalculateGizmoPoints ();
 		}
 
 		Gizmos.color = Color.green;
 		Vector3 prevPoint = GizmoPoints[0];
 		for (int i = 1; i < GizmoPoints.Count; i++) {
-			Gizmos.DrawLine(WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + prevPoint), WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + GizmoPoints[i]));
+			Gizmos.DrawLine(WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + OffsetPosition + prevPoint), WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + OffsetPosition + GizmoPoints[i]));
 			prevPoint = GizmoPoints[i];
 		}
-		Gizmos.DrawLine(WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint), WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + (GizmoPoints[0])));
-		Gizmos.DrawLine(WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint), WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + GizmoPoints[GizmoPoints.Count - 1]));
+		Gizmos.DrawLine(WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + OffsetPosition), WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + OffsetPosition + (GizmoPoints[0])));
+		Gizmos.DrawLine(WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + OffsetPosition), WheelCollider.transform.TransformPoint(centerArcWheelColliderPoint + OffsetPosition + GizmoPoints[GizmoPoints.Count - 1]));
 
 		Gizmos.color = Color.yellow;
 
