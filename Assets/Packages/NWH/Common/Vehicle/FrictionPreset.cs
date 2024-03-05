@@ -13,7 +13,7 @@ namespace NWH.Common.Vehicles
     ///     ScriptableObject holding friction settings for one surface type.
     /// </summary>
     [Serializable]
-    [CreateAssetMenu(fileName = "NWH Vehicle Physics 2", menuName = "NWH/Vehicle Physics 2/Friction Preset", order = 1)]
+    [CreateAssetMenu(fileName = "Friction preset", menuName = "Vehicle Data/Tires Friction Preset", order = 2)]
     public class FrictionPreset : ScriptableObject
     {
         public const int LUT_RESOLUTION = 1000;

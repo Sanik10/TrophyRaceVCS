@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "VehicleData", menuName = "VehiclesData/Vehicle Data File")]
+[CreateAssetMenu(fileName = "VehicleData", menuName = "Vehicle Data/Vehicle Config File", order = 1)]
 public class VehicleData : ScriptableObject, ISaveable {
 
     public static event Action onDataLoadedEvent;
