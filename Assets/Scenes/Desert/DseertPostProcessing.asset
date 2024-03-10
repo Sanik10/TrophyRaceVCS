@@ -40,7 +40,7 @@ MonoBehaviour:
     value: 1
   showEditorMainBehavior: 0
   showEditorBloomBehavior: 0
-  showEditorLensSurfaceBehavior: 1
+  showEditorLensSurfaceBehavior: 0
   showEditorLensFlareBehavior: 0
   showEditorGlareBehavior: 0
   isInitialized: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
     value: 10
   lensFlareGhostIntensity:
     overrideState: 1
-    value: 1
+    value: 0.75
   lensFlareThreshold:
     overrideState: 1
     value:
