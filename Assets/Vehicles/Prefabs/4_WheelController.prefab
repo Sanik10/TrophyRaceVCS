@@ -3880,8 +3880,9 @@ MonoBehaviour:
   _massMultiplier: 0
   _typeMultiplier: []
   _totalGroundFriction: 0
-  _wheelsColliders: []
+  _wheelsControllers: []
   _surfaceType: 
+  _springLength: []
   _wheelSlip: []
 --- !u!1 &2771747155568581657
 GameObject:
@@ -7183,13 +7184,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8290e40e58e5f4da0cea1373cad9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftWheelCollider: {fileID: 2110088420928529881}
-  RightWheelCollider: {fileID: 8178942107668523251}
+  LeftWheelCollider: {fileID: 2097137913823997221}
+  RightWheelCollider: {fileID: 3748341799963142594}
   LeftWheelView: {fileID: 1368137870734596324}
   RightWheelView: {fileID: 4109227160334505694}
   AngleMiltiplier: 45
   LeftWheelPosition: {x: 0, y: 0, z: 0}
+  InversedLeftWheelPosition: {x: 0, y: 0, z: 0}
   RightWheelPosition: {x: 0, y: 0, z: 0}
+  InversedRightWheelPosition: {x: 0, y: 0, z: 0}
   Distance: 0
 --- !u!1 &4496670029201390964
 GameObject:

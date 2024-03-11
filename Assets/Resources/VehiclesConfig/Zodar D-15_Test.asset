@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
   m_Name: Zodar D-15_Test
   m_EditorClassIdentifier: 
-  _includeVehicleInGame: 1
-  _Prefab: {fileID: 2716670906101015192, guid: f2cabf7fba6fe4ccba35c630998f5a34, type: 3}
+  _includeVehicleInGame: 0
+  _Prefab: {fileID: 2716670906101015192, guid: fd02b0270cbeb4d80b05846075511fb7, type: 3}
   _vehicleName: Zodar D-15 Test
-  _id: 5
+  _id: 50
   _price: 0
   _isOwned: 1
   _maxPower: 800
@@ -23,7 +23,7 @@ MonoBehaviour:
   _medRpm: 5000
   _maxRpm: 7000
   _additionRpmOnNeutral: 2400
-  _maxPowerProcentAtIdleRpm: 40
+  _maxPowerProcentAtIdleRpm: 50
   _maxPowerProcentAtMaxRpm: 30
   _engineInertia: 0.2
   _engineSmoothTime: 0.15
@@ -44,9 +44,9 @@ MonoBehaviour:
   _steeringWheelSpeed: 10
   _wheelBase: 3.75
   _rearTrack: 2.46
-  _mileage: 159451.16
+  _mileage: 109
   _colorCustomization: 1
-  _bodyMaterailId: 11
+  _bodyMaterailId: 9
   _diskMaterailId: 0
   _mass: 2500
   _type: 2
