@@ -4,7 +4,7 @@ using UnityEngine;
 public class MultipleCurveEditor : EditorWindow
 {
     public RealisticEngineSound res;
-    public Color[] colors = { Color.white, Color.green, Color.yellow, Color.red, Color.blue, Color.black, Color.cyan };
+    public Color[] colors = { Color.white, Color.green, Color.yellow, Color.red, Color.blue, Color.black };
     public int width = 700;
     public int height = 350;
     public float soundLine = 60f;
@@ -39,20 +39,22 @@ public class MultipleCurveEditor : EditorWindow
         }
 
         // Определяем минимальное и максимальное значения для оси X и Y
-        float minX = 0f;
-        float maxX = 1f;
+        float minX = Mathf.Infinity;
+        float maxX = Mathf.NegativeInfinity;
         float minY = Mathf.Infinity;
         float maxY = Mathf.NegativeInfinity;
 
-        // Определяем минимальное и максимальное значения для каждой из четырех кривых
-        for (int i = 1; i < 4; i++)
+        // Определяем минимальное и максимальное значения для каждой из кривых
+        for (int i = 0; i < 5; i++)
         {
             AnimationCurve curve = GetCurveByIndex(i);
 
             foreach (Keyframe keyframe in curve.keys)
             {
-                minY = Mathf.Min(minY, keyframe.value);
-                maxY = Mathf.Max(maxY, keyframe.value);
+                minX = Mathf.Min(minX, keyframe.time); // Для оси X используем time
+                maxX = Mathf.Max(maxX, keyframe.time); // Для оси X используем time
+                minY = Mathf.Min(minY, keyframe.value); // Для оси Y используем value
+                maxY = Mathf.Max(maxY, keyframe.value); // Для оси Y используем value
             }
         }
 
