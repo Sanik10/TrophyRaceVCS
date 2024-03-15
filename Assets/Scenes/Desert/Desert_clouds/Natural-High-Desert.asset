@@ -26,7 +26,7 @@ MonoBehaviour:
     color: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   ambient:
     mode: 1
-    skyColor: {r: 0.7490196, g: 0.06666667, b: 0, a: 1}
+    skyColor: {r: 33.89676, g: 3.0169892, b: 0, a: 1}
     equatorColor: {r: 0.54901963, g: 0.16470589, b: 0, a: 2.76103}
     groundColor: {r: 0.007843138, g: 0.019607844, b: 0.039215688, a: 0.6902575}
     pivot: 0.078
@@ -59,7 +59,7 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 1
       Value: 0.635
-    resolution: 0.8
+    resolution: 0.4
     Animation:
       ScrollVelocity: {x: 0, y: 0, z: 0}
       Phase: 0.19
@@ -76,7 +76,7 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 1
       Value: 0
-    resolution: 0.75
+    resolution: 0.6
     Animation:
       ScrollVelocity: {x: 0, y: 0, z: 0}
       Phase: 0.14
@@ -93,10 +93,10 @@ MonoBehaviour:
       godRayStartDistance: 136
       shadow: 0.297
       sunShaft: 0.138
-    screenBlending: 0.924
+    screenBlending: 0.305
     shaftQuality: 0.5
     godRayQuality: 0.3
-    resolution: 0.825
+    resolution: 0.411
     fog:
       groundHeight: 0
       range: 337

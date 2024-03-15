@@ -21979,6 +21979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4563c59e349574b8688b4ff89aedf5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   _baseFriction: 1
   _tireIntegrity: 0
   _massMultiplier: 0
@@ -21988,6 +21991,7 @@ MonoBehaviour:
   _surfaceType: 
   _springLength: []
   _wheelSlip: []
+  _rayDistance: []
 --- !u!1 &1174115211
 GameObject:
   m_ObjectHideFlags: 0
@@ -24182,7 +24186,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.37209
+    FieldOfView: 60.37046
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -42395,7 +42399,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.996332
+  m_FocalLength: 21.997055
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -42410,7 +42414,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.37209
+  field of view: 60.370457
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

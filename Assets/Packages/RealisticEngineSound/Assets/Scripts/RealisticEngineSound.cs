@@ -1,7 +1,7 @@
 ﻿//______________________________________________//
 //___________Realistic Engine Sounds____________//
 //______________________________________________//
-//_______Copyright © 2019 Yugel Mobile__________//
+//_______Copyright © 2024 Yugel Mobile__________//
 //______________________________________________//
 //_________ http://mobile.yugel.net/ ___________//
 //______________________________________________//
@@ -13,8 +13,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class RealisticEngineSound : MonoBehaviour 
-{
+public class RealisticEngineSound : MonoBehaviour  {
     // master volume setting
     [Range(0, 1f)]
     public float masterVolume = 1f;
