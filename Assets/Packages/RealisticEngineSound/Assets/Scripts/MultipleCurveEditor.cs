@@ -7,8 +7,9 @@ public class MultipleCurveEditor : EditorWindow
     public Color[] colors = { Color.white, Color.green, Color.yellow, Color.red, Color.blue, Color.black };
     public int width = 700;
     public int height = 350;
-    public float soundLine = 60f;
-    public float angle = 102f;
+    public float soundTransitionLine = 60f;
+    public float soundVolumeLine = 60f;
+    public float angle = 64.4f;
     public float margin = 20f;
 
     [MenuItem("Window/Engine Sound Tuner")]
@@ -27,7 +28,8 @@ public class MultipleCurveEditor : EditorWindow
         // Поле для назначения объекта RealisticEngineSound
         res = EditorGUILayout.ObjectField("Realistic Engine Sound", res, typeof(RealisticEngineSound), true) as RealisticEngineSound;
         // Поля для ввода чисел
-        soundLine = EditorGUILayout.FloatField("Линия переходов", soundLine);
+        soundVolumeLine = EditorGUILayout.FloatField("Линия звука", soundVolumeLine);
+        soundTransitionLine = EditorGUILayout.FloatField("Линия переходов", soundTransitionLine);
         angle = EditorGUILayout.FloatField("Наклон", angle);
         
 
@@ -53,6 +55,7 @@ public class MultipleCurveEditor : EditorWindow
             {
                 minX = Mathf.Min(minX, keyframe.time); // Для оси X используем time
                 maxX = Mathf.Max(maxX, keyframe.time); // Для оси X используем time
+                // maxX = 1;
                 minY = Mathf.Min(minY, keyframe.value); // Для оси Y используем value
                 maxY = Mathf.Max(maxY, keyframe.value); // Для оси Y используем value
             }
@@ -91,15 +94,40 @@ public class MultipleCurveEditor : EditorWindow
         Handles.DrawAAPolyLine(new Color[] { Color.black, Color.black }, new Vector3[] { new Vector3(margin, height - margin), new Vector3(margin, margin) });
 
         // Наносим метки на оси X
-        Handles.Label(new Vector3(width - margin, height - margin - 5f, 0f), maxX.ToString());
-        Handles.Label(new Vector3(margin - 15f, height - margin - 5f, 0f), minX.ToString());
+        // Наносим метки на оси X
+        DrawEngineRPMLabels(height - margin/2, (int)res.maxRPMLimit);
+        // Handles.Label(new Vector3(width - margin, height - margin - 5f, 0f), maxX.ToString());
+        // Handles.Label(new Vector3(margin - 15f, height - margin - 5f, 0f), minX.ToString());
 
         // Наносим метки на оси Y
-        Handles.Label(new Vector3(margin - 15f, height - margin/2, 0f), minY.ToString());
+        // Handles.Label(new Vector3(margin - 15f, height - margin/2, 0f), minY.ToString());
         Handles.Label(new Vector3(margin - 15f, margin/2, 0f), maxY.ToString());
 
         // Дополнительные линии
         DrawAdditionalLines(minX, maxX, minY, maxY);
+    }
+
+    private void DrawEngineRPMLabels(float yPos, int maxRPMLimit)
+    {
+        // Определяем количество меток на основе максимального числа оборотов двигателя
+        int labelCount = Mathf.CeilToInt(maxRPMLimit / 1000f) + 1;
+
+        // Рисуем метки
+        for (int i = 0; i < labelCount; i++)
+        {
+            // Определяем значение оборотов для текущей метки
+            int rpmValue = i*1000;
+
+            // Если это последняя метка, используем максимальное значение оборотов
+            if (i == labelCount - 1)
+                rpmValue = maxRPMLimit;
+
+            // Вычисляем позицию X для текущей метки
+            float labelXPos = (float)rpmValue / maxRPMLimit * (width - 2 * margin) + margin;
+
+            // Наносим метку
+            Handles.Label(new Vector3(labelXPos, yPos, 0f), rpmValue.ToString());
+        }
     }
 
     private void DrawAdditionalLines(float minX, float maxX, float minY, float maxY)
@@ -111,7 +139,7 @@ public class MultipleCurveEditor : EditorWindow
         float[] distancesY = { 0.525f, 0.60f, 0.675f};
 
         // Расстояния от 0 координаты, где будут находиться дополнительные задаваемые линии по горизонтали
-        float[] distancesYcustom = { soundLine / 100 };
+        float[] distancesYcustom = { soundTransitionLine / 100, soundVolumeLine / 100 };
 
         // Установим цвет линий
         Handles.color = Color.gray;
@@ -133,7 +161,7 @@ public class MultipleCurveEditor : EditorWindow
             float yPos = Mathf.Lerp(margin, height - margin, Mathf.InverseLerp(maxY, minY, distance));
 
             // Наклон линии (значение по X влияет на наклон)
-            float slope = 102f; // Наклон линии
+            float slope = 64f; // Наклон линии
 
             // Рисуем наклонную линию
             Vector3 startPoint = new Vector3(margin, yPos);
