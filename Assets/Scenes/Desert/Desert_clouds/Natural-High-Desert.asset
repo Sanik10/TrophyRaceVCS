@@ -93,10 +93,10 @@ MonoBehaviour:
       godRayStartDistance: 136
       shadow: 0.297
       sunShaft: 0.138
-    screenBlending: 0.305
-    shaftQuality: 0.5
+    screenBlending: 0.444
+    shaftQuality: 0.3
     godRayQuality: 0.3
-    resolution: 0.411
+    resolution: 0.5
     fog:
       groundHeight: 0
       range: 337

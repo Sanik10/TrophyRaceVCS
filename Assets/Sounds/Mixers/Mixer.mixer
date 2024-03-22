@@ -65,7 +65,7 @@ AudioMixerGroupController:
   - {fileID: 4618536610495930395}
   m_UserColorIndex: 0
   m_Mute: 0
-  m_Solo: 1
+  m_Solo: 0
   m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
