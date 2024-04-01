@@ -28,7 +28,7 @@ public class PhysicsCalculation : MonoBehaviour {
     [SerializeField]
     private float _angularDragVar = 25;
     private float _mass;
-    private float _dragAmount = 0.016f;
+    private float _dragAmount = 0.032f;
     private float _mps;
     
     public Rigidbody rgdbody => this._rgdbody;

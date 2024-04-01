@@ -29,11 +29,11 @@ MonoBehaviour:
   _engineSmoothTime: 0.15
   _transmission: 0
   _frontGearsQuantity: 4
-  _firstGear: 5
+  _firstGear: 7
   _shiftTime: 0.25
   _rpmUpShift: 6600
   _rpmDownShift: 4000
-  _finalDrive: 2
+  _finalDrive: 2.28
   _maxSpeed: 250
   _driveWheels: 1
   _torqueDevider: 2

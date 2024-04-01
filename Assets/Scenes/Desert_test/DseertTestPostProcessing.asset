@@ -155,10 +155,10 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
-  showEditorMainBehavior: 0
+  showEditorMainBehavior: 1
   showEditorBloomBehavior: 0
   showEditorLensSurfaceBehavior: 0
-  showEditorLensFlareBehavior: 0
+  showEditorLensFlareBehavior: 1
   showEditorGlareBehavior: 1
   isInitialized: 1
   allowGeometryShaders:
@@ -169,16 +169,16 @@ MonoBehaviour:
     value: 1
   renderPriority:
     overrideState: 1
-    value: 2
+    value: 0
   debugView:
     overrideState: 1
     value: 0
   quality:
     overrideState: 1
-    value: 4
+    value: 1
   antiFlickerMode:
     overrideState: 1
-    value: 0
+    value: 1
   workflow:
     overrideState: 1
     value: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
     value: 0
   lensFlareGhostFade:
     overrideState: 1
-    value: 10
+    value: 8.7
   lensFlareGhostIntensity:
     overrideState: 1
     value: 1.5
@@ -268,13 +268,13 @@ MonoBehaviour:
     value: 1
   glareBlend:
     overrideState: 1
-    value: 1
+    value: 0.75
   glareIntensity:
     overrideState: 1
-    value: 1
+    value: 0.1
   glareAngle:
     overrideState: 1
-    value: 52
+    value: 31
   glareThreshold:
     overrideState: 1
     value:
@@ -285,10 +285,10 @@ MonoBehaviour:
     value: 3
   glareScattering:
     overrideState: 1
-    value: 2.39
+    value: 2.76
   glareStyle:
     overrideState: 1
-    value: 5
+    value: 6
   glareSample0Scattering:
     overrideState: 1
     value: 2.64

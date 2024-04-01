@@ -5,6 +5,7 @@ public class Engine : MonoBehaviour {
 
     private VehicleManager _VehicleManager;
     private Transmission _Transmission;
+    private VehicleDynamics _VehicleDynamics;
     private VehicleInputHandler _VehicleInputHandler;
 
     [Header("Двигатель")]
@@ -64,6 +65,7 @@ public class Engine : MonoBehaviour {
         this._powerCurve.preWrapMode = WrapMode.Clamp;
         this._rpm = this._idleRpm;
         this._rpmVariableLimiter = this._maxRpm;
+        this._VehicleDynamics = this._VehicleManager.VehicleDynamics;
     }
 
     private void FixedUpdate() {
@@ -74,11 +76,6 @@ public class Engine : MonoBehaviour {
     }
 
     private void RunEngine() {
-        // this._throttle = (this._VehicleInputHandler.vertical > 0 && this._Transmission.currentGearRatio >= 0) ? this._VehicleInputHandler.vertical : (this._Transmission.currentGearRatio < 0) ? this._VehicleInputHandler.vertical : 0;
-        // if(this._rpm < this._idleRpm) {
-        //     this._throttle += 0.05f;
-        // } else if(this._rpm > this._idleRpm) {
-        // }
         this._throttle = (this._rpm < this._idleRpm) ? this._throttle + 0.05f : (this._VehicleInputHandler.vertical > 0) ? this._VehicleInputHandler.vertical : 0;
         // this._throttle = this._VehicleManager.PhysicsCalculation.kph < 100 ? this._throttle : 0;
 
@@ -93,11 +90,11 @@ public class Engine : MonoBehaviour {
         this.loadProcent = _load * 100;
     }
 
-    /* private void RpmCalculating() {
+    /*private void RpmCalculating() {
         this._additionRpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? 0 : ((this._rpm > this._rpmVariableLimiter) ? this._additionOnNeutral * -2 : this._additionOnNeutral);
 
         this._rpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ?
-            (Mathf.SmoothDamp(this._rpm, (Mathf.Lerp(this._rpm, this._idleRpm + Mathf.Abs(VehicleManager.WheelsSettings.wheelsRPM) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio), (this._engineSmoothTime * 100) * Time.fixedDeltaTime)), ref this._velocity, this._engineInertia))
+            (Mathf.SmoothDamp(this._rpm, (Mathf.Lerp(this._rpm, this._idleRpm + Mathf.Abs(this._VehicleManager.VehicleDynamics.driveWheelsRpm) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio), (this._engineSmoothTime * 100) * Time.fixedDeltaTime)), ref this._velocity, this._engineInertia))
             :
             (Mathf.SmoothDamp(this._rpm, (Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 18) * Time.fixedDeltaTime)), ref this._velocity, this._engineInertia));
 
@@ -105,20 +102,20 @@ public class Engine : MonoBehaviour {
         this._power = _powerCurve.Evaluate(this._rpm);
         this._torque = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? (this._power * (this._Transmission.currentGearRatio * this._Transmission.finalDrive) * this._throttle * this._VehicleInputHandler.clutch) : 0;
 
-        // Добавляем обратный момент при сбросе газа
-        float backTorqueVar = this.backTorque; // Устанавливайте подходящее значение обратного момента
-        float throttleReleaseFactor = Mathf.Pow(1.0f - _throttle, 2);
-        float reverseTorque = backTorqueVar * throttleReleaseFactor;
+        // // Добавляем обратный момент при сбросе газа
+        // float backTorqueVar = this.backTorque; // Устанавливайте подходящее значение обратного момента
+        // float throttleReleaseFactor = Mathf.Pow(1.0f - _throttle, 2);
+        // float reverseTorque = backTorqueVar * throttleReleaseFactor;
 
-        // Интегрируем обратный момент
-        this._rpm += _torque / _engineInertia - reverseTorque;
+        // // Интегрируем обратный момент
+        // this._rpm += _torque / _engineInertia - reverseTorque;
 
         // Ограничиваем обороты
         this._rpm = Mathf.Clamp(_rpm, 0, this._maxRpm);
 
         this._kiloWatts = this._power / 1.3596f;
         this._newtonMeters = (this._kiloWatts * 9549) / this._rpm;
-    } */
+    }*/
     
     private void RpmCalculating() {
         float targetRPM;
@@ -127,19 +124,18 @@ public class Engine : MonoBehaviour {
 
         if(this._Transmission.neutralGear || this._VehicleInputHandler.handbrake || this._VehicleInputHandler.clutch == 0 || (this._VehicleInputHandler.vertical < 0 && this._rpm < 1000)) {
             // В режиме нейтрали или, при активном ручнике, или при выжатом сцеплении 
-            targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 20) * Time.fixedDeltaTime);
+            targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 200) * Time.fixedDeltaTime);
         } else {
             // Расчет оборотов с учетом влияния колес на двигатель
-            float wheelRPMContribution = Mathf.Abs(this._VehicleManager.VehicleDynamics.driveWheelsRpm) * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);
+            float wheelRPMContribution = Mathf.Abs(this._VehicleDynamics.driveWheelsRpm) * this._VehicleDynamics.circumFerence * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);
 
             // Подстройте коэффициент, чтобы усилить влияние колес на обороты двигателя
-            float wheelInfluenceFactor = 1.6f;
 
-            targetRPM = Mathf.Lerp(this._rpm, wheelRPMContribution * wheelInfluenceFactor, (this._engineSmoothTime * 100) * Time.fixedDeltaTime);
+            targetRPM = Mathf.Lerp(this._rpm, wheelRPMContribution, (this._engineSmoothTime * 100) * Time.fixedDeltaTime);
         }
 
         // Сопротивление двигателя в случае, когда машина стоит или двигается накатом
-        float engineResistance = 250.0f; // Подстройте коэффициент сопротивления по вашим требованиям
+        float engineResistance = 300.0f; // Подстройте коэффициент сопротивления по вашим требованиям
         targetRPM -= engineResistance * Time.fixedDeltaTime;
 
         // Рассчитываем обороты двигателя

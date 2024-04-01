@@ -27,13 +27,13 @@ public class VehicleDynamics : MonoBehaviour {
     private float _allMileage;
     private float _driveWheelsRpm = 0;
     private float _wheelRadius = 0;
+    [SerializeField]
     private float _circumFerence = 0;
-    public float maxSpeedOnCurrentGear = 0;
+    [SerializeField]
+    private float _maxSpeedOnCurrentGear = 0;
     private bool _braking = true;
     private float _maxSpeed = 0;
-    [SerializeField]
     private float _wheelBase = 0;
-    [SerializeField]
     private float _rearTrack = 0;
     private float steeringWheelSpeed = 0;
     [SerializeField]
@@ -46,7 +46,6 @@ public class VehicleDynamics : MonoBehaviour {
     [Header("Управление")]
     private float _horizontal = 0;
     private float _currentMileage = 0;
-    [SerializeField]
     private float _radius = 0;
     private float _brakingPower = 0;
 
@@ -63,12 +62,14 @@ public class VehicleDynamics : MonoBehaviour {
 
     public List<AxleSettings> axles => this._axles;
     public float allMileage => this._allMileage;
+    public float maxSpeedOnCurrentGear => this._maxSpeedOnCurrentGear;
     public float brakingDistribution => this._brakingDistribution;
     public float circumFerence => this._circumFerence;
     public float currentMileage => this._currentMileage;
     public float driveWheelsRpm => this._driveWheelsRpm;
     public float horizontal => this._horizontal;
     public float totalBrakePower => this._totalBrakePower;
+    public float wheelRadius => this._wheelRadius;
     public bool isBraking => this._braking;
 
 
@@ -95,12 +96,14 @@ public class VehicleDynamics : MonoBehaviour {
         }
 
         float radiusSum = 0;
+
         for(int i = 0; i < this._axles.Count; i++) {
             if(this._axles[i].powered) {
                 for(int q = 0; q < this._axles[i].wheelsControllers.Length; q++) {
                     radiusSum += this._axles[i].wheelsControllers[q].Radius;
                     this._driveWheelsQuantity += 1;
                 }
+                this._wheelRadius = (this._driveWheelsQuantity != 0) ? radiusSum / this._driveWheelsQuantity : 0;
             }
 
             if(this._axles[i].steering) {
@@ -118,7 +121,6 @@ public class VehicleDynamics : MonoBehaviour {
         // this._rearTrack = (Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[0].transform.localPosition.x) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[lastWheelColliderInLastAxle].transform.localPosition.x)) / 2;
         this._rearTrack = (Mathf.Abs(this._axles[lastAxlePositionInList].wheelsControllers[0].transform.localPosition.x) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsControllers[lastWheelColliderInLastAxle].transform.localPosition.x)) * 0.32520325203252f;
 
-        this._wheelRadius = (this._driveWheelsQuantity != 0) ? radiusSum / this._driveWheelsQuantity : 0;
         this._circumFerence = this._wheelRadius * 6.283185307179f;
 
         wheelPowerStats = new float[this._wheelControllers.Length];
@@ -142,8 +144,9 @@ public class VehicleDynamics : MonoBehaviour {
             currentWheelSpeed[i] = this._circumFerence * this._wheelControllers[i].RPM * 0.06f;
         }
 
-        maxSpeedOnCurrentGear = Engine.maxRpm * this._circumFerence / 16.668f / (Transmission.currentGearRatio * Transmission.finalDrive);
-
+        // maxSpeedOnCurrentGear = Engine.maxRpm * this._circumFerence / 16.668f / (Transmission.currentGearRatio * Transmission.finalDrive);
+        this._maxSpeedOnCurrentGear = 6.283185307179f * Engine.maxRpm / this._circumFerence / Transmission.currentGearRatio * Transmission.finalDrive * this._wheelRadius * 0.06f;
+        // maxSpeedOnCurrentGear = (Engine.maxRpm * this._circumFerence / 3.1415f) / (Transmission.currentGearRatio * Transmission.finalDrive * 16.668f);
         DriveWheelsRpm();
         VehicleSteering();
         BrakingVehicle();
@@ -169,9 +172,9 @@ public class VehicleDynamics : MonoBehaviour {
             for (int q = 0; q < this._axles[i].wheelsControllers.Length; q++) {
                 this._axles[i].wheelsControllers[q].MotorTorque = 
                     (this._axles[i].powered)
-                        ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(maxSpeedOnCurrentGear) || Mathf.Abs(PC.kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear)
+                        ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(this._maxSpeedOnCurrentGear) || Mathf.Abs(PC.kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear)
                             ? 0
-                            : Engine.torque * this._wheelsResistance / _driveWheelsQuantity
+                            : Engine.torque * this._wheelsResistance //this._driveWheelsQuantity
                         : 0;
             }
         }

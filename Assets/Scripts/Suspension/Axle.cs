@@ -81,12 +81,10 @@ public class Axle : MonoBehaviour {
 		[SerializeField] Transform RightWheelView;						//Right wheel view, to rotate the transform
 		[SerializeField] float AngleMiltiplier = 45;					//Rotation multiplier
 
-		[SerializeField] Vector3 LeftWheelPosition;						//For getting position from LeftWheelCollider
-		[SerializeField] Vector3 InversedLeftWheelPosition;
-		[SerializeField] Vector3 RightWheelPosition;					//For getting position from RightWheelCollider
-		[SerializeField] Vector3 InversedRightWheelPosition;
-		Transform TransformHelper;										//For save transform at the start
-		[SerializeField] float Distance;								//Distance between wheels, for the angle calculation formula
+		private Vector3 LeftWheelPosition;								//For getting position from LeftWheelCollider
+		private Vector3 RightWheelPosition;								//For getting position from RightWheelCollider
+		private Transform TransformHelper;								//For save transform at the start
+		private float Distance;											//Distance between wheels, for the angle calculation formula
 
 		private void Awake() {
 			//Saving transform on start

@@ -64,12 +64,16 @@ public class Transmission : MonoBehaviour {
         if(vd == currentVD) {
             VehicleDynamics.VehicleDynamicsInitializedEvent -= SetUpGears;
 
-            this._lastGearRatio = (Engine.maxRpm-1500) * currentVD.circumFerence / (20.2f * finalDrive * this._maxSpeed); //4167   4050/200
+            // this._lastGearRatio = (Engine.maxRpm) * currentVD.circumFerence / (20.2f * this._finalDrive * this._maxSpeed); //4167   4050/200 20.2f
+            // 6,283185307179*7000/3,43/X*0,545*0,06
+            // 6,28*7000*0,545*0,06/(83*3,43)
+            this._lastGearRatio = 6.283185307179f * Engine.maxRpm * currentVD.wheelRadius * 0.06f * this._finalDrive / (this._maxSpeed * currentVD.circumFerence);
+
             this._gears = new float[this._frontGearsQuantity + 1];
             this._gears[0] = 0;
             this._gears[1] = this._firstGear;
             this._reverseGear = this._gears[1] * -1.5f;
-            this._gearsMultiplier = Mathf.Pow((this._lastGearRatio / this._firstGear), (1.0f / this._frontGearsQuantity));
+            this._gearsMultiplier = Mathf.Pow((this._lastGearRatio / this._firstGear), (1.0f / (this._frontGearsQuantity-1)));
             for (int i = 2; i < this._frontGearsQuantity + 1; i++) {
                 this._gears[i] = this._gears[i - 1] * this._gearsMultiplier;
             }
