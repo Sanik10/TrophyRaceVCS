@@ -89,8 +89,6 @@ public class PhysicsCalculation : MonoBehaviour {
         this._recommendedSpeed = Mathf.Sqrt((9.81f * this._turningRadius * this._VehicleManager.TiresFriction.totalGroundFriction)) * 3.6f;
         float slopeAngle = Mathf.Rad2Deg * Mathf.Atan2(transform.forward.y, Mathf.Sqrt(transform.forward.x * transform.forward.x + transform.forward.z * transform.forward.z));
         float brakePower = this._VehicleDynamics.totalBrakePower;
-        //? (this._brakingPower * (1 - this._brakingDistribution))
-        //: this._brakingPower * this._brakingDistribution
         this._brakeDistance = (this._mps * this._mps) / (9.81f * (brakePower / this._rgdbody.mass) * this._VehicleManager.TiresFriction.totalGroundFriction);
     }
 

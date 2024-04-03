@@ -19,9 +19,9 @@
     <brakingDistribution>eY3DkSFRhUCt+gFPyoG4hQ==</brakingDistribution>
     <radius>q76KzFG3W0H6dqzXVBtkTg==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>W2kPkv8v+cHyhE2/uJt6ug==</mileage>
-    <bodyMaterialId>Vw3APCdPBoPQe0cCgcYrsA==</bodyMaterialId>
-    <diskMaterialId>K8Xbm4INoGS3qNDR1VN95w==</diskMaterialId>
+    <mileage>fFE5yO+mpFko69fj05kdBw==</mileage>
+    <bodyMaterialId>K8Xbm4INoGS3qNDR1VN95w==</bodyMaterialId>
+    <diskMaterialId>AwG39W0J3vJV+TQqqF8pJA==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>
   </vehicle>
   <vehicle id="1497920719">
@@ -69,7 +69,7 @@
     <brakingDistribution>1UZ4HeRRiMWPIidsVwTeTw==</brakingDistribution>
     <radius>cFevIwKj4tlv4bxROZZfgA==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>G5FryGfrro6M2C1u4xlGMA==</mileage>
+    <mileage>UiMoh0vVO7GR3kdWKloOkA==</mileage>
     <bodyMaterialId>44FzZ9jhkGo+T/IquMKn8g==</bodyMaterialId>
     <diskMaterialId>44FzZ9jhkGo+T/IquMKn8g==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>
@@ -110,16 +110,16 @@
     <engineInertia>fTGrpVTxhnifFKZHM7za0Q==</engineInertia>
     <engineSmoothTime>3VtIE9kXDjgzUaoTHSd8+w==</engineSmoothTime>
     <frontGearsQuantity>1fAyTWzsIuFvyMHfO0Zq/A==</frontGearsQuantity>
-    <firstGear>1fAyTWzsIuFvyMHfO0Zq/A==</firstGear>
+    <firstGear>UWZb94oM1RTd3tg30CleGg==</firstGear>
     <shiftTime>9WX5VCIDAmwzDexjVvnMEg==</shiftTime>
-    <finalDrive>AwG39W0J3vJV+TQqqF8pJA==</finalDrive>
+    <finalDrive>44FzZ9jhkGo+T/IquMKn8g==</finalDrive>
     <maxSpeed>/Y7RpLCwoPcJHoCZ84+t1Q==</maxSpeed>
     <tireIntegrity>44FzZ9jhkGo+T/IquMKn8g==</tireIntegrity>
     <brakingPowerVar>25SBqB2eTXt0vgZNQggI7g==</brakingPowerVar>
     <brakingDistribution>n6MRMgGZNpxXCR9clI2zPw==</brakingDistribution>
     <radius>Vw3APCdPBoPQe0cCgcYrsA==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>DxGkJvTDQoiKvISiO+I2Jw==</mileage>
+    <mileage>K7mAT1adVorZtrahK271+g==</mileage>
     <bodyMaterialId>/N+qzdRLdr9ZvXSqGH3Fcw==</bodyMaterialId>
     <diskMaterialId>K8Xbm4INoGS3qNDR1VN95w==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>

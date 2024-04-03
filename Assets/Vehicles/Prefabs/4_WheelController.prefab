@@ -346,8 +346,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.2573394
       - serializedVersion: 3
-        time: 0.41392142
-        value: 0.3993813
+        time: 0.40756214
+        value: 0.4854924
         inSlope: 0.08151261
         outSlope: 0.08151261
         tangentMode: 0
@@ -355,8 +355,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.30611697
       - serializedVersion: 3
-        time: 0.5993482
-        value: 0.39911047
+        time: 0.5929889
+        value: 0.48522156
         inSlope: 0.056452196
         outSlope: 0.056452196
         tangentMode: 0
@@ -376,20 +376,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0
-    maxForce: 13317
+    maxForce: 10400
     maxLength: 0.4
     prevLength: 0
     compressionVelocity: 0
     prevVelocity: 0
   damper:
-    bumpRate: 4300
-    reboundRate: 1562
+    bumpRate: 7758
+    reboundRate: 3081
     slowBump: 1.7
-    fastBump: 1.25
-    bumpDivisionVelocity: 0.06
+    fastBump: 2.89
+    bumpDivisionVelocity: 0.0896
     slowRebound: 1.5
-    fastRebound: 0.6
-    reboundDivisionVelocity: 0.06
+    fastRebound: 2.83
+    reboundDivisionVelocity: 0.0732
     force: 0
   wheel:
     visual: {fileID: 6431034385594893568}
@@ -427,7 +427,7 @@ MonoBehaviour:
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 2682384316310950578}
-  forceApplicationPointDistance: 1
+  forceApplicationPointDistance: 0.4
   disableMotionVectors: 1
   suspensionExtensionSpeedCoeff: 8
   damageMaxWobbleAngle: 30
@@ -1229,7 +1229,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033164980150695682}
-  m_LocalRotation: {x: -7.591024e-11, y: 0.99999064, z: -0.0043264064, w: -0.000000017545634}
+  m_LocalRotation: {x: -2.0746516e-11, y: 0.99999064, z: -0.004326413, w: -0.0000000047952673}
   m_LocalPosition: {x: 0, y: 0.7599999, z: 4.6800017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3563,6 +3563,7 @@ Transform:
   - {fileID: 3470986042179163161}
   - {fileID: 7783461163033129442}
   - {fileID: 1859674757807266382}
+  - {fileID: 8199881054720853204}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3684,11 +3685,9 @@ MonoBehaviour:
     powered: 1
     steering: 0
   _wheelsResistance: 1
-  maxSpeedOnCurrentGear: 0
-  _wheelBase: 0
-  _rearTrack: 0
+  _circumFerence: 0
+  _maxSpeedOnCurrentGear: 0
   currentWheelSpeed: []
-  _radius: 0
   track: 0
   maxRpmOnWheel: []
   wheelPowerStats: []
@@ -7211,11 +7210,6 @@ MonoBehaviour:
   LeftWheelView: {fileID: 1368137870734596324}
   RightWheelView: {fileID: 4109227160334505694}
   AngleMiltiplier: 45
-  LeftWheelPosition: {x: 0, y: 0, z: 0}
-  InversedLeftWheelPosition: {x: 0, y: 0, z: 0}
-  RightWheelPosition: {x: 0, y: 0, z: 0}
-  InversedRightWheelPosition: {x: 0, y: 0, z: 0}
-  Distance: 0
 --- !u!1 &4496670029201390964
 GameObject:
   m_ObjectHideFlags: 0
@@ -7390,7 +7384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610927483742897369}
-  m_LocalRotation: {x: 0.002189914, y: 0.0000000028229155, z: -6.1819564e-12, w: 0.9999976}
+  m_LocalRotation: {x: 0.0021899214, y: 0.0000000014581311, z: -3.1932e-12, w: 0.9999976}
   m_LocalPosition: {x: 0, y: 0.6100001, z: -3.559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10417,23 +10411,23 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0
-    maxForce: 13619
+    maxForce: 14856
     maxLength: 0.65
     prevLength: 0
     compressionVelocity: 0
     prevVelocity: 0
   damper:
-    bumpRate: 3000
-    reboundRate: 1200
+    bumpRate: 5087
+    reboundRate: 2305
     slowBump: 1.55
-    fastBump: 1.6
+    fastBump: 2.87
     bumpDivisionVelocity: 0.07
     slowRebound: 2.5
-    fastRebound: 2.16
+    fastRebound: 2.63
     reboundDivisionVelocity: 0.07
     force: 0
   wheel:
-    visual: {fileID: 7032239656889732978}
+    visual: {fileID: 7665771303406573424}
     visualTransform: {fileID: 0}
     colliderGO: {fileID: 0}
     colliderTransform: {fileID: 0}
@@ -10468,7 +10462,7 @@ MonoBehaviour:
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 2682384316310950578}
-  forceApplicationPointDistance: 0.58
+  forceApplicationPointDistance: 0.5
   disableMotionVectors: 1
   suspensionExtensionSpeedCoeff: 10
   damageMaxWobbleAngle: 30
@@ -12588,8 +12582,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.2573394
       - serializedVersion: 3
-        time: 0.41392142
-        value: 0.3993813
+        time: 0.40756214
+        value: 0.4854924
         inSlope: 0.08151261
         outSlope: 0.08151261
         tangentMode: 0
@@ -12597,8 +12591,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.30611697
       - serializedVersion: 3
-        time: 0.5993482
-        value: 0.39911047
+        time: 0.5929889
+        value: 0.48522156
         inSlope: 0.056452196
         outSlope: 0.056452196
         tangentMode: 0
@@ -12618,20 +12612,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0
-    maxForce: 13317
+    maxForce: 10400
     maxLength: 0.4
     prevLength: 0
     compressionVelocity: 0
     prevVelocity: 0
   damper:
-    bumpRate: 4300
-    reboundRate: 1562
+    bumpRate: 7758
+    reboundRate: 3081
     slowBump: 1.7
-    fastBump: 1.25
-    bumpDivisionVelocity: 0.06
+    fastBump: 2.89
+    bumpDivisionVelocity: 0.0896
     slowRebound: 1.5
-    fastRebound: 0.6
-    reboundDivisionVelocity: 0.06
+    fastRebound: 2.83
+    reboundDivisionVelocity: 0.0732
     force: 0
   wheel:
     visual: {fileID: 2075130770301404068}
@@ -12669,7 +12663,7 @@ MonoBehaviour:
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 2682384316310950578}
-  forceApplicationPointDistance: 1
+  forceApplicationPointDistance: 0.4
   disableMotionVectors: 1
   suspensionExtensionSpeedCoeff: 8
   damageMaxWobbleAngle: 30
@@ -15228,7 +15222,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8364640004475453597}
-  m_LocalRotation: {x: 0.25276116, y: -0.000000016647665, z: 0.0000000043491046, w: 0.9675287}
+  m_LocalRotation: {x: 0.25276116, y: 0.000000016647801, z: -0.00000000434914, w: 0.9675287}
   m_LocalPosition: {x: 0, y: 3.62, z: -4.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15712,19 +15706,19 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0
-    maxForce: 13619
+    maxForce: 14856
     maxLength: 0.65
     prevLength: 0
     compressionVelocity: 0
     prevVelocity: 0
   damper:
-    bumpRate: 3000
-    reboundRate: 1200
+    bumpRate: 5087
+    reboundRate: 2305
     slowBump: 1.55
-    fastBump: 1.6
+    fastBump: 2.87
     bumpDivisionVelocity: 0.07
     slowRebound: 2.5
-    fastRebound: 2.16
+    fastRebound: 2.63
     reboundDivisionVelocity: 0.07
     force: 0
   wheel:
@@ -15763,7 +15757,7 @@ MonoBehaviour:
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 2682384316310950578}
-  forceApplicationPointDistance: 0.58
+  forceApplicationPointDistance: 0.5
   disableMotionVectors: 1
   suspensionExtensionSpeedCoeff: 10
   damageMaxWobbleAngle: 30
@@ -15810,7 +15804,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8744404872450392779}
-  m_LocalRotation: {x: 0.0000000014929478, y: 0.9848279, z: -0.1735342, w: 0.000000008472661}
+  m_LocalRotation: {x: 0.0000000014596938, y: 0.9848279, z: -0.17353418, w: 0.0000000082839415}
   m_LocalPosition: {x: 0, y: 2.7099998, z: 4.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16880,6 +16874,80 @@ Transform:
   m_Father: {fileID: 3384557817795606562}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1399166060813005525
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3384557817795606562}
+    m_Modifications:
+    - target: {fileID: 1187536570032094575, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_Name
+      value: Chevrolet_corvette-stingray_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624817679829245189, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: dopplerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624817679829245189, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+      propertyPath: optimisationLevel
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+--- !u!4 &8199881054720853204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7106964166767621633, guid: fe398585024564e7fa0df2049f2500d4, type: 3}
+  m_PrefabInstance: {fileID: 1399166060813005525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4502624842316635255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16898,7 +16966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5942747924583853460, guid: e3b058ff4b86e454db77512e58db6458, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5942747924583853461, guid: e3b058ff4b86e454db77512e58db6458, type: 3}
       propertyPath: m_RootOrder

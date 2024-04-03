@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
   m_Name: Zodar D-25
   m_EditorClassIdentifier: 
-  _includeVehicleInGame: 1
+  _includeVehicleInGame: 0
   _Prefab: {fileID: 3850886817306097815, guid: 9ef6d33cec4314c47aab303cf989b137, type: 3}
   _vehicleName: Zodar D-25
   _id: 1
@@ -37,7 +37,7 @@ MonoBehaviour:
   _maxSpeed: 170
   _driveWheels: 2
   _torqueDevider: 2
-  _originalExtremumValue: 1
+  _tireIntegrity: 1
   _brakingPowerVar: 2000
   _brakingDistribution: 0.5
   _radius: 8

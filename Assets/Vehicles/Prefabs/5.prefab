@@ -959,7 +959,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3501073138098352228}
+  m_Father: {fileID: 8335930509317807094}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8557693352351971901
@@ -2130,10 +2130,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2737510364818538900}
-  - {fileID: 3232931941611956791}
   - {fileID: 5926365841046134438}
   - {fileID: 3501073138098352228}
+  - {fileID: 2737510364818538900}
+  - {fileID: 3232931941611956791}
   - {fileID: 7723704103146932004}
   - {fileID: 8789493728798412977}
   - {fileID: 640330562792483055}
@@ -2206,8 +2206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftWheelCollider: {fileID: 544909119007830669}
   RightWheelCollider: {fileID: 2417216675292587787}
-  LeftWheelView: {fileID: 5926365841046134438}
-  RightWheelView: {fileID: 3501073138098352228}
+  LeftWheelView: {fileID: 4013384793883243411}
+  RightWheelView: {fileID: 8335930509317807094}
   AngleMiltiplier: 45
 --- !u!1 &937075918502069934
 GameObject:
@@ -2470,7 +2470,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081280904063528792}
-  m_LocalRotation: {x: 0.0000001719719, y: 0.97986746, z: -0.19964905, w: 0.00000084402944}
+  m_LocalRotation: {x: -0.0000000029750007, y: 0.9798675, z: -0.19964889, w: -0.000000014601166}
   m_LocalPosition: {x: 0, y: 3.6, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4044,8 +4044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5887540438193814471}
-  - {fileID: 6776921844023702852}
+  - {fileID: 8335930509317807094}
   m_Father: {fileID: 3255174948706789708}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4094,7 +4093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5926365841046134438}
+  m_Father: {fileID: 4013384793883243411}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7989187244317087123
@@ -4397,6 +4396,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2387026830037424669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8335930509317807094}
+  m_Layer: 3
+  m_Name: Wheel transform R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8335930509317807094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387026830037424669}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5887540438193814471}
+  - {fileID: 6776921844023702852}
+  m_Father: {fileID: 3501073138098352228}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2418046438892001380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,7 +4718,7 @@ MonoBehaviour:
     grip: 1
     stiffness: 1
     speed: 0.7011823
-  activeFrictionPreset: {fileID: 11400000, guid: 0eb8ae278257e41c88cb3d45874b082e, type: 2}
+  activeFrictionPreset: {fileID: 11400000, guid: 8a18cf657253e4e4cb0898fa8e777348, type: 2}
   camber: 0
   loadRating: 26643
   rollingResistanceTorque: 40
@@ -9275,6 +9307,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4933703731950347618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4013384793883243411}
+  m_Layer: 3
+  m_Name: Wheel transform L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4013384793883243411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4933703731950347618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6370583013063405257}
+  - {fileID: 1048616812564629044}
+  m_Father: {fileID: 5926365841046134438}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4993533374137622047
 GameObject:
   m_ObjectHideFlags: 0
@@ -10091,7 +10156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3501073138098352228}
+  m_Father: {fileID: 8335930509317807094}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2001457985794838868
@@ -11117,7 +11182,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5883453913234243255}
-  m_LocalRotation: {x: 0.0000000036111028, y: 0.99969065, z: 0.024871767, w: -0.00000014514393}
+  m_LocalRotation: {x: -1.09043136e-10, y: 0.99969065, z: 0.024871774, w: 0.000000004382856}
   m_LocalPosition: {x: 0, y: 0.87, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12296,7 +12361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6406432156357222580}
-  m_LocalRotation: {x: 0.2779767, y: 0.000000016528258, z: -0.000000004782978, w: 0.96058786}
+  m_LocalRotation: {x: 0.2779767, y: 0.000000016528242, z: -0.000000004782973, w: 0.96058786}
   m_LocalPosition: {x: 0, y: 5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12857,8 +12922,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6370583013063405257}
-  - {fileID: 1048616812564629044}
+  - {fileID: 4013384793883243411}
   m_Father: {fileID: 3255174948706789708}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14819,7 +14883,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7534118965843693254}
-  m_LocalRotation: {x: 0.020658594, y: 0.8189094, z: -0.029535305, w: 0.57278997}
+  m_LocalRotation: {x: 0.02065841, y: 0.81890965, z: -0.029535046, w: 0.57278967}
   m_LocalPosition: {x: -4.3, y: 1.53, z: 1.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15174,7 +15238,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586115331554393517}
-  m_LocalRotation: {x: 0.0070982627, y: -0.000000012575738, z: 8.926785e-11, w: 0.99997485}
+  m_LocalRotation: {x: 0.0070982664, y: -0.000000017954287, z: 1.2744755e-10, w: 0.99997485}
   m_LocalPosition: {x: 0, y: 1.173, z: -4.872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15784,7 +15848,7 @@ MonoBehaviour:
     grip: 1
     stiffness: 1
     speed: 0.7011823
-  activeFrictionPreset: {fileID: 11400000, guid: 0eb8ae278257e41c88cb3d45874b082e, type: 2}
+  activeFrictionPreset: {fileID: 11400000, guid: 8a18cf657253e4e4cb0898fa8e777348, type: 2}
   camber: 0
   loadRating: 26643
   rollingResistanceTorque: 40
@@ -16199,7 +16263,7 @@ MonoBehaviour:
     grip: 1
     stiffness: 1
     speed: 0.00038588064
-  activeFrictionPreset: {fileID: 11400000, guid: 0eb8ae278257e41c88cb3d45874b082e, type: 2}
+  activeFrictionPreset: {fileID: 11400000, guid: 8a18cf657253e4e4cb0898fa8e777348, type: 2}
   camber: 0
   loadRating: 41000
   rollingResistanceTorque: 40
@@ -16260,7 +16324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5926365841046134438}
+  m_Father: {fileID: 4013384793883243411}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5706131397068663528
@@ -18071,7 +18135,7 @@ MonoBehaviour:
     grip: 1
     stiffness: 1
     speed: 0.00038588064
-  activeFrictionPreset: {fileID: 11400000, guid: 0eb8ae278257e41c88cb3d45874b082e, type: 2}
+  activeFrictionPreset: {fileID: 11400000, guid: 8a18cf657253e4e4cb0898fa8e777348, type: 2}
   camber: 0
   loadRating: 41000
   rollingResistanceTorque: 40

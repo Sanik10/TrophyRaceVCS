@@ -29,11 +29,11 @@ MonoBehaviour:
   _engineSmoothTime: 0.15
   _transmission: 0
   _frontGearsQuantity: 5
-  _firstGear: 5
+  _firstGear: 6
   _shiftTime: 0.295
   _rpmUpShift: 6800
   _rpmDownShift: 4000
-  _finalDrive: 2
+  _finalDrive: 1
   _maxSpeed: 220
   _driveWheels: 2
   _torqueDevider: 4
@@ -44,7 +44,7 @@ MonoBehaviour:
   _steeringWheelSpeed: 10
   _wheelBase: 2.867
   _rearTrack: 1.76
-  _mileage: 23312.805
+  _mileage: 23327.793
   _colorCustomization: 1
   _bodyMaterailId: 10
   _diskMaterailId: 0

@@ -174,7 +174,7 @@ public class VehicleDynamics : MonoBehaviour {
                     (this._axles[i].powered)
                         ? (Mathf.Abs(currentWheelSpeed[i]) > Mathf.Abs(this._maxSpeedOnCurrentGear) || Mathf.Abs(PC.kph) > Mathf.Abs(this._maxSpeed) || this._VehicleInputHandler.vertical < 0 || Transmission.neutralGear)
                             ? 0
-                            : Engine.torque * this._wheelsResistance //this._driveWheelsQuantity
+                            : Engine.torque * this._wheelsResistance / (this._driveWheelsQuantity / 2) //this._driveWheelsQuantity
                         : 0;
             }
         }

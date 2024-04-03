@@ -210,7 +210,7 @@ namespace TrophyRace.Architecture {
                 if(!string.IsNullOrEmpty(this._mapToStart)) {
                     if(Enum.TryParse(this._mapToStart, out mapNameToStart enumValue)) {
                         // Если значение входит в перечисление, можно загружать сцену
-                        SceneManager.LoadScene(this._mapToStart);
+                        SceneManager.LoadSceneAsync(this._mapToStart);
                     } else {
                         // Если значение не является именем сцены, выполните соответствующие действия
                         Debug.LogWarning($"'{this._mapToStart}' не является именем сцены.");

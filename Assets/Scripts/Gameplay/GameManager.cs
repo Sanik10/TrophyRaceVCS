@@ -59,8 +59,10 @@ namespace TrophyRace.Architecture {
             _vehicleSpawner = GameObject.Find("scripts").GetComponent<VehicleSpawner>();
             _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetInt("selectedVehicleId"), SpawnMode.None);
             
-            var raceTimer = GetComponent<RaceTimer>();
-            raceTimer.RegisterCar(_vehicleSpawner.spawnedVehicle);
+            RaceTimer raceTimer = GetComponent<RaceTimer>();
+            if(raceTimer != null) {
+                raceTimer.RegisterCar(_vehicleSpawner.spawnedVehicle);
+            }
             
             Debug.Log(_vehicleSpawner.spawnedVehicle);
             spawnTime = Time.time + 0.1f;
