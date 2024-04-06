@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
   m_Name: Covalent Autron
   m_EditorClassIdentifier: 
-  _includeVehicleInGame: 0
+  _includeVehicleInGame: 1
   _Prefab: {fileID: 7627816981419441939, guid: f4bb22ec2253a4d5587ffc2cf541dd3a, type: 3}
   _vehicleName: Covalent Autron
   _id: 2
   _price: 22500
-  _isOwned: 0
+  _isOwned: 1
   _maxPower: 400
   _idleRpm: 700
   _medRpm: 3000
@@ -29,22 +29,22 @@ MonoBehaviour:
   _engineSmoothTime: 0.15
   _transmission: 0
   _frontGearsQuantity: 6
-  _firstGear: 7
+  _firstGear: 8
   _shiftTime: 0.3
   _rpmUpShift: 6000
   _rpmDownShift: 3000
-  _finalDrive: 2
+  _finalDrive: 1
   _maxSpeed: 220
   _driveWheels: 1
   _torqueDevider: 2
   _tireIntegrity: 1
   _brakingPowerVar: 1500
   _brakingDistribution: 0.5
-  _radius: 14
+  _radius: 8
   _steeringWheelSpeed: 10
   _wheelBase: 3.4
   _rearTrack: 2.14
-  _mileage: 7560.252
+  _mileage: 16357.599
   _colorCustomization: 1
   _bodyMaterailId: 8
   _diskMaterailId: 0

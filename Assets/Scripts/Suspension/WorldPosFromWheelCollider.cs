@@ -16,7 +16,7 @@ public class WorldPosFromWheelCollider : MonoBehaviour {
 	Vector3 Position;
 	Quaternion Rotation;
 
-	private void LateUpdate () {
+	private void FixedUpdate () {
 		// WheelController.GetWorldPose(out Position, out Rotation);
 		Position = WheelController.WheelPosition;
 		Rotation = WheelController.WheelRotation;

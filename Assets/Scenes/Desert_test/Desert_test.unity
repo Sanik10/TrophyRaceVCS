@@ -28419,7 +28419,7 @@ MonoBehaviour:
     - 17
   activateAnimations: 1
   stopAnimation: 0
-  _shortAnimation: 1
+  _shortAnimation: 0
 --- !u!1 &1110165173
 GameObject:
   m_ObjectHideFlags: 0
@@ -33289,7 +33289,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288022348}
-  m_LocalRotation: {x: -0.0035142167, y: 0.08843924, z: -0.101115026, w: 0.99092984}
+  m_LocalRotation: {x: 0.00590839, y: 0.047840755, z: 0.099999525, w: 0.9938191}
   m_LocalPosition: {x: -144.69179, y: 28.82998, z: -285.30698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33319,7 +33319,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.36892
+    FieldOfView: 60.37593
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -35856,7 +35856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1597186957}
-  m_PathPosition: 1
+  m_PathPosition: 0
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -37958,7 +37958,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 954031235}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.78777
+    FieldOfView: 73.90766
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -48748,7 +48748,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.82684
+    FieldOfView: 73.91802
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -56909,14 +56909,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_LocalRotation: {x: -0.0035142167, y: 0.08843924, z: -0.101115026, w: 0.99092984}
-  m_LocalPosition: {x: 161.75389, y: 7.79, z: 195.24513}
+  m_LocalRotation: {x: 0.00590839, y: 0.047840755, z: 0.099999525, w: 0.9938191}
+  m_LocalPosition: {x: 150.5, y: 7.79, z: 48.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -17.2, y: -100.8, z: -6.095}
+  m_LocalEulerAnglesHint: {x: -15.69, y: 10.137, z: 0}
 --- !u!114 &4386654685872063464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57605,7 +57605,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.997732
+  m_FocalLength: 21.994638
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -57620,7 +57620,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.368923
+  field of view: 60.37593
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

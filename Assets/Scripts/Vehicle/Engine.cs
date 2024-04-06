@@ -82,7 +82,7 @@ public class Engine : MonoBehaviour {
         if(this._throttle > 1f) {
             this._throttle = 1f;
         }
-        this._rpmVariableLimiter = (this._VehicleInputHandler.handbrake && this._Transmission.currentGear == 1 && this._throttle > 0 && this._VehicleManager.PhysicsCalculation.kph < 5) ? this._medRpm+200 : this._maxRpm;
+        this._rpmVariableLimiter = (this._VehicleInputHandler.handbrake && this._Transmission.currentGear == 1 && this._throttle > 0 && this._VehicleManager.PhysicsCalculation.kph < 5) ? this.maxRpm * 0.775f : this._maxRpm;
 
         RpmCalculating();
 
@@ -92,11 +92,11 @@ public class Engine : MonoBehaviour {
 
     private void RpmCalculating() {
         float targetRPM;
-        this._additionRpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? 0 : ((this._rpm > this._rpmVariableLimiter) ? this._additionOnNeutral * -5 : this._additionOnNeutral);
+        this._additionRpm = (!this._Transmission.neutralGear && !this._VehicleInputHandler.handbrake) ? 0 : ((this._rpm > this._rpmVariableLimiter) ? this._additionOnNeutral * -1f : this._additionOnNeutral);
 
         if(this._Transmission.neutralGear || this._VehicleInputHandler.handbrake || this._VehicleInputHandler.clutch == 0 || (this._VehicleInputHandler.vertical < 0 && this._rpm < 1000)) {
             // В режиме нейтрали или, при активном ручнике, или при выжатом сцеплении 
-            targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * 100) * Time.fixedDeltaTime);
+            targetRPM = Mathf.Lerp(this._rpm, this._idleRpm + this._additionRpm * this._throttle * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.gears[1]), (this._engineSmoothTime * ((throttle < 0.2) ? 200 : 80)) * Time.fixedDeltaTime);
         } else {
             // Расчет оборотов с учетом влияния колес на двигатель
             float wheelRPMContribution = Mathf.Abs(this._VehicleDynamics.driveWheelsRpm) * this._VehicleDynamics.circumFerence * this._Transmission.finalDrive * Mathf.Abs(this._Transmission.currentGearRatio);

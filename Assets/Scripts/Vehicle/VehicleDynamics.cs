@@ -20,7 +20,6 @@ public class VehicleDynamics : MonoBehaviour {
     private int _frontSteeringAxles = 0;
     private int _rearSteeringAxles = 0;
 
-    // private WheelController[] _wheelControllers;
     private WheelUAPI[] _wheelControllers;
     [Range(0.1f, 1)] [SerializeField]
     private float _wheelsResistance = 1;
@@ -90,7 +89,6 @@ public class VehicleDynamics : MonoBehaviour {
                 // this._wheelControllersAPI = new WheelUAPI[i.transform.childCount];
                 for(int q = 0; q < i.transform.childCount; q++) {
                     this._wheelControllers[q] = i.transform.GetChild(q).GetComponent<WheelController>();
-                    // this._wheelControllersAPI[q] = this._wheelControllers[q].wheelUAPI;
                 }    
             }
         }
@@ -118,7 +116,6 @@ public class VehicleDynamics : MonoBehaviour {
         int lastWheelColliderInLastAxle = this._axles[lastAxlePositionInList].wheelsControllers.Length - 1;
 
         this._wheelBase = Mathf.Abs(this._axles[0].wheelsControllers[0].transform.localPosition.z) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsControllers[lastWheelColliderInLastAxle].transform.localPosition.z);
-        // this._rearTrack = (Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[0].transform.localPosition.x) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsColliders[lastWheelColliderInLastAxle].transform.localPosition.x)) / 2;
         this._rearTrack = (Mathf.Abs(this._axles[lastAxlePositionInList].wheelsControllers[0].transform.localPosition.x) + Mathf.Abs(this._axles[lastAxlePositionInList].wheelsControllers[lastWheelColliderInLastAxle].transform.localPosition.x)) * 0.32520325203252f;
 
         this._circumFerence = this._wheelRadius * 6.283185307179f;
@@ -243,14 +240,11 @@ public class VehicleDynamics : MonoBehaviour {
     private void GettingScriptableValues() {
         VehicleData vehicleData = this.VehicleManager.vehicleData;
         this._maxSpeed = vehicleData.maxSpeed;
-        driveWheels = vehicleData.driveWheels;
         this._torqueDevider = vehicleData.torqueDevider;
         this._totalBrakePower = vehicleData.brakingPowerVar;
         this._brakingDistribution = vehicleData.brakingDistribution;
         this._radius = vehicleData.radius;
         this.steeringWheelSpeed = vehicleData.steeringWheelSpeed;
-        this._wheelBase = vehicleData.wheelBase + 2;
-        this._rearTrack = vehicleData.rearTrack;
         this._allMileage = vehicleData.mileage;
     }
 

@@ -7,7 +7,7 @@ namespace TrophyRace.Architecture {
         public static event Action StartRaceEvent;
         public static event Action SetVehiclesInPreRaceModeEvent;
 
-        public bool startRace;
+        public bool startRace = false;
         public bool pauseResumeRace;
         public bool preRace;
 

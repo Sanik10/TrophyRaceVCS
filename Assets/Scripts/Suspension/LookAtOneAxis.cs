@@ -14,6 +14,8 @@ public class LookAtOneAxis : MonoBehaviour {
 	[SerializeField] Direction ForwardDirection;			//Direction
 	[SerializeField] Vector3 OffsetPosition;				//Offset position, calculate from local space of TargetTransform
 	[SerializeField] bool InvertionLookAtDirection;			//Invertion direction
+	[SerializeField] bool CustomTargetPositionOnPlay;
+	[SerializeField] Vector3 CustomPositionVector = new Vector3(0, 90, -90);
 
 	#region LookAt
 
@@ -54,6 +56,10 @@ public class LookAtOneAxis : MonoBehaviour {
 			case Direction.EnumDirection.Up: { transform.localRotation = Quaternion.AngleAxis(-90, Vector3.left); break; }
 			case Direction.EnumDirection.Down: { transform.localRotation = Quaternion.AngleAxis(90, Vector3.left); break; }
 		}
+
+		if(CustomTargetPositionOnPlay) {
+			transform.localRotation = Quaternion.Euler(CustomPositionVector);
+		}
 	}
 
 	private void FixedUpdate () {
@@ -68,10 +74,10 @@ public class LookAtOneAxis : MonoBehaviour {
 		if (InvertionLookAtDirection) {
 			eulerAngles = - eulerAngles;
 		}
-		
+
 		//Rotation alignment
-		eulerAngles.z = 0;
 		eulerAngles.y = 90;
+		eulerAngles.z = 0;
 		RotateTransform.localEulerAngles = eulerAngles;
 
 		//Move opposite side to target point

@@ -48,9 +48,7 @@ public class VehicleManager : MonoBehaviour {
         this.VehicleSFX = GetComponent<VehicleSFX>();
         this.VehicleVFX = GetComponent<VehicleVFX>();
         this.VehicleInputHandler = GetComponent<VehicleInputHandler>();
-        if(this.vehicleName == null) {
-            this.vehicleName = this.VehicleInfo.Name;
-        }
+        this.vehicleName = this._vehicleData.vehicleName;
     }
 
     private void OnEnable() {

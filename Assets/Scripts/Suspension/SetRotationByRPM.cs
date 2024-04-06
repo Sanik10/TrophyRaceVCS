@@ -26,7 +26,7 @@ public class SetRotationByRPM: MonoBehaviour {
 
 	private void Awake () {
 		if (WheelController == null) {
-			Debug.LogError("wheelCollider is null in LookAt script");
+			Debug.LogError("wheelCollider is null in SetRotationByRPM script");
 			enabled = false;
 		}
 

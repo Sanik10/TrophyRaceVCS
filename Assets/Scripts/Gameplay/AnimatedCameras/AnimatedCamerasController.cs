@@ -52,6 +52,10 @@ public class AnimatedCamerasController : MonoBehaviour {
             ResetAnimations(); // Запуск анимаций сначала
         }
 
+        if(stopAnimation) {
+            SwitchToNextCamera();
+        }
+
         TrackCamera();
     }
 
@@ -61,7 +65,7 @@ public class AnimatedCamerasController : MonoBehaviour {
 
         animatedCameras[currentCameraIndex].virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = 0;
 
-        if((stopAnimation && currentCameraIndex == animatedCameras.Count-1) || (this._shortAnimation && currentCameraIndex == 0)) {
+        if(currentCameraIndex >= animatedCameras.Count-1 || stopAnimation || (this._shortAnimation && currentCameraIndex == 0)) {
             TurnOffAllCameras();
             AnimationDoneEvent?.Invoke();
             return;

@@ -19,7 +19,7 @@
     <brakingDistribution>eY3DkSFRhUCt+gFPyoG4hQ==</brakingDistribution>
     <radius>q76KzFG3W0H6dqzXVBtkTg==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>fFE5yO+mpFko69fj05kdBw==</mileage>
+    <mileage>RQe+3YHUek1ieB3SkeU7ZQ==</mileage>
     <bodyMaterialId>K8Xbm4INoGS3qNDR1VN95w==</bodyMaterialId>
     <diskMaterialId>AwG39W0J3vJV+TQqqF8pJA==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>
@@ -69,7 +69,7 @@
     <brakingDistribution>1UZ4HeRRiMWPIidsVwTeTw==</brakingDistribution>
     <radius>cFevIwKj4tlv4bxROZZfgA==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>UiMoh0vVO7GR3kdWKloOkA==</mileage>
+    <mileage>oppIHmiNNmKxm8AqYIzbLw==</mileage>
     <bodyMaterialId>44FzZ9jhkGo+T/IquMKn8g==</bodyMaterialId>
     <diskMaterialId>44FzZ9jhkGo+T/IquMKn8g==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>
@@ -85,19 +85,19 @@
     <engineInertia>fTGrpVTxhnifFKZHM7za0Q==</engineInertia>
     <engineSmoothTime>3VtIE9kXDjgzUaoTHSd8+w==</engineSmoothTime>
     <frontGearsQuantity>UWZb94oM1RTd3tg30CleGg==</frontGearsQuantity>
-    <firstGear>XobW2BbJbJdqSy5OGLkVcg==</firstGear>
+    <firstGear>q76KzFG3W0H6dqzXVBtkTg==</firstGear>
     <shiftTime>LUv111BWrpfQttEJqqfslw==</shiftTime>
-    <finalDrive>AwG39W0J3vJV+TQqqF8pJA==</finalDrive>
+    <finalDrive>44FzZ9jhkGo+T/IquMKn8g==</finalDrive>
     <maxSpeed>/Y7RpLCwoPcJHoCZ84+t1Q==</maxSpeed>
     <tireIntegrity>44FzZ9jhkGo+T/IquMKn8g==</tireIntegrity>
     <brakingPowerVar>JFCafk4CEpP9WXRJYtg6Qw==</brakingPowerVar>
     <brakingDistribution>sLdyrwvruj1EAdM20RWefQ==</brakingDistribution>
-    <radius>EgCoVJU1X6PCzdbUCXk9/g==</radius>
+    <radius>q76KzFG3W0H6dqzXVBtkTg==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>+Y5j9gJ9lei/76jNeou3dA==</mileage>
+    <mileage>TeE4BsImQndM2vyN2v2bhQ==</mileage>
     <bodyMaterialId>q76KzFG3W0H6dqzXVBtkTg==</bodyMaterialId>
     <diskMaterialId>K8Xbm4INoGS3qNDR1VN95w==</diskMaterialId>
-    <isOwned>i8vWbrNx9Ai9DNvdOpiKVA==</isOwned>
+    <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>
   </vehicle>
   <vehicle id="231353603">
     <maxPower>dGygZSt0M1UtCdmi7ZAe5g==</maxPower>
@@ -119,7 +119,7 @@
     <brakingDistribution>n6MRMgGZNpxXCR9clI2zPw==</brakingDistribution>
     <radius>Vw3APCdPBoPQe0cCgcYrsA==</radius>
     <steeringWheelSpeed>/N+qzdRLdr9ZvXSqGH3Fcw==</steeringWheelSpeed>
-    <mileage>K7mAT1adVorZtrahK271+g==</mileage>
+    <mileage>v+N7gpHhMthWNm11Hw97Ng==</mileage>
     <bodyMaterialId>/N+qzdRLdr9ZvXSqGH3Fcw==</bodyMaterialId>
     <diskMaterialId>K8Xbm4INoGS3qNDR1VN95w==</diskMaterialId>
     <isOwned>IaT2/+2Km1FJJsNr04xlBA==</isOwned>

@@ -83,16 +83,16 @@ MonoBehaviour:
   atmospherePass:
     atmosphere:
       atmosphere: 0.708
-      atmosphereColoring: 1
+      atmosphereColoring: 0.647
       atmosphereColor: {r: 0, g: 0.47140753, b: 1.0943396, a: 0}
-      atmosphereHighLightColoring: 0
+      atmosphereHighLightColoring: 0.797
       atmosphereHighLightColor: {r: 0.6132076, g: 0.3169511, b: 0, a: 0}
       cloudOcclusion: 1
       cloudAtmospheric: 0
       godRay: 1
-      godRayStartDistance: 100
+      godRayStartDistance: 248
       shadow: 0.698
-      sunShaft: 0.253
+      sunShaft: 0.225
     screenBlending: 0.924
     shaftQuality: 0.324
     godRayQuality: 0.35
