@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2451deb9754088928b252889199297, type: 3}
+  m_Name: Natural-High-Desert_test_cubemap
+  m_EditorClassIdentifier: 
+  sunIntensityScale: 1
+  cloudIntensityAdjustment: 1
+  sun:
+    mode: 1
+    rotation: {x: 12.65, y: 188.72618, z: 84.72217}
+    intensity: 1.25
+    color: {r: 1, g: 0.8161694, b: 0.3726415, a: 0}
+  moon:
+    mode: 0
+    rotation: {x: 36.77956, y: 289.4404, z: 210.5188}
+    intensity: 0.008162975
+    color: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
+  ambient:
+    mode: 0
+    skyColor: {r: 1.1993515, g: 0.97887397, b: 0.44692817, a: 0}
+    equatorColor: {r: 0.68242335, g: 1.0496591, b: 1.6834537, a: 3.682417}
+    groundColor: {r: 0.17060584, g: 0.26241478, b: 0.42086342, a: 0.9206042}
+    pivot: 0.089
+    luminanceFix: 0.9403265
+  skyPass:
+    Enabled: 1
+    SkyParameter:
+      SkyExposure: 1
+      GroundColor: {r: 0.6981132, g: 0.63810766, b: 0.56310076, a: 0}
+      GroundScattering: 0
+      SunSize: 0.59
+      SunSizeConvergence: 1
+      Saturation: 0.83
+      AtmosphereThickness: 0.86
+      Gradation: 0
+      Hdri:
+        texture: {fileID: 8900000, guid: 756c460382af7904dab167c7503a2d34, type: 3}
+        exposure: 0
+        mix: 0
+  physicsCloudPass:
+    profile: {fileID: 0}
+    transition: 1
+    densityAdjustment: -0.82
+    scattering:
+      IsOverride: 1
+      Value: 0.584
+    shading:
+      IsOverride: 1
+      Value: 0.298
+    shadingDistance:
+      IsOverride: 1
+      Value: 0.601
+    resolution: 0.1
+    Animation:
+      ScrollVelocity: {x: 500, y: 0, z: 500}
+      Phase: 0
+  layeredCloudPass:
+    profile: {fileID: 11400000, guid: 4840c477268aa41398069d224323d775, type: 2}
+    transition: 1
+    densityAdjustment: 0.11
+    scattering:
+      IsOverride: 1
+      Value: 0
+    shading:
+      IsOverride: 1
+      Value: 0
+    shadingDistance:
+      IsOverride: 1
+      Value: 0
+    resolution: 0.75
+    Animation:
+      ScrollVelocity: {x: 0, y: 0, z: 0}
+      Phase: -0.07
+  atmospherePass:
+    atmosphere:
+      atmosphere: 0.708
+      atmosphereColoring: 0.647
+      atmosphereColor: {r: 0, g: 0.47140753, b: 1.0943396, a: 0}
+      atmosphereHighLightColoring: 0.797
+      atmosphereHighLightColor: {r: 0.6132076, g: 0.3169511, b: 0, a: 0}
+      cloudOcclusion: 1
+      cloudAtmospheric: 0
+      godRay: 1
+      godRayStartDistance: 300
+      shadow: 0.698
+      sunShaft: 0
+    screenBlending: 0.924
+    shaftQuality: 0.324
+    godRayQuality: 0.35
+    resolution: 0.825
+    fog:
+      groundHeight: -125
+      range: 506
+      density: 0.205
+      coloring: 1
+      color: {r: 1, g: 0.8802006, b: 0.514151, a: 0}
+      scattering: 0.268
+  bufferFormat: 0
+  progressive: 1
+  adaptiveSampling: 0
+  ditheringTexture: {fileID: 2800000, guid: c75056e8f2490d54cbca9a58e9dd4b1f, type: 3}
+  forcingFullQuality: 0
+  unityQualities:
+  - Level: 0
+    Scale: 0.3
+  - Level: 1
+    Scale: 0.4
+  - Level: 2
+    Scale: 0.5
+  - Level: 3
+    Scale: 0.65
+  - Level: 4
+    Scale: 0.8
+  - Level: 5
+    Scale: 1

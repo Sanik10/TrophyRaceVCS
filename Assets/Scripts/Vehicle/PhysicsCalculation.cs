@@ -45,6 +45,7 @@ public class PhysicsCalculation : MonoBehaviour {
 
     private void OnDestroy() {
         GameManager.SetVehiclesInPreRaceModeEvent -= PreRaceModeHandler;
+        GameManager.StartRaceEvent -= StartRaceHandler;
     }
 
     private void Start() {

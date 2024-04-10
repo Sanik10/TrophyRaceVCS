@@ -32,7 +32,7 @@ MonoBehaviour:
     pivot: 0.078
     luminanceFix: 0.02
   skyPass:
-    Enabled: 1
+    Enabled: 0
     SkyParameter:
       SkyExposure: 1
       GroundColor: {r: 1, g: 0.46666667, b: 0.39215687, a: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
         exposure: 0
         mix: 0
   physicsCloudPass:
-    profile: {fileID: 11400000, guid: 5be1fa34e591f4917a005115617317bc, type: 2}
+    profile: {fileID: 11400000, guid: 18e2db68b92674be0a2ce5ff99d31e86, type: 2}
     transition: 1
     densityAdjustment: 0
     scattering:
@@ -59,12 +59,12 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 1
       Value: 0.635
-    resolution: 0.4
+    resolution: 0.75
     Animation:
       ScrollVelocity: {x: 0, y: 0, z: 0}
       Phase: 0.19
   layeredCloudPass:
-    profile: {fileID: 11400000, guid: 730bad701f7ce41f8a70c7f2d82ad54e, type: 2}
+    profile: {fileID: 0}
     transition: 1
     densityAdjustment: -0.02
     scattering:
@@ -82,7 +82,7 @@ MonoBehaviour:
       Phase: 0.14
   atmospherePass:
     atmosphere:
-      atmosphere: 0.179
+      atmosphere: 0.279
       atmosphereColoring: 0
       atmosphereColor: {r: 0, g: 0.039215688, b: 0.4509804, a: 0}
       atmosphereHighLightColoring: 0.336
@@ -92,7 +92,7 @@ MonoBehaviour:
       godRay: 0.679
       godRayStartDistance: 136
       shadow: 0.297
-      sunShaft: 0.138
+      sunShaft: 0.15
     screenBlending: 0.444
     shaftQuality: 0.3
     godRayQuality: 0.3

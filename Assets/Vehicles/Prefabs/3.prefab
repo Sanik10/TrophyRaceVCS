@@ -1789,6 +1789,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: 0.1, y: 0.06, z: 0}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &813408033996226728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2397,8 @@ MonoBehaviour:
     vector3: {x: 0, y: -1, z: 0}
   OffsetPosition: {x: -0.21, y: 0, z: 0.044}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &1133255643172773913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,6 +2669,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: 0, y: -0.11, z: 0}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &1221623244811742433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,6 +4254,8 @@ MonoBehaviour:
     vector3: {x: 0, y: 1, z: 0}
   OffsetPosition: {x: 0.37, y: 0, z: 0.047}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &2047534955332035124
 GameObject:
   m_ObjectHideFlags: 0
@@ -5270,6 +5278,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: 0, y: 0.06, z: 0}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &3052654752855367063
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,6 +6572,8 @@ MonoBehaviour:
     vector3: {x: 0, y: 1, z: 0}
   OffsetPosition: {x: 0.21, y: 0, z: -0.055}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &3589542453320152416
 GameObject:
   m_ObjectHideFlags: 0
@@ -7618,6 +7630,8 @@ MonoBehaviour:
     vector3: {x: 0, y: 1, z: 0}
   OffsetPosition: {x: 0.37, y: 0, z: -0.053}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &3745196074486840320
 GameObject:
   m_ObjectHideFlags: 0
@@ -7722,6 +7736,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: 0.1, y: -0.11, z: 0}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &3756134127639082533
 GameObject:
   m_ObjectHideFlags: 0
@@ -7825,6 +7841,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: -0.1, y: 0.06, z: 0}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &3769449467189944846
 GameObject:
   m_ObjectHideFlags: 0
@@ -9470,6 +9488,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: -0.1, y: -0.11, z: 0}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &4436061444698221018
 GameObject:
   m_ObjectHideFlags: 0
@@ -13380,6 +13400,8 @@ MonoBehaviour:
     vector3: {x: 0, y: -1, z: 0}
   OffsetPosition: {x: -0.37, y: 0, z: -0.053}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &6561530036529290665
 GameObject:
   m_ObjectHideFlags: 0
@@ -14920,6 +14942,8 @@ MonoBehaviour:
     vector3: {x: 0, y: -1, z: 0}
   OffsetPosition: {x: -0.37, y: 0, z: 0.047}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &7069212130100855550
 GameObject:
   m_ObjectHideFlags: 0
@@ -15191,6 +15215,8 @@ MonoBehaviour:
     vector3: {x: 0, y: -1, z: 0}
   OffsetPosition: {x: -0.21, y: 0, z: -0.055}
   InvertionLookAtDirection: 0
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &7102293104403255974
 GameObject:
   m_ObjectHideFlags: 0
@@ -15499,6 +15525,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: 0, y: 0.06, z: 0}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &7258069398841593380
 GameObject:
   m_ObjectHideFlags: 0
@@ -15686,6 +15714,8 @@ MonoBehaviour:
     vector3: {x: 1, y: 0, z: 0}
   OffsetPosition: {x: 0, y: -0.11, z: 0}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &7289539525242119413
 GameObject:
   m_ObjectHideFlags: 0
@@ -16631,6 +16661,8 @@ MonoBehaviour:
     vector3: {x: 0, y: 1, z: 0}
   OffsetPosition: {x: 0.21, y: 0, z: 0.044}
   InvertionLookAtDirection: 1
+  CustomTargetPositionOnPlay: 0
+  CustomPositionVector: {x: 0, y: 90, z: -90}
 --- !u!1 &7823414872190666431
 GameObject:
   m_ObjectHideFlags: 0
