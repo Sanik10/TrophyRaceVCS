@@ -222,7 +222,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     #endregion
 
     #region Vehicle range
-    // !!! ПРИ ДОБАВЛЕНИИ НОВОГО АВТО СВЕРЯТЬ ЭТИ ПОКАЗАТЕЛИ, ЕСЛИ ОНИ БУДУТ РАЗНИТЬСЯ, ТО НАДО ЗАМЕНИТЬ !!! //
+    // !!! ПРИ ДОБАВЛЕНИИ НОВОГО АВТО СВЕРЯТЬ ЭТИ ПОКАЗАТЕЛИ, ЕСЛИ ОНИ БУДУТ РАЗНИТЬСЯ, ТО НАДО ИСПРАВИТЬ !!! //
     private static float maxStatPower = 2060;
     private static float minStatPower = 100;
 
@@ -325,7 +325,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     }
 
     public void Load() {
-        #region Egine
+        #region Egine xml data
         LoadData("maxPower", ref _maxPower, int.TryParse);
         LoadData("idleRpm", ref _idleRpm, int.TryParse);
         LoadData("medRpm", ref _medRpm, int.TryParse);
@@ -338,14 +338,14 @@ public class VehicleData : ScriptableObject, ISaveable {
         LoadData("engineSmoothTime", ref _engineSmoothTime, float.TryParse);
         #endregion
 
-        #region Transmission
+        #region Transmission xml data
         LoadData("frontGearsQuantity", ref _frontGearsQuantity, int.TryParse);
         LoadData("firstGear", ref _firstGear, float.TryParse);
         LoadData("shiftTime", ref _shiftTime, float.TryParse);
         LoadData("finalDrive", ref _finalDrive, float.TryParse);
         #endregion
 
-        #region Wheels settings
+        #region Vehicle Dynamics xml data
         LoadData("maxSpeed", ref _maxSpeed, int.TryParse);
         LoadData("tireIntegrity", ref _tireIntegrity, float.TryParse);
         LoadData("brakingPowerVar", ref _brakingPowerVar, int.TryParse);

@@ -18,10 +18,10 @@ MonoBehaviour:
     value: 0
   shutterAngle:
     overrideState: 1
-    value: 270
+    value: 90
   sampleCount:
     overrideState: 1
-    value: 10
+    value: 8
 --- !u!114 &-7022300125705117808
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -38,7 +38,7 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
-  showEditorMainBehavior: 0
+  showEditorMainBehavior: 1
   showEditorBloomBehavior: 1
   showEditorLensSurfaceBehavior: 0
   showEditorLensFlareBehavior: 1

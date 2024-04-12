@@ -33,12 +33,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 256
+  m_DefaultReflectionResolution: 1024
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1017267670}
-  m_IndirectSpecularColor: {r: 0.5360393, g: 0.6014902, b: 0.7083779, a: 1}
+  m_IndirectSpecularColor: {r: 0.44151235, g: 0.4830491, b: 0.53087544, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33354,7 +33354,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288022348}
-  m_LocalRotation: {x: -0.0037881124, y: 0.14506486, z: -0.04422254, w: 0.98842615}
+  m_LocalRotation: {x: 0.00590839, y: 0.047840755, z: 0.099999525, w: 0.9938191}
   m_LocalPosition: {x: -144.69179, y: 28.82998, z: -285.30698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33384,7 +33384,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 63.39172
+    FieldOfView: 60.36415
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -33393,7 +33393,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 54.12, y: 25.59}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -35921,7 +35921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1597186957}
-  m_PathPosition: 0.7440442
+  m_PathPosition: 0
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -38023,7 +38023,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 954031235}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.91787
+    FieldOfView: 73.86642
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -38032,7 +38032,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 54.12, y: 25.59}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -48813,7 +48813,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.73848
+    FieldOfView: 73.88022
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -48822,7 +48822,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 54.12, y: 25.59}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -56894,7 +56894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -56974,14 +56974,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_LocalRotation: {x: -0.0037881124, y: 0.14506486, z: -0.04422254, w: 0.98842615}
-  m_LocalPosition: {x: 146.70084, y: 7.79, z: 159.57166}
+  m_LocalRotation: {x: -0.23638138, y: -0.1368369, z: 0.05965089, w: 0.9601257}
+  m_LocalPosition: {x: 150.5, y: 7.79, z: 48.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0.306, y: 148.88, z: -5.079}
+  m_LocalEulerAnglesHint: {x: -25.95, y: -18.88, z: 11.498}
 --- !u!114 &4386654685872063464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57670,7 +57670,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 20.720222
+  m_FocalLength: 21.998913
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -57685,7 +57685,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 63.391712
+  field of view: 60.36625
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -57710,7 +57710,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e7e2be9a69c0fa4c9170946af107ba4, type: 3}
   m_Name: 
@@ -57941,6 +57941,10 @@ PrefabInstance:
     - target: {fileID: 876970995041514710, guid: 93d04dfdfbaf74534a13607210397594, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549282664885646959, guid: 93d04dfdfbaf74534a13607210397594, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1549282664885646959, guid: 93d04dfdfbaf74534a13607210397594, type: 3}
       propertyPath: m_CullingMask.m_Bits

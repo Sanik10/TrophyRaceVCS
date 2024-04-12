@@ -27,8 +27,8 @@ MonoBehaviour:
   ambient:
     mode: 0
     skyColor: {r: 1.1993515, g: 0.97887397, b: 0.44692817, a: 0}
-    equatorColor: {r: 0.68242335, g: 1.0496591, b: 1.6834537, a: 3.682417}
-    groundColor: {r: 0.17060584, g: 0.26241478, b: 0.42086342, a: 0.9206042}
+    equatorColor: {r: 1.2755492, g: 1.2755492, b: 1.2755492, a: 3.682417}
+    groundColor: {r: 0.3188873, g: 0.3188873, b: 0.3188873, a: 0.9206042}
     pivot: 0.089
     luminanceFix: 0.9403265
   skyPass:
@@ -108,7 +108,7 @@ MonoBehaviour:
   progressive: 1
   adaptiveSampling: 0
   ditheringTexture: {fileID: 2800000, guid: c75056e8f2490d54cbca9a58e9dd4b1f, type: 3}
-  forcingFullQuality: 0
+  forcingFullQuality: 1
   unityQualities:
   - Level: 0
     Scale: 0.3

@@ -100,7 +100,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 90.02
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderTexture: {fileID: 8400000, guid: 77bea6a98fab447909ec35a8447b68a3, type: 2}
-  savePath: Assets/Scenes/Desert_test/CubeMaps/OutputImage.png
+  savePath: Assets/Scenes/Desert_test/CubeMaps/Front.png
   convert: 0
 --- !u!1 &3939417174574907559
 GameObject:
