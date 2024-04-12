@@ -33384,7 +33384,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.36415
+    FieldOfView: 60.37012
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -33393,7 +33393,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 54.12, y: 25.59}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -38023,7 +38023,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 954031235}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.86642
+    FieldOfView: 73.92868
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -38032,7 +38032,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 54.12, y: 25.59}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -48813,7 +48813,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.88022
+    FieldOfView: 73.92882
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -48822,7 +48822,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 54.12, y: 25.59}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -56894,7 +56894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -56974,7 +56974,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_LocalRotation: {x: -0.23638138, y: -0.1368369, z: 0.05965089, w: 0.9601257}
+  m_LocalRotation: {x: 0.00590839, y: 0.047840755, z: 0.099999525, w: 0.9938191}
   m_LocalPosition: {x: 150.5, y: 7.79, z: 48.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -57670,7 +57670,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.998913
+  m_FocalLength: 21.9972
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -57685,7 +57685,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.36625
+  field of view: 60.370125
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
