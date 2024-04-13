@@ -7,15 +7,14 @@ using UnityEditor;
 #endif
 
 
-namespace NWH.Common.Vehicles
-{
+// namespace NWH.Common.Vehicles {
     /// <summary>
     ///     ScriptableObject holding friction settings for one surface type.
     /// </summary>
     [Serializable]
     [CreateAssetMenu(fileName = "Friction preset", menuName = "Vehicle Data/Tires Friction Preset", order = 2)]
-    public class FrictionPreset : ScriptableObject
-    {
+    public class FrictionPreset : ScriptableObject {
+        
         public const int LUT_RESOLUTION = 1000;
 
         /// <summary>
@@ -105,7 +104,7 @@ namespace NWH.Common.Vehicles
             return D * Mathf.Sin(C * Mathf.Atan(B * t - E * (B * t - Mathf.Atan(B * t))));
         }
     }
-}
+// }
 
 
 #if UNITY_EDITOR

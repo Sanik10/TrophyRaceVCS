@@ -45,11 +45,11 @@ public class TiresFriction : MonoBehaviour {
     };
     Dictionary<string, SurfaceType> wetMaterialSurfaceMap = new Dictionary<string, SurfaceType>
     {
-        {"asphalt wet", SurfaceType.AsphaltWet},
-        {"concrete wet", SurfaceType.ConcreteWet},
-        {"sand wet", SurfaceType.SandWet},
-        {"dirt wet", SurfaceType.DirtWet},
-        {"snow wet", SurfaceType.SnowWet},
+        {"asphaltwet", SurfaceType.AsphaltWet},
+        {"concretewet", SurfaceType.ConcreteWet},
+        {"sandwet", SurfaceType.SandWet},
+        {"dirtwet", SurfaceType.DirtWet},
+        {"snowwet", SurfaceType.SnowIcy},
         // "ice" не нуждается в отдельном варианте, так как он всегда "лед"
     };
 
@@ -69,7 +69,7 @@ public class TiresFriction : MonoBehaviour {
 
     private void FixedUpdate() {
         DetermineSurfaceType();
-        // ApplyFrictionModel();
+        SetFrictionPreset();
     }
 
     private void DetermineSurfaceType() {
@@ -85,17 +85,31 @@ public class TiresFriction : MonoBehaviour {
             if(Physics.Raycast(raycastOrigin, -this._wheelsControllers[wheelIndex].transform.up, out hit, this._rayDistance[wheelIndex])) {
                 PhysicMaterial currentMaterial = hit.collider.sharedMaterial;
 
-                this._surfaceType[wheelIndex] = DetermineSurfaceType(currentMaterial);
+                this._surfaceType[wheelIndex] = (currentMaterial != null) ? DetermineSurfaceType(currentMaterial) : SurfaceType.Undefined;
             }
         }
     }
 
     private SurfaceType DetermineSurfaceType(PhysicMaterial material) {
-        string materialName = material.name.ToLower();
+        string materialName = material?.name.ToLower();
+        if(materialName == null) {
+            return SurfaceType.Undefined;
+        }
 
         SurfaceType surfaceType = (materialSurfaceMap.TryGetValue(materialName, out SurfaceType baseSurfaceType)) ? baseSurfaceType : (materialName.Contains("wet") && wetMaterialSurfaceMap.TryGetValue(materialName, out SurfaceType wetSurfaceType)) ? wetSurfaceType : SurfaceType.Undefined;
 
         return surfaceType;
+    }
+
+    private void SetFrictionPreset() {
+        for(int wheelIndex = 0; wheelIndex < this._wheelsControllers.Length; wheelIndex++) {
+            if(this._surfaceType[wheelIndex] != SurfaceType.Undefined) {
+                FrictionPreset frictionPreset = FrictionPresetsCache.Instance.GetFrictionPreset(this._surfaceType[wheelIndex].ToString());
+                if(frictionPreset != null) {
+                    this._wheelsControllers[wheelIndex].FrictionPreset = frictionPreset;
+                }
+            }
+        }
     }
 
     private void InitializeValues() {
@@ -103,12 +117,9 @@ public class TiresFriction : MonoBehaviour {
         if(carCollidersTransform != null) {
             int wheelCount = carCollidersTransform.childCount;
             this._wheelsControllers = new WheelUAPI[wheelCount];
-            // this._typeMultiplier = new float[wheelCount];
             this._surfaceType = new SurfaceType[wheelCount];
             this._springLength = new float[wheelCount];
             this._rayDistance = new float[wheelCount];
-            // this._originExtremumValue = new float[wheelCount];
-            // this._wheelSlip = new float[wheelCount];
             
             for(int q = 0; q < wheelCount; q++) {
                 this._wheelsControllers[q] = carCollidersTransform.GetChild(q).GetComponent<WheelUAPI>();
@@ -128,7 +139,7 @@ public enum SurfaceType {
     Dirt,
     DirtWet,
     Snow,
-    SnowWet,
+    SnowIcy,
     Ice,
     Undefined,
     IFriction

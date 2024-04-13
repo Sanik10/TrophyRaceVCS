@@ -955,7 +955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278136458070713456}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09415382, y: 0.0060875416, z: 0}
+  m_LocalPosition: {x: 0.09415382, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2470,7 +2470,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081280904063528792}
-  m_LocalRotation: {x: -0.000000002975, y: 0.9798675, z: -0.19964889, w: -0.000000014601163}
+  m_LocalRotation: {x: -0.0000000029750007, y: 0.9798675, z: -0.19964889, w: -0.000000014601166}
   m_LocalPosition: {x: 0, y: 3.6, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4091,7 +4091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120928713699554195}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09411025, y: 0.0060875416, z: 0}
+  m_LocalPosition: {x: -0.09411025, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4640,56 +4640,47 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0.026077945
-        outSlope: 0.026077945
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.4997401
+        value: 0.49974006
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2573394
-      - serializedVersion: 3
-        time: 0.41392142
-        value: 0.4466035
-        inSlope: 0.08151261
-        outSlope: 0.08151261
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.30611697
-      - serializedVersion: 3
-        time: 0.5993482
-        value: 0.44633266
-        inSlope: 0.056452196
-        outSlope: 0.056452196
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.44575587
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.046592712
-        outSlope: 0.046592712
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.41206533
-        outWeight: 0.33333334
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0.14207658
-    maxForce: 30002
+    maxForce: 29165
     maxLength: 0.4
     prevLength: 0.14242058
     compressionVelocity: 0.017199665
     prevVelocity: 0.016569346
   damper:
-    bumpRate: 9976
-    reboundRate: 4407
-    slowBump: 1.32
-    fastBump: 2.87
-    bumpDivisionVelocity: 0.096
+    bumpRate: 11666
+    reboundRate: 11666
+    slowBump: 1.7
+    fastBump: 1.83
+    bumpDivisionVelocity: 0.0755
     slowRebound: 1.49
-    fastRebound: 2.86
+    fastRebound: 1.74
     reboundDivisionVelocity: 0.046
     force: 425.66077
   wheel:
@@ -4724,13 +4715,13 @@ MonoBehaviour:
   camber: 0
   loadRating: 26643
   rollingResistanceTorque: 40
-  antiSquat: 0.08
+  antiSquat: 0
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 9074210092209006324}
   forceApplicationPointDistance: 0.15
   disableMotionVectors: 1
-  suspensionExtensionSpeedCoeff: 10.3
+  suspensionExtensionSpeedCoeff: 9
   damageMaxWobbleAngle: 30
   otherBodyForceScale: 1
   loadContribution: 0.21974261
@@ -10156,7 +10147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5489372160497652117}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09415382, y: 0.0060875416, z: 0}
+  m_LocalPosition: {x: 0.09415382, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11186,7 +11177,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5883453913234243255}
-  m_LocalRotation: {x: -3.4048705e-11, y: 0.99969065, z: 0.024871767, w: 0.0000000013685468}
+  m_LocalRotation: {x: 1.09043136e-10, y: 0.99969065, z: 0.024871774, w: -0.000000004382856}
   m_LocalPosition: {x: 0, y: 0.87, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12369,7 +12360,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6406432156357222580}
-  m_LocalRotation: {x: 0.2779767, y: 0.00000001652824, z: -0.0000000047829727, w: 0.96058786}
+  m_LocalRotation: {x: 0.2779767, y: -0.000000016528242, z: 0.000000004782973, w: 0.96058786}
   m_LocalPosition: {x: 0, y: 5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14897,7 +14888,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7534118965843693254}
-  m_LocalRotation: {x: 0.02065841, y: 0.81890965, z: -0.029535046, w: 0.57278967}
+  m_LocalRotation: {x: 0.020658394, y: 0.81890965, z: -0.029535027, w: 0.57278967}
   m_LocalPosition: {x: -4.3, y: 1.53, z: 1.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15254,7 +15245,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586115331554393517}
-  m_LocalRotation: {x: 0.0070982664, y: 0.000000017954287, z: -1.2744755e-10, w: 0.99997485}
+  m_LocalRotation: {x: 0.0070982636, y: 0.00000001699746, z: -1.206555e-10, w: 0.99997485}
   m_LocalPosition: {x: 0, y: 1.173, z: -4.872}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15784,56 +15775,47 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0.026077945
-        outSlope: 0.026077945
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.4997401
+        value: 0.49974006
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2573394
-      - serializedVersion: 3
-        time: 0.41392142
-        value: 0.4466035
-        inSlope: 0.08151261
-        outSlope: 0.08151261
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.30611697
-      - serializedVersion: 3
-        time: 0.5993482
-        value: 0.44633266
-        inSlope: 0.056452196
-        outSlope: 0.056452196
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.44575587
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.046592712
-        outSlope: 0.046592712
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.41206533
-        outWeight: 0.33333334
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0.14207658
-    maxForce: 30002
+    maxForce: 29165
     maxLength: 0.4
     prevLength: 0.14242058
     compressionVelocity: 0.017199665
     prevVelocity: 0.016569346
   damper:
-    bumpRate: 9976
-    reboundRate: 4407
-    slowBump: 1.32
-    fastBump: 2.87
-    bumpDivisionVelocity: 0.096
+    bumpRate: 11666
+    reboundRate: 11666
+    slowBump: 1.7
+    fastBump: 1.83
+    bumpDivisionVelocity: 0.0755
     slowRebound: 1.49
-    fastRebound: 2.86
+    fastRebound: 1.74
     reboundDivisionVelocity: 0.046
     force: 425.66077
   wheel:
@@ -15868,13 +15850,13 @@ MonoBehaviour:
   camber: 0
   loadRating: 26643
   rollingResistanceTorque: 40
-  antiSquat: 0.08
+  antiSquat: 0
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 9074210092209006324}
   forceApplicationPointDistance: 0.15
   disableMotionVectors: 1
-  suspensionExtensionSpeedCoeff: 10.3
+  suspensionExtensionSpeedCoeff: 9
   damageMaxWobbleAngle: 30
   otherBodyForceScale: 1
   loadContribution: 0.21974261
@@ -16199,57 +16181,48 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0.13038972
-        outSlope: 0.13038972
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.4997401
+        value: 0.49974006
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2573394
-      - serializedVersion: 3
-        time: 0.41074187
-        value: 0.43549243
-        inSlope: 0.08151261
-        outSlope: 0.08151261
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.30611697
-      - serializedVersion: 3
-        time: 0.59616864
-        value: 0.43522158
-        inSlope: 0.056452196
-        outSlope: 0.056452196
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.44575587
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.18012612
-        outSlope: 0.18012612
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.38037723
-        outWeight: 0.33333334
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0.09579842
-    maxForce: 30002
+    maxForce: 29165
     maxLength: 0.4
     prevLength: 0.09579842
     compressionVelocity: 0
     prevVelocity: 0.000032782555
   damper:
-    bumpRate: 9976
-    reboundRate: 4407
-    slowBump: 1.32
-    fastBump: 2.87
-    bumpDivisionVelocity: 0.096
-    slowRebound: 1.49
-    fastRebound: 2.86
-    reboundDivisionVelocity: 0.046
+    bumpRate: 11666
+    reboundRate: 11666
+    slowBump: 1.55
+    fastBump: 1.67
+    bumpDivisionVelocity: 0.0855
+    slowRebound: 2.5
+    fastRebound: 1.45
+    reboundDivisionVelocity: 0.06
     force: 0
   wheel:
     visual: {fileID: 6149559982027416413}
@@ -16283,13 +16256,13 @@ MonoBehaviour:
   camber: 0
   loadRating: 41000
   rollingResistanceTorque: 40
-  antiSquat: 0.08
+  antiSquat: 0
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 9074210092209006324}
   forceApplicationPointDistance: 0.15
   disableMotionVectors: 1
-  suspensionExtensionSpeedCoeff: 10.3
+  suspensionExtensionSpeedCoeff: 9
   damageMaxWobbleAngle: 30
   otherBodyForceScale: 1
   loadContribution: 0.2902187
@@ -16336,7 +16309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8095733011559444350}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09411025, y: 0.0060875416, z: 0}
+  m_LocalPosition: {x: -0.09411025, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18071,57 +18044,48 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0.13038972
-        outSlope: 0.13038972
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.4997401
+        value: 0.49974006
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2573394
-      - serializedVersion: 3
-        time: 0.41074187
-        value: 0.43549243
-        inSlope: 0.08151261
-        outSlope: 0.08151261
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.30611697
-      - serializedVersion: 3
-        time: 0.59616864
-        value: 0.43522158
-        inSlope: 0.056452196
-        outSlope: 0.056452196
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.44575587
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.18012612
-        outSlope: 0.18012612
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.38037723
-        outWeight: 0.33333334
+        inWeight: 0.33333334
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     length: 0.09579842
-    maxForce: 30002
+    maxForce: 29165
     maxLength: 0.4
     prevLength: 0.09579842
     compressionVelocity: 0
     prevVelocity: 0.000032782555
   damper:
-    bumpRate: 9976
-    reboundRate: 4407
-    slowBump: 1.32
-    fastBump: 2.87
-    bumpDivisionVelocity: 0.096
-    slowRebound: 1.49
-    fastRebound: 2.86
-    reboundDivisionVelocity: 0.046
+    bumpRate: 11666
+    reboundRate: 11666
+    slowBump: 1.55
+    fastBump: 1.67
+    bumpDivisionVelocity: 0.0855
+    slowRebound: 2.5
+    fastRebound: 1.45
+    reboundDivisionVelocity: 0.06
     force: 0
   wheel:
     visual: {fileID: 4354452617566729514}
@@ -18155,13 +18119,13 @@ MonoBehaviour:
   camber: 0
   loadRating: 41000
   rollingResistanceTorque: 40
-  antiSquat: 0.08
+  antiSquat: 0
   frictionCircleStrength: 1
   frictionCircleShape: 1
   targetRigidbody: {fileID: 9074210092209006324}
   forceApplicationPointDistance: 0.15
   disableMotionVectors: 1
-  suspensionExtensionSpeedCoeff: 10.3
+  suspensionExtensionSpeedCoeff: 9
   damageMaxWobbleAngle: 30
   otherBodyForceScale: 1
   loadContribution: 0.2902187
