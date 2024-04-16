@@ -22738,31 +22738,6 @@ MonoBehaviour:
     _openedMap: 0
     _allowedVehiclesId: 010000000200000003000000040000000500000006000000
   - nameForNavigation: Season 2 event 1
-    _id: 200
-    _sprite: {fileID: 21300000, guid: c05f3b89a14be4960b417f778b2ed352, type: 3}
-    _mapToStart: 3
-    _mapName: "\u0413\u043E\u043D\u043E\u0447\u043D\u044B\u0439 \u0442\u0440\u0435\u043A"
-    _openedAwards: 5
-    _openedMap: 0
-    _allowedVehiclesId: 0200000005000000
-  - nameForNavigation: Season 2 event 2
-    _id: 201
-    _sprite: {fileID: 21300000, guid: c05f3b89a14be4960b417f778b2ed352, type: 3}
-    _mapToStart: 3
-    _mapName: "\u0413\u043E\u043D\u043E\u0447\u043D\u044B\u0439 \u0442\u0440\u0435\u043A
-      (\u0440\u0435\u0432\u0435\u0440\u0441)"
-    _openedAwards: 5
-    _openedMap: 0
-    _allowedVehiclesId: 0200000005000000
-  - nameForNavigation: Season 2 event 3
-    _id: 202
-    _sprite: {fileID: 21300000, guid: c05f3b89a14be4960b417f778b2ed352, type: 3}
-    _mapToStart: 3
-    _mapName: "\u0413\u043E\u043D\u043E\u0447\u043D\u044B\u0439 \u0442\u0440\u0435\u043A"
-    _openedAwards: 5
-    _openedMap: 0
-    _allowedVehiclesId: 0200000005000000
-  - nameForNavigation: Season 2 event 4
     _id: 203
     _sprite: {fileID: 21300000, guid: c05f3b89a14be4960b417f778b2ed352, type: 3}
     _mapToStart: 4
@@ -40667,7 +40642,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 60805511364374055}
   m_HandleRect: {fileID: 5684662281918683890}
   m_Direction: 2
-  m_Value: 0.9999995
+  m_Value: 1
   m_Size: 0.8637121
   m_NumberOfSteps: 0
   m_OnValueChanged:

@@ -37,7 +37,6 @@ public class VehicleData : ScriptableObject, ISaveable {
     private string _dataNodeName = "vehicle";
     public string dataNodeName => this._dataNodeName;
 
-
     #region Engine
     [Header("Двигатель")]
     [SerializeField]

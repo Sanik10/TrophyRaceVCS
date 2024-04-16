@@ -27,8 +27,8 @@ MonoBehaviour:
   ambient:
     mode: 0
     skyColor: {r: 1.1993515, g: 0.97887397, b: 0.44692817, a: 0}
-    equatorColor: {r: 0.8695434, g: 1.6641057, b: 3.4031055, a: 3.682417}
-    groundColor: {r: 0.21738584, g: 0.4160264, b: 0.8507764, a: 0.9206042}
+    equatorColor: {r: 0.8696764, g: 1.6638188, b: 3.4028401, a: 3.682417}
+    groundColor: {r: 0.2174191, g: 0.4159547, b: 0.85071003, a: 0.9206042}
     pivot: 0.089
     luminanceFix: 0.9403265
   skyPass:
@@ -94,9 +94,9 @@ MonoBehaviour:
       shadow: 0.698
       sunShaft: 0.225
     screenBlending: 0.924
-    shaftQuality: 0.648
-    godRayQuality: 0.35
-    resolution: 0.825
+    shaftQuality: 0.01
+    godRayQuality: 0.5
+    resolution: 0.2
     fog:
       groundHeight: 100
       range: 527

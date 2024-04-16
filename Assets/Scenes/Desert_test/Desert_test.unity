@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1017267670}
-  m_IndirectSpecularColor: {r: 0.44151235, g: 0.4830491, b: 0.53087544, a: 1}
+  m_IndirectSpecularColor: {r: 0.5360398, g: 0.60149115, b: 0.70833045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28318,8 +28318,8 @@ MonoBehaviour:
     - 25
     - 17
   activateAnimations: 1
-  stopAnimation: 1
-  _shortAnimation: 1
+  stopAnimation: 0
+  _shortAnimation: 0
 --- !u!1 &1110165173
 GameObject:
   m_ObjectHideFlags: 0
@@ -33284,7 +33284,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 367006253}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.36557
+    FieldOfView: 60.41757
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -37923,7 +37923,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 954031235}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.90843
+    FieldOfView: 73.92871
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -48713,7 +48713,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1939948770}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 73.88004
+    FieldOfView: 73.72454
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -57631,7 +57631,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 21.999214
+  m_FocalLength: 21.976263
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -57646,7 +57646,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.365566
+  field of view: 60.417564
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -57671,7 +57671,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895155848824959488}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e7e2be9a69c0fa4c9170946af107ba4, type: 3}
   m_Name: 

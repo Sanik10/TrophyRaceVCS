@@ -30,7 +30,7 @@ MonoBehaviour:
   _transmission: 0
   _frontGearsQuantity: 4
   _firstGear: 6
-  _shiftTime: 0.25
+  _shiftTime: 0.454
   _rpmUpShift: 6600
   _rpmDownShift: 4000
   _finalDrive: 1
@@ -38,13 +38,13 @@ MonoBehaviour:
   _driveWheels: 1
   _torqueDevider: 2
   _tireIntegrity: 1
-  _brakingPowerVar: 4000
-  _brakingDistribution: 0.106
+  _brakingPowerVar: 6042
+  _brakingDistribution: 0.194
   _radius: 8
   _steeringWheelSpeed: 10
   _wheelBase: 3.75
   _rearTrack: 2.46
-  _mileage: 292017.12
+  _mileage: 358834.03
   _colorCustomization: 1
   _bodyMaterailId: 11
   _diskMaterailId: 0

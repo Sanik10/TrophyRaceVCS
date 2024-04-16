@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 8459112240531636311}
-  RotationMultiplier: -1
+  RotationMultiplier: -20
   AxisRotate: 2
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1896302080501122954}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 2
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1135462657066677360}
-  RotationMultiplier: -1
+  RotationMultiplier: -20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -2286,7 +2286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 8459112240531636311}
-  RotationMultiplier: -1
+  RotationMultiplier: -20
   AxisRotate: 2
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -3305,7 +3305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1896302080501122954}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 2
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -3654,7 +3654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863665733771749302}
-  m_LocalRotation: {x: 0.25037265, y: 0.000000028853108, z: -0.000000007461687, w: 0.96814954}
+  m_LocalRotation: {x: 0.25037265, y: -0.000000028853108, z: 0.000000007461687, w: 0.96814954}
   m_LocalPosition: {x: 0, y: 3.1333332, z: -3.5142858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4715,7 +4715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1896302080501122954}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 2
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -6295,7 +6295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 8459112240531636311}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 2
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -6940,7 +6940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 8459112240531636311}
-  RotationMultiplier: -1
+  RotationMultiplier: -20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -8351,7 +8351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 7100804047087133816}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -8620,7 +8620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1896302080501122954}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -8816,7 +8816,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4138100167363015095}
-  m_LocalRotation: {x: 2.0180575e-10, y: 0.99993193, z: -0.011670426, w: 0.000000017290883}
+  m_LocalRotation: {x: 2.0202907e-10, y: 0.99993193, z: -0.011670426, w: 0.00000001731002}
   m_LocalPosition: {x: 0, y: 0.6914286, z: 3.8952382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9057,7 +9057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1896302080501122954}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -9587,7 +9587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 7100804047087133816}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -9857,7 +9857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 8459112240531636311}
-  RotationMultiplier: -1
+  RotationMultiplier: -20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -13794,7 +13794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1135462657066677360}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -13824,7 +13824,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6690526180569807324}
-  m_LocalRotation: {x: -0.0033047963, y: -0.0000000034244443, z: -1.1317152e-11, w: 0.9999946}
+  m_LocalRotation: {x: -0.0033047963, y: -0.0000000034241256, z: -1.1316099e-11, w: 0.9999946}
   m_LocalPosition: {x: 0, y: 0.58095247, z: -3.6285713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13981,7 +13981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 8459112240531636311}
-  RotationMultiplier: -1
+  RotationMultiplier: -20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -14748,7 +14748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1896302080501122954}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -15398,7 +15398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 7100804047087133816}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -16843,7 +16843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WheelController: {fileID: 1135462657066677360}
-  RotationMultiplier: 1
+  RotationMultiplier: 20
   AxisRotate: 0
   TargetTransform: {fileID: 0}
   TargetDirection:
@@ -16873,7 +16873,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7921094850437351422}
-  m_LocalRotation: {x: -0.0000000014863275, y: 0.9848279, z: -0.1735342, w: -0.00000000843509}
+  m_LocalRotation: {x: -0.0000000014929478, y: 0.9848279, z: -0.1735342, w: -0.000000008472661}
   m_LocalPosition: {x: 0, y: 2.5809522, z: 4.0190473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
