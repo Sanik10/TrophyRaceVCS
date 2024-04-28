@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MapButtonsData : MonoBehaviour {
 
-    public static event Action MapButtnsDataLoadedEvent;
+    public static event Action MapButtonsDataLoadedEvent;
 
     [SerializeField]
     private int _selctedEvent;
@@ -32,8 +32,8 @@ public class MapButtonsData : MonoBehaviour {
     }
 
     void OnMapButtonsDataLoaded() {
-        MapButtnsDataLoadedEvent?.Invoke();
         // Логика или действия, которые необходимо выполнить после загрузки данных
+        MapButtonsDataLoadedEvent?.Invoke();
     }
 
     private void LoadData(MapButtonItem button) {

@@ -34,6 +34,10 @@ namespace TrophyRace.Architecture {
 
         private int _posInList;
 
+        private void OnEnable() {
+            MapButtonsData.MapButtonsDataLoadedEvent += RefreshButton;
+        }
+
         private void Start() {
             this._MBD = GameObject.Find("scripts").GetComponent<MapButtonsData>();
             RefreshButton();
@@ -48,17 +52,23 @@ namespace TrophyRace.Architecture {
         }
 
         private void FindPosInMapButtonsList() {
+            bool loaded = false;
             for(int i = 0; i < _MBD.mapButtonsList.Count; i++) {
                 if(_MBD.mapButtonsList[i].id == this._id) {
                     this._posInList = i;
+                    loaded = true;
                     break;
                 }
+            }
+
+            if(!loaded) {
+                Debug.LogError($"Не найдена позиция для кнопки с айди {_id}");
             }
         }
 
         public void RefreshButton() {
             FindPosInMapButtonsList();
-            this._greenBorder.SetActive(!this._MBD.mapButtonsList[this._posInList].openedMap ? true : false);
+            this._greenBorder.SetActive(!this._MBD.mapButtonsList[this._posInList].openedMap);
             this._image.sprite = this._MBD.mapButtonsList[this._posInList].sprite;
             this._mapName.text = this._MBD.mapButtonsList[this._posInList].mapName;
             for(int i = 0; i < 5; i++) {
@@ -72,13 +82,17 @@ namespace TrophyRace.Architecture {
         }
 
         public void StartRace() {
-            RefreshButton();
             this._MBD.mapButtonsList[this._posInList].openedMap = true;
             this._MBD.selectedEvent = this._posInList;
             this._MBD.SaveCurrintButton(this._posInList);
+            RefreshButton();
             GameObject.Find("scripts").GetComponent<VehicleSelector>().SetFilterById(this._MBD.mapButtonsList[this._posInList].allowedVehiclesId);
             GameObject.Find("scripts").GetComponent<MenuManager>().SetMapToStart(this._mapToStart);
             Debug.Log(_mapToStart);
+        }
+
+        private void OnDestroy() {
+            MapButtonsData.MapButtonsDataLoadedEvent -= RefreshButton;
         }
     }
 }

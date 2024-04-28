@@ -41,7 +41,6 @@ public class VehicleDynamics : MonoBehaviour {
     [SerializeField]
     private float[] currentWheelSpeed;
     private driveType driveWheels;
-    private int _torqueDevider;
     private float _brakingDistribution = 0;
     private float _totalBrakePower = 0;
 
@@ -145,7 +144,7 @@ public class VehicleDynamics : MonoBehaviour {
         }
 
         // maxSpeedOnCurrentGear = Engine.maxRpm * this._circumFerence / 16.668f / (Transmission.currentGearRatio * Transmission.finalDrive);
-        this._maxSpeedOnCurrentGear = 6.283185307179f * Engine.maxRpm / this._circumFerence / Transmission.currentGearRatio * Transmission.finalDrive * this._wheelRadius * 0.06f;
+        this._maxSpeedOnCurrentGear = 6.283185307179f * Engine.maxRpm / this._circumFerence / Transmission.currentGearRatio / Transmission.finalDrive * this._wheelRadius * 0.06f;
         this._maxWheelRpmOnCurrentGear = Engine.maxRpm / (this._circumFerence * Transmission.currentGearRatio * Transmission.finalDrive);
         // maxSpeedOnCurrentGear = (Engine.maxRpm * this._circumFerence / 3.1415f) / (Transmission.currentGearRatio * Transmission.finalDrive * 16.668f);
         DriveWheelsRpm();
@@ -244,7 +243,6 @@ public class VehicleDynamics : MonoBehaviour {
     private void GettingScriptableValues() {
         VehicleData vehicleData = this.VehicleManager.vehicleData;
         this._maxSpeed = vehicleData.maxSpeed;
-        this._torqueDevider = vehicleData.torqueDevider;
         this._totalBrakePower = vehicleData.brakingPowerVar;
         this._brakingDistribution = vehicleData.brakingDistribution;
         this._radius = vehicleData.radius;

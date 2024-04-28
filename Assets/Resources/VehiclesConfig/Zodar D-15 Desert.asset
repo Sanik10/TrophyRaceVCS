@@ -18,11 +18,10 @@ MonoBehaviour:
   _id: 5
   _price: 0
   _isOwned: 1
-  _maxPower: 800
+  _maxPower: 700
   _idleRpm: 700
   _medRpm: 5000
   _maxRpm: 7000
-  _additionRpmOnNeutral: 2400
   _maxPowerProcentAtIdleRpm: 50
   _maxPowerProcentAtMaxRpm: 30
   _engineInertia: 0.2
@@ -33,20 +32,16 @@ MonoBehaviour:
   _shiftTime: 0.454
   _rpmUpShift: 6600
   _rpmDownShift: 4000
-  _finalDrive: 1
   _maxSpeed: 250
   _driveWheels: 1
-  _torqueDevider: 2
   _tireIntegrity: 1
   _brakingPowerVar: 6042
   _brakingDistribution: 0.194
   _radius: 8
   _steeringWheelSpeed: 10
-  _wheelBase: 3.75
-  _rearTrack: 2.46
-  _mileage: 358834.03
+  _mileage: 3692.4722
   _colorCustomization: 1
-  _bodyMaterailId: 11
-  _diskMaterailId: 0
+  _bodyMaterailId: 13
+  _diskMaterailId: 2
   _mass: 2500
   _type: 2

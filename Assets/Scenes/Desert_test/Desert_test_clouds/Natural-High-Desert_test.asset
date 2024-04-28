@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Natural-High-Desert_test
   m_EditorClassIdentifier: 
   sunIntensityScale: 1
-  cloudIntensityAdjustment: 1
+  cloudIntensityAdjustment: 0
   sun:
     mode: 1
     rotation: {x: 12.65, y: 188.72618, z: 84.72217}
@@ -93,10 +93,10 @@ MonoBehaviour:
       godRayStartDistance: 248
       shadow: 0.698
       sunShaft: 0.225
-    screenBlending: 0.924
-    shaftQuality: 0.01
-    godRayQuality: 0.5
-    resolution: 0.2
+    screenBlending: 0.822
+    shaftQuality: 1
+    godRayQuality: 1
+    resolution: 1
     fog:
       groundHeight: 100
       range: 527

@@ -47,8 +47,8 @@ public class VehicleData : ScriptableObject, ISaveable {
     private int _medRpm = 3000;
     [SerializeField]
     private int _maxRpm = 6000;
-    [SerializeField]
-    private int _additionRpmOnNeutral = 600;
+    // [SerializeField]
+    // private int _additionRpmOnNeutral = 600;
     [SerializeField] [Range(1, 100)]
     private int _maxPowerProcentAtIdleRpm = 50;
     [SerializeField] [Range(1, 100)]
@@ -68,7 +68,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     }
     public int idleRpm => this._idleRpm;
     public int maxRpm => this._maxRpm;
-    public int additionRpmOnNeutral => this._additionRpmOnNeutral;
+    // public int additionRpmOnNeutral => this._additionRpmOnNeutral;
     public int maxPowerProcentAtIdleRpm {
         get {return this._maxPowerProcentAtIdleRpm;}
         set {this._maxPowerProcentAtIdleRpm = value;}
@@ -102,8 +102,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     private int _rpmUpShift = 6000;
     [SerializeField]
     private int _rpmDownShift = 3000;
-    [SerializeField]
-    private float _finalDrive = 2;
+    private float _finalDrive = 1;
 
     public int frontGearsQuantity {
         get {return this._frontGearsQuantity;}
@@ -133,9 +132,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     private int _maxSpeed = 120;
     [SerializeField]
     private driveType _driveWheels;
-    [SerializeField] [Range(1, 6)]
-    private int _torqueDevider = 4;
-    [SerializeField] [Range(0.2f, 1f)]
+    [SerializeField] [Range(0.1f, 1f)]
     private float _tireIntegrity = 1f;
     [SerializeField] [Range(500, 10000)]
     private int _brakingPowerVar = 2000;
@@ -145,10 +142,6 @@ public class VehicleData : ScriptableObject, ISaveable {
     private int _radius = 12;
     [SerializeField] [Range(1, 10)]
     private int _steeringWheelSpeed = 10;
-    [SerializeField]
-    private float _wheelBase = 4;
-    [SerializeField]
-    private float _rearTrack = 2.4f;
     [SerializeField]
     private float _mileage = 0;
 
@@ -181,9 +174,6 @@ public class VehicleData : ScriptableObject, ISaveable {
         set {this._mileage = value;}
     }
     public driveType driveWheels => this._driveWheels;
-    public int torqueDevider => this._torqueDevider;
-    public float wheelBase => this._wheelBase;
-    public float rearTrack => this._rearTrack;
     #endregion
 
 
@@ -311,13 +301,6 @@ public class VehicleData : ScriptableObject, ISaveable {
     public float range => this._range;
     #endregion
 
-    // ссылку к файлу указать в виде Application.persistentDataPath + "VehiclesData.xml" !!!!!!!!!!!!!!!!!!!!
-    /* public void Save(string sender) {
-        SaveLoadManager.SaveToXml(this, "VehicleData" + _id + ".xml");
-        Debug.Log("-------------   Vehicle data " + _id + " -- Saved!   ------------- " + sender);
-    }*/
-
-    // Application.persistentDataPath + "/VehicleData/"
     public void Save(string sender) {
         SaveLoadManager.SaveToXml(this);
         Debug.Log("-------------   Vehicle data " + _id + " -- Saved!   ------------- " + sender);
@@ -326,10 +309,10 @@ public class VehicleData : ScriptableObject, ISaveable {
     public void Load() {
         #region Egine xml data
         LoadData("maxPower", ref _maxPower, int.TryParse);
-        LoadData("idleRpm", ref _idleRpm, int.TryParse);
+        // LoadData("idleRpm", ref _idleRpm, int.TryParse);
         LoadData("medRpm", ref _medRpm, int.TryParse);
-        LoadData("maxRpm", ref _maxRpm, int.TryParse);
-        LoadData("additionRpmOnNeutral", ref _additionRpmOnNeutral, int.TryParse);
+        // LoadData("maxRpm", ref _maxRpm, int.TryParse);
+        // LoadData("additionRpmOnNeutral", ref _additionRpmOnNeutral, int.TryParse);
         
         LoadData("maxPowerProcentAtIdleRpm", ref _maxPowerProcentAtIdleRpm, int.TryParse);
         LoadData("maxPowerProcentAtMaxRpm", ref _maxPowerProcentAtMaxRpm, int.TryParse);

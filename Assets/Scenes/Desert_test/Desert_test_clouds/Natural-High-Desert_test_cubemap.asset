@@ -94,9 +94,9 @@ MonoBehaviour:
       shadow: 0.698
       sunShaft: 0
     screenBlending: 0.924
-    shaftQuality: 0.324
-    godRayQuality: 0.35
-    resolution: 0.825
+    shaftQuality: 1
+    godRayQuality: 1
+    resolution: 1
     fog:
       groundHeight: -125
       range: 506

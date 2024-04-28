@@ -47,7 +47,7 @@ MonoBehaviour:
         exposure: 0
         mix: 0
   physicsCloudPass:
-    profile: {fileID: 11400000, guid: 18e2db68b92674be0a2ce5ff99d31e86, type: 2}
+    profile: {fileID: 0}
     transition: 1
     densityAdjustment: 0
     scattering:
@@ -59,7 +59,7 @@ MonoBehaviour:
     shadingDistance:
       IsOverride: 1
       Value: 0.635
-    resolution: 0.75
+    resolution: 1
     Animation:
       ScrollVelocity: {x: 0, y: 0, z: 0}
       Phase: 0.19
@@ -94,9 +94,9 @@ MonoBehaviour:
       shadow: 0.297
       sunShaft: 0.15
     screenBlending: 0.444
-    shaftQuality: 0.3
-    godRayQuality: 0.3
-    resolution: 0.5
+    shaftQuality: 1
+    godRayQuality: 1
+    resolution: 1
     fog:
       groundHeight: 0
       range: 337

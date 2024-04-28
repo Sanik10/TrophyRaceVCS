@@ -65,6 +65,7 @@ public class Engine : MonoBehaviour {
         this._powerCurve.preWrapMode = WrapMode.Clamp;
         this._rpm = this._idleRpm;
         this._rpmVariableLimiter = this._maxRpm;
+        this._additionOnNeutral = this.maxRpm / 4;
         this._VehicleDynamics = this._VehicleManager.VehicleDynamics;
     }
 
@@ -128,7 +129,7 @@ public class Engine : MonoBehaviour {
         this._idleRpm = vehicleData.idleRpm;
         this._medRpm = vehicleData.medRpm;
         this._maxRpm = vehicleData.maxRpm;
-        this._additionOnNeutral = vehicleData.additionRpmOnNeutral;
+        // this._additionOnNeutral = vehicleData.additionRpmOnNeutral;
 
         this._maxpower = vehicleData.maxPower;
         this._maxPowerProcentAtIdleRpm = vehicleData.maxPowerProcentAtIdleRpm;

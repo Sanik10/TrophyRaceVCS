@@ -13,7 +13,9 @@ public static class SaveLoadManager {
     private static string iv = "2d8b6a4c9e7f2abe";
 
     public static void SaveToXml<T>(T data) where T : ISaveable { 
+        Debug.LogWarning(GenerateKey());
         string filePath = Application.dataPath + $"/SavedData/{typeof(T).Name}.xml";
+        // string filePath = Application.persistentDataPath + $"/{typeof(T).Name}.xml";
 
         XmlDocument xmlDoc = new XmlDocument();
 
@@ -45,10 +47,10 @@ public static class SaveLoadManager {
             // Пример обработки свойств VehicleData
             #region Engine
             UpdateOrCreateNode(xmlDoc, dataNode, "maxPower", vehicleData.maxPower.ToString());
-            UpdateOrCreateNode(xmlDoc, dataNode, "idleRpm", vehicleData.idleRpm.ToString());
+            // UpdateOrCreateNode(xmlDoc, dataNode, "idleRpm", vehicleData.idleRpm.ToString());
             UpdateOrCreateNode(xmlDoc, dataNode, "medRpm", vehicleData.medRpm.ToString());
-            UpdateOrCreateNode(xmlDoc, dataNode, "maxRpm", vehicleData.maxRpm.ToString());
-            UpdateOrCreateNode(xmlDoc, dataNode, "additionRpmOnNeutral", vehicleData.additionRpmOnNeutral.ToString());
+            // UpdateOrCreateNode(xmlDoc, dataNode, "maxRpm", vehicleData.maxRpm.ToString());
+            // UpdateOrCreateNode(xmlDoc, dataNode, "additionRpmOnNeutral", vehicleData.additionRpmOnNeutral.ToString());
 
             UpdateOrCreateNode(xmlDoc, dataNode, "maxPowerProcentAtIdleRpm", vehicleData.maxPowerProcentAtIdleRpm.ToString());
             UpdateOrCreateNode(xmlDoc, dataNode, "maxPowerProcentAtMaxRpm", vehicleData.maxPowerProcentAtMaxRpm.ToString());
@@ -127,6 +129,7 @@ public static class SaveLoadManager {
 
     private static string ReadEncryptedDataFromXml<T>(string dataNodeName, int elementId, string nodeToRead) where T : ISaveable {
         string filePath = Application.dataPath + $"/SavedData/{typeof(T).Name}.xml";
+        // string filePath = Application.persistentDataPath + $"/{typeof(T).Name}.xml";
         string encryptedId = EncryptElementId(elementId).ToString();
 
         XmlDocument xmlDoc = new XmlDocument();

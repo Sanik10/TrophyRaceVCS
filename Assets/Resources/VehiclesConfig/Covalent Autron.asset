@@ -16,13 +16,12 @@ MonoBehaviour:
   _Prefab: {fileID: 7627816981419441939, guid: f4bb22ec2253a4d5587ffc2cf541dd3a, type: 3}
   _vehicleName: Covalent Autron
   _id: 2
-  _price: 22500
+  _price: 0
   _isOwned: 1
   _maxPower: 400
   _idleRpm: 700
   _medRpm: 3000
   _maxRpm: 7000
-  _additionRpmOnNeutral: 1200
   _maxPowerProcentAtIdleRpm: 50
   _maxPowerProcentAtMaxRpm: 20
   _engineInertia: 0.2
@@ -33,18 +32,14 @@ MonoBehaviour:
   _shiftTime: 0.3
   _rpmUpShift: 6000
   _rpmDownShift: 3000
-  _finalDrive: 1
   _maxSpeed: 220
   _driveWheels: 1
-  _torqueDevider: 2
   _tireIntegrity: 1
   _brakingPowerVar: 1500
   _brakingDistribution: 0.5
   _radius: 8
   _steeringWheelSpeed: 10
-  _wheelBase: 3.4
-  _rearTrack: 2.14
-  _mileage: 16357.599
+  _mileage: 0
   _colorCustomization: 1
   _bodyMaterailId: 8
   _diskMaterailId: 0

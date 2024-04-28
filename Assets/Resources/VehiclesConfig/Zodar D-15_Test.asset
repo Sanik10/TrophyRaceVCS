@@ -22,7 +22,6 @@ MonoBehaviour:
   _idleRpm: 700
   _medRpm: 5000
   _maxRpm: 7000
-  _additionRpmOnNeutral: 2400
   _maxPowerProcentAtIdleRpm: 50
   _maxPowerProcentAtMaxRpm: 30
   _engineInertia: 0.2
@@ -33,18 +32,14 @@ MonoBehaviour:
   _shiftTime: 0.25
   _rpmUpShift: 6600
   _rpmDownShift: 4000
-  _finalDrive: 2.28
   _maxSpeed: 250
   _driveWheels: 1
-  _torqueDevider: 2
   _tireIntegrity: 1
   _brakingPowerVar: 4000
   _brakingDistribution: 0.106
   _radius: 8
   _steeringWheelSpeed: 10
-  _wheelBase: 3.75
-  _rearTrack: 2.46
-  _mileage: 109
+  _mileage: 0
   _colorCustomization: 1
   _bodyMaterailId: 9
   _diskMaterailId: 0

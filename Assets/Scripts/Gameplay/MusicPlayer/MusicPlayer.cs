@@ -19,6 +19,7 @@ public class MusicPlayer : MonoBehaviour {
     private float musicChangeRate;
 
     void Start() {
+        // this.selectedGenre = PlayerPrefs.GetString("selectedGenre", selectedGenre);
         if(musicOn) {
             currentTrack = Random.Range(0, musicList.Count-1);
             while(musicList[currentTrack].genre != selectedGenre) {

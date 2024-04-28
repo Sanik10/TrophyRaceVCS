@@ -17,12 +17,11 @@ MonoBehaviour:
   _vehicleName: Zodar D-25
   _id: 1
   _price: 0
-  _isOwned: 1
+  _isOwned: 0
   _maxPower: 250
   _idleRpm: 700
   _medRpm: 3500
   _maxRpm: 6000
-  _additionRpmOnNeutral: 750
   _maxPowerProcentAtIdleRpm: 50
   _maxPowerProcentAtMaxRpm: 30
   _engineInertia: 0.2
@@ -33,18 +32,14 @@ MonoBehaviour:
   _shiftTime: 0.3
   _rpmUpShift: 5800
   _rpmDownShift: 3000
-  _finalDrive: 1
   _maxSpeed: 170
   _driveWheels: 2
-  _torqueDevider: 2
   _tireIntegrity: 1
   _brakingPowerVar: 2000
   _brakingDistribution: 0.5
   _radius: 8
   _steeringWheelSpeed: 10
-  _wheelBase: 4
-  _rearTrack: 2.48
-  _mileage: 10222.523
+  _mileage: 0
   _colorCustomization: 0
   _bodyMaterailId: 9
   _diskMaterailId: 0
