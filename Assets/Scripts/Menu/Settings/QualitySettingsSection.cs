@@ -6,27 +6,38 @@ using UnityEngine.UI;
 public class QualitySettingsSection : MonoBehaviour {
 
     [SerializeField]
-    private Button[] _QualityButtons;
+    private Button[] _qualityButtons;
+    [SerializeField]
+    private Toggle _toggle;
     private int _selectedIndex = 2;
-    private bool _gfxBoost = false;
 
     private void Start() {
         this._selectedIndex = QualitySettings.GetQualityLevel();
-        ButtonColorManager.SetSelectedColor(this._QualityButtons[this._selectedIndex]);
-        this._QualityButtons[this._selectedIndex].interactable = false;
+        this._toggle.isOn = true;
+        ButtonColorManager.SetSelectedColor(this._qualityButtons[this._selectedIndex]);
+        this._qualityButtons[this._selectedIndex].interactable = false;
     }
 
     public void ChangeQualityLevel(int qualityLevel) {
-        ButtonColorManager.SetNormalColor(this._QualityButtons[this._selectedIndex]);
-        this._QualityButtons[this._selectedIndex].interactable = true;
-        this._selectedIndex = qualityLevel;
         PlayerPrefs.SetInt("QualityPrefs", qualityLevel);
+        ButtonColorManager.SetNormalColor(this._qualityButtons[this._selectedIndex]);
+        this._qualityButtons[this._selectedIndex].interactable = true;
+        this._toggle.isOn = false;
+    
+        this._selectedIndex = qualityLevel;
         ApplyQualityLevel();
     }
 
+    public void GXFBoost(bool value) {
+        if(value) {
+            Debug.Log("Надо перезагрузить игру");
+        }
+    }
+
     private void ApplyQualityLevel() {
-        QualitySettings.SetQualityLevel(this._selectedIndex, this._gfxBoost);
-        ButtonColorManager.SetSelectedColor(this._QualityButtons[this._selectedIndex]);
-        this._QualityButtons[this._selectedIndex].interactable = false;
+        QualitySettings.SetQualityLevel(this._selectedIndex, false);
+
+        ButtonColorManager.SetSelectedColor(this._qualityButtons[this._selectedIndex]);
+        this._qualityButtons[this._selectedIndex].interactable = false;
     }
 }
