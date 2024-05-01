@@ -10,7 +10,6 @@ public class Settings : MonoBehaviour {
 
     [Header("Settings Sections Screens")]
     [SerializeField] private GameObject[] settingsSections;
-
     private int currentSectionIndex = 0;
 
     private void Start() {

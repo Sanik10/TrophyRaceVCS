@@ -27,7 +27,6 @@ public class MapButtonsData : MonoBehaviour {
         for(int i = 0; i < _mapButtonsList.Count; i++) {
             LoadData(_mapButtonsList[i]);
         }
-
         OnMapButtonsDataLoaded();
     }
 

@@ -35,12 +35,12 @@ namespace TrophyRace.Architecture {
         private int _posInList;
 
         private void OnEnable() {
-            MapButtonsData.MapButtonsDataLoadedEvent += RefreshButton;
+            // MapButtonsData.MapButtonsDataLoadedEvent += RefreshButton;
+            // MapButtonsData.MapButtonsDataLoadedEvent -= RefreshButton;
+            MenuManager.CareerSelectionOpenedEvent += RefreshButton;
         }
 
-        private void Start() {
-            this._MBD = GameObject.Find("scripts").GetComponent<MapButtonsData>();
-            RefreshButton();
+        private void Awake() {
             if(this._image == null) {
                 foreach(Transform i in gameObject.transform) {
                     if(i.transform.name == "MapButtonImage") {
@@ -48,7 +48,11 @@ namespace TrophyRace.Architecture {
                     }
                 }
             }
+            this._MBD = GameObject.Find("scripts").GetComponent<MapButtonsData>();
+        }
 
+        private void Start() {
+            RefreshButton();
         }
 
         private void FindPosInMapButtonsList() {
@@ -67,6 +71,9 @@ namespace TrophyRace.Architecture {
         }
 
         public void RefreshButton() {
+            if(this._MBD == null) {
+                this._MBD = GameObject.Find("scripts").GetComponent<MapButtonsData>();
+            }
             FindPosInMapButtonsList();
             this._greenBorder.SetActive(!this._MBD.mapButtonsList[this._posInList].openedMap);
             this._image.sprite = this._MBD.mapButtonsList[this._posInList].sprite;
@@ -92,7 +99,7 @@ namespace TrophyRace.Architecture {
         }
 
         private void OnDestroy() {
-            MapButtonsData.MapButtonsDataLoadedEvent -= RefreshButton;
+            MenuManager.CareerSelectionOpenedEvent -= RefreshButton;
         }
     }
 }

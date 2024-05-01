@@ -11,10 +11,16 @@ namespace TrophyRace.Architecture {
 
     public class MenuManager : MonoBehaviour {
 
+        public static event Action MainMenuOpenedEvent;
+        public static event Action GarageOpenedEvent;
+        public static event Action CareerSelectionOpenedEvent;
+        public static event Action SettingsOpenedEvent;
+        public static event Action VehicleCustomizationOpenedEvent;
+        public static event Action VehiclesShopOpenedEvent;
+
         private GameObject _HomeButton;
         private GameObject _SettingsButton;
         private GameObject _StartRaceButton;
-
 
         public bool preRaceMode = false;
         public bool shopMode = false;
@@ -45,15 +51,15 @@ namespace TrophyRace.Architecture {
             Game.Run();
             Game.OnGameInitializedEvent += OnGameInitialized;
 
-            this._actionsByCanvasId.Add(0, HandleCanvas0); // MainMenu
-            this._actionsByCanvasId.Add(1, HandleCanvas1); // Garage
-            this._actionsByCanvasId.Add(2, HandleCanvas2); // Career Selection
-            this._actionsByCanvasId.Add(3, HandleCanvas3);
-            this._actionsByCanvasId.Add(4, HandleCanvas4);
-            this._actionsByCanvasId.Add(5, HandleCanvas5);
-            this._actionsByCanvasId.Add(6, HandleCanvas6);
-            this._actionsByCanvasId.Add(7, HandleCanvas7);
-            this._actionsByCanvasId.Add(8, HandleCanvas8);
+            this._actionsByCanvasId.Add(0, MainMenuOpener); // MainMenu
+            this._actionsByCanvasId.Add(1, GarageOpener); // Garage
+            this._actionsByCanvasId.Add(2, CareerSelectionOpener); // Career Selection
+            this._actionsByCanvasId.Add(3, SettingsOpener);
+            this._actionsByCanvasId.Add(4, ClassPoolMenuOpener);
+            this._actionsByCanvasId.Add(5, VehicleCustomizationOpener);
+            this._actionsByCanvasId.Add(6, VehicleBodyPaintOpener);
+            this._actionsByCanvasId.Add(7, VehicleDiskPaintOpener);
+            this._actionsByCanvasId.Add(8, VehiclesShopOpener);
 
             this.preRaceMode = false;
             this.CS = GameObject.Find("cameras").GetComponent<cameraSwitcher>();
@@ -107,7 +113,8 @@ namespace TrophyRace.Architecture {
             }
         }
 
-        private void HandleCanvas0() {
+        private void MainMenuOpener() {
+            MainMenuOpenedEvent?.Invoke();
             this.backToCanvas.Clear();
             this.preRaceMode = false;
             this.shopMode = false;
@@ -115,7 +122,8 @@ namespace TrophyRace.Architecture {
             // GetComponent<VehicleSelector>().SetFilterById(_vehicleList.GetPlayerOwnedVehicleIDs().ToArray());
         }
 
-        private void HandleCanvas1() {
+        private void GarageOpener() {
+            GarageOpenedEvent?.Invoke();
             RefreshBuyButton();
             this.shopMode = false;
             if(!this.preRaceMode) {
@@ -126,34 +134,36 @@ namespace TrophyRace.Architecture {
             RefreshPaintButton();
         }
 
-        private void HandleCanvas2() {
+        private void CareerSelectionOpener() {
+            CareerSelectionOpenedEvent?.Invoke();
             this.preRaceMode = false;
             this.shopMode = false;
             this._mapToStart = string.Empty;
         }
 
-        private void HandleCanvas3() {
+        private void SettingsOpener() {
+            SettingsOpenedEvent?.Invoke();
+        }
+
+        private void VehicleCustomizationOpener() {
+            VehicleCustomizationOpenedEvent?.Invoke();
+        }
+
+        private void VehicleBodyPaintOpener() {
 
         }
 
-        private void HandleCanvas4() {
+        private void VehicleDiskPaintOpener() {
 
         }
 
-        private void HandleCanvas5() {
-
-        }
-
-        private void HandleCanvas6() {
-
-        }
-
-        private void HandleCanvas7() {
+        private void ClassPoolMenuOpener() {
 
         }
         
 
-        private void HandleCanvas8() {
+        private void VehiclesShopOpener() {
+            VehiclesShopOpenedEvent?.Invoke();
             this.shopMode = true;
             RefreshBuyButton();
             GetComponent<VehicleSelector>().SetFilterById(_vehicleList.GetAllVehicleIDs().ToArray());

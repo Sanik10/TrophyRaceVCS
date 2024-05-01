@@ -8,12 +8,10 @@ public class QualitySettingsSection : MonoBehaviour {
     [SerializeField]
     private Button[] _qualityButtons;
     [SerializeField]
-    private Toggle _toggle;
     private int _selectedIndex = 2;
 
     private void Start() {
         this._selectedIndex = QualitySettings.GetQualityLevel();
-        this._toggle.isOn = true;
         ButtonColorManager.SetSelectedColor(this._qualityButtons[this._selectedIndex]);
         this._qualityButtons[this._selectedIndex].interactable = false;
     }
@@ -21,17 +19,9 @@ public class QualitySettingsSection : MonoBehaviour {
     public void ChangeQualityLevel(int qualityLevel) {
         PlayerPrefs.SetInt("QualityPrefs", qualityLevel);
         ButtonColorManager.SetNormalColor(this._qualityButtons[this._selectedIndex]);
-        this._qualityButtons[this._selectedIndex].interactable = true;
-        this._toggle.isOn = false;
-    
+        this._qualityButtons[this._selectedIndex].interactable = true;    
         this._selectedIndex = qualityLevel;
         ApplyQualityLevel();
-    }
-
-    public void GXFBoost(bool value) {
-        if(value) {
-            Debug.Log("Надо перезагрузить игру");
-        }
     }
 
     private void ApplyQualityLevel() {

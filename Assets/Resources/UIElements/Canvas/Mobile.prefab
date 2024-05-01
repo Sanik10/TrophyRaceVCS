@@ -1661,6 +1661,7 @@ MonoBehaviour:
   volumeMixer: GlobalVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 3653239690541158866}
+  _volume: 0
 --- !u!1 &2554872286221925062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3830,6 +3831,7 @@ MonoBehaviour:
   volumeMixer: MusicVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 6731932066224300559}
+  _volume: 0
 --- !u!1 &5316037325629373509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,6 +4112,7 @@ MonoBehaviour:
   volumeMixer: VehicleVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 7492593428000483432}
+  _volume: 0
 --- !u!1 &6195939509591942533
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +
+  m_text: R
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ed16aad1ae59747b499c5d4a62fa9179, type: 2}
   m_sharedMaterial: {fileID: 6058368208409893995, guid: ed16aad1ae59747b499c5d4a62fa9179, type: 2}
