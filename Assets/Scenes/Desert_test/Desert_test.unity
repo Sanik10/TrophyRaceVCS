@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1017267670}
-  m_IndirectSpecularColor: {r: 0.5360398, g: 0.60149115, b: 0.70833045, a: 1}
+  m_IndirectSpecularColor: {r: 0.5360398, g: 0.6018151, b: 0.70731264, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13406,7 +13406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 000eaeed23b8c4265b048cd2869c87cc, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
@@ -28319,7 +28319,7 @@ MonoBehaviour:
     - 17
   activateAnimations: 1
   stopAnimation: 0
-  _shortAnimation: 1
+  _shortAnimation: 0
 --- !u!1 &1110165173
 GameObject:
   m_ObjectHideFlags: 0
@@ -48683,7 +48683,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879993786}
-  m_LocalRotation: {x: -0.13656881, y: 0.8878628, z: 0.06676962, w: -0.43426993}
+  m_LocalRotation: {x: -0.05816051, y: 0.9914651, z: -0.004958859, w: -0.116575144}
   m_LocalPosition: {x: -144.69179, y: 28.82998, z: -285.30698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49806,14 +49806,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939948769}
-  m_LocalRotation: {x: -0, y: -0.7192206, z: -0, w: 0.6947819}
-  m_LocalPosition: {x: -55.6, y: 1, z: -21.3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 300.9, y: 0.5, z: 238.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1872126398}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -91.98, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942473170
 GameObject:
   m_ObjectHideFlags: 0
@@ -57000,14 +57000,10 @@ MonoBehaviour:
   m_ShowToolkit: 0
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles:
-  - assemblyQualifiedName: Mewlist.MassiveClouds.MassiveCloudsBeforeTransparentEffectSettings,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_BeforeTransparentBundles: []
   m_BeforeStackBundles:
   - assemblyQualifiedName: MK.Glow.LWRP.MKGlow, MK.Glow, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - assemblyQualifiedName: Mewlist.MassiveClouds.MassiveCloudsBeforeStackEffectSettings,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_AfterStackBundles:
   - assemblyQualifiedName: RaindropFX.ScreenShoter, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

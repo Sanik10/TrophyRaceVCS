@@ -39,7 +39,7 @@ MonoBehaviour:
   _brakingDistribution: 0.5
   _radius: 8
   _steeringWheelSpeed: 10
-  _mileage: 0
+  _mileage: 10222.615
   _colorCustomization: 0
   _bodyMaterailId: 9
   _diskMaterailId: 0

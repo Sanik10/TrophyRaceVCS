@@ -143,7 +143,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     [SerializeField] [Range(1, 10)]
     private int _steeringWheelSpeed = 10;
     [SerializeField]
-    private float _mileage = 0;
+    private long _mileage = 0;
 
     public int maxSpeed {
         get {return this._maxSpeed;}
@@ -169,7 +169,7 @@ public class VehicleData : ScriptableObject, ISaveable {
         get {return this._steeringWheelSpeed;}
         set {this._steeringWheelSpeed = value;}
     }
-    public float mileage {
+    public long mileage {
         get {return this._mileage;}
         set {this._mileage = value;}
     }
@@ -337,7 +337,7 @@ public class VehicleData : ScriptableObject, ISaveable {
         #endregion
 
         #region Other
-        LoadData("mileage", ref _mileage, float.TryParse);
+        LoadData("mileage", ref _mileage, long.TryParse);
         LoadData("bodyMaterialId", ref _bodyMaterailId, int.TryParse);
         LoadData("diskMaterialId", ref _diskMaterailId, int.TryParse);
         LoadData("isOwned", ref _isOwned, bool.TryParse);

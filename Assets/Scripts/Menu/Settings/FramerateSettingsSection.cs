@@ -26,16 +26,17 @@ public class FramerateSettingsSection : MonoBehaviour {
 
         if(PlayerPrefs.HasKey("FrameRatePrefs")) {
             this._targetFps = PlayerPrefs.GetInt("FrameRatePrefs");
-            for(int i = 0; i < this._buttonsList.Count-1; i++) {
-                if(this._buttonsList[i].fps == this._targetFps) {
-                    this._currentFpsButton = i;
-                    ButtonColorManager.SetSelectedColor(this._buttonsList[i].button);
-                    this._buttonsList[i].button.interactable = false;
-                    break;
-                }
-            }
-            Application.targetFrameRate = this._targetFps;
         }
+
+        for(int i = 0; i < this._buttonsList.Count-1; i++) {
+            if(this._buttonsList[i].fps == this._targetFps) {
+                this._currentFpsButton = i;
+                ButtonColorManager.SetSelectedColor(this._buttonsList[i].button);
+                this._buttonsList[i].button.interactable = false;
+                break;
+            }
+        }
+        Application.targetFrameRate = this._targetFps;
 
         if(PlayerPrefs.HasKey("SynchCountPrefs")) {
             synchCount = PlayerPrefs.GetInt("SynchCountPrefs");

@@ -23,7 +23,7 @@ public class VehicleDynamics : MonoBehaviour {
     private WheelUAPI[] _wheelControllers;
     [Range(0.1f, 1)] [SerializeField]
     private float _wheelsResistance = 1;
-    private float _allMileage;
+    private long _allMileage;
     private float _driveWheelsRpm = 0;
     private float _wheelRadius = 0;
     private int _driveWheelsQuantity = 0;
@@ -61,7 +61,7 @@ public class VehicleDynamics : MonoBehaviour {
     private float[] brakingPowerStats;
 
     public List<AxleSettings> axles => this._axles;
-    public float allMileage => this._allMileage;
+    public long allMileage => this._allMileage;
     public float maxSpeedOnCurrentGear => this._maxSpeedOnCurrentGear;
     public float maxWheelRpmOnCurrentGear => this._maxWheelRpmOnCurrentGear;
     public float brakingDistribution => this._brakingDistribution;
@@ -252,7 +252,7 @@ public class VehicleDynamics : MonoBehaviour {
 
     private void OnDestroy() {
         if(gameObject.tag == "Player") {
-            this.VehicleManager.vehicleData.mileage += this._currentMileage;
+            this.VehicleManager.vehicleData.mileage += Mathf.RoundToInt(this._currentMileage);
             this.VehicleManager.vehicleData.Save("WheelsSettings");
         }
     }
