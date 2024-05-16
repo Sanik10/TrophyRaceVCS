@@ -3,6 +3,12 @@ Shader "FX/Blur"
     Properties {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Size("Blur Radius", Range(0,4)) = 0
+        _Stencil ("Stencil ID", Float) = 1
+        _StencilComp ("Stencil Comparison", Float) = 8
+        _StencilOp ("Stencil Operation", Float) = 2
+        _StencilWriteMask ("Stencil Write Mask", Float) = 255
+        _StencilReadMask ("Stencil Read Mask", Float) = 255
+        _ColorMask( "Color Mask", Float) = 15
     }
 
     SubShader {
@@ -17,7 +23,7 @@ Shader "FX/Blur"
         Cull Off
         Lighting Off
         ZWrite Off
-        ZTest Off
+        ZTest Always
         Blend SrcAlpha OneMinusSrcAlpha
 
         GrabPass {
@@ -31,6 +37,15 @@ Shader "FX/Blur"
             Tags {
                 "LightMode" = "Always"
             }
+
+            Stencil {
+                Ref [_Stencil]
+                Comp [_StencilComp]
+                Pass [_StencilOp]
+                ReadMask [_StencilReadMask]
+                WriteMask [_StencilWriteMask]
+            }
+            ColorMask [_ColorMask]
 
             CGPROGRAM
             #pragma vertex vert
@@ -97,6 +112,15 @@ Shader "FX/Blur"
                 "LightMode" = "Always"
             }
 
+            Stencil {
+                Ref [_Stencil]
+                Comp [_StencilComp]
+                Pass [_StencilOp]
+                ReadMask [_StencilReadMask]
+                WriteMask [_StencilWriteMask]
+            }
+            ColorMask [_ColorMask]
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -154,6 +178,16 @@ Shader "FX/Blur"
 
         Pass {
             Name "Default"
+
+            Stencil {
+                Ref [_Stencil]
+                Comp [_StencilComp]
+                Pass [_StencilOp]
+                ReadMask [_StencilReadMask]
+                WriteMask [_StencilWriteMask]
+            }
+            ColorMask [_ColorMask]
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag

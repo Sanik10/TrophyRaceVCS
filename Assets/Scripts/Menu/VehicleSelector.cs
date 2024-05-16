@@ -5,16 +5,16 @@ namespace TrophyRace.Architecture {
     public class VehicleSelector : MonoBehaviour {
         
         [SerializeField]
-        private int _vehiclePointer = 0;
+        private string _vehiclePointer = "";
         [SerializeField]
-        private int _selectedVehicleId = 1;
-        public int[] _allowedVehiclesId;
+        private string _selectedVehicleGuid = "d25eb36b-bd44-442e-9194-9f60a9e5dfb9";
+        public string[] _allowedVehiclesGuid;
         private VehicleList _vehicleList;
         private VehicleSpawner _vehicleSpawner;
         private MenuManager _menuManager;
 
-        public int vehiclePointer => this._vehiclePointer;
-        public int selectedVehicleId => this._selectedVehicleId;
+        public string vehiclePointer => this._vehiclePointer;
+        public string selectedVehicleGuid => this._selectedVehicleGuid;
 
         // Здесь добавьте ссылки на _vehicleList, _vehicleSpawner и другие компоненты
 
@@ -26,37 +26,72 @@ namespace TrophyRace.Architecture {
             _vehicleList = GetComponent<VehicleList>();
             _menuManager = GetComponent<MenuManager>();
             if(PlayerPrefs.HasKey("pointer")) {
-                this._vehiclePointer = PlayerPrefs.GetInt("pointer");
+                this._vehiclePointer = PlayerPrefs.GetString("selectedVehicleGuid");
             }
         }
+
+        /* private void OnVehicleListInitialized() {
+            VehicleList.vehicleListInitializedEvent -= OnVehicleListInitialized;
+            _vehicleSpawner = GetComponent<VehicleSpawner>();
+            if(PlayerPrefs.HasKey("selectedVehicleGuid")) {
+                this._selectedVehicleGuid = PlayerPrefs.GetString("selectedVehicleGuid");
+            }
+            _vehicleSpawner.SpawnVehicle(this._selectedVehicleGuid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+        } */
 
         private void OnVehicleListInitialized() {
             VehicleList.vehicleListInitializedEvent -= OnVehicleListInitialized;
             _vehicleSpawner = GetComponent<VehicleSpawner>();
-            if(PlayerPrefs.HasKey("selectedVehicleId")) {
-                this._selectedVehicleId = PlayerPrefs.GetInt("selectedVehicleId");
+
+            // Проверяем, есть ли сохраненный GUID
+            if(PlayerPrefs.HasKey("selectedVehicleGuid")) {
+                string savedGuid = PlayerPrefs.GetString("selectedVehicleGuid");
+
+                // Проверяем, существует ли сохраненный GUID в списке доступных автомобилей
+                if(IsVehicleAllowed(savedGuid)) {
+                    // Если существует, выбираем сохраненный автомобиль
+                    this._selectedVehicleGuid = savedGuid;
+                } else {
+                    // Если не существует, выбираем первый доступный автомобиль в списке
+                    if (_allowedVehiclesGuid.Length > 0) {
+                        this._selectedVehicleGuid = _allowedVehiclesGuid[0];
+                    } else {
+                        // Если список пуст, устанавливаем стандартное значение
+                        this._selectedVehicleGuid = "d25eb36b-bd44-442e-9194-9f60a9e5dfb9";
+                    }
+                }
+            } else {
+                // Если нет сохраненного GUID, выбираем первый доступный автомобиль в списке
+                if (_allowedVehiclesGuid.Length > 0) {
+                    this._selectedVehicleGuid = _allowedVehiclesGuid[0];
+                } else {
+                    // Если список пуст, устанавливаем стандартное значение
+                    this._selectedVehicleGuid = "d25eb36b-bd44-442e-9194-9f60a9e5dfb9";
+                }
             }
-            _vehicleSpawner.SpawnVehicle(this._selectedVehicleId, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+
+            PlayerPrefs.SetString("selectedVehicleGuid", this._selectedVehicleGuid);
+            _vehicleSpawner.SpawnVehicle(this._selectedVehicleGuid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
         }
 
-        public void SetFilterById(int[] allowedVehiclesId) {
-            this._allowedVehiclesId = allowedVehiclesId;
+        public void SetFilterByGuid(string[] allowedVehiclesGuid) {
+            this._allowedVehiclesGuid = allowedVehiclesGuid;
 
-            int m_selectedVehicleId = PlayerPrefs.GetInt("selectedVehicleId");
-            bool isAllowed = IsVehicleAllowed(m_selectedVehicleId);
+            string m_selectedVehicleGuid = PlayerPrefs.GetString("selectedVehicleGuid");
+            bool isAllowed = IsVehicleAllowed(m_selectedVehicleGuid);
 
             if(!isAllowed) {
-                foreach(var vehicleId in _allowedVehiclesId) {
-                    if(_vehicleList.allVehiclesInGame.Exists(vehicle => vehicle.id == vehicleId)) {
-                        m_selectedVehicleId = vehicleId;
+                foreach(var vehicleGuid in _allowedVehiclesGuid) {
+                    if(_vehicleList.allVehiclesInGame.Exists(vehicle => vehicle.guid == vehicleGuid)) {
+                        m_selectedVehicleGuid = vehicleGuid;
                         break;
                     }
                 }
-                this._vehiclePointer = m_selectedVehicleId;
-                this._selectedVehicleId = m_selectedVehicleId;
-                PlayerPrefs.SetInt("selectedVehicleId", this._selectedVehicleId);
+                this._vehiclePointer = m_selectedVehicleGuid;
+                this._selectedVehicleGuid = m_selectedVehicleGuid;
+                PlayerPrefs.SetString("selectedVehicleGuid", this._selectedVehicleGuid);
                 Destroy(_vehicleSpawner.playerVehicle);
-                _vehicleSpawner.SpawnVehicle(selectedVehicleId, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+                _vehicleSpawner.SpawnVehicle(selectedVehicleGuid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
             }
         }
 
@@ -68,8 +103,8 @@ namespace TrophyRace.Architecture {
             while(true) {
                 index = (index + step + count) % count; // Проход по элементам в цикле
 
-                int currentVehicleId = _vehicleList.allVehiclesInGame[index].id;
-                if(Array.Exists(_allowedVehiclesId, id => id == currentVehicleId)) {
+                string currentVehicleGuid = _vehicleList.allVehiclesInGame[index].guid;
+                if(Array.Exists(_allowedVehiclesGuid, guid => guid == currentVehicleGuid)) {
                     break; // Если нашли подходящий, выходим из цикла
                 }
 
@@ -81,33 +116,55 @@ namespace TrophyRace.Architecture {
             return index + 1; // Возвращаем индекс + 1 для согласованности с отображением пользователю (1 до Count)
         }
 
+        // public void RightButton() {
+        //     Destroy(_vehicleSpawner.playerVehicle);
+
+        //     int newIndex = FindNextVehicleIndex(this._vehiclePointer, 1);
+        //     this._vehiclePointer = newIndex;
+
+        //     PlayerPrefs.SetInt("pointer", this._vehiclePointer);
+        //     this._selectedVehicleGuid =  _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].guid;
+        //     PlayerPrefs.SetString("selectedVehicleGuid", _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].guid);
+        //     _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].guid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+        // }
+
+        // public void LeftButton() {
+        //     Destroy(_vehicleSpawner.playerVehicle);
+
+        //     int newIndex = FindNextVehicleIndex(this._vehiclePointer, -1);
+        //     this._vehiclePointer = newIndex;
+
+        //     PlayerPrefs.SetInt("pointer", this._vehiclePointer);
+        //     this._selectedVehicleGuid =  _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].guid;
+        //     PlayerPrefs.SetString("selectedVehicleGuid", _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].guid);
+        //     _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].guid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+        // }
+
         public void RightButton() {
             Destroy(_vehicleSpawner.playerVehicle);
 
-            int newIndex = FindNextVehicleIndex(this._vehiclePointer, 1);
-            this._vehiclePointer = newIndex;
+            int currentIndex = Array.IndexOf(_allowedVehiclesGuid, _selectedVehicleGuid);
+            int newIndex = (currentIndex + 1) % _allowedVehiclesGuid.Length;
+            _selectedVehicleGuid = _allowedVehiclesGuid[newIndex];
+            PlayerPrefs.SetString("selectedVehicleGuid", _selectedVehicleGuid);
 
-            PlayerPrefs.SetInt("pointer", this._vehiclePointer);
-            this._selectedVehicleId =  _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id;
-            PlayerPrefs.SetInt("selectedVehicleId", _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id);
-            _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+            _vehicleSpawner.SpawnVehicle(_selectedVehicleGuid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
         }
 
         public void LeftButton() {
             Destroy(_vehicleSpawner.playerVehicle);
 
-            int newIndex = FindNextVehicleIndex(this._vehiclePointer, -1);
-            this._vehiclePointer = newIndex;
+            int currentIndex = Array.IndexOf(_allowedVehiclesGuid, _selectedVehicleGuid);
+            int newIndex = (currentIndex - 1 + _allowedVehiclesGuid.Length) % _allowedVehiclesGuid.Length;
+            _selectedVehicleGuid = _allowedVehiclesGuid[newIndex];
+            PlayerPrefs.SetString("selectedVehicleGuid", _selectedVehicleGuid);
 
-            PlayerPrefs.SetInt("pointer", this._vehiclePointer);
-            this._selectedVehicleId =  _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id;
-            PlayerPrefs.SetInt("selectedVehicleId", _vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id);
-            _vehicleSpawner.SpawnVehicle(_vehicleList.allVehiclesInGame[this._vehiclePointer - 1].id, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
+            _vehicleSpawner.SpawnVehicle(_selectedVehicleGuid, SpawnMode.DisableCameras | SpawnMode.DisableReflectionProbes | SpawnMode.DisableMovement);
         }
 
-        bool IsVehicleAllowed(int vehicleID) {
-            foreach(int allowedID in _allowedVehiclesId) {
-                if(allowedID == vehicleID) {
+        bool IsVehicleAllowed(string vehicleGuid) {
+            foreach(string allowedGuid in _allowedVehiclesGuid) {
+                if(allowedGuid == vehicleGuid) {
                     return true;
                 }
             }

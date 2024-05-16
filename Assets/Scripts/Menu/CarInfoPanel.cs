@@ -10,6 +10,8 @@ namespace TrophyRace.Architecture {
     public class CarInfoPanel : MonoBehaviour {
 
         [SerializeField]
+        private int _fontSize = 35;
+        [SerializeField]
         private LocalizedString localizedMaxSpeed;
         [SerializeField]
         private LocalizedString localizedPower;
@@ -30,6 +32,9 @@ namespace TrophyRace.Architecture {
 
         private void Start() {
             _vehicleList = GameObject.Find("scripts").GetComponent<VehicleList>();
+            foreach(TextMeshProUGUI label in this._textsList) {
+                label.fontSize = this._fontSize;
+            }
 
             VehicleList.vehicleListInitializedEvent += Subscribe;
         }
@@ -49,7 +54,7 @@ namespace TrophyRace.Architecture {
         }
 
         public void CarInfo() {
-            VehicleData vehicleData = this._vehicleList.allVehiclesInGame.Find(vehicle => vehicle.id == PlayerPrefs.GetInt("selectedVehicleId"));
+            VehicleData vehicleData = this._vehicleList.allVehiclesInGame.Find(vehicle => vehicle.guid == PlayerPrefs.GetString("selectedVehicleGuid"));
             _textsList[0].text = vehicleData.vehicleName.ToString();
             // _textsList[1].text = (vehicleData.maxSpeed * 1.8 + vehicleData.maxPower * 1.20 + 2000 / vehicleData.radius + 75 / vehicleData.shiftTime).ToString("f0") + " TP";
             _textsList[1].text = vehicleData.range.ToString("f0") + " TP";

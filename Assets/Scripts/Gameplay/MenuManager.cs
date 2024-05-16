@@ -27,6 +27,7 @@ namespace TrophyRace.Architecture {
 
 
         private cameraSwitcher CS;
+        [SerializeField]
         private TextMeshProUGUI balanceText;
         private bool backButtonCall = false;
         private VehicleSpawner _vehicleSpawner;
@@ -43,7 +44,7 @@ namespace TrophyRace.Architecture {
         private Player player;
 
         private void Awake() {
-            balanceText = GameObject.Find("Balance").GetComponent<TextMeshProUGUI>();
+            // balanceText = GameObject.Find("Balance").GetComponent<TextMeshProUGUI>();
             _vehicleList = GetComponent<VehicleList>();
         }
 
@@ -127,9 +128,9 @@ namespace TrophyRace.Architecture {
             RefreshBuyButton();
             this.shopMode = false;
             if(!this.preRaceMode) {
-                GetComponent<VehicleSelector>().SetFilterById(_vehicleList.GetPlayerOwnedVehicleIDs().ToArray());
+                GetComponent<VehicleSelector>().SetFilterByGuid(_vehicleList.GetPlayerOwnedVehiclesGuid().ToArray());
             } else {
-                GetComponent<VehicleSelector>().SetFilterById(GetComponent<MapButtonsData>().mapButtonsList[GetComponent<MapButtonsData>().selectedEvent].allowedVehiclesId);
+                GetComponent<VehicleSelector>().SetFilterByGuid(GetComponent<MapButtonsData>().mapButtonsList[GetComponent<MapButtonsData>().selectedEvent].allowedVehiclesGuid);
             }
             RefreshPaintButton();
         }
@@ -166,7 +167,7 @@ namespace TrophyRace.Architecture {
             VehiclesShopOpenedEvent?.Invoke();
             this.shopMode = true;
             RefreshBuyButton();
-            GetComponent<VehicleSelector>().SetFilterById(_vehicleList.GetAllVehicleIDs().ToArray());
+            GetComponent<VehicleSelector>().SetFilterByGuid(_vehicleList.GetAllVehiclesGuid().ToArray());
         }
 
         public void ActivateButton(int buttonOn) {
@@ -241,9 +242,9 @@ namespace TrophyRace.Architecture {
         }
 
         private void RefreshPaintButton() {
-            int savedVehicleId = PlayerPrefs.GetInt("selectedVehicleId");
+            string savedVehicleGuid = PlayerPrefs.GetString("selectedVehicleGuid");
 
-            int index = _vehicleList.allVehiclesInGame.FindIndex(vehicle => vehicle.id == savedVehicleId);
+            int index = _vehicleList.allVehiclesInGame.FindIndex(vehicle => vehicle.guid == savedVehicleGuid);
 
             if(index != -1) {
                 buttonsList[4].GO.SetActive(shopMode ? false : this._vehicleList.allVehiclesInGame[index].colorCustomization);
@@ -252,10 +253,10 @@ namespace TrophyRace.Architecture {
         }
 
         private void RefreshBuyButton() {
-            int savedVehicleId = PlayerPrefs.GetInt("selectedVehicleId");
+            string savedVehicleGuid = PlayerPrefs.GetString("selectedVehicleGuid");
 
-            int index = _vehicleList.allVehiclesInGame.FindIndex(vehicle => vehicle.id == savedVehicleId);
-
+            int index = _vehicleList.allVehiclesInGame.FindIndex(vehicle => vehicle.guid == savedVehicleGuid);
+            Debug.Log(index);
             if(index != -1) {
                 bool isOwned = _vehicleList.allVehiclesInGame[index].isOwned;
                 

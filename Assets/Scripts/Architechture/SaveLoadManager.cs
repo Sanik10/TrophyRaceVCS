@@ -13,25 +13,22 @@ public static class SaveLoadManager {
     private static string iv = "2d8b6a4c9e7f2abe";
 
     public static void SaveToXml<T>(T data) where T : ISaveable { 
-        Debug.LogWarning(GenerateKey());
         string filePath = Application.dataPath + $"/SavedData/{typeof(T).Name}.xml";
-        // string filePath = Application.persistentDataPath + $"/{typeof(T).Name}.xml";
 
         XmlDocument xmlDoc = new XmlDocument();
 
-        if(File.Exists(filePath)) {
+        if (File.Exists(filePath)) {
             xmlDoc.Load(filePath);
         } else {
             XmlElement rootElement = xmlDoc.CreateElement(typeof(T).Name);
             xmlDoc.AppendChild(rootElement);
         }
 
-        string encryptedId = EncryptElementId(data.id).ToString();
+        string encryptedId = EncryptElementGuid(data.guid);
 
         // Поиск узла данных по зашифрованному идентификатору
         XmlNode dataNode = xmlDoc.SelectSingleNode($"//{data.dataNodeName}[@id='{encryptedId}']");
-        if(dataNode == null) {
-            // Создание нового узла данных, если не найден
+        if (dataNode == null) {
             XmlElement rootElement = xmlDoc.DocumentElement;
             XmlElement dataElement = xmlDoc.CreateElement(data.dataNodeName);
             dataElement.SetAttribute("id", encryptedId);
@@ -121,16 +118,15 @@ public static class SaveLoadManager {
         return Convert.ToBase64String(encrypted);
     }
 
-    public static string LoadFromXml<T>(string dataNodeName, int elementId, string nodeToRead) where T : ISaveable {
-        string encryptedData = ReadEncryptedDataFromXml<T>(dataNodeName, elementId, nodeToRead);
+    public static string LoadFromXml<T>(string dataNodeName, string elementGuid, string nodeToRead) where T : ISaveable {
+        string encryptedData = ReadEncryptedDataFromXml<T>(dataNodeName, elementGuid, nodeToRead);
         string decryptedData = Decrypt(encryptedData);
         return decryptedData;
     }
 
-    private static string ReadEncryptedDataFromXml<T>(string dataNodeName, int elementId, string nodeToRead) where T : ISaveable {
+    private static string ReadEncryptedDataFromXml<T>(string dataNodeName, string elementGuid, string nodeToRead) where T : ISaveable {
         string filePath = Application.dataPath + $"/SavedData/{typeof(T).Name}.xml";
-        // string filePath = Application.persistentDataPath + $"/{typeof(T).Name}.xml";
-        string encryptedId = EncryptElementId(elementId).ToString();
+        string encryptedId = EncryptElementGuid(elementGuid);
 
         XmlDocument xmlDoc = new XmlDocument();
         if (File.Exists(filePath)) {
@@ -146,7 +142,6 @@ public static class SaveLoadManager {
             if (encryptedDataNode != null) {
                 return encryptedDataNode.InnerText;
             } else {
-                // Node with data is missing, create an empty node
                 UpdateOrCreateNode(xmlDoc, dataNode, nodeToRead, string.Empty);
                 xmlDoc.Save(filePath);
 
@@ -154,7 +149,6 @@ public static class SaveLoadManager {
                 return string.Empty;
             }
         } else {
-            // Data node is missing, create a new node with empty data node
             XmlElement root = xmlDoc.DocumentElement;
             XmlElement dataElement = xmlDoc.CreateElement(dataNodeName);
             dataElement.SetAttribute("id", encryptedId);
@@ -193,7 +187,7 @@ public static class SaveLoadManager {
         return decrypted;
     }
 
-    private static int EncryptElementId(int vehicleId) {
+    private static string EncryptElementGuid(string elementGuid) {
         byte[] encrypted;
         using (AesManaged aes = new AesManaged()) {
             aes.Key = Encoding.UTF8.GetBytes(key);
@@ -202,16 +196,13 @@ public static class SaveLoadManager {
             using (MemoryStream ms = new MemoryStream()) {
                 using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write)) {
                     using (StreamWriter sw = new StreamWriter(cs)) {
-                        sw.Write(vehicleId);
+                        sw.Write(elementGuid);
                     }
                     encrypted = ms.ToArray();
                 }
             }
         }
-        uint unsignedResult = BitConverter.ToUInt32(encrypted, 0);
-        int result = (int)(unsignedResult & int.MaxValue);
-    
-        return result;
+        return Convert.ToBase64String(encrypted);
     }
 
     public static string GenerateKey() {

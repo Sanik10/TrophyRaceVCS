@@ -93,7 +93,7 @@ namespace TrophyRace.Architecture {
             this._MBD.selectedEvent = this._posInList;
             this._MBD.SaveCurrintButton(this._posInList);
             RefreshButton();
-            GameObject.Find("scripts").GetComponent<VehicleSelector>().SetFilterById(this._MBD.mapButtonsList[this._posInList].allowedVehiclesId);
+            GameObject.Find("scripts").GetComponent<VehicleSelector>().SetFilterByGuid(this._MBD.mapButtonsList[this._posInList].allowedVehiclesGuid);
             GameObject.Find("scripts").GetComponent<MenuManager>().SetMapToStart(this._mapToStart);
             Debug.Log(_mapToStart);
         }

@@ -134,6 +134,34 @@ MonoBehaviour:
     m_Localized: Musique
     m_Metadata:
       m_Items: []
+  - m_Id: 1433741409902592
+    m_Localized: "Qualit\xE9 du jeu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436308592386048
+    m_Localized: "\xC9conomique"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1437672340971520
+    m_Localized: "Mod\xE9r\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438219664089088
+    m_Localized: Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438449444839424
+    m_Localized: Optimal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438766571970560
+    m_Localized: Beau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1439112451055616
+    m_Localized: Professionnel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

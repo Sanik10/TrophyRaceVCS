@@ -127,6 +127,34 @@ MonoBehaviour:
     m_Key: musicSettingsMenu
     m_Metadata:
       m_Items: []
+  - m_Id: 1433741409902592
+    m_Key: gameQualitySettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436308592386048
+    m_Key: veryLowQualitySettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1437672340971520
+    m_Key: lowQualittySettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438219664089088
+    m_Key: middlQualitySettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438449444839424
+    m_Key: highQualitySettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438766571970560
+    m_Key: veryHighQualitySettingMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1439112451055616
+    m_Key: ultraQualitySettingsMenu
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

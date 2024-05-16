@@ -38,16 +38,16 @@ public class MapButtonsData : MonoBehaviour {
     private void LoadData(MapButtonItem button) {
         int loadedDataInt;
         bool loadedDataBool;
-        LoadData(button.dataNodeName, "openedAwards", button.id, out loadedDataInt, int.Parse);
+        LoadData(button.dataNodeName, "openedAwards", button.guid, out loadedDataInt, int.Parse);
         button.openedAwards = loadedDataInt;
-        LoadData(button.dataNodeName, "openedMap", button.id, out loadedDataBool, bool.Parse);
+        LoadData(button.dataNodeName, "openedMap", button.guid, out loadedDataBool, bool.Parse);
         button.openedMap = loadedDataBool;
         // LoadData("mapName", out button.mapName, s => s);
         // Продолжайте так же для каждого поля, которое необходимо загрузить
     }
 
-    private void LoadData<T>(string dataNodeName, string dataType, int id, out T field, Func<string, T> tryParser) {
-        string decryptedData = SaveLoadManager.LoadFromXml<MapButtonItem>(dataNodeName, id, dataType);
+    private void LoadData<T>(string dataNodeName, string dataType, string guid, out T field, Func<string, T> tryParser) {
+        string decryptedData = SaveLoadManager.LoadFromXml<MapButtonItem>(dataNodeName, guid, dataType);
         if (!string.IsNullOrEmpty(decryptedData)) {
             field = tryParser(decryptedData);
         } else {
@@ -84,6 +84,9 @@ public class MapButtonItem : ISaveable {
     private int _id;
 
     [SerializeField]
+    private string _guid;
+
+    [SerializeField]
     private Sprite _sprite;
 
     [SerializeField]
@@ -99,20 +102,13 @@ public class MapButtonItem : ISaveable {
     private bool _openedMap = false;
 
     [SerializeField]
-    private int[] _allowedVehiclesId;
+    private string[] _allowedVehiclesGuid;
 
 
 
-    public int id {
-        get {
-            return this._id;
-        }
-    }
-    public string dataNodeName {
-        get {
-            return this._dataNodeName;
-        }
-    }
+    public int id => this._id;
+    public string guid => this._guid;
+    public string dataNodeName => this._dataNodeName;
     public Sprite sprite => this._sprite;
     public mapNameToStart mapToStart => this._mapToStart;
     public string mapName => this._mapName;
@@ -124,7 +120,7 @@ public class MapButtonItem : ISaveable {
         get {return this._openedMap;}
         set {this._openedMap = value;}
     }
-    public int[] allowedVehiclesId => this._allowedVehiclesId;
+    public string[] allowedVehiclesGuid => this._allowedVehiclesGuid;
 }
 
 [System.Serializable]

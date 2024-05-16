@@ -134,6 +134,34 @@ MonoBehaviour:
     m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
+  - m_Id: 1433741409902592
+    m_Localized: Calidad del juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436308592386048
+    m_Localized: "Econ\xF3mico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1437672340971520
+    m_Localized: Moderado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438219664089088
+    m_Localized: "Est\xE1ndar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438449444839424
+    m_Localized: "\xD3ptimo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438766571970560
+    m_Localized: Hermoso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1439112451055616
+    m_Localized: Profesional
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

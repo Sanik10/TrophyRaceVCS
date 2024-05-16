@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
   m_Name: Empty
   m_EditorClassIdentifier: 
   _includeVehicleInGame: 0
   _Prefab: {fileID: 0}
   _vehicleName: None
   _id: 0
+  _guid: fb7c1db6-dc72-49be-b73b-c98340d974db
   _price: 0
   _isOwned: 0
   _maxPower: 150
   _idleRpm: 700
   _medRpm: 3000
   _maxRpm: 6000
-  _additionRpmOnNeutral: 1200
   _maxPowerProcentAtIdleRpm: 50
   _maxPowerProcentAtMaxRpm: 20
   _engineInertia: 0.2
@@ -33,7 +33,6 @@ MonoBehaviour:
   _shiftTime: 0.5
   _rpmUpShift: 5600
   _rpmDownShift: 2900
-  _finalDrive: 2
   _maxSpeed: 150
   _driveWheels: 1
   _tireIntegrity: 1
@@ -41,8 +40,6 @@ MonoBehaviour:
   _brakingDistribution: 0.5
   _radius: 14
   _steeringWheelSpeed: 10
-  _wheelBase: 4
-  _rearTrack: 2.4
   _mileage: 0
   _colorCustomization: 0
   _bodyMaterailId: 0

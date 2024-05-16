@@ -25,7 +25,7 @@ namespace TrophyRace.Architecture {
             SpawnPoint = GameObject.Find("SpawnPoint");
         }
 
-        public void SpawnVehicle(int vehicleID, SpawnMode spawnMode) {
+        public void SpawnVehicle(string vehicleGuid, SpawnMode spawnMode) {
             if(SpawnPoint == null) {
                 SpawnPoint = GameObject.Find("SpawnPoint");
                 _spawnPosition = GetComponent<Transform>().position;
@@ -36,7 +36,7 @@ namespace TrophyRace.Architecture {
             }
             Quaternion spwanrtshn = Quaternion.Euler(0, 0, 0);
 
-            VehicleData vehicleData = GetVehicleDataByID(vehicleID);
+            VehicleData vehicleData = GetVehicleDataByID(vehicleGuid);
             vehicleData.Load();
 
             if((spawnMode & SpawnMode.Bot) == 0) {
@@ -77,14 +77,14 @@ namespace TrophyRace.Architecture {
             vehicleSpawned?.Invoke();
         }
 
-        private VehicleData GetVehicleDataByID(int vehicleID) {
+        private VehicleData GetVehicleDataByID(string vehicleGuid) {
             VehicleList vehicleList = GetComponent<VehicleList>();
             if(vehicleList != null && vehicleList.allVehiclesInGame != null && vehicleList.allVehiclesInGame.Count > 0) {
-                Debug.Log(vehicleID + " Переданный, Сохраненный: " + PlayerPrefs.GetInt("selectedVehicleId"));
-                return vehicleList.allVehiclesInGame.Find(data => data.id == vehicleID);
+                Debug.Log(vehicleGuid + " Переданный, Сохраненный: " + PlayerPrefs.GetString("selectedVehicleGuid"));
+                return vehicleList.allVehiclesInGame.Find(data => data.guid == vehicleGuid);
             } else {
                 VehicleData[] allVehicleData = Resources.LoadAll<VehicleData>("VehiclesConfig");
-                return Array.Find(allVehicleData, data => data.id == vehicleID);
+                return Array.Find(allVehicleData, data => data.guid == vehicleGuid);
             }
         }
     }

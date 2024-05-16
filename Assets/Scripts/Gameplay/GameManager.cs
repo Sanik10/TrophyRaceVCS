@@ -57,7 +57,7 @@ namespace TrophyRace.Architecture {
             }
             
             _vehicleSpawner = GameObject.Find("scripts").GetComponent<VehicleSpawner>();
-            _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetInt("selectedVehicleId"), SpawnMode.None);
+            _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetString("selectedVehicleGuid"), SpawnMode.None);
             
             RaceTimer raceTimer = GetComponent<RaceTimer>();
             if(raceTimer != null) {
@@ -79,7 +79,7 @@ namespace TrophyRace.Architecture {
             for(int i = 0; i < opponents; i++) {
                 AdjustSpawnPointPosition(i);
 
-                _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetInt("selectedVehicleId"), SpawnMode.Bot | SpawnMode.DisableCameras | SpawnMode.PreStart);
+                _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetString("selectedVehicleGuid"), SpawnMode.Bot | SpawnMode.DisableCameras | SpawnMode.PreStart);
                 
                 var raceTimer = GetComponent<RaceTimer>();
                 raceTimer.RegisterCar(_vehicleSpawner.spawnedVehicle);
@@ -101,7 +101,7 @@ namespace TrophyRace.Architecture {
 
         private void HandleVehicleSpawning() {
             if(spawnVehicle) {
-                _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetInt("selectedVehicleId"), SpawnMode.None);
+                _vehicleSpawner.SpawnVehicle(PlayerPrefs.GetString("selectedVehicleGuid"), SpawnMode.None);
                 spawnVehicle = false;
             }
         }

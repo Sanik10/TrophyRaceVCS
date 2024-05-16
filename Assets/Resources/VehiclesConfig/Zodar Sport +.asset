@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
   m_Name: Zodar Sport +
   m_EditorClassIdentifier: 
   _includeVehicleInGame: 1
   _Prefab: {fileID: 3732981474009113542, guid: 798932dbd91e24147a7b715d804fea20, type: 3}
   _vehicleName: Zodar Sport +
   _id: 4
+  _guid: 3c87ba45-77ca-4fae-ab1a-6550fcb6dc5c
   _price: 0
   _isOwned: 0
   _maxPower: 500
@@ -39,9 +40,9 @@ MonoBehaviour:
   _brakingDistribution: 0.25
   _radius: 11
   _steeringWheelSpeed: 10
-  _mileage: 35723.734
+  _mileage: 0
   _colorCustomization: 1
-  _bodyMaterailId: 3
+  _bodyMaterailId: 0
   _diskMaterailId: 0
   _mass: 2250
   _type: 1

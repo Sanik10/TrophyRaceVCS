@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
   m_Name: Zodar D-25
   m_EditorClassIdentifier: 
   _includeVehicleInGame: 1
   _Prefab: {fileID: 3850886817306097815, guid: 9ef6d33cec4314c47aab303cf989b137, type: 3}
   _vehicleName: Zodar D-25
   _id: 1
+  _guid: d25eb36b-bd44-442e-9194-9f60a9e5dfb9
   _price: 0
-  _isOwned: 0
+  _isOwned: 1
   _maxPower: 250
   _idleRpm: 700
   _medRpm: 3500
@@ -39,9 +40,9 @@ MonoBehaviour:
   _brakingDistribution: 0.5
   _radius: 8
   _steeringWheelSpeed: 10
-  _mileage: 10222.615
+  _mileage: 0
   _colorCustomization: 0
-  _bodyMaterailId: 9
+  _bodyMaterailId: 0
   _diskMaterailId: 0
   _mass: 2900
   _type: 1

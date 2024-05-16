@@ -9,39 +9,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
   m_Name: KamAZ 43509k
   m_EditorClassIdentifier: 
   _includeVehicleInGame: 1
   _Prefab: {fileID: 459020753061967654, guid: f78c12dcc46a24000b6060687d223519, type: 3}
   _vehicleName: KamAZ 43509k
   _id: 6
+  _guid: c3552b7a-b2e9-4f19-9580-5f94496551a4
   _price: 0
-  _isOwned: 1
-  _maxPower: 1050
+  _isOwned: 0
+  _maxPower: 2060
   _idleRpm: 600
-  _medRpm: 2400
+  _medRpm: 2200
   _maxRpm: 3600
   _maxPowerProcentAtIdleRpm: 36
   _maxPowerProcentAtMaxRpm: 20
   _engineInertia: 0.1
   _engineSmoothTime: 0.15
   _transmission: 1
-  _frontGearsQuantity: 5
-  _firstGear: 6
+  _frontGearsQuantity: 7
+  _firstGear: 10
   _shiftTime: 0.25
   _rpmUpShift: 3200
   _rpmDownShift: 1000
   _maxSpeed: 250
   _driveWheels: 1
   _tireIntegrity: 1
-  _brakingPowerVar: 8000
+  _brakingPowerVar: 4000
   _brakingDistribution: 0.336
   _radius: 9
   _steeringWheelSpeed: 10
   _mileage: 0
   _colorCustomization: 0
-  _bodyMaterailId: 1
-  _diskMaterailId: 1
+  _bodyMaterailId: 0
+  _diskMaterailId: 0
   _mass: 6700
   _type: 3

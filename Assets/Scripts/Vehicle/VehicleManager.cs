@@ -11,12 +11,13 @@ using TrophyRace.Architecture;
 public class VehicleManager : MonoBehaviour {
 
     public string vehicleName = "";
-    public int id => this._id;
+    //  public int id => this._id;
+    public string guid => this._guid;
     public bool aiVehicle = false;
     public bool turnOffCameras = false;
     public bool chaseVehicle = false;
 
-    private int _id = 0;
+    private string _guid = "";
     [Header("Components")]
     private VehicleData _vehicleData;
     public VehicleData vehicleData {
@@ -35,7 +36,7 @@ public class VehicleManager : MonoBehaviour {
     public VehicleInputHandler VehicleInputHandler;
 
     private void Start() {
-        this._id = this._vehicleData.id;
+        this._guid = this._vehicleData.guid;
         if(aiVehicle) {
             gameObject.tag = "Ai";
         }

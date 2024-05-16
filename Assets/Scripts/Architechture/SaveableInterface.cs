@@ -1,5 +1,5 @@
 public interface ISaveable {
-    int id { 
+    string guid { 
         get;
     }
 

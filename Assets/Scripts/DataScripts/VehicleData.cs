@@ -18,11 +18,10 @@ public class VehicleData : ScriptableObject, ISaveable {
 
     [SerializeField]
     private int _id;
-    public int id {
-        get {
-            return this._id;
-        }
-    }
+    // public int id => this._id;
+    [SerializeField]
+    private string _guid;
+    public string guid => this._guid;
     [SerializeField]
     private int _price;
     public int price => this._price;
@@ -47,8 +46,6 @@ public class VehicleData : ScriptableObject, ISaveable {
     private int _medRpm = 3000;
     [SerializeField]
     private int _maxRpm = 6000;
-    // [SerializeField]
-    // private int _additionRpmOnNeutral = 600;
     [SerializeField] [Range(1, 100)]
     private int _maxPowerProcentAtIdleRpm = 50;
     [SerializeField] [Range(1, 100)]
@@ -68,7 +65,6 @@ public class VehicleData : ScriptableObject, ISaveable {
     }
     public int idleRpm => this._idleRpm;
     public int maxRpm => this._maxRpm;
-    // public int additionRpmOnNeutral => this._additionRpmOnNeutral;
     public int maxPowerProcentAtIdleRpm {
         get {return this._maxPowerProcentAtIdleRpm;}
         set {this._maxPowerProcentAtIdleRpm = value;}
@@ -348,7 +344,7 @@ public class VehicleData : ScriptableObject, ISaveable {
     }
 
     private void LoadData<T>(string dataType, ref T field, TryParseDelegate<T> tryParser) {
-        string decryptedData = SaveLoadManager.LoadFromXml<VehicleData>(this._dataNodeName, this._id, dataType);
+        string decryptedData = SaveLoadManager.LoadFromXml<VehicleData>(this._dataNodeName, this._guid, dataType);
         if (decryptedData == null || decryptedData == string.Empty) {
             Debug.LogWarning($"Отсутствуют или некорректные данные для '{dataType}'. Загрузка остановлена.");
             return; // Остановка загрузки данных
@@ -359,6 +355,12 @@ public class VehicleData : ScriptableObject, ISaveable {
         } else {
             Debug.LogWarning($"Ошибка при попытке преобразовать данные");
             // Можно выполнить дополнительные действия или прервать загрузку.
+        }
+    }
+
+    private void OnValidate() {
+        if(string.IsNullOrEmpty(this._guid)) {
+            this._guid = Guid.NewGuid().ToString();
         }
     }
 

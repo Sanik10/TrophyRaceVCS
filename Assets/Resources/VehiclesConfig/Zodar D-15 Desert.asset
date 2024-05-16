@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
   m_Name: Zodar D-15 Desert
   m_EditorClassIdentifier: 
   _includeVehicleInGame: 1
   _Prefab: {fileID: 2716670906101015192, guid: f2cabf7fba6fe4ccba35c630998f5a34, type: 3}
   _vehicleName: Zodar D-15 Desert
   _id: 5
+  _guid: 6f67d9a6-c433-428e-b66a-2034d68c5c58
   _price: 0
-  _isOwned: 1
+  _isOwned: 0
   _maxPower: 800
   _idleRpm: 700
   _medRpm: 5000
@@ -39,9 +40,9 @@ MonoBehaviour:
   _brakingDistribution: 0.194
   _radius: 8
   _steeringWheelSpeed: 10
-  _mileage: 361573600
+  _mileage: 0
   _colorCustomization: 1
   _bodyMaterailId: 0
-  _diskMaterailId: 2
+  _diskMaterailId: 0
   _mass: 2500
   _type: 2

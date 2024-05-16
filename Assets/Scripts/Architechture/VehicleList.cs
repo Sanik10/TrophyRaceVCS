@@ -51,12 +51,12 @@ namespace TrophyRace.Architecture {
             return new List<VehicleData>();
         }
 
-        public List<int> GetPlayerOwnedVehicleIDs() {
-            return _playerVehicles.Select(vehicle => vehicle.id).ToList();
+        public List<string> GetPlayerOwnedVehiclesGuid() {
+            return _playerVehicles.Select(vehicle => vehicle.guid).ToList();
         }
 
-        public List<int> GetAllVehicleIDs() {
-            return _allVehicles.Select(vehicle => vehicle.id).ToList();
+        public List<string> GetAllVehiclesGuid() {
+            return _allVehicles.Select(vehicle => vehicle.guid).ToList();
         }
 
         private List<VehicleData> GetAvialableForPurchaseVehicles() {

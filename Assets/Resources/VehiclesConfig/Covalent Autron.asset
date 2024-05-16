@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fded0531a214a51968802768631213, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
   m_Name: Covalent Autron
   m_EditorClassIdentifier: 
   _includeVehicleInGame: 1
   _Prefab: {fileID: 7627816981419441939, guid: f4bb22ec2253a4d5587ffc2cf541dd3a, type: 3}
   _vehicleName: Covalent Autron
   _id: 2
+  _guid: 0618f359-9020-452f-981a-ad1dc76b83ca
   _price: 0
-  _isOwned: 1
+  _isOwned: 0
   _maxPower: 400
   _idleRpm: 700
   _medRpm: 3000
@@ -41,7 +42,7 @@ MonoBehaviour:
   _steeringWheelSpeed: 10
   _mileage: 0
   _colorCustomization: 1
-  _bodyMaterailId: 8
+  _bodyMaterailId: 0
   _diskMaterailId: 0
   _mass: 1975
   _type: 1

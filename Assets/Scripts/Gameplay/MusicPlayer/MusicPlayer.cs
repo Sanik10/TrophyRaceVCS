@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,23 +8,74 @@ using Random = UnityEngine.Random;
 public class MusicPlayer : MonoBehaviour {
 
     public bool musicOn;
-    public AudioMixerGroup audioMixer;
-    // private InputHandler InputHandler;
-    [Range(0, 1)]
+    [SerializeField]
+    private AudioMixerGroup audioMixer;
+    [SerializeField] [Range(0, 1)]
     public float musicVolume;
-    public musicGenre selectedGenre;
-    public int currentTrack;
+    [SerializeField]
+    private MusicGenre _selectedGenre;
+    [SerializeField]
+    private int currentTrack;
     public List<MusicTrackItem> musicList = new List<MusicTrackItem>();
     private AudioSource source;
     private bool setUped = false, pauseFlag = false;
     private float musicChangeRate;
+    [SerializeField]
+    private bool _setPreviusMusicTrack = false;
+    [SerializeField]
+    private bool _pauseMusicTrack = false;
+    [SerializeField]
+    private bool _setNextMusicTrack = false;
+    [SerializeField]
+    private InputType control;
+    [SerializeField]
+    private bool _preRaceMode = false;
+
+    public bool setPreviusMusicTrack {
+        get {return this._setPreviusMusicTrack;}
+        set {
+            if(this._setPreviusMusicTrack != value && !this._preRaceMode) {
+                this._setPreviusMusicTrack = value;
+            }
+        }
+    }
+
+    public bool pauseMusicTrack {
+        get {return this._pauseMusicTrack;}
+        set {
+            if(this._pauseMusicTrack != value && !this._preRaceMode) {
+                this._pauseMusicTrack = value;
+            }
+        }
+    }
+
+    public bool setNextMusicTrack {
+        get {return this._setNextMusicTrack;}
+        set {
+            if(this._setNextMusicTrack != value && !this._preRaceMode) {
+                this._setNextMusicTrack = value;
+            }
+        }
+    }
 
     void Start() {
-        // this.selectedGenre = PlayerPrefs.GetString("selectedGenre", selectedGenre);
         if(musicOn) {
-            currentTrack = Random.Range(0, musicList.Count-1);
-            while(musicList[currentTrack].genre != selectedGenre) {
-                currentTrack++;
+            if(PlayerPrefs.HasKey("SelectedGenre")) {
+                string prefsGenre = PlayerPrefs.GetString("SelectedGenre", "");
+                MusicGenre selectedGenre;
+
+                // Попытка парсинга строки в enum
+                if(Enum.TryParse(prefsGenre, out selectedGenre)) {
+                    this._selectedGenre = selectedGenre;
+                    Debug.Log("Успешно распарсено в enum: " + selectedGenre);
+                } else {
+                    Debug.LogError("Жанра " + prefsGenre + " не существует");
+                }
+            }
+
+            currentTrack = Random.Range(0, musicList.Count);
+            while(musicList[currentTrack].genre != this._selectedGenre) {
+                currentTrack = (currentTrack + 1) % musicList.Count;
             }
             InitializeMusicSource();
         }
@@ -33,16 +85,6 @@ public class MusicPlayer : MonoBehaviour {
         if(musicOn) {
             if(!setUped) {
                 InitializeMusicSource();
-            }
-
-            if(Input.GetKey(KeyCode.J) && Time.time > musicChangeRate) {
-                PreviusTrack();
-            }
-            if(Input.GetKey(KeyCode.K) && Time.time > musicChangeRate) {
-                PauseTrack();
-            }
-            if(Input.GetKey(KeyCode.L) && Time.time > musicChangeRate) {
-                NextTrack();
             }
         }
     }
@@ -67,8 +109,8 @@ public class MusicPlayer : MonoBehaviour {
         source.Stop();
         currentTrack = (currentTrack - 1 + musicList.Count) % musicList.Count;
         // Если currentTrack равен 0, то устанавливаем его в конец списка, иначе уменьшаем на 1
-        if (selectedGenre != musicGenre.Mix) {
-            while (musicList[currentTrack].genre != selectedGenre) {
+        if (this._selectedGenre != MusicGenre.Mix) {
+            while (musicList[currentTrack].genre != this._selectedGenre) {
                 currentTrack = (currentTrack - 1 + musicList.Count) % musicList.Count;
             }
         }
@@ -92,7 +134,7 @@ public class MusicPlayer : MonoBehaviour {
         source.Stop();
         currentTrack = (currentTrack + 1) % musicList.Count;
         // Увеличиваем currentTrack на 1, если он превышает количество треков, он зацикливается
-        while (musicList[currentTrack].genre != selectedGenre) {
+        while (musicList[currentTrack].genre != this._selectedGenre) {
             currentTrack = (currentTrack + 1) % musicList.Count;
         }
         SetMusicClipToSource();
@@ -131,10 +173,60 @@ public class MusicTrackItem {
     public float musicClipMastering = 1f;
     public float preRaceStartTime = 0.0f;
     public float startTime = 0.0f;
-    public musicGenre genre;
+    public MusicGenre genre;
 }
 
-[System.Serializable]
-public enum musicGenre {
-    Phonk, HipHop, Electro, Rock, Mix
+/*
+using System;
+using UnityEngine;
+using TrophyRace.Architecture;
+
+public class MusicPlayerInputHandler : MonoBehaviour {
+
+    public static Action<MusicPlayerInputHandler, bool> SetPreviusMusicTrackEvent;
+    public static Action<MusicPlayerInputHandler, bool> PauseMusicTrackEvent;
+    public static Action<MusicPlayerInputHandler, bool> SetNextMusicTrackEvent;
+
+    [SerializeField]
+    private bool _setPreviusMusicTrack = false;
+    [SerializeField]
+    private bool _pauseMusicTrack = false;
+    [SerializeField]
+    private bool _setNextMusicTrack = false;
+    [SerializeField]
+    private InputType control;
+
+    [SerializeField]
+    private bool _preRaceMode = false;
+
+    public bool setPreviusMusicTrack {
+        get {return this._setPreviusMusicTrack;}
+        set {
+            if(this._setPreviusMusicTrack != value && !this._preRaceMode) {
+                this._setPreviusMusicTrack = value;
+                SetPreviusMusicTrackEvent?.Invoke(this, value);
+            }
+        }
+    }
+
+    public bool pauseMusicTrack {
+        get {return this._pauseMusicTrack;}
+        set {
+            if(this._pauseMusicTrack != value && !this._preRaceMode) {
+                this._pauseMusicTrack = value;
+                PauseMusicTrackEvent?.Invoke(this, value);
+            }
+        }
+    }
+
+    public bool setNextMusicTrack {
+        get {return this._setNextMusicTrack;}
+        set {
+            if(this._setNextMusicTrack != value && !this._preRaceMode) {
+                this._setNextMusicTrack = value;
+                SetNextMusicTrackEvent?.Invoke(this, value);
+            }
+        }
+    }
 }
+*/
