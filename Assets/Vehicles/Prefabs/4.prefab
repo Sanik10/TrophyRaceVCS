@@ -3819,14 +3819,14 @@ MonoBehaviour:
   chaseVehicle: 0
   Engine: {fileID: 6060706466768042921}
   Transmission: {fileID: 6252192093601292921}
-  VehicleDynamics: {fileID: 0}
+  VehicleDynamics: {fileID: 4801976584075722459}
   TiresFriction: {fileID: 5077215558578982488}
   PhysicsCalculation: {fileID: 7878599310127326679}
   RES: []
   VehicleSFX: {fileID: 5765593294167646610}
   VehicleVFX: {fileID: 8674089159020522191}
   VehicleInfo: {fileID: 0}
-  VehicleInputHandler: {fileID: 0}
+  VehicleInputHandler: {fileID: 4049158010711484692}
 --- !u!114 &6060706466768042921
 MonoBehaviour:
   m_ObjectHideFlags: 0

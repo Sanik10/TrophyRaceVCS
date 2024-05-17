@@ -40,7 +40,7 @@ public class Transmission : MonoBehaviour {
     public int rpmDownShift => this._rpmDownShift;
 
     private void Awake() {
-        VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
+        // VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
     }
 
     private void Start() {
@@ -52,7 +52,7 @@ public class Transmission : MonoBehaviour {
         if(this._VehicleManager.aiVehicle) {
             this._transmission = transmissionType.Automatic;
         }
-
+        VehicleDynamics.VehicleDynamicsInitializedEvent += SetUpGears;
         GetVehicleData();
         VehicleInputHandler.ChangeGearUpEvent += HandleChangeGearUpEvent;
         VehicleInputHandler.ChangeGearDownEvent += HandleChangeGearDownEvent;
@@ -61,12 +61,9 @@ public class Transmission : MonoBehaviour {
 
     private void SetUpGears(VehicleDynamics vd) {
         VehicleDynamics currentVD = GetComponent<VehicleDynamics>();
-        if(vd == currentVD) {
+        // if(vd == currentVD) {
             VehicleDynamics.VehicleDynamicsInitializedEvent -= SetUpGears;
 
-            // this._lastGearRatio = (Engine.maxRpm) * currentVD.circumFerence / (20.2f * this._finalDrive * this._maxSpeed); //4167   4050/200 20.2f
-            // 6,283185307179*7000/3,43/X*0,545*0,06
-            // 6,28*7000*0,545*0,06/(83*3,43)
             this._lastGearRatio = 6.283185307179f * Engine.maxRpm * currentVD.wheelRadius * 0.06f * this._finalDrive / (this._maxSpeed * currentVD.circumFerence);
 
             this._gears = new float[this._frontGearsQuantity + 1];
@@ -82,7 +79,7 @@ public class Transmission : MonoBehaviour {
             if(this._VehicleManager.aiVehicle) {
                 this._transmission = transmissionType.Automatic;
             }
-        }
+        // }
     }
 
     private void FixedUpdate() {

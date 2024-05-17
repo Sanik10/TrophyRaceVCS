@@ -36,8 +36,8 @@ namespace TrophyRace.Architecture {
 
         private void ReimportVehicles() {
             this._allVehicles = this._vehicleRepository.GetAvailableVehicles();
-            this._playerVehicles = GetPlayerOwnedVehicles();
             this._availableForPurchase = GetAvialableForPurchaseVehicles();
+            this._playerVehicles = GetPlayerOwnedVehicles();
         }
 
         private void OnDisable() {

@@ -17,6 +17,9 @@ namespace TrophyRace.Architecture {
         private void LoadAllVehicles() {
             // Фильтрация по IncludeVehicle
             _allVehicles = new List<VehicleData>(Resources.LoadAll<VehicleData>("VehiclesConfig").Where(vehicle => vehicle.includeVehicleInGame));
+            foreach(VehicleData VData in this._allVehicles) {
+                VData.Load();
+            }
         }
 
         public List<VehicleData> GetAvailableVehicles() {
