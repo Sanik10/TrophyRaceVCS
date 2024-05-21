@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 1
   threshold:
     overrideState: 1
     value: 0
@@ -79,10 +79,10 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   preset:
     overrideState: 1
-    value: 1
+    value: 2
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -1429,17 +1429,17 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   filtering:
-    overrideState: 1
+    overrideState: 0
     value: {x: 53.467842, y: 99}
   minLuminance:
     overrideState: 1
-    value: -2
+    value: 1
   maxLuminance:
     overrideState: 1
-    value: 3.2
+    value: 3
   keyValue:
     overrideState: 1
-    value: 0.35
+    value: 1
   eyeAdaptation:
     overrideState: 1
     value: 0
