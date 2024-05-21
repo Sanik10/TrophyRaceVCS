@@ -15,7 +15,7 @@ MonoBehaviour:
   _guid: 7bc724df-16b3-4054-b8b5-cfb6eeccb4df
   _includeTrackInGame: 1
   _trackName: BLVZE - Nephthyns
-  _musicClipPath: Assets/Music/BLVZE - Nephthyns.wav
+  _musicClipAddress: Assets/Music/BLVZE - Nephthyns.wav
   _musicClipMastering: 1
   _preRaceStartTime: 39
   _initialStartTime: 0

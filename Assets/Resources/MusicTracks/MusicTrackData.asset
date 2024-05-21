@@ -15,8 +15,8 @@ MonoBehaviour:
   _guid: 5704c6c8-7da3-4c3c-b7b1-c7715d67e491
   _includeTrackInGame: 1
   _trackName: Knock2_ - Dashstar
-  _musicClipPath: Assets/Music/Knock2_ - Dashstar.wav
+  _musicClipAddress: Assets/Music/Knock2_ - Dashstar.wav
   _musicClipMastering: 1
   _preRaceStartTime: 43
   _initialStartTime: 0
-  _genre: 0
+  _genre: 3

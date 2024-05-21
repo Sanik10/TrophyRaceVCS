@@ -14,8 +14,6 @@ public class MusicPlayerInputHandler : MonoBehaviour {
     private bool _pauseMusicTrack = false;
     [SerializeField]
     private bool _setNextMusicTrack = false;
-    [SerializeField]
-    private InputType control;
 
     [SerializeField]
     private bool _preRaceMode = false;

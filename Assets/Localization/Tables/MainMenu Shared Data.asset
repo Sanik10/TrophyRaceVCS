@@ -155,6 +155,22 @@ MonoBehaviour:
     m_Key: ultraQualitySettingsMenu
     m_Metadata:
       m_Items: []
+  - m_Id: 4710849531863040
+    m_Key: otherSettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4713699267829760
+    m_Key: globalSettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4714970230022144
+    m_Key: soundsSettingsMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4717745173159936
+    m_Key: languageSettingMenu
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

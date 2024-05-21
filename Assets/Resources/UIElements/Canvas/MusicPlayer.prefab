@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5206900096448222892}
   - component: {fileID: 4137973995318796129}
+  - component: {fileID: 1890517167392056701}
   m_Layer: 5
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -52,6 +53,24 @@ MonoBehaviour:
   musicOn: 1
   audioMixer: {fileID: 5373653791713880558, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   musicVolume: 1
-  _selectedGenre: 0
-  musicList: []
+  _selectedGenre: 3
+  musicList:
+  - {fileID: 11400000, guid: 72309c1f0404246708a5b074722dff45, type: 2}
+  - {fileID: 11400000, guid: e53e89305e20b45faaf331b02ed33841, type: 2}
+  _preRaceMode: 1
+--- !u!114 &1890517167392056701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5470726986269926857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ccffa984d9d484f81ae117a3ff1918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setPreviusMusicTrack: 0
+  _pauseMusicTrack: 0
+  _setNextMusicTrack: 0
   _preRaceMode: 0

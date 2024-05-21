@@ -66,7 +66,6 @@ namespace TrophyRace.Architecture {
             this.CS = GameObject.Find("cameras").GetComponent<cameraSwitcher>();
 
             DisableAllCanvases();
-            DisableAllButtons();
 
             ChangeCanvasSection(currentCanvas);
             RefreshGlobalInfo();
@@ -105,6 +104,7 @@ namespace TrophyRace.Architecture {
             canvasSelection[canvasSelectionId].GO.SetActive(true);
             this.CS.CameraTransition(canvasSelection[canvasSelectionId].cameraPosition);
 
+            DisableAllButtons();
             for(int i = 0; i < canvasSelection[canvasSelectionId].neededButtons.Length; i++) {
                 buttonsList[canvasSelection[canvasSelectionId].neededButtons[i]].GO.SetActive(true);
             }
@@ -115,16 +115,15 @@ namespace TrophyRace.Architecture {
         }
 
         private void MainMenuOpener() {
-            MainMenuOpenedEvent?.Invoke();
             this.backToCanvas.Clear();
             this.preRaceMode = false;
             this.shopMode = false;
             this._mapToStart = string.Empty;
+            MainMenuOpenedEvent?.Invoke();
             // GetComponent<VehicleSelector>().SetFilterById(_vehicleList.GetPlayerOwnedVehicleIDs().ToArray());
         }
 
         private void GarageOpener() {
-            GarageOpenedEvent?.Invoke();
             RefreshBuyButton();
             this.shopMode = false;
             if(!this.preRaceMode) {
@@ -133,13 +132,14 @@ namespace TrophyRace.Architecture {
                 GetComponent<VehicleSelector>().SetFilterByGuid(GetComponent<MapButtonsData>().mapButtonsList[GetComponent<MapButtonsData>().selectedEvent].allowedVehiclesGuid);
             }
             RefreshPaintButton();
+            GarageOpenedEvent?.Invoke();
         }
 
         private void CareerSelectionOpener() {
-            CareerSelectionOpenedEvent?.Invoke();
             this.preRaceMode = false;
             this.shopMode = false;
             this._mapToStart = string.Empty;
+            CareerSelectionOpenedEvent?.Invoke();
         }
 
         private void SettingsOpener() {
@@ -164,10 +164,10 @@ namespace TrophyRace.Architecture {
         
 
         private void VehiclesShopOpener() {
-            VehiclesShopOpenedEvent?.Invoke();
             this.shopMode = true;
             RefreshBuyButton();
             GetComponent<VehicleSelector>().SetFilterByGuid(_vehicleList.GetAllVehiclesGuid().ToArray());
+            VehiclesShopOpenedEvent?.Invoke();
         }
 
         public void ActivateButton(int buttonOn) {
@@ -242,6 +242,7 @@ namespace TrophyRace.Architecture {
         }
 
         private void RefreshPaintButton() {
+            if(currentCanvas == 0) return;
             string savedVehicleGuid = PlayerPrefs.GetString("selectedVehicleGuid");
 
             int index = _vehicleList.allVehiclesInGame.FindIndex(vehicle => vehicle.guid == savedVehicleGuid);

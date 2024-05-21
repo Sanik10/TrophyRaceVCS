@@ -2483,7 +2483,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 7
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2560,7 +2560,7 @@ MonoBehaviour:
   volumeMixer: GlobalVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 3653239690541158866}
-  _volume: 0
+  _volume: 1
 --- !u!114 &7374912319907863639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   volumeMixer: VehicleVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 7492593428000483432}
-  _volume: 0
+  _volume: 1
 --- !u!114 &2071464286821105522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2592,7 +2592,7 @@ MonoBehaviour:
   volumeMixer: MusicVolume
   audioMixer: {fileID: 24100000, guid: 8a6a78f7ad7f246afadba5bb4eedb82c, type: 2}
   slider: {fileID: 6731932066224300559}
-  _volume: 0
+  _volume: 1
 --- !u!1 &5205111320777130540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4643,6 +4643,10 @@ PrefabInstance:
     - target: {fileID: 5470726986269926857, guid: dca5d736966194320a1534f25a5dcb13, type: 3}
       propertyPath: m_Name
       value: MusicPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470726986269926857, guid: dca5d736966194320a1534f25a5dcb13, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

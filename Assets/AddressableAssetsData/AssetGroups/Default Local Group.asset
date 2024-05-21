@@ -16,7 +16,67 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 61f9fd5aa91164b50a131f76726dec57
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 4c9607de8659c45b79d539c5cfb6aacc
+    m_Address: Assets/Music/BLVZE - Nephthyns.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c7c6493d622a4c5b97bfb2e5805867d
+    m_Address: Assets/Music/Grouplove - Tongue.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fcc10399536d40f5b68d4cef399a3de
+    m_Address: Assets/Music/Knock2_ - Dashstar.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 963a573d8a6394d37bf77eb13ddb21cf
+    m_Address: Assets/Music/Moondeity - One chanse.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29e4ed21aca964aac8d4e2aa64320603
+    m_Address: Assets/Music/Mutemath - Blood pressure .wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36d084688f4c343339fc2edd1615ea1a
+    m_Address: Assets/Music/Rusko - everyday.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a49bbba1f63174e739262c83fb8acb72
+    m_Address: Assets/Music/Skrillex - 3am.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d2eca5b9adbe4affb3c8da81c9fb4e8
+    m_Address: Assets/Music/Skrillex - Inhale Ixale.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a808e85f9d6774bdab4c56a2f6072452
+    m_Address: Assets/Music/Skrillex - real spring.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a560d3f222d26427fb1435e065065713
+    m_Address: "Assets/Music/Troyboi \u2014 afterhours.wav"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e48da4ab24694b4d83e2e1811af47d0
+    m_Address: Assets/Music/Wels - bloods.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 713f028d3537f444dbc0fb647667f1dc
+    m_Address: Assets/SavedData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 551de23a9d5b34e08a98d4a3e0f7b8c4, type: 2}
   m_SchemaSet:

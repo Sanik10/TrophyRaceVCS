@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Xalith
+  companyName: Quasarix
   productName: Trophy race
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -156,13 +156,13 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.Xalith.Trophyrace
     Standalone: com.Xalith.Trophy-race
-    iPhone: com.Xalith.Trophy-race
+    iPhone: com.Quasarix.Trophy-race
   buildNumber:
     Bratwurst: 0
     Standalone: 0
     iPhone: 0
     tvOS: 0
-  overrideDefaultApplicationIdentifier: 1
+  overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0

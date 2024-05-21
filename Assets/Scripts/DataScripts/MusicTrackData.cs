@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 [CreateAssetMenu(fileName = "MusicTrackData", menuName = "Music Track Data/Music Track Data File", order = 2)]
 public class MusicTrackData : ScriptableObject {
@@ -10,7 +12,7 @@ public class MusicTrackData : ScriptableObject {
     [SerializeField]
     private string _trackName = "";
     [SerializeField]
-    private string _musicClipPath; // Путь в папке Resources
+    private string _musicClipAddress; // Addressable адрес
     [SerializeField]
     private float _musicClipMastering = 1f;
     [SerializeField]
@@ -21,11 +23,12 @@ public class MusicTrackData : ScriptableObject {
     private MusicGenre _genre;
 
     private AudioClip _musicClip;
+    private AsyncOperationHandle<AudioClip> _handle;
 
     public string guid => this._guid;
     public bool includeTrackInGame => this._includeTrackInGame;
     public string trackName => this._trackName;
-    public string musicClipPath => this._musicClipPath;
+    public string musicClipAddress => this._musicClipAddress;
     public float musicClipMastering => this._musicClipMastering;
     public float preRaceStartTime => this._preRaceStartTime;
     public float initialStartTime => this._initialStartTime;
@@ -34,10 +37,21 @@ public class MusicTrackData : ScriptableObject {
     public AudioClip musicClip {
         get {
             if (_musicClip == null) {
-                _musicClip = Resources.Load<AudioClip>(_musicClipPath);
+                LoadMusicClip();
             }
             return _musicClip;
         }
+    }
+
+    private void LoadMusicClip() {
+        _handle = Addressables.LoadAssetAsync<AudioClip>(_musicClipAddress);
+        _handle.Completed += handle => {
+            if (handle.Status == AsyncOperationStatus.Succeeded) {
+                _musicClip = handle.Result;
+            } else {
+                Debug.LogError($"Failed to load music clip: {_musicClipAddress}");
+            }
+        };
     }
 
     private void OnValidate() {
@@ -47,6 +61,9 @@ public class MusicTrackData : ScriptableObject {
     }
 
     public void UnloadClip() {
+        if (_handle.IsValid()) {
+            Addressables.Release(_handle);
+        }
         _musicClip = null;
     }
 }

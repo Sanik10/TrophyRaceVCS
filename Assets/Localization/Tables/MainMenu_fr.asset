@@ -162,6 +162,22 @@ MonoBehaviour:
     m_Localized: Professionnel
     m_Metadata:
       m_Items: []
+  - m_Id: 4710849531863040
+    m_Localized: Autres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4713699267829760
+    m_Localized: Global
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4714970230022144
+    m_Localized: Sons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4717745173159936
+    m_Localized: Langue
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
