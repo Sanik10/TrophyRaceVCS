@@ -9,20 +9,23 @@ public class StartFinishLine : MonoBehaviour {
     private void OnTriggerEnter(Collider collider) {
         GameObject mainObject = GetMainObject(collider.gameObject);
 
-        if (mainObject != null) {
+        if (mainObject != null && mainObject.GetComponent<VehicleManager>() != null) {
             startFinishLinePassedEvent?.Invoke(mainObject);
-            Debug.Log("Line passed");
+            Debug.Log("Line passed by " + mainObject.name);
         }
     }
 
     private GameObject GetMainObject(GameObject obj) {
         // Получаем родительский объект коллайдера
-        Transform parent = obj.transform.parent.parent;
+        Transform parent = obj.transform.parent;
 
-        // Проверяем тэг у родительского объекта
-        if (parent != null) {
-            Debug.Log(parent.gameObject);
-            return parent.gameObject;
+        // Ищем объект, на котором есть скрипт VehicleManager
+        while (parent != null) {
+            if (parent.GetComponent<VehicleManager>() != null) {
+                Debug.Log(parent.gameObject.name);
+                return parent.gameObject;
+            }
+            parent = parent.parent;
         }
 
         return null;

@@ -12317,7 +12317,7 @@ MonoBehaviour:
   _reverseGear: 0
   _activateDippedBeams: 0
   _activateHighBeams: 0
-  control: 1
+  control: 0
   _preRaceMode: 0
 --- !u!114 &8376436490741013167
 MonoBehaviour:

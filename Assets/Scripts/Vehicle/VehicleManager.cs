@@ -66,7 +66,7 @@ public class VehicleManager : MonoBehaviour {
             RES[i].carMaxSpeed = 350;
             RES[i].carCurrentSpeed = PhysicsCalculation.kph;
             RES[i].engineCurrentRPM = Engine.rpm;
-            RES[i].gasPedalValue = (VehicleInputHandler.vertical > 0) ? Engine.throttle : 0;
+            RES[i].gasPedalValue = Engine.throttle;
             RES[i].gasPedalPressing = (VehicleInputHandler.vertical > 0);
             RES[i].isReversing = (Transmission.currentGearRatio < 0);
         }

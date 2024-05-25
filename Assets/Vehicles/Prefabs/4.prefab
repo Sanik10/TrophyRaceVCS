@@ -3995,10 +3995,7 @@ MonoBehaviour:
     - {fileID: 2100000, guid: ca26bcee4796f4ebf9e341237d48aaaa, type: 2}
     - {fileID: 2100000, guid: 28f8f00967576483db22b445fa13b223, type: 2}
     - {fileID: 2100000, guid: dfc8acf7c3f3f4dd6b171d4a6f2797be, type: 2}
-    - {fileID: 2100000, guid: e989af4b1d2ea184599024f696d098eb, type: 2}
-    - {fileID: 2100000, guid: ec075ae1f35d19d408972d23c0adfb6c, type: 2}
-    - {fileID: 2100000, guid: 955432f4efbacf24783cfa6a4d099471, type: 2}
-    - {fileID: 2100000, guid: 362b2326eb5f4034d837d1133f9bcb7c, type: 2}
+    - {fileID: 2100000, guid: 052d9e6a470bf432ebe23ad976da052d, type: 2}
   - id: 1
     basketPart:
     - {fileID: 7027865368518119983}

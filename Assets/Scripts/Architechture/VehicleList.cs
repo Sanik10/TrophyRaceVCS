@@ -25,7 +25,7 @@ namespace TrophyRace.Architecture {
             VehiclesShop.vehicleBuyedEvent += ReimportVehicles;
         }
 
-        private void Start() {
+        public void Initialize() {
             this._vehicleRepository = new VehicleRepository(); // Создаем экземпляр VehicleRepository
             this._vehicleRepository.Initialize();
 

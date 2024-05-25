@@ -77,12 +77,12 @@ public class Engine : MonoBehaviour {
     }
 
     private void RunEngine() {
-        this._throttle = (this._rpm < this._idleRpm) ? this._throttle + 0.05f : (this._VehicleInputHandler.vertical > 0) ? this._VehicleInputHandler.vertical : 0;
-        // this._throttle = this._VehicleManager.PhysicsCalculation.kph < 100 ? this._throttle : 0;
+        this._throttle = (this._rpm < this._idleRpm) ? this._throttle + 0.05f : Mathf.SmoothStep(this._throttle, (this._VehicleInputHandler.vertical > 0) ? 1 : 0, (this._engineSmoothTime * 150) * Time.fixedDeltaTime);
 
         if(this._throttle > 1f) {
             this._throttle = 1f;
         }
+
         this._rpmVariableLimiter = (this._VehicleInputHandler.handbrake && this._Transmission.currentGear == 1 && this._throttle > 0 && this._VehicleManager.PhysicsCalculation.kph < 5) ? this.maxRpm * 0.775f : this._maxRpm;
 
         RpmCalculating();

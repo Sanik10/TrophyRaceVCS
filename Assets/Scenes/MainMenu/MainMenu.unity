@@ -12014,7 +12014,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 923662096}
   m_HandleRect: {fileID: 923662095}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -36130,7 +36130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1324311205}
   - component: {fileID: 1324311208}
-  - component: {fileID: 1324311207}
   - component: {fileID: 1324311209}
   - component: {fileID: 1324311210}
   - component: {fileID: 1324311211}
@@ -36158,31 +36157,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 12.5, y: 0, z: 0}
---- !u!114 &1324311207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324311204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da93085d7458f4bde98371d8b9b81207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _allVehicles:
-  - {fileID: 11400000, guid: b98da351a0fb54254afeb5ccd707bc93, type: 2}
-  - {fileID: 11400000, guid: 90eb5f6365dca4667858a0b872b15690, type: 2}
-  - {fileID: 11400000, guid: 855f2cb0f3dbe45d2bbfbdec01f517f6, type: 2}
-  - {fileID: 11400000, guid: cffce05258eef4ddf957bdfdc6d0be47, type: 2}
-  - {fileID: 11400000, guid: 4ea51da065a4d4db4b4453fc92e59934, type: 2}
-  _playerVehicles:
-  - {fileID: 11400000, guid: b98da351a0fb54254afeb5ccd707bc93, type: 2}
-  - {fileID: 11400000, guid: 90eb5f6365dca4667858a0b872b15690, type: 2}
-  - {fileID: 11400000, guid: 855f2cb0f3dbe45d2bbfbdec01f517f6, type: 2}
-  - {fileID: 11400000, guid: e07a2810aa6b44fd59ffa3d8fc4d6849, type: 2}
-  - {fileID: 11400000, guid: 4ea51da065a4d4db4b4453fc92e59934, type: 2}
-  _availableForPurchase: []
 --- !u!114 &1324311208
 MonoBehaviour:
   m_ObjectHideFlags: 0

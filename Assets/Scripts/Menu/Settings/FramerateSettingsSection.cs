@@ -36,7 +36,6 @@ public class FramerateSettingsSection : MonoBehaviour {
                 break;
             }
         }
-        Application.targetFrameRate = this._targetFps;
 
         if(PlayerPrefs.HasKey("SynchCountPrefs")) {
             synchCount = PlayerPrefs.GetInt("SynchCountPrefs");

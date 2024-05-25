@@ -37,7 +37,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   showEditorMainBehavior: 1
   showEditorBloomBehavior: 1
   showEditorLensSurfaceBehavior: 0

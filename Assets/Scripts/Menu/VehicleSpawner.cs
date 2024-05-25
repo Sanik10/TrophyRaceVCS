@@ -78,12 +78,13 @@ namespace TrophyRace.Architecture {
         }
 
         private VehicleData GetVehicleDataByID(string vehicleGuid) {
-            VehicleList vehicleList = GetComponent<VehicleList>();
+            VehicleList vehicleList = FindObjectOfType<VehicleList>();
             if(vehicleList != null && vehicleList.allVehiclesInGame != null && vehicleList.allVehiclesInGame.Count > 0) {
                 Debug.Log(vehicleGuid + " Переданный, Сохраненный: " + PlayerPrefs.GetString("selectedVehicleGuid"));
                 return vehicleList.allVehiclesInGame.Find(data => data.guid == vehicleGuid);
             } else {
                 VehicleData[] allVehicleData = Resources.LoadAll<VehicleData>("VehiclesConfig");
+                Debug.Log("VehicleList не найден!");
                 return Array.Find(allVehicleData, data => data.guid == vehicleGuid);
             }
         }

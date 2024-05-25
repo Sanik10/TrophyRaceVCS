@@ -11,7 +11,7 @@ namespace TrophyRace.Architecture {
 
         public void Start() {
             _vehicleInteractor = new VehicleInteractor();
-            _vehicleList = GetComponent<VehicleList>();
+            _vehicleList = FindObjectOfType<VehicleList>();
             LoadAvailableVehicles();
         }
 

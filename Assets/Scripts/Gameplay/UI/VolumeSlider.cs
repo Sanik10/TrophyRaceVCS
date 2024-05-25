@@ -16,10 +16,16 @@ public class VolumeSlider : MonoBehaviour {
     [SerializeField]
     private const float _multiplier = 20f;
 
+    private void OnEnable() {
+        _volume = PlayerPrefs.GetFloat(volumeMixer);
+    }
+
     private void Start() {
+        // _volume = PlayerPrefs.GetFloat(volumeMixer);
         slider.onValueChanged.AddListener(ChangeVolume);
-        _volume = PlayerPrefs.GetFloat(volumeMixer); //Mathf.Log10(slider.value) * _multiplier
         slider.value = Mathf.Pow(10f, _volume / _multiplier);
+        // _volume = PlayerPrefs.GetFloat(volumeMixer); //Mathf.Log10(slider.value) * _multiplier
+        //slider.value = Mathf.Pow(10f, _volume / _multiplier);
     }
 
     private void ChangeVolume(float value) {

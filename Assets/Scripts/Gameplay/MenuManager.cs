@@ -31,6 +31,7 @@ namespace TrophyRace.Architecture {
         private TextMeshProUGUI balanceText;
         private bool backButtonCall = false;
         private VehicleSpawner _vehicleSpawner;
+        [SerializeField]
         private VehicleList _vehicleList;
 
         public int currentCanvas = 0;
@@ -45,13 +46,14 @@ namespace TrophyRace.Architecture {
 
         private void Awake() {
             // balanceText = GameObject.Find("Balance").GetComponent<TextMeshProUGUI>();
-            _vehicleList = GetComponent<VehicleList>();
+            _vehicleList = FindObjectOfType<VehicleList>();
+            if(this._vehicleList == null) {
+                SceneManager.LoadScene("Starter");
+            }
         }
 
         private void Start() {
             Game.Run();
-            Game.OnGameInitializedEvent += OnGameInitialized;
-
             this._actionsByCanvasId.Add(0, MainMenuOpener); // MainMenu
             this._actionsByCanvasId.Add(1, GarageOpener); // Garage
             this._actionsByCanvasId.Add(2, CareerSelectionOpener); // Career Selection
@@ -82,12 +84,6 @@ namespace TrophyRace.Architecture {
             VehicleData.onDataLoadedEvent -= OnVehicleDataLoaded;
             VehiclesShop.vehicleBuyedEvent -= VehicleBuyed;
             Bank.OnBankInitializedEvent -= OnBankInitialized;
-        }
-
-        private void OnGameInitialized() {
-            Game.OnGameInitializedEvent -= OnGameInitialized;
-            var playerInteractor = Game.GetInteractor<PlayerInteractor>();
-            var player = playerInteractor.player;
         }
 
         public void ChangeCanvasSection(int canvasSelectionId) {
@@ -257,7 +253,6 @@ namespace TrophyRace.Architecture {
             string savedVehicleGuid = PlayerPrefs.GetString("selectedVehicleGuid");
 
             int index = _vehicleList.allVehiclesInGame.FindIndex(vehicle => vehicle.guid == savedVehicleGuid);
-            Debug.Log(index);
             if(index != -1) {
                 bool isOwned = _vehicleList.allVehiclesInGame[index].isOwned;
                 
@@ -283,7 +278,6 @@ namespace TrophyRace.Architecture {
                 return;
             }
             balanceText.text = Bank.GetCurrencyAmount(CurrencyType.Qbit).ToString() + " Q";
-            Debug.Log("Bank refreshed");
         }
     }
 }
