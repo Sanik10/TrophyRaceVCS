@@ -13,54 +13,58 @@ MonoBehaviour:
   m_Name: Physics StandardRP - Natural - Middle
   m_EditorClassIdentifier: 
   sunIntensityScale: 1
-  cloudIntensityAdjustment: -0.395
+  cloudIntensityAdjustment: 0.37916937
   sun:
     mode: 0
-    rotation: {x: 340.50726, y: 4.916374, z: 261.18878}
-    intensity: 0.25304383
-    color: {r: 0.04317224, g: 0.05985235, b: 0.28693536, a: 0}
+    rotation: {x: 7.219936, y: 3.5983179, z: 273.14255}
+    intensity: 1.041654
+    color: {r: 0.9949301, g: 0.76235074, b: 0.4078145, a: 0}
   moon:
     mode: 0
     rotation: {x: 36.77956, y: 289.4404, z: 210.5188}
-    intensity: 0.90031016
-    color: {r: 0.02263446, g: 0.12865184, b: 0.49370092, a: 0}
+    intensity: 1
+    color: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
   ambient:
     mode: 0
-    skyColor: {r: 0.007887758, g: 0.010935288, b: 0.052424353, a: 0}
-    equatorColor: {r: 0.0009439883, g: 0.0053655286, b: 0.020590194, a: 0}
-    groundColor: {r: 0.00023599708, g: 0.0013413822, b: 0.0051475484, a: 0}
+    skyColor: {r: 1.4058242, g: 0.72325265, b: 0.06547988, a: 0.6945405}
+    equatorColor: {r: 0.4452838, g: 0.33760026, b: 0.29105467, a: 0.7147857}
+    groundColor: {r: 0.058194555, g: 0.10093284, b: 0.19456996, a: 0.6996018}
     pivot: 0.45
-    luminanceFix: 0.53012407
+    luminanceFix: -0.52043784
   skyPass:
     Enabled: 1
     SkyParameter:
-      SkyExposure: 0.1
-      GroundColor: {r: 0, g: 0, b: 0, a: 0}
+      SkyExposure: 1
+      GroundColor: {r: 0.7484296, g: 0.5349073, b: 0.28827205, a: 0}
       GroundScattering: 0
       SunSize: 0.494
-      SunSizeConvergence: 5.430062
+      SunSizeConvergence: 5.31
       Saturation: 0
       AtmosphereThickness: 1
       Gradation: 0
+      Hdri:
+        texture: {fileID: 0}
+        exposure: 0
+        mix: 0
   physicsCloudPass:
-    profile: {fileID: 11400000, guid: 0a75bc554252c874d8da78b37754966f, type: 2}
+    profile: {fileID: 0}
     transition: 1
     densityAdjustment: 0
     scattering:
       IsOverride: 1
-      Value: 0.47110766
+      Value: 0.53833354
     shading:
       IsOverride: 1
-      Value: 0.3998449
+      Value: 0.5281289
     shadingDistance:
       IsOverride: 1
-      Value: 0.45892334
+      Value: 0.6612113
     resolution: 0.33333334
     Animation:
       ScrollVelocity: {x: 100, y: 0, z: 100}
       Phase: 0.12
   layeredCloudPass:
-    profile: {fileID: 11400000, guid: 46cde27715387424c8eba906aa54f3e9, type: 2}
+    profile: {fileID: 0}
     transition: 1
     densityAdjustment: 0
     scattering:
@@ -78,28 +82,28 @@ MonoBehaviour:
       Phase: 0
   atmospherePass:
     atmosphere:
-      atmosphere: 0
-      atmosphereColoring: 0.676319
-      atmosphereColor: {r: 0, g: 0.042472538, b: 0.51994216, a: 0}
-      atmosphereHighLightColoring: 0.799031
-      atmosphereHighLightColor: {r: 1, g: 0.9369048, b: 0.7772862, a: 0}
-      cloudOcclusion: 0
-      cloudAtmospheric: 1
+      atmosphere: 0.29421225
+      atmosphereColoring: 0.022909686
+      atmosphereColor: {r: 0.08858065, g: 0.009817998, b: 0.99178225, a: 0}
+      atmosphereHighLightColoring: 0
+      atmosphereHighLightColor: {r: 0.79402757, g: 0.46575454, b: 0, a: 0}
+      cloudOcclusion: 0.0067479433
+      cloudAtmospheric: 0.958346
       godRay: 1
       godRayStartDistance: 100
       shadow: 0.551
-      sunShaft: 0
+      sunShaft: 0.04504226
     screenBlending: 0.52
     shaftQuality: 0.01
     godRayQuality: 0.5
     resolution: 0.2
     fog:
-      groundHeight: -625.13116
-      range: 1189.3567
-      density: 0.19148338
+      groundHeight: -5.2067466
+      range: 1156.5078
+      density: 0.07012374
       coloring: 0
-      color: {r: 0.21479304, g: 0.14965649, b: 0.6308842, a: 0}
-      scattering: 0
+      color: {r: 0.16678034, g: 0.00834898, b: 0.979173, a: 0}
+      scattering: 0.13891579
   bufferFormat: 0
   progressive: 1
   adaptiveSampling: 0.319

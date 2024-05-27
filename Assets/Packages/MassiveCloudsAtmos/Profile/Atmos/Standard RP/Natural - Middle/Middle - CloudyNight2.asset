@@ -65,7 +65,7 @@ MonoBehaviour:
     godRay: 1
     godRayStartDistance: 1000
     shadow: 0.551
-    sunShaft: 0
+    sunShaft: 0.458
   fog:
     groundHeight: 0
     range: 981
@@ -82,3 +82,7 @@ MonoBehaviour:
     Saturation: 0
     AtmosphereThickness: 1
     Gradation: 0
+    Hdri:
+      texture: {fileID: 0}
+      exposure: 0
+      mix: 0
