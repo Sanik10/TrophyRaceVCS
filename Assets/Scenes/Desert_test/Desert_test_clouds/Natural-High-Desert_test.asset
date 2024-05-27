@@ -32,7 +32,7 @@ MonoBehaviour:
     pivot: 0.089
     luminanceFix: 0.9403265
   skyPass:
-    Enabled: 1
+    Enabled: 0
     SkyParameter:
       SkyExposure: 1
       GroundColor: {r: 0.6981132, g: 0.63810766, b: 0.56310076, a: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
       ScrollVelocity: {x: 500, y: 0, z: 500}
       Phase: 0
   layeredCloudPass:
-    profile: {fileID: 11400000, guid: 4840c477268aa41398069d224323d775, type: 2}
+    profile: {fileID: 0}
     transition: 1
     densityAdjustment: 0.11
     scattering:
