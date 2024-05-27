@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Moon 5 STANDALONE OP 1
   m_Shader: {fileID: 4800000, guid: 7ef733da533e6a04fa6826b6c2e18951, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _ALPHABLEND_ON
@@ -19,6 +21,7 @@ Material:
   m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -84,7 +87,7 @@ Material:
     - Light: 2.22
     - _BumpAmt: 10
     - _BumpScale: 1
-    - _CloudCover: 0.5200002
+    - _CloudCover: 0.52000004
     - _CloudDensity: 0.893
     - _CloudSharpness: 0.787
     - _Cutoff: 0.5
@@ -96,7 +99,7 @@ Material:
     - _Glow: 0
     - _Intensity: 1
     - _InvFade: 1
-    - _Light: 0.008000004
+    - _Light: 0.008000001
     - _LightIntensity: 1
     - _Metallic: 0
     - _MinLight: 0
@@ -108,9 +111,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Ambient: {r: 0.39215624, g: 0.39215624, b: 0.39215624, a: 0.99999976}
+    - _Ambient: {r: 0.39215684, g: 0.39215684, b: 0.39215684, a: 0.99999994}
     - _CloudSpeed: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.5882361, g: 0.5882361, b: 0.5882361, a: 0.99999976}
+    - _Color: {r: 0.5882354, g: 0.5882354, b: 0.5882354, a: 0.99999994}
     - _ColorTint: {r: 0.1986472, g: 0.37858516, b: 0.4528302, a: 0.3529412}
     - _Control: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.39205882, g: 0.39205882, b: 0.39205882, a: 0.62}

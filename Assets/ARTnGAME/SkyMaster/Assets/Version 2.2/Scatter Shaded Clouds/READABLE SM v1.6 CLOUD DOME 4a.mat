@@ -60,7 +60,7 @@ Material:
     - PixelSnap: 0
     - _Alpha: 0.25
     - _AmbientFactor: 1
-    - _CloudCover: 0.6703704
+    - _CloudCover: 0.11916942
     - _CloudDensity: 0
     - _CloudSharpness: 0.997
     - _CloudSize: 1
@@ -77,8 +77,8 @@ Material:
     - _TranslucencyViewDependency: 0.7
     - _WaveHeight: 0.08
     m_Colors:
-    - _Ambient: {r: 0.72000057, g: 0.72000057, b: 0.72000057, a: 0.7999995}
-    - _CloudSpeed: {r: 0, g: -0.005062604, b: 0, a: 0}
+    - _Ambient: {r: 0.7200024, g: 0.7200024, b: 0.7200024, a: 0.7999995}
+    - _CloudSpeed: {r: 0, g: -0.006049983, b: 0, a: 0}
     - _Color: {r: 0.84705937, g: 0.84705937, b: 0.84705937, a: 0.7999995}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _EmisColor: {r: 0.9558824, g: 0.93280935, b: 0.93280935, a: 0.23529412}

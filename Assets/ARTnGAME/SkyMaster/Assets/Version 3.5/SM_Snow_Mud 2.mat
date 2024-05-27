@@ -126,7 +126,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Shininess: 0.866
-    - _SnowBlend: 0
+    - _SnowBlend: 15.2
     - _SnowBumpDepth: 1.17
     - _SnowCoverage: 0.309
     - _SnowStrength: 0.57

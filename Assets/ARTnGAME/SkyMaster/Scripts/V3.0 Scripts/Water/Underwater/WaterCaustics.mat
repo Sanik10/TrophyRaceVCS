@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CausticTexture:
-        m_Texture: {fileID: 2800000, guid: 61c25eedf03170d468d27aa4fcd6aeb6, type: 3}
+        m_Texture: {fileID: 2800000, guid: dd3ce94d0d514994b9261da51c7290b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -80,7 +80,7 @@ Material:
     - _DstBlend: 0
     - _Glossiness: 0.5
     - _HeightCutoff: 129.93
-    - _Intensity: 8
+    - _Intensity: 0.39971855
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
