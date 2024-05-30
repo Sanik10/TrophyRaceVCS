@@ -14,9 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Desert_test/Desert_test.unity
     guid: 6aa0244430be54d978865becaa7a685b
-  - enabled: 1
-    path: Assets/Scenes/Desert/Desert.unity
-    guid: 43940efdda4b94512929d7247170d64d
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3e2820a766300400e88cff9ceb2c703a, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 334488df6425948f09b5667c85185262, type: 2}

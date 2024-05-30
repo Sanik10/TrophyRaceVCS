@@ -27,12 +27,12 @@ MonoBehaviour:
   ambient:
     mode: 0
     skyColor: {r: 1.1993515, g: 0.97887397, b: 0.44692817, a: 0}
-    equatorColor: {r: 0.9242145, g: 1.4296442, b: 1.8628697, a: 3.682417}
-    groundColor: {r: 0.23105362, g: 0.35741106, b: 0.46571743, a: 0.9206042}
+    equatorColor: {r: 0.871416, g: 1.6726676, b: 3.3944042, a: 3.682417}
+    groundColor: {r: 0.217854, g: 0.4181669, b: 0.84860104, a: 0.9206042}
     pivot: 0.089
     luminanceFix: 0.9403265
   skyPass:
-    Enabled: 1
+    Enabled: 0
     SkyParameter:
       SkyExposure: 1
       GroundColor: {r: 0.6981132, g: 0.63810766, b: 0.56310076, a: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
         exposure: 0
         mix: 0
   physicsCloudPass:
-    profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
-    transition: 0.12856744
+    profile: {fileID: 0}
+    transition: 1
     densityAdjustment: -0.82
     scattering:
       IsOverride: 1
@@ -94,16 +94,16 @@ MonoBehaviour:
       shadow: 0.888
       sunShaft: 0.075
     screenBlending: 0.668
-    shaftQuality: 1
-    godRayQuality: 1
-    resolution: 1
+    shaftQuality: 0.5
+    godRayQuality: 0.2
+    resolution: 0.75
     fog:
-      groundHeight: 2120
-      range: 755
-      density: 0.66
-      coloring: 1
-      color: {r: 0.8443396, g: 0.9187228, b: 1, a: 1}
-      scattering: 0.827
+      groundHeight: -163
+      range: 585
+      density: 0.17
+      coloring: 0.549
+      color: {r: 0.9961703, g: 1, b: 0.84313726, a: 0.13333334}
+      scattering: 0.248
   bufferFormat: 1
   progressive: 1
   adaptiveSampling: 0

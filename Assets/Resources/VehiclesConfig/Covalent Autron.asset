@@ -27,7 +27,7 @@ MonoBehaviour:
   _maxPowerProcentAtMaxRpm: 20
   _engineInertia: 0.2
   _engineSmoothTime: 0.15
-  _transmission: 0
+  _transmission: 2
   _frontGearsQuantity: 6
   _firstGear: 8
   _shiftTime: 0.3

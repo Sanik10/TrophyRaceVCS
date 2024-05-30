@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   showEditorMainBehavior: 1
   showEditorBloomBehavior: 1
   showEditorLensSurfaceBehavior: 0
@@ -232,13 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
   m_Name: ScreenSpaceReflections
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 0
   preset:
     overrideState: 1
-    value: 0
+    value: 2
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -250,7 +250,7 @@ MonoBehaviour:
     value: 8
   maximumMarchDistance:
     overrideState: 1
-    value: 100
+    value: 107.16
   distanceFade:
     overrideState: 1
     value: 0.5
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 0
@@ -366,7 +366,7 @@ MonoBehaviour:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
-    overrideState: 1
+    overrideState: 0
     value: 5
   saturation:
     overrideState: 1
@@ -408,8 +408,8 @@ MonoBehaviour:
     overrideState: 0
     value: 120
   lift:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 0.9836837, z: 0.9875007, w: 0}
   gamma:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
@@ -1642,8 +1642,8 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   filtering:
-    overrideState: 1
-    value: {x: 1, y: 99}
+    overrideState: 0
+    value: {x: 1, y: 70.519165}
   minLuminance:
     overrideState: 1
     value: -3
@@ -1652,7 +1652,7 @@ MonoBehaviour:
     value: 2
   keyValue:
     overrideState: 1
-    value: 0.5
+    value: 0.6
   eyeAdaptation:
     overrideState: 1
     value: 0

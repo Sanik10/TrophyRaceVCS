@@ -12096,7 +12096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9a125b079cd4be7bcce28c78ff2f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transmission: 0
+  _transmission: 2
   _gears: []
   clutchButtonNeed: 0
 --- !u!114 &2276069904058358968

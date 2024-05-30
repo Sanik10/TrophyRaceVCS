@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f2451deb9754088928b252889199297, type: 3}
-  m_Name: Natural-High-Desert_test_cubemap 1
+  m_Name: Natural-High-Desert_test 1
   m_EditorClassIdentifier: 
   sunIntensityScale: 1
   cloudIntensityAdjustment: 1
