@@ -15,28 +15,28 @@ MonoBehaviour:
   Sampler:
     VolumeTexture: {fileID: 11700000, guid: 49f7cc1640cb2da4581356fee10c0019, type: 2}
     Tiling: {x: 1, y: 1.02}
-    Octave: 9
-    Sculpture: 0.662
-    Sculpture2: 0.231
-    Sculpture3: 0.114
-    Sculpture4: 0.114
-    Warp: 0.377
+    Octave: 5.8
+    Sculpture: 0.77
+    Sculpture2: 0.56
+    Sculpture3: 0.86
+    Sculpture4: 0.47
+    Warp: 0.55
     Softness: 0.521
     NearSoftnessScale: 1
     Density: 0.333
-    Scale: 1.48
+    Scale: 3.47
   HorizontalShape:
-    FromHeight: 820
-    ToHeight: 1215.4802
-    SoftnessTop: 0.784
-    SoftnessBottom: 0.522
-    Figure: 0.631
-    MaxDistance: 15204
+    FromHeight: 1691.6707
+    ToHeight: 2087.1504
+    SoftnessTop: 0.439
+    SoftnessBottom: 0.613
+    Figure: 0.683
+    MaxDistance: 30000
   Lighting:
     Intensity: 1
-    Quality: 0.746
-    Scattering: 0.301
-    Shading: 0.569
-    ShadingDistance: 0.133
+    Quality: 0.37
+    Scattering: 0.063
+    Shading: 0.469
+    ShadingDistance: 0.061
     Transparency: 0
-    Mie: 0.078
+    Mie: 0

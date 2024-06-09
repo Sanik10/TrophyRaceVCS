@@ -15,7 +15,7 @@ MonoBehaviour:
   Sampler:
     VolumeTexture: {fileID: 11700000, guid: 49f7cc1640cb2da4581356fee10c0019, type: 2}
     Tiling: {x: 0.54, y: 1.02}
-    Octave: 2.8
+    Octave: 6.5
     Sculpture: 0.252
     Sculpture2: 0.6
     Sculpture3: 1
@@ -27,13 +27,13 @@ MonoBehaviour:
     Scale: 10
   HorizontalShape:
     FromHeight: 4000
-    ToHeight: 4040
-    SoftnessTop: 1
+    ToHeight: 4030
+    SoftnessTop: 0.804
     SoftnessBottom: 1
-    Figure: 0.518
-    MaxDistance: 28296
+    Figure: 0.724
+    MaxDistance: 45480
   Lighting:
-    Intensity: 0
+    Intensity: 1
     Quality: 0
     Scattering: 0
     Shading: 0
