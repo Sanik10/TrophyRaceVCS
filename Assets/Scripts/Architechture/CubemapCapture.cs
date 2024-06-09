@@ -3,7 +3,9 @@ using UnityEngine;
 public class CubemapCapture : MonoBehaviour {
     public Camera captureCamera; // Камера для захвата кубической карты
     public CubemapSize cubemapSize = CubemapSize._1024; // Размер кубической карты
-    public string savePath = "Assets/Art/"; // Путь для сохранения кубической карты
+    public string savePath = "Assets/Art/Skyboxes"; // Путь для сохранения кубической карты
+    public string cubeMapName = "CapturedDynamicCubemap";
+    public bool capture = false;
 
     // Перечисление для размеров кубической карты
     public enum CubemapSize {
@@ -17,18 +19,27 @@ public class CubemapCapture : MonoBehaviour {
     }
 
     void Start() {
-        // Создаем кубическую карту
-        Cubemap cubemap = new Cubemap((int)cubemapSize, TextureFormat.RGB24, false);
-        // Захватываем кубическую карту с камеры
-        captureCamera.RenderToCubemap(cubemap);
+        if(string.IsNullOrEmpty(cubeMapName)) {
+            cubeMapName = "CapturedDynamicCubemap";
+        }
+    }
 
-        // Сохраняем кубическую карту как asset
-        #if UNITY_EDITOR
-        string cubemapAssetPath = savePath + "CapturedDynamicCubemap.cubemap";
-        UnityEditor.AssetDatabase.CreateAsset(cubemap, cubemapAssetPath);
-        UnityEditor.AssetDatabase.SaveAssets();
-        #endif
+    void Update() {
+        if(capture) {
+            capture = false;
+            // Создаем кубическую карту
+            Cubemap cubemap = new Cubemap((int)cubemapSize, TextureFormat.RGB24, false);
+            // Захватываем кубическую карту с камеры
+            captureCamera.RenderToCubemap(cubemap);
 
-        Debug.Log("Cubemap captured and saved to: " + savePath + "CapturedDynamicCubemap.cubemap");
+            // Сохраняем кубическую карту как asset
+            #if UNITY_EDITOR
+            string cubemapAssetPath = savePath + $"{cubeMapName}.cubemap";
+            UnityEditor.AssetDatabase.CreateAsset(cubemap, cubemapAssetPath);
+            UnityEditor.AssetDatabase.SaveAssets();
+            #endif
+
+            Debug.Log("Cubemap captured and saved to: " + savePath + $"{cubeMapName}.cubemap");
+        }
     }
 }

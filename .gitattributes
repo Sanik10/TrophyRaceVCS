@@ -10,3 +10,5 @@ ConcreteTexture_2.tga filter=lfs diff=lfs merge=lfs -text
 Assets/Packages/SceneProps/* filter=lfs diff=lfs merge=lfs -text
 Assets/Enviro 3 - Sky and Weather/Sample/Scene/* filter=lfs diff=lfs merge=lfs -text
 Assets/Enviro[[:space:]]3[[:space:]]-[[:space:]]Sky[[:space:]]and[[:space:]]Weather/Sample/Scene/* filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Skyboxes/Omsk/* filter=lfs diff=lfs merge=lfs -text
+Assets/CartoonTracksPack1/Track1/Textures/* filter=lfs diff=lfs merge=lfs -text
