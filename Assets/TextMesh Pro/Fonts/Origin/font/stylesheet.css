@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Rozha One';
+    src: url('RozhaOne-Regular.eot');
+    src: local('Rozha One Regular'), local('RozhaOne-Regular'),
+        url('RozhaOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('RozhaOne-Regular.woff2') format('woff2'),
+        url('RozhaOne-Regular.woff') format('woff'),
+        url('RozhaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

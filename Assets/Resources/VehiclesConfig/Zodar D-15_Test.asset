@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
+  m_Name: Zodar D-15_Test
+  m_EditorClassIdentifier: 
+  _includeVehicleInGame: 0
+  _Prefab: {fileID: 2716670906101015192, guid: fd02b0270cbeb4d80b05846075511fb7, type: 3}
+  _vehicleName: Zodar D-15 Test
+  _id: 50
+  _guid: 21fdc2f0-ef6d-4031-9a02-ebe1c7e6befa
+  _price: 0
+  _isOwned: 0
+  _maxPower: 800
+  _idleRpm: 700
+  _medRpm: 5000
+  _maxRpm: 7000
+  _maxPowerProcentAtIdleRpm: 50
+  _maxPowerProcentAtMaxRpm: 30
+  _engineInertia: 0.2
+  _engineSmoothTime: 0.15
+  _transmission: 0
+  _frontGearsQuantity: 4
+  _firstGear: 7
+  _shiftTime: 0.25
+  _rpmUpShift: 6600
+  _rpmDownShift: 4000
+  _maxSpeed: 250
+  _driveWheels: 1
+  _tireIntegrity: 1
+  _brakingPowerVar: 4000
+  _brakingDistribution: 0.106
+  _radius: 8
+  _steeringWheelSpeed: 10
+  _mileage: 0
+  _colorCustomization: 1
+  _bodyMaterailId: 0
+  _diskMaterailId: 0
+  _mass: 2500
+  _type: 2

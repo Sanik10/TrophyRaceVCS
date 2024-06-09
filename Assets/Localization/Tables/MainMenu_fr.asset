@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MainMenu_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 542c2e3bb94814f0798744599bc14a0f, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 8914085090241282112
+  m_TableData:
+  - m_Id: 1241785556992
+    m_Localized: garage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2731140964352
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5465047031808
+    m_Localized: "Carri\xE8re"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7230932901888
+    m_Localized: "\xC9v\xE9nements"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8210697150464
+    m_Localized: Course en ligne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10013924909056
+    m_Localized: Magasin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13046033408000
+    m_Localized: "Caract\xE9ristiques"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13708053962752
+    m_Localized: 'Vitesse max.: {0} km/h'
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 15105558306816
+    m_Localized: 'Puissance: {0} hp, {1} kW'
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 15498723975168
+    m_Localized: 'Nombre de vitesses: {0} + 1R'
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 48880166100992
+    m_Localized: "Rapport de 1\xE8re vitesse: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 50175576891392
+    m_Localized: 'Rayon de braquage: {0} m'
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 51825670610944
+    m_Localized: 'Vitesse de rotation du volant: {0} s'
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 53132926115840
+    m_Localized: "Kilom\xE9trage: {0:F2} km"
+    m_Metadata:
+      m_Items:
+      - rid: 8914085090241282112
+  - m_Id: 270448993492992
+    m_Localized: Acheter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272200165744640
+    m_Localized: Retour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273004360622080
+    m_Localized: Course
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273938411151360
+    m_Localized: Vue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 274141977501696
+    m_Localized: Peinture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368679794499584
+    m_Localized: Affichage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368830990770176
+    m_Localized: "Qualit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 369214442430464
+    m_Localized: "R\xE9solution"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 369503971041280
+    m_Localized: "Taux de rafra\xEEchissement\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373793200529408
+    m_Localized: Son
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374058062438400
+    m_Localized: Moteur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374444169093120
+    m_Localized: Effets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 395856523026432
+    m_Localized: Musique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1433741409902592
+    m_Localized: "Qualit\xE9 du jeu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1436308592386048
+    m_Localized: "\xC9conomique"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1437672340971520
+    m_Localized: "Mod\xE9r\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438219664089088
+    m_Localized: Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438449444839424
+    m_Localized: Optimal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1438766571970560
+    m_Localized: Beau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1439112451055616
+    m_Localized: Professionnel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4710849531863040
+    m_Localized: Autres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4713699267829760
+    m_Localized: Global
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4714970230022144
+    m_Localized: Sons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4717745173159936
+    m_Localized: Langue
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8914085090241282112
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00e0afa7770c000000e06f09bd0d000000e0ef93180e000000e0efcc742c000000e06f69a22d000000e0af9a222f000000e02ff952300000

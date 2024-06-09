@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb07e185ee6c4a6297a113321559d32, type: 3}
+  m_Name: Empty
+  m_EditorClassIdentifier: 
+  _includeVehicleInGame: 0
+  _Prefab: {fileID: 0}
+  _vehicleName: None
+  _id: 0
+  _guid: fb7c1db6-dc72-49be-b73b-c98340d974db
+  _price: 0
+  _isOwned: 0
+  _maxPower: 150
+  _idleRpm: 700
+  _medRpm: 3000
+  _maxRpm: 6000
+  _maxPowerProcentAtIdleRpm: 50
+  _maxPowerProcentAtMaxRpm: 20
+  _engineInertia: 0.2
+  _engineSmoothTime: 0.15
+  _transmission: 0
+  _frontGearsQuantity: 5
+  _firstGear: 6
+  _shiftTime: 0.5
+  _rpmUpShift: 5600
+  _rpmDownShift: 2900
+  _maxSpeed: 150
+  _driveWheels: 1
+  _tireIntegrity: 1
+  _brakingPowerVar: 1000
+  _brakingDistribution: 0.5
+  _radius: 14
+  _steeringWheelSpeed: 10
+  _mileage: 0
+  _colorCustomization: 0
+  _bodyMaterailId: 0
+  _diskMaterailId: 0
+  _mass: 0
+  _type: 0
