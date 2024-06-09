@@ -1,5 +1,0 @@
-DM Serif Display is a high-contrast transitional face. With delicate serifs and fine detailing, the design has been shaped for use in super-sized poster settings. It is accompanied by [DM Serif Text](https://fonts.google.com/specimen/DM+Serif+Text), for use in smaller point ranges.
-
-DM Serif Display supports a Latin Extended glyph set, enabling typesetting for English and other Western European languages. It was designed by Colophon Foundry (UK), that started from the Latin portion of Adobe [Source Serif Pro](https://fonts.google.com/specimen/Source+Serif+Pro), by Frank Grießhammer.
-
-The DM Serif project was commissoned by Google from [Colophon](“https://colophon-foundry.org“), an international and award-winning type foundry based in London (UK) and Los Angeles (US) who publish and distribute high-quality retail and custom typefaces for analog and digital media. To contribute, see [github.com/googlefonts/dm-fonts](https://github.com/googlefonts/dm-fonts)

@@ -1,1 +1,0 @@
-Megrim is an experimental font covering most of the basic Western Latin character set. It has stylistic alternates.
