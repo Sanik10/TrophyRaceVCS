@@ -276,7 +276,6 @@ MonoBehaviour:
   - {fileID: 1965718720854778906}
   - {fileID: -2428425803040868756}
   - {fileID: -8955937048732355152}
-  - {fileID: -7022300125705117808}
 --- !u!114 &1965718720854778906
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -320,7 +319,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   gradingMode:
     overrideState: 1
     value: 0
